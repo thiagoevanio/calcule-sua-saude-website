@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- --- SEO TÉCNICO & META TAGS AVANÇADAS --- -->
+    
+    <!-- Título Otimizado -->
+    <title>HIIT vs Aeróbico Contínuo: Biogênese Mitocondrial e Saúde Cardiovascular | Calcule Sua Saúde</title>
+    
+    <!-- Descrição -->
+    <meta name="description" content="Análise comparativa científica entre HIIT e Aeróbico Contínuo (MICT). Eficácia na biogênese mitocondrial (PGC-1α), VO2máx, saúde endotelial e queima de gordura (EPOC).">
+    
+    <!-- Palavras-chave -->
+    <meta name="keywords" content="HIIT, aeróbico contínuo, MICT, biogênese mitocondrial, PGC-1alfa, VO2máx, saúde cardiovascular, EPOC, metabolismo, fisiologia do exercício">
+    
+    <!-- Controle de Robôs & Canonical -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://calculesuasaude.com.br/artigos/hiit-vs-aerobico.html">
+    <meta name="author" content="Calcule Sua Saúde - Corpo Editorial">
+    <meta name="theme-color" content="#0A4D68">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos/hiit-vs-aerobico.html">
+    <meta property="og:title" content="HIIT vs Aeróbico: A Batalha Metabólica">
+    <meta property="og:description" content="Intensidade ou Volume? O que a ciência diz sobre a otimização mitocondrial.">
+    <meta property="og:image" content="../img/cabeçario.webp">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="article:published_time" content="2024-08-05T08:00:00+00:00">
+    <meta property="article:section" content="Fisiologia do Exercício">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HIIT vs LISS: Ciência do Treinamento">
+    <meta name="twitter:description" content="Adaptações moleculares e cardiovasculares comparadas.">
+    <meta name="twitter:image" content="../img/cabeçario.webp">
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+
+    <!-- SCHEMA.ORG (MedicalScholarlyArticle) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalScholarlyArticle",
+      "headline": "HIIT vs Aeróbico Contínuo: Comparação de Eficácia na Biogênese Mitocondrial",
+      "image": "../img/cabeçario.webp",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde Editorial Board"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/img/logo.png"
+        }
+      },
+      "datePublished": "2024-08-05",
+      "dateModified": "2024-08-08",
+      "description": "Revisão sistemática sobre as adaptações fisiológicas ao treinamento intervalado de alta intensidade versus treinamento contínuo de moderada intensidade.",
+      "about": [
+        { "@type": "Thing", "name": "High-Intensity Interval Training" },
+        { "@type": "Thing", "name": "Mitochondrial Biogenesis" },
+        { "@type": "Thing", "name": "Cardiovascular Physiology" }
+      ]
+    }
+    </script>
+    
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- VARIÁVEIS GLOBAIS --- */
+        :root {
+            --primary: #0A4D68;       /* Deep Ocean Blue */
+            --primary-dark: #06384d;
+            --accent: #047857;        /* Emerald */
+            --secondary: #D97706;     /* Warm Amber */
+            
+            --bg-body: #FAFAF9;       /* Stone 50 */
+            --bg-card: #FFFFFF;
+            
+            --bg-calc-item: #FFFFFF;
+            --bg-calc-item-hover: #FAFAF9;
+            --border-calc: #E7E5E4;
+            
+            --text-main: #1C1917;     /* Stone 900 */
+            --text-muted: #57534E;    /* Stone 600 */
+            
+            --border-subtle: #E7E5E4; /* Stone 200 */
+            
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --bg-calc-item: #292524; 
+            --bg-calc-item-hover: #44403C; 
+            --border-calc: #44403C;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8; 
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-theme-switch i, .animate-theme-switch svg { animation: rotate-scale 0.5s ease-in-out; }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER & NAV --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .main-header {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            max-width: 100%;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: #fff; }
+
+        .btn-outline-white {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover {
+            background-color: #fff;
+            color: var(--primary);
+            border-color: #fff;
+        }
+
+        /* --- ARTICLE HERO --- */
+        .article-hero {
+            height: 60vh;
+            min-height: 500px;
+            /* Imagem especificada pelo usuário */
+            background-image: linear-gradient(to right, rgba(10, 77, 104, 0.95) 0%, rgba(10, 77, 104, 0.8) 50%, rgba(0,0,0,0.4) 100%), url('../img/cabeçario.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            color: #fff;
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            padding-left: 20px;
+        }
+
+        .article-tag {
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .article-hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            font-family: 'Source Sans 3', sans-serif;
+            margin-top: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- ARTICLE LAYOUT --- */
+        .article-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+            display: block;
+        }
+
+        /* Conteúdo Principal */
+        .article-body {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            line-height: 1.85;
+        }
+
+        .article-body p {
+            margin-bottom: 1.8em;
+            text-align: justify;
+        }
+
+        .article-body h2 {
+            font-size: 2.2rem;
+            margin-top: 2.5em;
+            margin-bottom: 0.8em;
+            color: var(--primary);
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            border-left: none;
+            padding-left: 0;
+            padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .article-body h3 {
+            font-size: 1.6rem;
+            margin-top: 2.2em;
+            margin-bottom: 0.8em;
+            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .article-body ul, .article-body ol {
+            margin-bottom: 2em;
+            padding-left: 20px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .article-body li {
+            margin-bottom: 0.8em;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .article-body ul li::marker {
+            color: var(--accent);
+        }
+
+        .article-body strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Destaques e Caixas */
+        .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        
+        .clinical-pearl h4 {
+            color: var(--accent);
+            font-family: 'Source Sans 3', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        [data-theme="dark"] .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.15);
+        }
+        
+        /* Citação / Blockquote */
+        .scientific-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            border-left: none;
+            text-align: center;
+            margin: 50px 0;
+            padding: 0 40px;
+            position: relative;
+        }
+        .scientific-quote::before {
+            content: '“';
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            display: block;
+            line-height: 0.5;
+            margin-bottom: 20px;
+        }
+
+        /* Tabelas Científicas */
+        .scientific-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 50px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .scientific-table th {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 18px;
+            text-align: left;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .scientific-table td {
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 18px;
+            vertical-align: top;
+        }
+        .scientific-table tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+        [data-theme="dark"] .scientific-table tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        /* Referências */
+        .references-section {
+            margin-top: 100px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background-color: transparent;
+        }
+        .references-section h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: none;
+            width: auto;
+            display: block;
+        }
+        .ref-item {
+            margin-bottom: 15px;
+            word-break: break-word;
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+
+        /* TOC Integrado */
+        .toc-integrated {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-subtle);
+            border-top: 4px solid var(--secondary);
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 4px;
+        }
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-weight: 700;
+            text-align: center;
+        }
+        .toc-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            padding: 0;
+        }
+        .toc-list li {
+            list-style: none;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .toc-list a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted transparent;
+            transition: all 0.2s;
+        }
+        .toc-list a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+            margin-top: 100px;
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .footer h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { color: #A8A29E; transition: 0.2s; display: inline-block; }
+        .footer ul li a:hover { color: #fff; transform: translateX(5px); }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .article-hero h1 { font-size: 2.2rem; }
+            .article-container { padding: 0 20px; }
+            .toc-list { grid-template-columns: 1fr; }
+            .main-header .container { padding-left: 20px; }
+            .scientific-quote { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Botão de Tema -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Modo Escuro</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Modo Claro</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <!-- Seletor de Idioma Atualizado -->
+                <select onchange="if(this.value) window.location.href=this.value">
+                    <option value="" selected>Português</option>
+                    <option value="hiit-vs-aerobico-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i data-lucide="timer" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Início</a></li>
+                <li><a href="../artigos.html" class="nav-link active">Artigos</a></li>
+                <li><a href="../calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ARTICLE HERO -->
+    <header class="article-hero">
+        <div class="container">
+            <div class="article-hero-content animate-fade-in">
+                <span class="article-tag">Fisiologia do Exercício</span>
+                <h1>HIIT vs Aeróbico Contínuo:<br>A Batalha Metabólica</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <i data-lucide="calendar" size="16"></i>
+                        <span>Atualizado: 05 de Agosto, 2024</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="clock" size="16"></i>
+                        <span>Leitura Aprofundada: 30 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ARTICLE CONTENT -->
+    <div class="article-container">
+        
+        <!-- Main Body -->
+        <article class="article-body">
+            
+            <!-- TOC INTEGRADO -->
+            <div class="toc-integrated">
+                <h4 class="toc-title">Índice do Tratado</h4>
+                <ul class="toc-list">
+                    <li><a href="#introducao">1. O Dilema: Intensidade ou Volume?</a></li>
+                    <li><a href="#definicoes">2. Definições: HIIT, SIT e MICT</a></li>
+                    <li><a href="#biogenese">3. Biogênese Mitocondrial e PGC-1α</a></li>
+                    <li><a href="#cardiovascular">4. VO2máx e Função Endotelial</a></li>
+                    <li><a href="#metabolismo">5. Impacto Metabólico e EPOC</a></li>
+                    <li><a href="#tabela">6. Comparativo Direto (Tabela)</a></li>
+                    <li><a href="#aplicacao">7. Aplicação Clínica e Segurança</a></li>
+                    <li><a href="#conclusao">8. Conclusão</a></li>
+                    <li><a href="#referencias">Referências Bibliográficas</a></li>
+                </ul>
+            </div>
+
+            <div class="clinical-pearl">
+                <h4><i data-lucide="lightbulb"></i> Potência vs Duração</h4>
+                <p style="margin-bottom:0">A adaptação fisiológica ao exercício segue o princípio da especificidade. O Treinamento Contínuo de Moderada Intensidade (MICT) sinaliza adaptações principalmente através do fluxo de cálcio e estresse de cisalhamento (volume), enquanto o HIIT ativa vias dependentes de AMPK e depleção de glicogênio (intensidade). Embora ambos levem à biogênese mitocondrial, o HIIT é frequentemente mais eficiente em termos de tempo ("time-efficient").</p>
+            </div>
+
+            <h2 id="introducao">1. O Dilema: Intensidade ou Volume?</h2>
+            <p>Nas últimas décadas, as diretrizes de atividade física focaram quase exclusivamente na duração: os famosos "150 minutos por semana". No entanto, a epidemia de "falta de tempo" impulsionou a busca por protocolos que oferecessem benefícios iguais ou superiores em uma fração do tempo. Assim surgiu o foco no HIIT (High-Intensity Interval Training).</p>
+            <p>O debate científico atual não é sobre "qual é melhor", mas sim sobre quais adaptações moleculares específicas cada modalidade elicia. O exercício não é apenas queima calórica; é um potente estímulo genômico que reescreve o código metabólico do músculo esquelético e do sistema cardiovascular.</p>
+
+            <h2 id="definicoes">2. Definições Fisiológicas</h2>
+            <p>Para entender a comparação, precisamos definir os termos com precisão científica:</p>
+            <ul>
+                <li><strong>MICT (Moderate-Intensity Continuous Training):</strong> Exercício aeróbico tradicional (corrida, ciclismo) realizado de forma contínua a 55-75% da Frequência Cardíaca Máxima (FCmáx) por períodos longos (30-60 min).</li>
+                <li><strong>HIIT (High-Intensity Interval Training):</strong> Alternância entre "tiros" de esforço intenso (80-95% da FCmáx) e períodos de recuperação ativa ou passiva. Exemplo: Protocolo 4x4 (4 min intenso, 3 min leve).</li>
+                <li><strong>SIT (Sprint Interval Training):</strong> Esforços "all-out" (supramáximos, >100% VO2máx) de curtíssima duração (ex: 30 segundos), seguidos de descanso longo. Exemplo: Protocolo de Wingate.</li>
+            </ul>
+
+            <h2 id="biogenese">3. Biogênese Mitocondrial: A Via do PGC-1α</h2>
+            <p>A mitocôndria é a organela central na produção de ATP e na oxidação de gorduras. O aumento na densidade mitocondrial é o "santo graal" do condicionamento físico e da saúde metabólica.</p>
+            
+            <h3>3.1 O Regulador Mestre</h3>
+            <p>Ambos, HIIT e MICT, convergem para a ativação do <strong>PGC-1α</strong> (Peroxisome Proliferator-Activated Receptor Gamma Coactivator 1-alpha), o regulador mestre da biogênese mitocondrial. No entanto, as vias de sinalização diferem:</p>
+            <ul>
+                <li><strong>Via do MICT (Volume):</strong> O exercício contínuo aumenta o cálcio intracelular de forma sustentada, ativando a CaMKII (Ca2+/calmodulin-dependent protein kinase), que fosforila o PGC-1α.</li>
+                <li><strong>Via do HIIT (Intensidade):</strong> A alta demanda de ATP causa uma depleção aguda de fosfocreatina e aumento da relação AMP/ATP. Isso ativa fortemente a <strong>AMPK</strong> (sensor de energia celular), que estimula diretamente o PGC-1α.</li>
+            </ul>
+            <div class="scientific-quote">
+                "Estudos de biópsia muscular (Gibala et al.) demonstram que protocolos de HIIT de baixo volume (apenas 3 min de exercício intenso real) induzem aumento na densidade mitocondrial e na atividade da enzima citrato sintase comparável a 45 min de exercício contínuo."
+            </div>
+
+            <h2 id="cardiovascular">4. VO2máx e Remodelamento Cardíaco</h2>
+            <p>O Consumo Máximo de Oxigênio (VO2máx) é o padrão-ouro de aptidão cardiorrespiratória e o preditor mais forte de mortalidade por todas as causas. O HIIT demonstrou consistentemente superioridade em aumentar o VO2máx comparado ao MICT isocalórico.</p>
+            
+            <h3>4.1 Função Endotelial</h3>
+            <p>O estresse de cisalhamento (shear stress) causado pelo fluxo sanguíneo turbulento durante o HIIT estimula a produção de Óxido Nítrico (NO) endotelial de forma mais potente que o fluxo laminar do MICT. Isso resulta em maior vasodilatação e melhora na complacência arterial, sendo uma estratégia eficaz para hipertensos (com supervisão).</p>
+
+            <h2 id="metabolismo">5. Impacto Metabólico e EPOC</h2>
+            <p>Embora o MICT possa queimar mais calorias *durante* a sessão (devido à maior duração), o HIIT vence no período pós-exercício.</p>
+            <ul>
+                <li><strong>EPOC (Excess Post-exercise Oxygen Consumption):</strong> O organismo consome oxigênio extra para restaurar a homeostase (ressíntese de ATP/PCr, remoção de lactato, termorregulação). O EPOC do HIIT é exponencialmente maior, mantendo o metabolismo elevado por horas.</li>
+                <li><strong>Sensibilidade à Insulina:</strong> O HIIT depleta o glicogênio muscular rapidamente, forçando uma suprarregulação dos transportadores GLUT4. Isso melhora drasticamente a sensibilidade à insulina e o controle glicêmico em diabéticos tipo 2.</li>
+            </ul>
+
+            <h2 id="tabela">6. Comparativo Direto: HIIT vs MICT</h2>
+            
+            <table class="scientific-table">
+                <thead>
+                    <tr>
+                        <th>Variável</th>
+                        <th>Aeróbico Contínuo (MICT)</th>
+                        <th>Intervalado (HIIT)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fator Principal</strong></td>
+                        <td>Volume e Duração</td>
+                        <td>Intensidade e Densidade</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Via Molecular</strong></td>
+                        <td>CaMKII (Cálcio)</td>
+                        <td>AMPK (Déficit Energético)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VO2máx</strong></td>
+                        <td>Melhora moderada</td>
+                        <td>Melhora superior (Time-efficient)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oxidação de Gordura</strong></td>
+                        <td>Alta durante o exercício</td>
+                        <td>Alta no pós-exercício (EPOC)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Risco de Lesão</strong></td>
+                        <td>Baixo (Overuse crônico)</td>
+                        <td>Moderado (Muscular/Articular agudo)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Adesão (Enjoyment)</strong></td>
+                        <td>Maior em iniciantes</td>
+                        <td>Maior em ativos (menos monotonia)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="aplicacao">7. Aplicação Clínica e Segurança</h2>
+            <p>O HIIT não é exclusivo para atletas. Protocolos adaptados (como intervalos de caminhada rápida em subida para idosos) são seguros e eficazes. A chave é a individualização da "alta intensidade", que é relativa à capacidade do indivíduo.</p>
+            <p>Para reabilitação cardíaca, o modelo MICT ainda é a base inicial devido à estabilidade hemodinâmica, mas o HIIT vem sendo introduzido progressivamente para maximizar os ganhos funcionais.</p>
+
+            <h2 id="conclusao">8. Conclusão</h2>
+            <p>A dicotomia entre HIIT e aeróbico contínuo é falsa; eles são ferramentas complementares. O HIIT oferece uma eficiência temporal inigualável para induzir adaptações mitocondriais e cardiovasculares rápidas. O MICT oferece benefícios na recuperação, densidade capilar e tolerância ortopédica. A periodização ideal deve integrar ambas as modalidades para construir um fenótipo resistente, metabolicamente flexível e longevo.</p>
+
+            <!-- Referências -->
+            <div class="references-section" id="referencias">
+                <h3>Referências Bibliográficas Selecionadas</h3>
+                <div class="ref-item">[1] Gibala, M. J., et al. (2012). Physiological adaptations to low-volume, high-intensity interval training in health and disease. <em>The Journal of Physiology</em>, 590(5), 1077-1084.</div>
+                <div class="ref-item">[2] Milanović, Z., et al. (2015). Effectiveness of High-Intensity Interval Training (HIIT) and Continuous Endurance Training (CET) on VO2max: A Systematic Review and Meta-Analysis. <em>Sports Medicine</em>, 45, 1469–1481.</div>
+                <div class="ref-item">[3] Wisløff, U., et al. (2007). Superior cardiovascular effect of aerobic interval training versus moderate continuous training in heart failure patients. <em>Circulation</em>, 115(24), 3086-3094.</div>
+                <div class="ref-item">[4] Little, J. P., et al. (2011). A practical model of low-volume high-intensity interval training induces mitochondrial biogenesis in human skeletal muscle: potential mechanisms. <em>The Journal of Physiology</em>, 588(6), 1011-1022.</div>
+                <div class="ref-item">[5] Ramos, J. S., et al. (2015). The impact of high-intensity interval training versus moderate-intensity continuous training on vascular function: a systematic review and meta-analysis. <em>Sports Medicine</em>, 45, 679–692.</div>
+                <div class="ref-item">[6] Tabata, I., et al. (1996). Effects of moderate-intensity endurance and high-intensity intermittent training on anaerobic capacity and VO2max. <em>Medicine & Science in Sports & Exercise</em>, 28(10), 1327-1330.</div>
+            </div>
+
+        </article>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Coluna 1: Marca -->
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+
+                <!-- Coluna 2: Explorar -->
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="../calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="../artigos.html">Artigos Científicos</a></li>
+                        <li><a href="../quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Legal & Compliance -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="../isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="../contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Fontes e Social -->
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra Inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        // Init Icons
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- --- SEO TÉCNICO & META TAGS AVANÇADAS --- -->
+    
+    <!-- Título Otimizado -->
+    <title>Vitamina D e Resposta Imune: O Papel Hormonal do Calcitriol | Calcule Sua Saúde</title>
+    
+    <!-- Descrição -->
+    <meta name="description" content="Tratado científico sobre a Vitamina D (Calcitriol) e o sistema imunológico. Mecanismos moleculares, catelicidinas, modulação de células T e autoimunidade.">
+    
+    <!-- Palavras-chave -->
+    <meta name="keywords" content="vitamina d, calcitriol, sistema imune, imunidade inata, linfócitos t, autoimunidade, catelicidina, defensinas, VDR, covid-19">
+    
+    <!-- Controle de Robôs & Canonical -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://calculesuasaude.com.br/artigos/vitamina-d-imunidade.html">
+    <meta name="author" content="Calcule Sua Saúde - Corpo Editorial">
+    <meta name="theme-color" content="#0A4D68">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos/vitamina-d-imunidade.html">
+    <meta property="og:title" content="Vitamina D: O Hormônio da Defesa">
+    <meta property="og:description" content="Como o calcitriol orquestra a defesa do organismo contra patógenos e previne a autoimunidade.">
+    <meta property="og:image" content="../img/cabeçario.webp">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="article:published_time" content="2024-07-25T08:00:00+00:00">
+    <meta property="article:section" content="Imunologia & Endocrinologia">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vitamina D e a Resposta Imune">
+    <meta name="twitter:description" content="Do raquitismo à imunomodulação: a nova ciência do calcitriol.">
+    <meta name="twitter:image" content="../img/cabeçario.webp">
+
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+      <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+
+    <!-- SCHEMA.ORG (MedicalScholarlyArticle) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalScholarlyArticle",
+      "headline": "Vitamina D e Resposta Imune: O Papel Hormonal do Calcitriol",
+      "image": "../img/cabeçario.webp",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde Editorial Board"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/img/logo.png"
+        }
+      },
+      "datePublished": "2024-07-25",
+      "dateModified": "2024-07-28",
+      "description": "Revisão aprofundada sobre a interação entre o receptor de Vitamina D (VDR) e as células do sistema imune, com foco na produção de peptídeos antimicrobianos e regulação de citocinas.",
+      "about": [
+        { "@type": "Thing", "name": "Vitamin D" },
+        { "@type": "Thing", "name": "Immunology" },
+        { "@type": "Thing", "name": "Calcitriol" }
+      ]
+    }
+    </script>
+    
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- VARIÁVEIS GLOBAIS --- */
+        :root {
+            --primary: #0A4D68;       /* Deep Ocean Blue */
+            --primary-dark: #06384d;
+            --accent: #047857;        /* Emerald */
+            --secondary: #D97706;     /* Warm Amber */
+            
+            --bg-body: #FAFAF9;       /* Stone 50 */
+            --bg-card: #FFFFFF;
+            
+            --bg-calc-item: #FFFFFF;
+            --bg-calc-item-hover: #FAFAF9;
+            --border-calc: #E7E5E4;
+            
+            --text-main: #1C1917;     /* Stone 900 */
+            --text-muted: #57534E;    /* Stone 600 */
+            
+            --border-subtle: #E7E5E4; /* Stone 200 */
+            
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --bg-calc-item: #292524; 
+            --bg-calc-item-hover: #44403C; 
+            --border-calc: #44403C;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8; 
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-theme-switch i, .animate-theme-switch svg { animation: rotate-scale 0.5s ease-in-out; }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER & NAV --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .main-header {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            max-width: 100%;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: #fff; }
+
+        .btn-outline-white {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover {
+            background-color: #fff;
+            color: var(--primary);
+            border-color: #fff;
+        }
+
+        /* --- ARTICLE HERO --- */
+        .article-hero {
+            height: 60vh;
+            min-height: 500px;
+            /* Imagem especificada pelo usuário */
+            background-image: linear-gradient(to right, rgba(10, 77, 104, 0.95) 0%, rgba(10, 77, 104, 0.8) 50%, rgba(0,0,0,0.4) 100%), url('../img/cabeçario.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            color: #fff;
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            padding-left: 20px;
+        }
+
+        .article-tag {
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .article-hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            font-family: 'Source Sans 3', sans-serif;
+            margin-top: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- ARTICLE LAYOUT --- */
+        .article-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+            display: block;
+        }
+
+        /* Conteúdo Principal */
+        .article-body {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            line-height: 1.85;
+        }
+
+        .article-body p {
+            margin-bottom: 1.8em;
+            text-align: justify;
+        }
+
+        .article-body h2 {
+            font-size: 2.2rem;
+            margin-top: 2.5em;
+            margin-bottom: 0.8em;
+            color: var(--primary);
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            border-left: none;
+            padding-left: 0;
+            padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .article-body h3 {
+            font-size: 1.6rem;
+            margin-top: 2.2em;
+            margin-bottom: 0.8em;
+            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .article-body ul, .article-body ol {
+            margin-bottom: 2em;
+            padding-left: 20px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .article-body li {
+            margin-bottom: 0.8em;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .article-body ul li::marker {
+            color: var(--accent);
+        }
+
+        .article-body strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Destaques e Caixas */
+        .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        
+        .clinical-pearl h4 {
+            color: var(--accent);
+            font-family: 'Source Sans 3', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        [data-theme="dark"] .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.15);
+        }
+        
+        /* Citação / Blockquote */
+        .scientific-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            border-left: none;
+            text-align: center;
+            margin: 50px 0;
+            padding: 0 40px;
+            position: relative;
+        }
+        .scientific-quote::before {
+            content: '“';
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            display: block;
+            line-height: 0.5;
+            margin-bottom: 20px;
+        }
+
+        /* Tabelas Científicas */
+        .scientific-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 50px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .scientific-table th {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 18px;
+            text-align: left;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .scientific-table td {
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 18px;
+            vertical-align: top;
+        }
+        .scientific-table tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+        [data-theme="dark"] .scientific-table tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        /* Referências */
+        .references-section {
+            margin-top: 100px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background-color: transparent;
+        }
+        .references-section h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: none;
+            width: auto;
+            display: block;
+        }
+        .ref-item {
+            margin-bottom: 15px;
+            word-break: break-word;
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+
+        /* TOC Integrado */
+        .toc-integrated {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-subtle);
+            border-top: 4px solid var(--secondary);
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 4px;
+        }
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-weight: 700;
+            text-align: center;
+        }
+        .toc-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            padding: 0;
+        }
+        .toc-list li {
+            list-style: none;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .toc-list a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted transparent;
+            transition: all 0.2s;
+        }
+        .toc-list a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+            margin-top: 100px;
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .footer h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { color: #A8A29E; transition: 0.2s; display: inline-block; }
+        .footer ul li a:hover { color: #fff; transform: translateX(5px); }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .article-hero h1 { font-size: 2.2rem; }
+            .article-container { padding: 0 20px; }
+            .toc-list { grid-template-columns: 1fr; }
+            .main-header .container { padding-left: 20px; }
+            .scientific-quote { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Botão de Tema -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Modo Escuro</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Modo Claro</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <!-- Seletor atualizado para trocar de idioma -->
+                <select onchange="if(this.value) window.location.href=this.value">
+                    <option value="vitamina-d-imunidade.html" selected>Português</option>
+                    <option value="vitamina-d-imunidade-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i data-lucide="shield-plus" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Início</a></li>
+                <li><a href="../artigos.html" class="nav-link active">Artigos</a></li>
+                <li><a href="../calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ARTICLE HERO -->
+    <header class="article-hero">
+        <div class="container">
+            <div class="article-hero-content animate-fade-in">
+                <span class="article-tag">Imunologia & Endocrinologia</span>
+                <h1>Vitamina D e Resposta Imune:<br>O Papel Hormonal</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <i data-lucide="calendar" size="16"></i>
+                        <span>Atualizado: 25 de Julho, 2024</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="clock" size="16"></i>
+                        <span>Leitura Aprofundada: 38 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ARTICLE CONTENT -->
+    <div class="article-container">
+        
+        <!-- Main Body -->
+        <article class="article-body">
+            
+            <!-- TOC INTEGRADO -->
+            <div class="toc-integrated">
+                <h4 class="toc-title">Índice do Tratado</h4>
+                <ul class="toc-list">
+                    <li><a href="#introducao">1. Além do Metabolismo Ósseo</a></li>
+                    <li><a href="#metabolismo">2. Bioativação: De Colecalciferol a Calcitriol</a></li>
+                    <li><a href="#vdr">3. O Receptor Nuclear (VDR)</a></li>
+                    <li><a href="#imunidade-inata">4. Imunidade Inata e Peptídeos Antimicrobianos</a></li>
+                    <li><a href="#imunidade-adaptativa">5. Modulação de Células T e B</a></li>
+                    <li><a href="#autoimunidade">6. Vitamina D e Doenças Autoimunes</a></li>
+                    <li><a href="#sistemico">7. Efeitos Sistêmicos e Inflamação</a></li>
+                    <li><a href="#clinica">8. Níveis Séricos Ideais e Suplementação</a></li>
+                    <li><a href="#conclusao">9. Conclusão</a></li>
+                    <li><a href="#referencias">Referências Bibliográficas</a></li>
+                </ul>
+            </div>
+
+            <div class="clinical-pearl">
+                <h4><i data-lucide="lightbulb"></i> Hormônio Secosteroide</h4>
+                <p style="margin-bottom:0">A Vitamina D não é uma vitamina no sentido estrito, pois pode ser sintetizada endogenamente e sua forma ativa (calcitriol) atua como um hormônio esteroide. O Receptor de Vitamina D (VDR) está presente em quase todas as células do sistema imune, indicando que a suficiência desta molécula é um pré-requisito evolutivo para uma defesa competente contra patógenos.</p>
+            </div>
+
+            <h2 id="introducao">1. Introdução: Além do Metabolismo Ósseo</h2>
+            <p>Por mais de um século, a Vitamina D foi associada quase exclusivamente à prevenção do raquitismo e à homeostase do cálcio. No entanto, a descoberta de receptores de vitamina D (VDR) em macrófagos, células dendríticas, linfócitos T e B desencadeou uma revolução na imunologia nutricional.</p>
+            <p>Hoje, reconhecemos o calcitriol (1,25-dihidroxivitamina D) como um potente imunomodulador pleiotrópico. Ele atua como uma "chave mestra" que liga genes de defesa antimicrobiana e desliga genes pró-inflamatórios excessivos, oferecendo uma explicação mecanicista para a sazonalidade de infecções respiratórias (como a gripe e COVID-19) que aumentam no inverno, quando a síntese cutânea de vitamina D é mínima.</p>
+
+            <h2 id="metabolismo">2. Bioativação: A Jornada Molecular</h2>
+            <p>Para exercer seus efeitos imunes, a Vitamina D deve ser metabolizada através de duas hidroxilações:</p>
+            <ol>
+                <li><strong>Hepática (25-hidroxilação):</strong> A vitamina D3 (colecalciferol), sintetizada na pele ou ingerida, é convertida no fígado pela enzima CYP2R1 em 25-hidroxivitamina D [25(OH)D], a principal forma circulante e marcador de status nutricional.</li>
+                <li><strong>Renal e Extra-renal (1α-hidroxilação):</strong> A conversão final para o hormônio ativo, 1,25-dihidroxivitamina D [1,25(OH)2D], ocorre nos rins pela enzima CYP27B1.</li>
+            </ol>
+            <p>Crucialmente, células imunes como macrófagos e células dendríticas também expressam a enzima CYP27B1. Isso significa que elas podem converter 25(OH)D em calcitriol localmente, de forma autócrina/parácrina, sem depender da produção renal. Isso permite concentrações intracelulares de calcitriol muito superiores às plasmáticas em locais de infecção.</p>
+
+            <h2 id="vdr">3. O Receptor Nuclear (VDR) e Mecanismo Genômico</h2>
+            <p>O VDR é um fator de transcrição dependente de ligante que pertence à superfamília dos receptores nucleares. Após a ligação do calcitriol, o VDR forma um heterodímero com o Receptor de Retinoide X (RXR). Este complexo transloca-se para o núcleo e liga-se a Elementos de Resposta à Vitamina D (VDREs) no DNA.</p>
+            <p>Estima-se que o complexo VDR-RXR regule a expressão de 3% a 5% de todo o genoma humano, incluindo genes críticos para a proliferação celular, diferenciação e, fundamentalmente, resposta imune.</p>
+
+            <h2 id="imunidade-inata">4. Imunidade Inata: A Primeira Linha de Defesa</h2>
+            <p>A imunidade inata responde rapidamente a invasores genéricos. O calcitriol é um indutor direto da produção de peptídeos antimicrobianos (AMPs) endógenos.</p>
+
+            <h3>4.1 Catelicidinas e Defensinas</h3>
+            <p>Quando um macrófago detecta um patógeno via Receptores Toll-like (TLR), ele regula positivamente a expressão de VDR e CYP27B1. Na presença de 25(OH)D suficiente, ocorre a produção intracelular de calcitriol, que induz a transcrição do gene da <strong>Catelicidina (LL-37)</strong> e das <strong>Beta-defensinas</strong>.</p>
+            <div class="scientific-quote">
+                "A Catelicidina atua desestabilizando a membrana de bactérias, vírus envelopados e fungos. Além de sua ação microbicida direta, ela atrai neutrófilos e monócitos para o local da infecção, agindo como um alarme químico."
+            </div>
+
+            <h3>4.2 Barreira Epitelial</h3>
+            <p>A Vitamina D também fortalece as "tight junctions" (junções de oclusão) entre as células epiteliais do intestino e dos pulmões, prevenindo a translocação bacteriana e a invasão viral ("Leaky Gut" e infecções respiratórias).</p>
+
+            <h2 id="imunidade-adaptativa">5. Imunidade Adaptativa: Modulação de Células T e B</h2>
+            <p>Enquanto a Vitamina D estimula a imunidade inata, ela exerce um efeito predominantemente regulatório e "calmante" sobre a imunidade adaptativa, prevenindo danos colaterais inflamatórios.</p>
+
+            <table class="scientific-table">
+                <thead>
+                    <tr>
+                        <th>Célula Alvo</th>
+                        <th>Efeito do Calcitriol</th>
+                        <th>Resultado Fisiológico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Linfócitos Th1</strong></td>
+                        <td>Inibição da proliferação e secreção de citocinas (IFN-γ, IL-2).</td>
+                        <td>Redução da inflamação celular excessiva.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Linfócitos Th2</strong></td>
+                        <td>Estímulo moderado (IL-4, IL-10).</td>
+                        <td>Desvio para resposta anti-inflamatória e humoral.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Linfócitos Th17</strong></td>
+                        <td>Forte inibição da produção de IL-17.</td>
+                        <td>Prevenção de autoimunidade e inflamação tecidual crônica.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Células T Reguladoras (Treg)</strong></td>
+                        <td>Indução e diferenciação (FoxP3+).</td>
+                        <td>Manutenção da tolerância imunológica e prevenção de autoimunidade.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="autoimunidade">6. Vitamina D e Doenças Autoimunes</h2>
+            <p>A deficiência de Vitamina D é um fator ambiental de risco bem estabelecido para diversas doenças autoimunes. A geografia das doenças reflete isso: a prevalência de Esclerose Múltipla aumenta conforme a latitude se afasta do equador (menor radiação UVB).</p>
+            <ul>
+                <li><strong>Esclerose Múltipla:</strong> O calcitriol inibe a migração de células T autorreativas para o Sistema Nervoso Central.</li>
+                <li><strong>Diabetes Tipo 1:</strong> A suplementação precoce na infância demonstrou reduzir o risco de desenvolvimento da doença.</li>
+                <li><strong>Artrite Reumatoide e Lúpus:</strong> Níveis séricos baixos correlacionam-se com maior atividade da doença e surtos inflamatórios.</li>
+            </ul>
+
+            <h2 id="sistemico">7. Modulação da Tempestade de Citocinas</h2>
+            <p>Durante infecções virais agudas (como na Influenza e COVID-19), a causa da mortalidade frequentemente não é o vírus em si, mas a resposta imune descontrolada do hospedeiro ("Tempestade de Citocinas"). O calcitriol suprime a liberação de citocinas pró-inflamatórias chaves, como IL-6 e TNF-α, enquanto aumenta a citocina anti-inflamatória IL-10, ajudando a resolver a inflamação sem comprometer a eliminação viral.</p>
+
+            <h2 id="clinica">8. Níveis Séricos e Janela Terapêutica</h2>
+            <p>A definição de "suficiência" varia, mas no contexto imunológico, níveis superiores aos necessários apenas para a saúde óssea parecem ser exigidos.</p>
+            <ul>
+                <li><strong>Deficiência Grave:</strong> < 20 ng/mL (Risco ósseo e imune elevado).</li>
+                <li><strong>Insuficiência:</strong> 21-29 ng/mL.</li>
+                <li><strong>Suficiência Imunológica (Proposta):</strong> 40-60 ng/mL. Estudos observacionais sugerem que níveis nesta faixa maximizam a função de barreira e a regulação imune.</li>
+            </ul>
+            <p>A toxicidade (hipercalcemia) é rara e geralmente ocorre apenas com níveis > 150 ng/mL, mas a suplementação deve ser sempre guiada por dosagem sérica de 25(OH)D e PTH.</p>
+
+            <h2 id="conclusao">9. Conclusão</h2>
+            <p>A Vitamina D é um hormônio esteroide ancestral fundamental para a arquitetura do sistema imune. Ela atua como um "imunomodulador inteligente", fortalecendo as defesas inatas contra invasores enquanto freia as respostas adaptativas excessivas que levam à autoimunidade e inflamação crônica. Manter níveis adequados de 25(OH)D é uma estratégia de saúde pública de baixo custo e alto impacto para a resiliência imunológica global.</p>
+
+            <!-- Referências -->
+            <div class="references-section" id="referencias">
+                <h3>Referências Bibliográficas Selecionadas</h3>
+                <div class="ref-item">[1] Aranow, C. (2011). Vitamin D and the immune system. <em>Journal of Investigative Medicine</em>, 59(6), 881-886.</div>
+                <div class="ref-item">[2] Hewison, M. (2012). An update on vitamin D and human immunity. <em>Clinical Endocrinology</em>, 76(3), 315-325.</div>
+                <div class="ref-item">[3] Prietl, B., et al. (2013). Vitamin D and immune function. <em>Nutrients</em>, 5(7), 2502-2521.</div>
+                <div class="ref-item">[4] Martineau, A. R., et al. (2017). Vitamin D supplementation to prevent acute respiratory tract infections: systematic review and meta-analysis of individual participant data. <em>BMJ</em>, 356, i6583.</div>
+                <div class="ref-item">[5] Holick, M. F. (2007). Vitamin D deficiency. <em>New England Journal of Medicine</em>, 357(3), 266-281.</div>
+                <div class="ref-item">[6] Dankers, W., et al. (2017). Vitamin D in Autoimmunity: Molecular Mechanisms and Therapeutic Potential. <em>Frontiers in Immunology</em>, 7, 697.</div>
+                <div class="ref-item">[7] Charoenngam, N., & Holick, M. F. (2020). Immunologic Effects of Vitamin D on Human Health and Disease. <em>Nutrients</em>, 12(7), 2097.</div>
+            </div>
+
+        </article>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Coluna 1: Marca -->
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+
+                <!-- Coluna 2: Explorar -->
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="../calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="../artigos.html">Artigos Científicos</a></li>
+                        <li><a href="../quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Legal & Compliance -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="../isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="../contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Fontes e Social -->
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra Inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        // Init Icons
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

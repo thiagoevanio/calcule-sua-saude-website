@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- --- SEO TÉCNICO & META TAGS AVANÇADAS --- -->
+    
+    <!-- Título Otimizado -->
+    <title>Luz Azul e Saúde Ocular: Mitos e Verdades sobre Telas e Sono | Calcule Sua Saúde</title>
+    
+    <!-- Descrição -->
+    <meta name="description" content="Análise científica sobre a Luz Azul (HEV). Impactos na retina (DMRI), Síndrome da Visão do Computador, supressão de melatonina e eficácia dos óculos com filtro.">
+    
+    <!-- Palavras-chave -->
+    <meta name="keywords" content="luz azul, saúde ocular, retina, degeneração macular, ritmo circadiano, melatonina, fadiga ocular digital, óculos filtro azul, espectro visível, oftalmologia">
+    
+    <!-- Controle de Robôs & Canonical -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://calculesuasaude.com.br/artigos/luz-azul-saude-ocular.html">
+    <meta name="author" content="Calcule Sua Saúde - Corpo Editorial">
+    <meta name="theme-color" content="#0A4D68">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos/luz-azul-saude-ocular.html">
+    <meta property="og:title" content="Luz Azul: Vilã ou Incompreendida?">
+    <meta property="og:description" content="O que a ciência realmente diz sobre o impacto das telas nos seus olhos e no seu sono.">
+    <meta property="og:image" content="../img/cabeçario.webp">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="article:published_time" content="2024-09-10T08:00:00+00:00">
+    <meta property="article:section" content="Oftalmologia & Cronobiologia">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Luz Azul e Telas Digitais: Fatos vs Ficção">
+    <meta name="twitter:description" content="Entenda a diferença entre fadiga visual e fototoxicidade retiniana.">
+    <meta name="twitter:image" content="../img/cabeçario.webp">
+
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+
+    <!-- SCHEMA.ORG (MedicalScholarlyArticle) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalScholarlyArticle",
+      "headline": "Luz Azul e Saúde Ocular: Mitos e Verdades sobre o Impacto das Telas",
+      "image": "../img/cabeçario.webp",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde Editorial Board"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/img/logo.png"
+        }
+      },
+      "datePublished": "2024-09-10",
+      "dateModified": "2024-09-12",
+      "description": "Revisão baseada em evidências sobre a radiação de alta energia visível (HEV), seus efeitos na fisiologia ocular e na regulação do ciclo vigília-sono.",
+      "about": [
+        { "@type": "Thing", "name": "Blue Light" },
+        { "@type": "Thing", "name": "Eye Health" },
+        { "@type": "Thing", "name": "Circadian Rhythm" }
+      ]
+    }
+    </script>
+    
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- VARIÁVEIS GLOBAIS --- */
+        :root {
+            --primary: #0A4D68;       /* Deep Ocean Blue */
+            --primary-dark: #06384d;
+            --accent: #047857;        /* Emerald */
+            --secondary: #D97706;     /* Warm Amber */
+            
+            --bg-body: #FAFAF9;       /* Stone 50 */
+            --bg-card: #FFFFFF;
+            
+            --bg-calc-item: #FFFFFF;
+            --bg-calc-item-hover: #FAFAF9;
+            --border-calc: #E7E5E4;
+            
+            --text-main: #1C1917;     /* Stone 900 */
+            --text-muted: #57534E;    /* Stone 600 */
+            
+            --border-subtle: #E7E5E4; /* Stone 200 */
+            
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --bg-calc-item: #292524; 
+            --bg-calc-item-hover: #44403C; 
+            --border-calc: #44403C;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8; 
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-theme-switch i, .animate-theme-switch svg { animation: rotate-scale 0.5s ease-in-out; }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER & NAV --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .main-header {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            max-width: 100%;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: #fff; }
+
+        .btn-outline-white {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover {
+            background-color: #fff;
+            color: var(--primary);
+            border-color: #fff;
+        }
+
+        /* --- ARTICLE HERO --- */
+        .article-hero {
+            height: 60vh;
+            min-height: 500px;
+            /* User specified image */
+            background-image: linear-gradient(to right, rgba(10, 77, 104, 0.95) 0%, rgba(10, 77, 104, 0.8) 50%, rgba(0,0,0,0.4) 100%), url('../img/cabeçario.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            color: #fff;
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            padding-left: 20px;
+        }
+
+        .article-tag {
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .article-hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            font-family: 'Source Sans 3', sans-serif;
+            margin-top: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- ARTICLE LAYOUT --- */
+        .article-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+            display: block;
+        }
+
+        /* Main Content */
+        .article-body {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            line-height: 1.85;
+        }
+
+        .article-body p {
+            margin-bottom: 1.8em;
+            text-align: justify;
+        }
+
+        .article-body h2 {
+            font-size: 2.2rem;
+            margin-top: 2.5em;
+            margin-bottom: 0.8em;
+            color: var(--primary);
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            border-left: none;
+            padding-left: 0;
+            padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .article-body h3 {
+            font-size: 1.6rem;
+            margin-top: 2.2em;
+            margin-bottom: 0.8em;
+            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .article-body ul, .article-body ol {
+            margin-bottom: 2em;
+            padding-left: 20px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .article-body li {
+            margin-bottom: 0.8em;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .article-body ul li::marker {
+            color: var(--accent);
+        }
+
+        .article-body strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Highlights & Boxes */
+        .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        
+        .clinical-pearl h4 {
+            color: var(--accent);
+            font-family: 'Source Sans 3', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        [data-theme="dark"] .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.15);
+        }
+        
+        /* Quote / Blockquote */
+        .scientific-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            border-left: none;
+            text-align: center;
+            margin: 50px 0;
+            padding: 0 40px;
+            position: relative;
+        }
+        .scientific-quote::before {
+            content: '“';
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            display: block;
+            line-height: 0.5;
+            margin-bottom: 20px;
+        }
+
+        /* Scientific Tables */
+        .scientific-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 50px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .scientific-table th {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 18px;
+            text-align: left;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .scientific-table td {
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 18px;
+            vertical-align: top;
+        }
+        .scientific-table tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+        [data-theme="dark"] .scientific-table tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        /* References */
+        .references-section {
+            margin-top: 100px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background-color: transparent;
+        }
+        .references-section h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: none;
+            width: auto;
+            display: block;
+        }
+        .ref-item {
+            margin-bottom: 15px;
+            word-break: break-word;
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+
+        /* Integrated TOC */
+        .toc-integrated {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-subtle);
+            border-top: 4px solid var(--secondary);
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 4px;
+        }
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-weight: 700;
+            text-align: center;
+        }
+        .toc-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            padding: 0;
+        }
+        .toc-list li {
+            list-style: none;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .toc-list a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted transparent;
+            transition: all 0.2s;
+        }
+        .toc-list a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+            margin-top: 100px;
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .footer h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { color: #A8A29E; transition: 0.2s; display: inline-block; }
+        .footer ul li a:hover { color: #fff; transform: translateX(5px); }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .article-hero h1 { font-size: 2.2rem; }
+            .article-container { padding: 0 20px; }
+            .toc-list { grid-template-columns: 1fr; }
+            .main-header .container { padding-left: 20px; }
+            .scientific-quote { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Botão de Tema -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Modo Escuro</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Modo Claro</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <!-- Language Switcher Logic -->
+                <select onchange="if(this.value) window.location.href=this.value">
+                    <option value="" selected>Português</option>
+                    <option value="luz-azul-saude-ocular-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i data-lucide="eye" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Início</a></li>
+                <li><a href="../artigos.html" class="nav-link active">Artigos</a></li>
+                <li><a href="../calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ARTICLE HERO -->
+    <header class="article-hero">
+        <div class="container">
+            <div class="article-hero-content animate-fade-in">
+                <span class="article-tag">Oftalmologia & Cronobiologia</span>
+                <h1>Luz Azul e Saúde Ocular:<br>Mitos e Verdades</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <i data-lucide="calendar" size="16"></i>
+                        <span>Atualizado: 10 de Setembro, 2024</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="clock" size="16"></i>
+                        <span>Leitura Aprofundada: 25 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ARTICLE CONTENT -->
+    <div class="article-container">
+        
+        <!-- Main Body -->
+        <article class="article-body">
+            
+            <!-- TOC INTEGRADO -->
+            <div class="toc-integrated">
+                <h4 class="toc-title">Índice do Tratado</h4>
+                <ul class="toc-list">
+                    <li><a href="#introducao">1. A Era das Telas</a></li>
+                    <li><a href="#espectro">2. O Espectro da Luz Visível (HEV)</a></li>
+                    <li><a href="#fadiga">3. Síndrome da Visão do Computador</a></li>
+                    <li><a href="#retina">4. Toxicidade Retiniana: Fato ou Ficção?</a></li>
+                    <li><a href="#ritmo-circadiano">5. O Impacto no Sono e Melatonina</a></li>
+                    <li><a href="#filtros">6. Óculos de Filtro Azul Funcionam?</a></li>
+                    <li><a href="#estrategias">7. Estratégias de Proteção (Regra 20-20-20)</a></li>
+                    <li><a href="#conclusao">8. Conclusão</a></li>
+                    <li><a href="#referencias">Referências Bibliográficas</a></li>
+                </ul>
+            </div>
+
+            <div class="clinical-pearl">
+                <h4><i data-lucide="lightbulb"></i> Azul Turquesa vs. Azul Violeta</h4>
+                <p style="margin-bottom:0">Nem toda luz azul é igual. A luz <strong>azul-turquesa</strong> (465-495 nm) é essencial para regular o ritmo circadiano, o humor e a função cognitiva durante o dia. Já a luz <strong>azul-violeta</strong> (415-455 nm) é a de maior energia (HEV) e a principal suspeita em estudos de toxicidade retiniana, embora a intensidade emitida por telas seja muito inferior à luz solar natural.</p>
+            </div>
+
+            <h2 id="introducao">1. Introdução: A Era das Telas</h2>
+            <p>Vivemos imersos em um mundo digital. Estima-se que o adulto médio passe mais de 7 horas por dia olhando para telas (computadores, smartphones, tablets). Esse comportamento sem precedentes na história evolutiva humana levantou preocupações globais sobre os efeitos cumulativos da exposição à luz artificial.</p>
+            <p>Manchetes alarmistas frequentemente proclamam que a luz azul "causa cegueira" ou "cozinha a retina". No entanto, a comunidade científica (incluindo a Academia Americana de Oftalmologia) adota uma postura mais cautelosa e baseada em evidências, distinguindo claramente entre desconforto ocular temporário e dano patológico permanente.</p>
+
+            <h2 id="espectro">2. O Espectro da Luz Visível (HEV)</h2>
+            <p>A luz branca do sol (e dos LEDs) é composta por todas as cores do arco-íris. A luz azul situa-se na extremidade de maior energia do espectro visível (High-Energy Visible light - HEV), com comprimentos de onda curtos (380 a 500 nm), logo após a radiação ultravioleta (UV).</p>
+            <p>Devido à sua alta energia, a luz azul dispersa-se mais facilmente ao atingir a atmosfera (por isso o céu é azul) e também dentro do olho humano. Esse fenômeno de dispersão ("scattering") reduz o contraste da imagem na retina, exigindo maior esforço do sistema visual para manter o foco, o que contribui para a fadiga.</p>
+
+            <h2 id="fadiga">3. Síndrome da Visão do Computador (CVS)</h2>
+            <p>A queixa mais comum relacionada ao uso de telas não é doença retiniana, mas sim a <strong>Fadiga Ocular Digital</strong>. Sintomas incluem olhos secos, visão turva, dor de cabeça e tensão no pescoço.</p>
+            
+            <table class="scientific-table">
+                <thead>
+                    <tr>
+                        <th>Mecanismo</th>
+                        <th>Explicação Fisiológica</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Redução do Piscar</strong></td>
+                        <td>Ao olhar para telas, a taxa de piscadas cai de 15-20 vezes/min para apenas 5-7 vezes/min, causando evaporação da lágrima e olho seco.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Acomodação Contínua</strong></td>
+                        <td>O músculo ciliar precisa manter contração constante para focar a curta distância, levando à exaustão muscular (astenopia).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brilho e Reflexo</strong></td>
+                        <td>O brilho excessivo da tela ou reflexos no monitor forçam a musculatura da íris e pálpebras.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="retina">4. Toxicidade Retiniana: Fato ou Ficção?</h2>
+            <p>Estudos <em>in vitro</em> (em placas de Petri) e em modelos animais mostram que a exposição intensa à luz azul pode induzir estresse oxidativo nas células do Epitélio Pigmentar da Retina (EPR), levando à morte de fotorreceptores. Isso gerou o medo de que telas causassem Degeneração Macular Relacionada à Idade (DMRI).</p>
+            <p><strong>A Realidade Clínica:</strong> A intensidade da luz azul emitida por smartphones e monitores é centenas de vezes menor que a intensidade da luz solar natural em um dia nublado. Até o momento, <strong>não há evidências epidemiológicas robustas em humanos</strong> de que o uso normal de telas cause DMRI ou cegueira. O maior perigo para a retina continua sendo a luz UV do sol e o tabagismo, não o seu celular.</p>
+
+            <h2 id="ritmo-circadiano">5. O Verdadeiro Impacto: Ritmo Circadiano e Sono</h2>
+            <p>Se a luz azul não cega, ela certamente desperta. Células ganglionares especializadas na retina (ipRGCs) contêm melanopsina, um fotopigmento extremamente sensível à luz azul (pico em ~480 nm). Quando estimuladas, essas células sinalizam ao Núcleo Supraquiasmático (o relógio mestre do cérebro) que é "dia".</p>
+            <p>O uso de telas à noite suprime a produção de <strong>melatonina</strong> (o hormônio do sono), atrasando o início do sono, reduzindo a fase REM e diminuindo o estado de alerta na manhã seguinte. Este é o efeito adverso mais documentado e clinicamente relevante da tecnologia moderna.</p>
+
+            <h2 id="filtros">6. Óculos de Filtro Azul Funcionam?</h2>
+            <p>A indústria óptica promove agressivamente lentes com filtro de luz azul. Mas o que diz a ciência?</p>
+            <ul>
+                <li><strong>Para Fadiga Ocular:</strong> Revisões sistemáticas recentes (Cochrane, 2023) não encontraram evidências de que lentes com filtro azul reduzam a fadiga ocular digital melhor que lentes normais. A fadiga deve-se mais ao foco e ao piscar do que à luz azul em si.</li>
+                <li><strong>Para o Sono:</strong> Existem evidências moderadas de que bloquear a luz azul (com óculos âmbar/laranja ou software) 2-3 horas antes de dormir pode mitigar a supressão de melatonina e melhorar a qualidade do sono em insones ou pessoas com ritmo circadiano atrasado.</li>
+            </ul>
+
+            <h2 id="estrategias">7. Estratégias de Proteção e a Regra 20-20-20</h2>
+            <p>Para proteger a saúde ocular na era digital, a mudança de hábitos é mais eficaz que produtos milagrosos:</p>
+            <ul>
+                <li><strong>Regra 20-20-20:</strong> A cada 20 minutos de uso de tela, olhe para um objeto a 20 pés (6 metros) de distância por 20 segundos. Isso relaxa o músculo ciliar.</li>
+                <li><strong>Lubrificação:</strong> Use lágrimas artificiais sem conservantes se sentir ressecamento.</li>
+                <li><strong>Distância e Posição:</strong> Mantenha a tela a um braço de distância (50-60 cm) e ligeiramente abaixo da linha dos olhos (para que a pálpebra cubra mais o olho, reduzindo a evaporação).</li>
+                <li><strong>Higiene do Sono:</strong> Use o modo "Noturno" (Night Shift/f.lux) nos dispositivos após o pôr do sol para reduzir a emissão azul e, idealmente, evite telas 1 hora antes de dormir.</li>
+            </ul>
+
+            <h2 id="conclusao">8. Conclusão</h2>
+            <p>A luz azul das telas não é o "demônio" que muitas vezes é pintada ser. Ela não vai "fritar" sua retina nas intensidades usuais de consumo. No entanto, seu impacto na qualidade do sono e no conforto visual é real e significativo. A abordagem mais sensata envolve moderação, pausas frequentes para descanso visual e o respeito à escuridão noturna para preservar nosso relógio biológico, em vez de depender exclusivamente de óculos ou filtros comerciais.</p>
+
+            <!-- Referências -->
+            <div class="references-section" id="referencias">
+                <h3>Referências Bibliográficas Selecionadas</h3>
+                <div class="ref-item">[1] American Academy of Ophthalmology (AAO). (2021). <em>Blue Light and Digital Eye Strain</em>. EyeSmart.</div>
+                <div class="ref-item">[2] Singh, S., et al. (2023). Blue-light filtering spectacle lenses for visual performance, sleep, and macular health in adults. <em>Cochrane Database of Systematic Reviews</em>, 8, CD013244.</div>
+                <div class="ref-item">[3] Tosini, G., et al. (2016). Effects of blue light on the circadian system and eye physiology. <em>Molecular Vision</em>, 22, 61–72.</div>
+                <div class="ref-item">[4] Sheppard, A. L., & Wolffsohn, J. S. (2018). Digital eye strain: prevalence, measurement and amelioration. <em>BMJ Open Ophthalmology</em>, 3(1), e000146.</div>
+                <div class="ref-item">[5] Vimont, C. (2017). Should You Be Worried About Blue Light? <em>American Academy of Ophthalmology</em>.</div>
+                <div class="ref-item">[6] Lawrenson, J. G., et al. (2017). The effect of blue-light blocking spectacle lenses on visual performance, macular health and the sleep-wake cycle: a systematic review of the literature. <em>Ophthalmic and Physiological Optics</em>, 37(6), 644-654.</div>
+            </div>
+
+        </article>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Coluna 1: Marca -->
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+
+                <!-- Coluna 2: Explorar -->
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="../calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="../artigos.html">Artigos Científicos</a></li>
+                        <li><a href="../quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Legal & Compliance -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="../isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="../contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Fontes e Social -->
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra Inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        // Init Icons
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

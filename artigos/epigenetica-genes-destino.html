@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- --- SEO TÉCNICO & META TAGS AVANÇADAS --- -->
+    
+    <!-- Título Otimizado -->
+    <title>Epigenética: Genes não são Destino | Como Estilo de Vida Altera o DNA | Calcule Sua Saúde</title>
+    
+    <!-- Descrição -->
+    <meta name="description" content="Tratado científico sobre Epigenética. Entenda como dieta, estresse e ambiente modulam a expressão gênica (metilação do DNA) e como você pode reprogramar sua saúde.">
+    
+    <!-- Palavras-chave -->
+    <meta name="keywords" content="epigenética, metilação do DNA, expressão gênica, nutri-epigenética, histonas, herança transgeracional, estilo de vida, medicina de precisão, folato, genes">
+    
+    <!-- Controle de Robôs & Canonical -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://calculesuasaude.com.br/artigos/epigenetica-genes-destino.html">
+    <meta name="author" content="Calcule Sua Saúde - Corpo Editorial">
+    <meta name="theme-color" content="#0A4D68">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos/epigenetica-genes-destino.html">
+    <meta property="og:title" content="Epigenética: Você no Controle dos Seus Genes">
+    <meta property="og:description" content="A revolução biológica que prova que o DNA não é uma sentença, mas um projeto editável.">
+    <meta property="og:image" content="../img/cabeçario.webp">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="article:published_time" content="2024-11-05T08:00:00+00:00">
+    <meta property="article:section" content="Genética & Medicina Preventiva">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Epigenética: Além da Sequência de DNA">
+    <meta name="twitter:description" content="Como suas escolhas diárias conversam com o seu genoma em tempo real.">
+    <meta name="twitter:image" content="../img/cabeçario.webp">
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+
+    <!-- SCHEMA.ORG (MedicalScholarlyArticle) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalScholarlyArticle",
+      "headline": "Epigenética: Genes não são Destino - O Impacto do Estilo de Vida",
+      "image": "../img/cabeçario.webp",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde Editorial Board"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/img/logo.png"
+        }
+      },
+      "datePublished": "2024-11-05",
+      "dateModified": "2024-11-08",
+      "description": "Artigo aprofundado sobre os mecanismos de regulação epigenética, o papel dos doadores de metil na dieta e a reversibilidade de marcas epigenéticas através de intervenções comportamentais.",
+      "about": [
+        { "@type": "Thing", "name": "Epigenetics" },
+        { "@type": "Thing", "name": "Gene Expression" },
+        { "@type": "Thing", "name": "Nutrigenomics" }
+      ]
+    }
+    </script>
+    
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- VARIÁVEIS GLOBAIS --- */
+        :root {
+            --primary: #0A4D68;       /* Deep Ocean Blue */
+            --primary-dark: #06384d;
+            --accent: #047857;        /* Emerald */
+            --secondary: #D97706;     /* Warm Amber */
+            
+            --bg-body: #FAFAF9;       /* Stone 50 */
+            --bg-card: #FFFFFF;
+            
+            --bg-calc-item: #FFFFFF;
+            --bg-calc-item-hover: #FAFAF9;
+            --border-calc: #E7E5E4;
+            
+            --text-main: #1C1917;     /* Stone 900 */
+            --text-muted: #57534E;    /* Stone 600 */
+            
+            --border-subtle: #E7E5E4; /* Stone 200 */
+            
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --bg-calc-item: #292524; 
+            --bg-calc-item-hover: #44403C; 
+            --border-calc: #44403C;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8; 
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-theme-switch i, .animate-theme-switch svg { animation: rotate-scale 0.5s ease-in-out; }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER & NAV --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .main-header {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            max-width: 100%;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: #fff; }
+
+        .btn-outline-white {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover {
+            background-color: #fff;
+            color: var(--primary);
+            border-color: #fff;
+        }
+
+        /* --- ARTICLE HERO --- */
+        .article-hero {
+            height: 60vh;
+            min-height: 500px;
+            /* Imagem especificada pelo usuário */
+            background-image: linear-gradient(to right, rgba(10, 77, 104, 0.95) 0%, rgba(10, 77, 104, 0.8) 50%, rgba(0,0,0,0.4) 100%), url('../img/cabeçario.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            color: #fff;
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            padding-left: 20px;
+        }
+
+        .article-tag {
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .article-hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            font-family: 'Source Sans 3', sans-serif;
+            margin-top: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- ARTICLE LAYOUT --- */
+        .article-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+            display: block;
+        }
+
+        /* Conteúdo Principal */
+        .article-body {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            line-height: 1.85;
+        }
+
+        .article-body p {
+            margin-bottom: 1.8em;
+            text-align: justify;
+        }
+
+        .article-body h2 {
+            font-size: 2.2rem;
+            margin-top: 2.5em;
+            margin-bottom: 0.8em;
+            color: var(--primary);
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            border-left: none;
+            padding-left: 0;
+            padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .article-body h3 {
+            font-size: 1.6rem;
+            margin-top: 2.2em;
+            margin-bottom: 0.8em;
+            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .article-body ul, .article-body ol {
+            margin-bottom: 2em;
+            padding-left: 20px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .article-body li {
+            margin-bottom: 0.8em;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .article-body ul li::marker {
+            color: var(--accent);
+        }
+
+        .article-body strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Destaques e Caixas */
+        .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        
+        .clinical-pearl h4 {
+            color: var(--accent);
+            font-family: 'Source Sans 3', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        [data-theme="dark"] .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.15);
+        }
+        
+        /* Citação / Blockquote */
+        .scientific-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            border-left: none;
+            text-align: center;
+            margin: 50px 0;
+            padding: 0 40px;
+            position: relative;
+        }
+        .scientific-quote::before {
+            content: '“';
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            display: block;
+            line-height: 0.5;
+            margin-bottom: 20px;
+        }
+
+        /* Tabelas Científicas */
+        .scientific-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 50px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .scientific-table th {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 18px;
+            text-align: left;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .scientific-table td {
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 18px;
+            vertical-align: top;
+        }
+        .scientific-table tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+        [data-theme="dark"] .scientific-table tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        /* Referências */
+        .references-section {
+            margin-top: 100px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background-color: transparent;
+        }
+        .references-section h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: none;
+            width: auto;
+            display: block;
+        }
+        .ref-item {
+            margin-bottom: 15px;
+            word-break: break-word;
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+
+        /* TOC Integrado */
+        .toc-integrated {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-subtle);
+            border-top: 4px solid var(--secondary);
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 4px;
+        }
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-weight: 700;
+            text-align: center;
+        }
+        .toc-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            padding: 0;
+        }
+        .toc-list li {
+            list-style: none;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .toc-list a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted transparent;
+            transition: all 0.2s;
+        }
+        .toc-list a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+            margin-top: 100px;
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .footer h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { color: #A8A29E; transition: 0.2s; display: inline-block; }
+        .footer ul li a:hover { color: #fff; transform: translateX(5px); }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .article-hero h1 { font-size: 2.2rem; }
+            .article-container { padding: 0 20px; }
+            .toc-list { grid-template-columns: 1fr; }
+            .main-header .container { padding-left: 20px; }
+            .scientific-quote { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Botão de Tema -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Modo Escuro</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Modo Claro</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <!-- Seletor de Idioma Atualizado -->
+                <select onchange="if(this.value) window.location.href=this.value">
+                    <option value="" selected>Português</option>
+                    <option value="epigenetica-genes-destino-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i data-lucide="dna" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Início</a></li>
+                <li><a href="../artigos.html" class="nav-link active">Artigos</a></li>
+                <li><a href="../calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ARTICLE HERO -->
+    <header class="article-hero">
+        <div class="container">
+            <div class="article-hero-content animate-fade-in">
+                <span class="article-tag">Genética & Medicina Preventiva</span>
+                <h1>Epigenética: Genes<br>não são Destino</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <i data-lucide="calendar" size="16"></i>
+                        <span>Atualizado: 05 de Novembro, 2024</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="clock" size="16"></i>
+                        <span>Leitura Aprofundada: 35 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ARTICLE CONTENT -->
+    <div class="article-container">
+        
+        <!-- Main Body -->
+        <article class="article-body">
+            
+            <!-- TOC INTEGRADO -->
+            <div class="toc-integrated">
+                <h4 class="toc-title">Índice do Tratado</h4>
+                <ul class="toc-list">
+                    <li><a href="#introducao">1. O Fim do Determinismo Genético</a></li>
+                    <li><a href="#definicao">2. O Que é Epigenética?</a></li>
+                    <li><a href="#mecanismos">3. Mecanismos Moleculares</a></li>
+                    <li><a href="#nutriepigenetica">4. Nutri-epigenética: Comida como Informação</a></li>
+                    <li><a href="#estresse">5. O Impacto do Estresse e Trauma</a></li>
+                    <li><a href="#heranca">6. Herança Transgeracional</a></li>
+                    <li><a href="#reversibilidade">7. O Relógio Biológico é Reversível?</a></li>
+                    <li><a href="#clinica">8. Aplicações Clínicas e Futuro</a></li>
+                    <li><a href="#conclusao">9. Conclusão</a></li>
+                    <li><a href="#referencias">Referências Bibliográficas</a></li>
+                </ul>
+            </div>
+
+            <div class="clinical-pearl">
+                <h4><i data-lucide="lightbulb"></i> Hardware vs Software</h4>
+                <p style="margin-bottom:0">Para entender a epigenética, imagine um computador. O DNA (a sequência de nucleotídeos ATCG) é o <strong>hardware</strong>: fixo, imutável, o equipamento básico. A epigenética é o <strong>software</strong> (sistema operacional): ela determina quais programas (genes) serão executados, quando e com que intensidade. Embora não possamos trocar o hardware que herdamos, temos um controle imenso sobre o software através do nosso estilo de vida.</p>
+            </div>
+
+            <h2 id="introducao">1. Introdução: O Fim do Determinismo Genético</h2>
+            <p>Durante décadas, a biologia foi regida pelo dogma de que "genes são destino". Acreditava-se que se você herdasse genes para obesidade, câncer ou depressão, o desenvolvimento dessas condições seria apenas uma questão de tempo. Essa visão fatalista gerou uma mentalidade passiva em relação à saúde.</p>
+            <p>A revolução da Epigenética derrubou esse muro. Hoje sabemos que a sequência de DNA é apenas um script potencial. O que determina se esse script será lido ou silenciado é o ambiente celular, que por sua vez é moldado pelo que comemos, como nos movemos, o ar que respiramos e até como nos sentimos.</p>
+
+            <h2 id="definicao">2. O Que é Epigenética?</h2>
+            <p>O termo "Epigenética" (do grego <em>epi</em>, "acima" ou "sobre") refere-se a mudanças hereditárias na expressão gênica que <strong>não envolvem alterações na sequência de DNA</strong> em si. São etiquetas químicas adicionadas ao DNA ou às proteínas que o empacotam, agindo como interruptores de "liga/desliga" ou botões de volume.</p>
+            <p>Essas marcas epigenéticas instruem as células sobre como ler o genoma. É por isso que uma célula da pele e um neurônio têm exatamente o mesmo DNA, mas funções e aparências completamente diferentes: seus perfis epigenéticos ativam genes distintos.</p>
+
+            <h2 id="mecanismos">3. Mecanismos Moleculares: Como Funciona o Interruptor?</h2>
+            <p>Existem três mecanismos principais pelos quais a epigenética controla a biologia:</p>
+
+            <h3>3.1 Metilação do DNA</h3>
+            <p>É o mecanismo mais estudado. Envolve a adição de um grupo metil (CH3) a uma base de citosina no DNA. Geralmente, a metilação em regiões promotoras de um gene atua como um sinal de "DESLIGAR", impedindo a transcrição. A hipometilação (remoção do grupo metil), por outro lado, tende a ativar o gene. O equilíbrio é crucial: queremos metilar (silenciar) oncogenes e desmetilar (ativar) genes supressores de tumor.</p>
+
+            <h3>3.2 Modificação de Histonas</h3>
+            <p>O DNA não flutua livremente; ele está enrolado em carretéis de proteína chamados histonas. Grupos químicos (acetil, metil, fosfato) podem se ligar às caudas das histonas, alterando o quão apertado o DNA está enrolado.</p>
+            <ul>
+                <li><strong>Acetilação:</strong> Relaxa a estrutura (cromatina), tornando o DNA acessível para leitura (Gene ON).</li>
+                <li><strong>Desacetilação:</strong> Compacta a estrutura, escondendo o gene (Gene OFF).</li>
+            </ul>
+
+            <h3>3.3 RNA Não-Codificante (microRNA)</h3>
+            <p>Pequenas moléculas de RNA que não produzem proteínas, mas que se ligam ao RNA mensageiro e impedem que ele seja traduzido, silenciando efetivamente o gene pós-transcrição.</p>
+
+            <h2 id="nutriepigenetica">4. Nutri-epigenética: Comida como Informação</h2>
+            <p>A dieta é o sinal ambiental mais potente e constante que enviamos aos nossos genes. Nutrientes específicos fornecem os substratos necessários para as reações epigenéticas.</p>
+            
+            <table class="scientific-table">
+                <thead>
+                    <tr>
+                        <th>Nutriente</th>
+                        <th>Fonte Alimentar</th>
+                        <th>Ação Epigenética</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Folato (B9)</strong></td>
+                        <td>Vegetais verde-escuros, feijões</td>
+                        <td>Principal doador de grupos metil para a metilação do DNA.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vitamina B12</strong></td>
+                        <td>Carnes, ovos, peixes</td>
+                        <td>Cofator essencial no ciclo da metionina/metilação.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Polifenóis (EGCG)</strong></td>
+                        <td>Chá verde</td>
+                        <td>Inibe a DNA metiltransferase (DNMT), reativando genes supressores de tumor silenciados.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sulforafano</strong></td>
+                        <td>Brócolis, couve</td>
+                        <td>Inibe a histona desacetilase (HDAC), promovendo a expressão de genes antioxidantes.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Resveratrol</strong></td>
+                        <td>Uvas, vinho tinto</td>
+                        <td>Ativa as Sirtuínas (genes da longevidade) via modificação de histonas.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="estresse">5. O Impacto do Estresse e Trauma</h2>
+            <p>O estresse psicológico não é apenas uma sensação; é um sinal biológico. O cortisol elevado crônico altera o padrão de metilação de genes que regulam a resposta inflamatória e o próprio eixo HPA.</p>
+            <p>Estudos mostram que o estresse precoce na infância (negligência, abuso) pode causar desmetilação do gene <em>FKBP5</em>, resultando em um sistema de resposta ao estresse permanentemente hiperativo na vida adulta, aumentando o risco de depressão, ansiedade e suicídio.</p>
+
+            <h2 id="heranca">6. Herança Transgeracional: Os Fantasmas dos Avós</h2>
+            <p>A epigenética desafiou a ideia de que a evolução leva milhares de anos. Marcas epigenéticas podem ser passadas de pais para filhos. O estudo clássico "Dutch Hunger Winter" mostrou que filhos de mulheres que passaram fome durante a gravidez na Segunda Guerra Mundial nasceram com um perfil epigenético alterado (no gene <em>IGF2</em>), tornando-os mais propensos a obesidade, diabetes e esquizofrenia décadas depois.</p>
+            <div class="scientific-quote">
+                "Você não é apenas o que você come, mas também o que sua avó comeu. As experiências ambientais de uma geração podem deixar cicatrizes moleculares nos gametas que afetarão a saúde das gerações futuras."
+            </div>
+
+            <h2 id="reversibilidade">7. O Relógio Biológico é Reversível?</h2>
+            <p>A grande promessa da epigenética é a <strong>reversibilidade</strong>. Diferente de uma mutação no DNA, que é permanente, as marcas epigenéticas são dinâmicas. Estudos recentes usando "Relógios Epigenéticos" (como o Relógio de Horvath) demonstraram que intervenções intensivas no estilo de vida (dieta, exercício, sono, meditação) podem reverter a idade biológica, tornando o organismo molecularmente mais jovem do que sua idade cronológica.</p>
+
+            <h2 id="clinica">8. Aplicações Clínicas e Futuro</h2>
+            <p>A medicina está migrando para a "Terapia Epigenética". Já existem medicamentos (como a Azacitidina) usados em leucemias que atuam inibindo a metilação excessiva do DNA. No futuro, testes epigenéticos poderão prever riscos de doenças com muito mais precisão do que testes genéticos convencionais, permitindo intervenções preventivas hiper-personalizadas.</p>
+
+            <h2 id="conclusao">9. Conclusão</h2>
+            <p>A epigenética nos devolve a responsabilidade pela nossa saúde. Ela transforma a biologia de um destino fatalista em um campo de possibilidades. Cada refeição, cada noite de sono e cada momento de calma é uma mensagem química enviada diretamente ao nosso genoma, instruindo-o a construir saúde ou doença. Genes não são destino; são oportunidades.</p>
+
+            <!-- Referências -->
+            <div class="references-section" id="referencias">
+                <h3>Referências Bibliográficas Selecionadas</h3>
+                <div class="ref-item">[1] Feinberg, A. P. (2018). The Key Role of Epigenetics in Human Disease Prevention and Mitigation. <em>The New England Journal of Medicine</em>, 378(14), 1323-1334.</div>
+                <div class="ref-item">[2] Heijmans, B. T., et al. (2008). Persistent epigenetic differences associated with prenatal exposure to famine in humans. <em>PNAS</em>, 105(44), 17046-17049.</div>
+                <div class="ref-item">[3] Choi, S. W., & Friso, S. (2010). Epigenetics: A New Bridge between Nutrition and Health. <em>Advances in Nutrition</em>, 1(1), 8-16.</div>
+                <div class="ref-item">[4] Szyf, M. (2009). The early life environment and the epigenome. <em>Biochimica et Biophysica Acta</em>, 1790(9), 878-885.</div>
+                <div class="ref-item">[5] Fahy, G. M., et al. (2019). Reversal of epigenetic aging and immunosenescent trends in humans. <em>Aging Cell</em>, 18(6), e13028.</div>
+                <div class="ref-item">[6] Meaney, M. J., & Szyf, M. (2005). Environmental programming of stress responses through DNA methylation: life at the interface between a dynamic environment and a fixed genome. <em>Dialogues in Clinical Neuroscience</em>, 7(2), 103-123.</div>
+            </div>
+
+        </article>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Coluna 1: Marca -->
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+
+                <!-- Coluna 2: Explorar -->
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="../calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="../artigos.html">Artigos Científicos</a></li>
+                        <li><a href="../quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Legal & Compliance -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="../isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="../contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Fontes e Social -->
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra Inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        // Init Icons
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

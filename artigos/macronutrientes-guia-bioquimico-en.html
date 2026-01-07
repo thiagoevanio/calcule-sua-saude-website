@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- --- TECHNICAL SEO & ADVANCED META TAGS --- -->
+    
+    <!-- Optimized Title -->
+    <title>Macronutrients: The Biochemical Guide to Cellular Metabolism | Calculate Your Health</title>
+    
+    <!-- Description -->
+    <meta name="description" content="Complete treatise on macronutrient biochemistry. Deep analysis of glycolysis, beta-oxidation, protein synthesis (mTOR), and cellular metabolic integration.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="cellular metabolism, nutritional biochemistry, glycolysis, krebs cycle, beta-oxidation, protein synthesis, mTOR, insulin, glucagon, bioenergetics">
+    
+    <!-- Robot Control & Canonical -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://calculesuasaude.com.br/artigos/macronutrientes-guia-bioquimico-en.html">
+    <meta name="author" content="Calculate Your Health - Editorial Board">
+    <meta name="theme-color" content="#0A4D68">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos/macronutrientes-guia-bioquimico-en.html">
+    <meta property="og:title" content="Macronutrients: The Definitive Biochemical Guide">
+    <meta property="og:description" content="An immersion in cellular bioenergetics: from substrates to ATP.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2024-06-15T08:00:00+00:00">
+    <meta property="article:section" content="Nutritional Biochemistry">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Macronutrients: Advanced Metabolic Analysis">
+    <meta name="twitter:description" content="Understand the catabolic and anabolic pathways that sustain life.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200">
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+
+    <!-- SCHEMA.ORG (MedicalScholarlyArticle) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalScholarlyArticle",
+      "headline": "Macronutrients: The Biochemical Guide to Cellular Metabolism",
+      "image": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200",
+      "author": {
+        "@type": "Organization",
+        "name": "Calculate Your Health Editorial Board"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calculate Your Health",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/img/logo.png"
+        }
+      },
+      "datePublished": "2024-06-15",
+      "dateModified": "2024-06-18",
+      "description": "Scientific article detailing carbohydrate, protein, and lipid metabolism, focused on signaling pathways and ATP production.",
+      "about": [
+        { "@type": "Thing", "name": "Nutritional Biochemistry" },
+        { "@type": "Thing", "name": "Cellular Metabolism" },
+        { "@type": "Thing", "name": "Macronutrients" }
+      ]
+    }
+    </script>
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- GLOBAL VARIABLES --- */
+        :root {
+            --primary: #0A4D68;       /* Deep Ocean Blue */
+            --primary-dark: #06384d;
+            --accent: #047857;        /* Emerald */
+            --secondary: #D97706;     /* Warm Amber */
+            
+            --bg-body: #FAFAF9;       /* Stone 50 */
+            --bg-card: #FFFFFF;
+            
+            --bg-calc-item: #FFFFFF;
+            --bg-calc-item-hover: #FAFAF9;
+            --border-calc: #E7E5E4;
+            
+            --text-main: #1C1917;     /* Stone 900 */
+            --text-muted: #57534E;    /* Stone 600 */
+            
+            --border-subtle: #E7E5E4; /* Stone 200 */
+            
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --bg-calc-item: #292524; 
+            --bg-calc-item-hover: #44403C; 
+            --border-calc: #44403C;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8; 
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-theme-switch i, .animate-theme-switch svg { animation: rotate-scale 0.5s ease-in-out; }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER & NAV --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .main-header {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            max-width: 100%;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: #fff; }
+
+        .btn-outline-white {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover {
+            background-color: #fff;
+            color: var(--primary);
+            border-color: #fff;
+        }
+
+        /* --- ARTICLE HERO --- */
+        .article-hero {
+            height: 60vh;
+            min-height: 500px;
+            /* User specified image */
+            background-image: linear-gradient(to right, rgba(10, 77, 104, 0.95) 0%, rgba(10, 77, 104, 0.8) 50%, rgba(0,0,0,0.4) 100%), url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            color: #fff;
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            padding-left: 20px;
+        }
+
+        .article-tag {
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .article-hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            font-family: 'Source Sans 3', sans-serif;
+            margin-top: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- ARTICLE LAYOUT --- */
+        .article-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+            display: block;
+        }
+
+        /* Main Content */
+        .article-body {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            line-height: 1.85;
+        }
+
+        .article-body p {
+            margin-bottom: 1.8em;
+            text-align: justify;
+        }
+
+        .article-body h2 {
+            font-size: 2.2rem;
+            margin-top: 2.5em;
+            margin-bottom: 0.8em;
+            color: var(--primary);
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            border-left: none;
+            padding-left: 0;
+            padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .article-body h3 {
+            font-size: 1.6rem;
+            margin-top: 2.2em;
+            margin-bottom: 0.8em;
+            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .article-body ul, .article-body ol {
+            margin-bottom: 2em;
+            padding-left: 20px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .article-body li {
+            margin-bottom: 0.8em;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .article-body ul li::marker {
+            color: var(--accent);
+        }
+
+        .article-body strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Highlights & Boxes */
+        .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        
+        .clinical-pearl h4 {
+            color: var(--accent);
+            font-family: 'Source Sans 3', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        [data-theme="dark"] .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.15);
+        }
+        
+        /* Quote / Blockquote */
+        .scientific-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            border-left: none;
+            text-align: center;
+            margin: 50px 0;
+            padding: 0 40px;
+            position: relative;
+        }
+        .scientific-quote::before {
+            content: '“';
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            display: block;
+            line-height: 0.5;
+            margin-bottom: 20px;
+        }
+
+        /* Scientific Tables */
+        .scientific-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 50px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .scientific-table th {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 18px;
+            text-align: left;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .scientific-table td {
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 18px;
+            vertical-align: top;
+        }
+        .scientific-table tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+        [data-theme="dark"] .scientific-table tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        /* References */
+        .references-section {
+            margin-top: 100px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background-color: transparent;
+        }
+        .references-section h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: none;
+            width: auto;
+            display: block;
+        }
+        .ref-item {
+            margin-bottom: 15px;
+            word-break: break-word;
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+
+        /* Integrated TOC */
+        .toc-integrated {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-subtle);
+            border-top: 4px solid var(--secondary);
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 4px;
+        }
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-weight: 700;
+            text-align: center;
+        }
+        .toc-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            padding: 0;
+        }
+        .toc-list li {
+            list-style: none;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .toc-list a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted transparent;
+            transition: all 0.2s;
+        }
+        .toc-list a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+            margin-top: 100px;
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .footer h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { color: #A8A29E; transition: 0.2s; display: inline-block; }
+        .footer ul li a:hover { color: #fff; transform: translateX(5px); }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .article-hero h1 { font-size: 2.2rem; }
+            .article-container { padding: 0 20px; }
+            .toc-list { grid-template-columns: 1fr; }
+            .main-header .container { padding-left: 20px; }
+            .scientific-quote { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Dark Mode</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Light Mode</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <!-- Language Switcher Logic -->
+                <select onchange="if(this.value) window.location.href=this.value">
+                    <option value="macronutrientes-guia-bioquimico.html">Português</option> <!-- Links back to original -->
+                    <option value="" selected>English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calculate Your Health
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../artigos.html" class="nav-link active">Articles</a></li>
+                <li><a href="../calculadoras.html" class="nav-link">Calculators</a></li>
+                <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="../contato.html" class="btn-outline-white">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ARTICLE HERO -->
+    <header class="article-hero">
+        <div class="container">
+            <div class="article-hero-content animate-fade-in">
+                <span class="article-tag">Nutritional Biochemistry</span>
+                <h1>Macronutrients:<br>The Biochemical Guide</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <i data-lucide="calendar" size="16"></i>
+                        <span>Updated: June 15, 2024</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="clock" size="16"></i>
+                        <span>In-Depth Read: 30 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ARTICLE CONTENT -->
+    <div class="article-container">
+        
+        <!-- Main Body -->
+        <article class="article-body">
+            
+            <!-- INTEGRATED TOC -->
+            <div class="toc-integrated">
+                <h4 class="toc-title">Table of Contents</h4>
+                <ul class="toc-list">
+                    <li><a href="#introduction">1. Bioenergetics and Thermodynamics</a></li>
+                    <li><a href="#carbohydrates">2. Carbohydrate Metabolism</a></li>
+                    <li><a href="#glycolysis">3. Glycolysis and Krebs Cycle</a></li>
+                    <li><a href="#lipids">4. Lipid Metabolism</a></li>
+                    <li><a href="#beta-oxidation">5. Beta-Oxidation and Ketogenesis</a></li>
+                    <li><a href="#proteins">6. Protein Metabolism</a></li>
+                    <li><a href="#signaling">7. Signaling: Insulin vs Glucagon</a></li>
+                    <li><a href="#conclusion">8. Conclusion and Integration</a></li>
+                    <li><a href="#references">Selected References</a></li>
+                </ul>
+            </div>
+
+            <div class="clinical-pearl">
+                <h4><i data-lucide="lightbulb"></i> Fundamental Principle</h4>
+                <p style="margin-bottom:0">Macronutrients are not just "calories". Biochemically, they act simultaneously as oxidizable substrates for ATP synthesis (catabolism) and as potent signaling molecules that regulate gene expression and cellular function (anabolism and adaptation), orchestrated by a complex hormonal system.</p>
+            </div>
+
+            <h2 id="introduction">1. Bioenergetics and Cellular Thermodynamics</h2>
+            <p>The human body operates under the strict laws of thermodynamics. Bioenergetics, the study of energy transformations in living systems, dictates that the chemical energy contained in the carbon-hydrogen bonds of macronutrients must be transduced into adenosine triphosphate (ATP), the cell's universal energy currency.</p>
+            <p>This process is not 100% efficient. According to the Second Law of Thermodynamics, a significant portion of the Gibbs free energy (ΔG) released during the oxidation of glucose, fatty acids, and amino acids is dissipated as heat. This inefficiency, however, is vital for maintaining body temperature (thermogenesis) and for driving metabolic reactions that would otherwise be thermodynamically unfavorable.</p>
+
+            <h2 id="carbohydrates">2. Carbohydrates: The Primary Source of Energy</h2>
+            <p>Carbohydrates represent the preferred energy source for the central nervous system and erythrocytes. After the digestion of polysaccharides (starch) and disaccharides (sucrose, lactose) into monosaccharides, glucose becomes the central protagonist of intermediary metabolism.</p>
+
+            <h3>2.1 Membrane Transport and Homeostasis</h3>
+            <p>Being polar molecules, monosaccharides do not freely cross the lipid bilayer. They depend on specific transporters of the GLUT family (Glucose Transporters), whose tissue distribution determines glucose uptake kinetics in different physiological states.</p>
+
+            <table class="scientific-table">
+                <thead>
+                    <tr>
+                        <th>Transporter</th>
+                        <th>Main Tissue</th>
+                        <th>Biochemical Characteristics (Km)</th>
+                        <th>Physiological Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>GLUT-1</strong></td>
+                        <td>Erythrocytes, Blood-Brain Barrier</td>
+                        <td>Low Km (~1 mM) - High affinity</td>
+                        <td>Constant basal glucose uptake, independent of insulin.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GLUT-2</strong></td>
+                        <td>Liver, Pancreatic Beta Cells</td>
+                        <td>High Km (~15-20 mM) - Low affinity</td>
+                        <td>Glucose sensor. Allows influx proportional to glycemia.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GLUT-4</strong></td>
+                        <td>Skeletal Muscle, Adipocytes</td>
+                        <td>Intermediate Km (~5 mM)</td>
+                        <td><strong>Insulin Dependent</strong>. Translocated to the membrane in the fed state.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="glycolysis">3. Glycolysis and Cellular Respiration</h2>
+            <p>Once in the cytoplasm, glucose undergoes irreversible phosphorylation by the enzyme Hexokinase (or Glucokinase in the liver), becoming Glucose-6-Phosphate. This step "traps" glucose in the cell and maintains the favorable concentration gradient.</p>
+
+            <h3>3.1 The Glycolytic Pathway</h3>
+            <p>Glycolysis converts one glucose molecule (6 carbons) into two pyruvate molecules (3 carbons), generating a net yield of 2 ATP and 2 NADH. The critical allosteric control point of this pathway is the enzyme <strong>Phosphofructokinase-1 (PFK-1)</strong>, which is inhibited by high levels of ATP and Citrate (signaling energy abundance) and stimulated by AMP and Fructose-2,6-bisphosphate.</p>
+
+            <div class="scientific-quote">
+                "The Krebs Cycle acts as the final metabolic 'hub', where catabolic pathways of carbohydrates, proteins, and lipids converge to reduce coenzymes NAD+ and FAD, fueling the electron transport chain."
+            </div>
+
+            <p>Under aerobic conditions, pyruvate is transported to the mitochondrion, converted to Acetyl-CoA by the enzyme Pyruvate Dehydrogenase (PDH), and enters the Citric Acid Cycle (Krebs). Complete oxidation of glucose yields approximately 30-32 ATPs per molecule, an efficiency far superior to anaerobic fermentation (which generates lactate).</p>
+
+            <h2 id="lipids">4. Lipid Metabolism: Energy Density</h2>
+            <p>Lipids, stored as triglycerides (TAG) in white adipose tissue, represent the human body's largest energy reserve. With a caloric density of 9 kcal/g, they are anhydrous and highly reduced, perfect for long-term storage.</p>
+
+            <h3>4.1 Lipolysis and Mobilization</h3>
+            <p>In the fasting state, low insulin levels and high catecholamine (adrenaline) levels activate Hormone-Sensitive Lipase (HSL) and ATGL in adipocytes. This hydrolyzes triglycerides, releasing Free Fatty Acids (FFA) and glycerol into the bloodstream. Glycerol travels to the liver for gluconeogenesis, while FFAs are transported by albumin to peripheral tissues (except the brain, which does not oxidize fatty acids directly due to the blood-brain barrier).</p>
+
+            <h2 id="beta-oxidation">5. Mitochondrial Beta-Oxidation</h2>
+            <p>To be oxidized, long-chain fatty acids must enter the mitochondrial matrix. This process is mediated by the "Carnitine Shuttle", whose limiting step is the enzyme <strong>CPT-1 (Carnitine Palmitoyltransferase I)</strong>. Interestingly, CPT-1 is inhibited by Malonyl-CoA, an intermediate of fat synthesis, ensuring that synthesis and degradation do not occur simultaneously (Futile Cycle).</p>
+            <p>Beta-oxidation sequentially removes two-carbon units in the form of Acetyl-CoA, also generating NADH and FADH2. A single Palmitate molecule (16 carbons) generates 106 net ATPs, demonstrating the energy potency of lipids.</p>
+
+            <h3>5.1 Ketone Bodies</h3>
+            <p>When the rate of hepatic beta-oxidation exceeds the capacity of the Krebs Cycle (often due to depletion of oxaloacetate diverted to gluconeogenesis), Acetyl-CoA is diverted to Ketogenesis. Acetoacetate and Beta-hydroxybutyrate are formed and exported as water-soluble alternative fuels, crucial for neuronal survival during prolonged fasting.</p>
+
+            <h2 id="proteins">6. Protein Metabolism and Nitrogen Turnover</h2>
+            <p>Unlike carbohydrates and fats, there is no inactive "depot" of proteins. All body proteins have structural, enzymatic, or signaling functions. The use of amino acids for energy is, therefore, a process of functional "sacrifice", occurring predominantly in states of intense catabolism or starvation.</p>
+
+            <h3>6.1 Transamination and Deamination</h3>
+            <p>The first step in amino acid catabolism is the removal of the alpha-amino group, catalyzed by aminotransferases (such as AST and ALT), using pyridoxal phosphate (Vitamin B6) as a cofactor. The resulting carbon skeleton (alpha-ketoacid) can be oxidized in the Krebs Cycle or converted into glucose (gluconeogenic amino acids) or ketone bodies (ketogenic).</p>
+            <p>The removed nitrogen, toxic in the form of ammonia (NH3), must be neutralized in the Liver through the <strong>Urea Cycle</strong> and excreted by the kidneys. Nitrogen balance is the gold standard clinical marker for assessing the patient's anabolic/catabolic status.</p>
+
+            <div class="clinical-pearl">
+                <h4><i data-lucide="activity"></i> Regulation via mTOR</h4>
+                <p style="margin-bottom:0">Protein synthesis is centrally regulated by the <strong>mTORC1</strong> (Mammalian Target of Rapamycin) complex. mTOR acts as a nutrient sensor, being activated by the presence of amino acids (especially Leucine), insulin, and growth factors (IGF-1), and inhibited by AMPK in low-energy states.</p>
+            </div>
+
+            <h2 id="signaling">7. Metabolic Integration and Hormonal Regulation</h2>
+            <p>Metabolism does not occur in isolated compartments; there is constant "cross-talk" between tissues, mediated by the Insulin/Glucagon ratio.</p>
+
+            <ul>
+                <li><strong>Fed State (High Insulin):</strong> Insulin promotes dephosphorylation of key enzymes. It stimulates glycolysis, glycogen synthesis, protein synthesis, and de novo lipogenesis. Inhibits lipolysis and gluconeogenesis.</li>
+                <li><strong>Fasting State (High Glucagon/Cortisol):</strong> Promotes enzymatic phosphorylation. Activates hepatic glycogenolysis, gluconeogenesis, lipolysis, and muscle proteolysis to provide substrates to the liver.</li>
+                <li><strong>Randle Cycle (Glucose-Fatty Acid Cycle):</strong> Describes the competition between glucose and fatty acids. Increased fatty acid oxidation (fasting) inhibits glucose uptake and oxidation in muscle, sparing glucose for the brain (glucose-sparing mechanism).</li>
+            </ul>
+
+            <h2 id="conclusion">8. Conclusion</h2>
+            <p>Understanding macronutrient biochemistry transcends simple calorie counting. It involves appreciating the complex signaling pathways that dictate whether the body will build tissue or degrade reserves. Mastering these concepts allows healthcare professionals to intervene precisely in metabolic pathologies, such as Type 2 Diabetes, Metabolic Syndrome, and sarcopenia, manipulating the quality and timing of nutrient intake to modulate hormonal response and gene expression.</p>
+
+            <!-- References -->
+            <div class="references-section" id="references">
+                <h3>Selected References</h3>
+                <div class="ref-item">[1] Rodwell, V. W., et al. (2018). <em>Harper's Illustrated Biochemistry</em> (31st ed.). McGraw-Hill Education.</div>
+                <div class="ref-item">[2] Nelson, D. L., & Cox, M. M. (2017). <em>Lehninger Principles of Biochemistry</em> (7th ed.). W. H. Freeman.</div>
+                <div class="ref-item">[3] World Health Organization. (2020). <em>Protein and Amino Acid Requirements in Human Nutrition</em>. WHO Technical Report Series.</div>
+                <div class="ref-item">[4] CDC. (2022). <em>Nutrition: Carbohydrates, Proteins, and Fats</em>. Centers for Disease Control and Prevention.</div>
+                <div class="ref-item">[5] Newsholme, E. A., & Leech, A. R. (2010). <em>Functional Biochemistry in Health and Disease</em>. Wiley-Blackwell.</div>
+                <div class="ref-item">[6] Wu, G. (2016). Dietary protein intake and human health. <em>Food & Function</em>, 7(3), 1251-1265. PubMed.</div>
+                <div class="ref-item">[7] Boden, G. (2008). Fatty acid-induced insulin resistance. <em>Diabetes Care</em>. PubMed.</div>
+            </div>
+
+        </article>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div>
+                    <h4>Calculate Your Health</h4>
+                    <p style="margin-bottom: 20px;">Reference in evidence-based health. Committed to transparency, scientific education, and well-being.</p>
+                </div>
+
+                <!-- Column 2: Explore -->
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="../calculadoras.html">Medical Calculators</a></li>
+                        <li><a href="../artigos.html">Scientific Articles</a></li>
+                        <li><a href="../quizzes.html">Educational Quizzes</a></li>
+                        <li><a href="#">Editorial Methodology</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal & Compliance -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso.html">Terms of Use</a></li>
+                        <li><a href="../politica-de-privacidade.html">Privacy Policy</a></li>
+                        <li><a href="../isencao-de-responsabilidade.html">Disclaimer</a></li>
+                        <li><a href="../contato.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Sources and Social -->
+                <div>
+                    <h4>Trusted Sources</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/en" target="_blank" style="text-decoration: underline; color: var(--accent);">WHO</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calculate Your Health. All rights reserved.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    The information contained on this site is for educational purposes only and does not substitute professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        // Init Icons
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

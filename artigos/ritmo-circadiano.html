@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- --- SEO TÉCNICO & META TAGS AVANÇADAS --- -->
+    
+    <!-- Título Otimizado -->
+    <title>Ritmo Circadiano e Saúde: Cronobiologia, Metabolismo e Sono | Calcule Sua Saúde</title>
+    
+    <!-- Descrição -->
+    <meta name="description" content="Tratado científico sobre Cronobiologia. Entenda como o Núcleo Supraquiasmático (NSQ), a luz azul e a melatonina regulam o metabolismo, imunidade e saúde mental.">
+    
+    <!-- Palavras-chave -->
+    <meta name="keywords" content="ritmo circadiano, cronobiologia, núcleo supraquiasmático, melatonina, cortisol, crononutrição, sono, ciclo vigília-sono, genes clock, jetlag social">
+    
+    <!-- Controle de Robôs & Canonical -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://calculesuasaude.com.br/artigos/ritmo-circadiano.html">
+    <meta name="author" content="Calcule Sua Saúde - Corpo Editorial">
+    <meta name="theme-color" content="#0A4D68">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://calculesuasaude.com.br/artigos/ritmo-circadiano.html">
+    <meta property="og:title" content="Ritmo Circadiano: A Biologia do Tempo">
+    <meta property="og:description" content="Como a sincronização interna define sua saúde metabólica e imunológica.">
+    <meta property="og:image" content="../img/cabeçario.webp">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="article:published_time" content="2024-07-15T08:00:00+00:00">
+    <meta property="article:section" content="Cronobiologia & Medicina do Sono">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A Ciência dos Ciclos Biológicos">
+    <meta name="twitter:description" content="Luz, hormônios e a maquinaria molecular do relógio biológico.">
+    <meta name="twitter:image" content="../img/cabeçario.webp">
+
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+      <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+
+    <!-- SCHEMA.ORG (MedicalScholarlyArticle) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalScholarlyArticle",
+      "headline": "Ritmo Circadiano e Saúde: Impactos Metabólicos e Imunológicos",
+      "image": "../img/cabeçario.webp",
+      "author": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde Editorial Board"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://calculesuasaude.com.br/img/logo.png"
+        }
+      },
+      "datePublished": "2024-07-15",
+      "dateModified": "2024-07-18",
+      "description": "Análise aprofundada dos mecanismos moleculares do relógio biológico, impacto da luz artificial e estratégias de cronoterapia.",
+      "about": [
+        { "@type": "Thing", "name": "Chronobiology" },
+        { "@type": "Thing", "name": "Circadian Rhythm" },
+        { "@type": "Thing", "name": "Sleep Medicine" }
+      ]
+    }
+    </script>
+    
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- VARIÁVEIS GLOBAIS --- */
+        :root {
+            --primary: #0A4D68;       /* Deep Ocean Blue */
+            --primary-dark: #06384d;
+            --accent: #047857;        /* Emerald */
+            --secondary: #D97706;     /* Warm Amber */
+            
+            --bg-body: #FAFAF9;       /* Stone 50 */
+            --bg-card: #FFFFFF;
+            
+            --bg-calc-item: #FFFFFF;
+            --bg-calc-item-hover: #FAFAF9;
+            --border-calc: #E7E5E4;
+            
+            --text-main: #1C1917;     /* Stone 900 */
+            --text-muted: #57534E;    /* Stone 600 */
+            
+            --border-subtle: #E7E5E4; /* Stone 200 */
+            
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --bg-calc-item: #292524; 
+            --bg-calc-item-hover: #44403C; 
+            --border-calc: #44403C;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8; 
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-theme-switch i, .animate-theme-switch svg { animation: rotate-scale 0.5s ease-in-out; }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER & NAV --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .main-header {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            max-width: 100%;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: #fff; }
+
+        .btn-outline-white {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover {
+            background-color: #fff;
+            color: var(--primary);
+            border-color: #fff;
+        }
+
+        /* --- ARTICLE HERO --- */
+        .article-hero {
+            height: 60vh;
+            min-height: 500px;
+            /* Imagem especificada pelo usuário */
+            background-image: linear-gradient(to right, rgba(10, 77, 104, 0.95) 0%, rgba(10, 77, 104, 0.8) 50%, rgba(0,0,0,0.4) 100%), url('../img/cabeçario.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            color: #fff;
+        }
+
+        .article-hero-content {
+            max-width: 800px;
+            padding-left: 20px;
+        }
+
+        .article-tag {
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .article-hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            font-family: 'Source Sans 3', sans-serif;
+            margin-top: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- ARTICLE LAYOUT --- */
+        .article-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+            display: block;
+        }
+
+        /* Conteúdo Principal */
+        .article-body {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            line-height: 1.85;
+        }
+
+        .article-body p {
+            margin-bottom: 1.8em;
+            text-align: justify;
+        }
+
+        .article-body h2 {
+            font-size: 2.2rem;
+            margin-top: 2.5em;
+            margin-bottom: 0.8em;
+            color: var(--primary);
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            border-left: none;
+            padding-left: 0;
+            padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .article-body h3 {
+            font-size: 1.6rem;
+            margin-top: 2.2em;
+            margin-bottom: 0.8em;
+            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .article-body ul, .article-body ol {
+            margin-bottom: 2em;
+            padding-left: 20px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .article-body li {
+            margin-bottom: 0.8em;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .article-body ul li::marker {
+            color: var(--accent);
+        }
+
+        .article-body strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Destaques e Caixas */
+        .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        
+        .clinical-pearl h4 {
+            color: var(--accent);
+            font-family: 'Source Sans 3', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        [data-theme="dark"] .clinical-pearl {
+            background-color: rgba(4, 120, 87, 0.15);
+        }
+        
+        /* Citação / Blockquote */
+        .scientific-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            border-left: none;
+            text-align: center;
+            margin: 50px 0;
+            padding: 0 40px;
+            position: relative;
+        }
+        .scientific-quote::before {
+            content: '“';
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            display: block;
+            line-height: 0.5;
+            margin-bottom: 20px;
+        }
+
+        /* Tabelas Científicas */
+        .scientific-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 50px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .scientific-table th {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 18px;
+            text-align: left;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .scientific-table td {
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 18px;
+            vertical-align: top;
+        }
+        .scientific-table tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+        [data-theme="dark"] .scientific-table tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        /* Referências */
+        .references-section {
+            margin-top: 100px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            background-color: transparent;
+        }
+        .references-section h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: none;
+            width: auto;
+            display: block;
+        }
+        .ref-item {
+            margin-bottom: 15px;
+            word-break: break-word;
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+
+        /* TOC Integrado */
+        .toc-integrated {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-subtle);
+            border-top: 4px solid var(--secondary);
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 4px;
+        }
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-weight: 700;
+            text-align: center;
+        }
+        .toc-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            padding: 0;
+        }
+        .toc-list li {
+            list-style: none;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .toc-list a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted transparent;
+            transition: all 0.2s;
+        }
+        .toc-list a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+            margin-top: 100px;
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .footer h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { color: #A8A29E; transition: 0.2s; display: inline-block; }
+        .footer ul li a:hover { color: #fff; transform: translateX(5px); }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .nav-menu { display: none; }
+            .article-hero h1 { font-size: 2.2rem; }
+            .article-container { padding: 0 20px; }
+            .toc-list { grid-template-columns: 1fr; }
+            .main-header .container { padding-left: 20px; }
+            .scientific-quote { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Botão de Tema -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Modo Escuro</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Modo Claro</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <!-- Seletor atualizado para trocar para inglês -->
+                <select onchange="if(this.value) window.location.href=this.value">
+                    <option value="ritmo-circadiano.html" selected>Português</option>
+                    <option value="ritmo-circadiano-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i data-lucide="sun-moon" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Início</a></li>
+                <li><a href="../artigos.html" class="nav-link active">Artigos</a></li>
+                <li><a href="../calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ARTICLE HERO -->
+    <header class="article-hero">
+        <div class="container">
+            <div class="article-hero-content animate-fade-in">
+                <span class="article-tag">Cronobiologia & Medicina do Sono</span>
+                <h1>Ritmo Circadiano:<br>A Biologia do Tempo</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <i data-lucide="calendar" size="16"></i>
+                        <span>Atualizado: 15 de Julho, 2024</span>
+                    </div>
+                    <div class="meta-item">
+                        <i data-lucide="clock" size="16"></i>
+                        <span>Leitura Aprofundada: 40 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ARTICLE CONTENT -->
+    <div class="article-container">
+        
+        <!-- Main Body -->
+        <article class="article-body">
+            
+            <!-- TOC INTEGRADO -->
+            <div class="toc-integrated">
+                <h4 class="toc-title">Índice do Tratado</h4>
+                <ul class="toc-list">
+                    <li><a href="#introducao">1. A Evolução em um Planeta que Gira</a></li>
+                    <li><a href="#nsq">2. O Maestro: Núcleo Supraquiasmático</a></li>
+                    <li><a href="#molecular">3. Biologia Molecular (Clock/Bmal1)</a></li>
+                    <li><a href="#luz">4. Luz Azul, Melanopsina e ipRGCs</a></li>
+                    <li><a href="#hormonios">5. A Dança Hormonal: Cortisol vs Melatonina</a></li>
+                    <li><a href="#metabolismo">6. Crononutrição e Metabolismo</a></li>
+                    <li><a href="#imunidade">7. O Relógio Imunológico</a></li>
+                    <li><a href="#cronorruptura">8. Cronorruptura e Patologias</a></li>
+                    <li><a href="#intervencao">9. Cronoterapia e Higiene Circadiana</a></li>
+                    <li><a href="#conclusao">10. Conclusão</a></li>
+                    <li><a href="#referencias">Referências Bibliográficas</a></li>
+                </ul>
+            </div>
+
+            <div class="clinical-pearl">
+                <h4><i data-lucide="lightbulb"></i> Zeitgebers</h4>
+                <p style="margin-bottom:0">Do alemão "Doador de Tempo", Zeitgebers são pistas ambientais externas que sincronizam nossos relógios biológicos internos com o dia solar de 24 horas. A <strong>Luz</strong> é o zeitgeber primário, mas a ingestão de alimentos, a temperatura e a interação social também são potentes reguladores dos relógios periféricos (fígado, intestino, músculo).</p>
+            </div>
+
+            <h2 id="introducao">1. Introdução: A Vida em Rotação</h2>
+            <p>Por 4,5 bilhões de anos, a vida na Terra evoluiu sob a influência constante e previsível da rotação do planeta: o ciclo claro-escuro. Para sobreviver, organismos—de cianobactérias a humanos—desenvolveram mecanismos internos de antecipação, chamados de <strong>Ritmos Circadianos</strong> (do latim <em>circa diem</em>, "cerca de um dia").</p>
+            <p>Ao contrário da crença popular, o sono não é apenas um "desligamento" passivo, e a vigília não é constante. Nossa biologia oscila ritmicamente: temperatura corporal, pressão arterial, secreção hormonal, função renal e cognitivo flutuam em padrões de 24 horas. A medicina moderna reconhece agora que a dessincronização desses ritmos (Cronorruptura) é um fator etiológico central na obesidade, diabetes, câncer e transtornos psiquiátricos.</p>
+
+            <h2 id="nsq">2. O Maestro Central: Núcleo Supraquiasmático (NSQ)</h2>
+            <p>Localizado no hipotálamo anterior, logo acima do quiasma óptico (onde os nervos ópticos se cruzam), reside o "Relógio Mestre" dos mamíferos: o Núcleo Supraquiasmático (NSQ). Composto por aproximadamente 20.000 neurônios, o NSQ gera um ritmo elétrico autônomo, mesmo em total escuridão (ciclo <em>free-running</em> de ~24,2 horas em humanos).</p>
+            <p>A função primária do NSQ não é apenas gerar tempo, mas <strong>sincronizar</strong> os bilhões de "relógios periféricos" presentes em praticamente todas as células do corpo. Ele atua como um maestro de orquestra, garantindo que o fígado (metabolismo), o coração (hemodinâmica) e o sistema imune toquem a mesma sinfonia temporal.</p>
+
+            <h2 id="molecular">3. A Engrenagem Molecular: Genes Clock</h2>
+            <p>O Prêmio Nobel de Fisiologia de 2017 foi concedido pela descoberta dos mecanismos moleculares que controlam o ritmo circadiano. Em cada célula, existe um ciclo de feedback transcricional-traducional (TTFL) que dura aproximadamente 24 horas:</p>
+            <ul>
+                <li><strong>Fase Diurna (Ativação):</strong> As proteínas CLOCK e BMAL1 formam um complexo no núcleo, ligam-se ao DNA (E-boxes) e ativam a transcrição dos genes <em>Period</em> (PER) e <em>Cryptochrome</em> (CRY).</li>
+                <li><strong>Fase Noturna (Repressão):</strong> As proteínas PER e CRY acumulam-se no citoplasma, formam dímeros e retornam ao núcleo, onde inibem a própria atividade de CLOCK/BMAL1, desligando a transcrição.</li>
+            </ul>
+            <p>Este oscilador genético regula até 40% do genoma humano, ditando quando as enzimas devem ser sintetizadas, quando o DNA deve ser reparado e quando a mitose deve ocorrer.</p>
+
+            <h2 id="luz">4. O Sinal Primário: Luz, Melanopsina e ipRGCs</h2>
+            <p>Como o NSQ sabe que é dia? A descoberta de um terceiro fotorreceptor no olho revolucionou a cronobiologia. Além de cones e bastonetes (visão), a retina possui <strong>Células Ganglionares Retinianas Intrinsecamente Fotossensíveis (ipRGCs)</strong>.</p>
+            <p>Estas células contêm o fotopigmento <strong>Melanopsina</strong>, que é maximamente sensível à luz azul de onda curta (~460-480 nm). As ipRGCs não formam imagens; elas enviam sinais diretamente ao NSQ através do trato retino-hipotalâmico. A exposição à luz azul pela manhã (céu claro) avança o relógio (acorda o cérebro), enquanto a exposição à noite (telas de LED, smartphones) suprime a melatonina e atrasa o relógio, causando insônia e disfunção metabólica.</p>
+
+            <h2 id="hormonios">5. A Dança Hormonal: Cortisol vs Melatonina</h2>
+            <p>Dois hormônios principais traduzem o sinal do NSQ para o resto do corpo, operando em oposição de fase:</p>
+
+            <h3>5.1 Cortisol: O Sinal de Despertar</h3>
+            <p>O pico de cortisol ocorre tipicamente entre 6h e 8h da manhã (Cortisol Awakening Response). Este aumento prepara o corpo para o estresse da vigília: mobiliza glicose, aumenta a pressão arterial e estimula o estado de alerta. Níveis cronicamente elevados à noite indicam desregulação do eixo HPA.</p>
+
+            <h3>5.2 Melatonina: O Hormônio da Escuridão</h3>
+            <p>Secretada pela glândula pineal apenas na ausência de luz azul, a melatonina sinaliza a "noite biológica" para todas as células. Ela não é apenas um indutor de sono; é um potente antioxidante mitocondrial, regulador da pressão arterial noturna e oncostático (anticâncer). A supressão da melatonina por luz artificial à noite ("Poluição Luminosa") é classificada como provável carcinógeno.</p>
+
+            <h2 id="metabolismo">6. Crononutrição: Quando Comer é tão Importante quanto O Que Comer</h2>
+            <p>O metabolismo humano é otimizado para a ingestão de alimentos durante o dia. A sensibilidade à insulina, a termogênese induzida pela dieta e a motilidade gástrica são maximais pela manhã e mínimas à noite.</p>
+            <div class="scientific-quote">
+                "Comer tarde da noite, durante a fase de alta melatonina, resulta em hiperglicemia pós-prandial prolongada e armazenamento lipídico visceral, pois o pâncreas (relógio periférico) está em modo de repouso."
+            </div>
+            <p>Estudos demonstram que trabalhadores por turnos têm taxas significativamente maiores de obesidade e diabetes tipo 2, um fenômeno explicado pelo desalinhamento entre o relógio central (luz/escuro) e os relógios periféricos (alimentação).</p>
+
+            <h2 id="imunidade">7. O Relógio Imunológico</h2>
+            <p>O sistema imune é altamente circadiano. Leucócitos migram dos tecidos para o sangue e vice-versa em padrões específicos.</p>
+            <ul>
+                <li><strong>Dia (Fase de Atividade):</strong> Predominância de células efetoras citotóxicas (NK, CD8+) no sangue, prontas para combater patógenos encontrados durante a atividade. A resposta inflamatória aguda é mais potente.</li>
+                <li><strong>Noite (Fase de Repouso):</strong> Consolidação da memória imunológica, proliferação de células T virgens e produção de citocinas pró-inflamatórias (IL-1, TNF-alpha) que induzem o sono e a febre. É por isso que os sintomas de gripe pioram à noite.</li>
+            </ul>
+
+            <h2 id="cronorruptura">8. Cronorruptura e Patologias Modernas</h2>
+            <p>A sociedade 24/7 criou um estado de "Jetlag Social", onde os horários biológicos e sociais colidem.</p>
+
+            <table class="scientific-table">
+                <thead>
+                    <tr>
+                        <th>Sistema</th>
+                        <th>Impacto da Dessincronização</th>
+                        <th>Risco Clínico Associado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Metabólico</strong></td>
+                        <td>Resistência à insulina noturna, leptina reduzida.</td>
+                        <td>Síndrome Metabólica, Diabetes Tipo 2, Obesidade.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cardiovascular</strong></td>
+                        <td>Ausência do descenso noturno da PA (Non-dipping).</td>
+                        <td>Hipertensão Resistente, AVC, Infarto matinal.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oncológico</strong></td>
+                        <td>Supressão de melatonina e desregulação do ciclo celular.</td>
+                        <td>Câncer de Mama e Próstata (Classificação 2A IARC).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Psiquiátrico</strong></td>
+                        <td>Desregulação de monoaminas e eixo HPA.</td>
+                        <td>Depressão Sazonal, Bipolaridade, Neurodegeneração.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="intervencao">9. Cronoterapia e Higiene Circadiana</h2>
+            <p>Restaurar o ritmo é uma intervenção terapêutica poderosa (Zeitgeber Therapy).</p>
+
+            <h3>9.1 Protocolo de Ancoragem Circadiana</h3>
+            <ul>
+                <li><strong>Luz Matinal:</strong> Exposição direta à luz solar (10.000 lux) por 15-30 minutos ao acordar. Isso ancora o cortisol e inicia a contagem regressiva para a secreção de melatonina 12-14h depois.</li>
+                <li><strong>Bloqueio de Luz Azul:</strong> Uso de óculos "Blue Blockers" ou software (f.lux, Night Shift) 2-3 horas antes de dormir.</li>
+                <li><strong>Janela Alimentar:</strong> Restringir a alimentação às horas de sol (Time-Restricted Feeding), evitando calorias 3h antes de deitar.</li>
+                <li><strong>Termorregulação:</strong> Um banho quente 1-2h antes de dormir induz uma queda compensatória na temperatura corporal central, sinalizando sono ao hipotálamo.</li>
+            </ul>
+
+            <h2 id="conclusao">10. Conclusão</h2>
+            <p>Não somos imunes às forças cósmicas que regem nosso planeta. O ritmo circadiano não é um mecanismo acessório, mas a base temporal sobre a qual toda a fisiologia é construída. Respeitar a escuridão da noite e a luz do dia não é um retorno ao primitivismo, mas um requisito fundamental para a saúde em um mundo moderno cronicamente iluminado e privado de sono.</p>
+
+            <!-- Referências -->
+            <div class="references-section" id="referencias">
+                <h3>Referências Bibliográficas Selecionadas</h3>
+                <div class="ref-item">[1] Panda, S. (2016). Circadian physiology of metabolism. <em>Science</em>, 354(6315), 1008-1015.</div>
+                <div class="ref-item">[2] Czeisler, C. A. (2013). Perspective: Casting light on sleep deficiency. <em>Nature</em>, 497(7450), S13.</div>
+                <div class="ref-item">[3] Foster, R. G., & Kreitzman, L. (2014). The rhythms of life: what your body clock means to you! <em>Experimental Physiology</em>.</div>
+                <div class="ref-item">[4] Scheer, F. A., et al. (2009). Adverse metabolic and cardiovascular consequences of circadian misalignment. <em>PNAS</em>, 106(11), 4453-4458.</div>
+                <div class="ref-item">[5] Takahashi, J. S. (2017). Transcriptional architecture of the mammalian circadian clock. <em>Nature Reviews Genetics</em>, 18(3), 164-179.</div>
+                <div class="ref-item">[6] Roenneberg, T., & Merrow, M. (2016). The Circadian Clock and Human Health. <em>Current Biology</em>, 26(10), R432-R443.</div>
+                <div class="ref-item">[7] Walker, M. (2017). <em>Why We Sleep: Unlocking the Power of Sleep and Dreams</em>. Scribner.</div>
+                <div class="ref-item">[8] National Institute of General Medical Sciences. (2022). <em>Circadian Rhythms</em>. NIH.</div>
+            </div>
+
+        </article>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Coluna 1: Marca -->
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+
+                <!-- Coluna 2: Explorar -->
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="../calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="../artigos.html">Artigos Científicos</a></li>
+                        <li><a href="../quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Legal & Compliance -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="../isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="../contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Fontes e Social -->
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra Inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        // Init Icons
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
