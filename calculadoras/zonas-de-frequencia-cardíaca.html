@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Tags Avançadas -->
+    <title>Calculadora de Zonas de Frequência Cardíaca (Karvonen) | Calcule Sua Saúde</title>
+    <meta name="description" content="Calcule suas zonas de treino ideais (queima de gordura, cardio, VO2 max). Utilize a fórmula de Karvonen para máxima precisão nos seus treinos.">
+    <meta name="keywords" content="calculadora frequência cardíaca, zonas de treino, karvonen, queima de gordura, cardio, bpm, frequência cardíaca máxima">
+    <meta name="author" content="Calcule Sua Saúde">
+    <meta property="og:title" content="Calculadora de Zonas Cardíacas Profissional">
+    <meta property="og:description" content="Descubra a intensidade certa para seu treino com precisão clínica.">
+    <meta property="og:type" content="website">
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "Calculadora de Zonas de Frequência Cardíaca",
+      "description": "Ferramenta para cálculo de zonas alvo de treinamento cardiovascular baseada na idade e frequência de repouso.",
+      "audience": "Patients",
+      "aspect": "Health",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Calculadora FCM Calcule Sua Saúde",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All"
+      }
+    }
+    </script>
+
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- DESIGN SYSTEM (Padrão Medical Journal) --- */
+        :root {
+            --primary: #0A4D68;        
+            --primary-dark: #06384d;
+            --accent: #be123c;  /* Rose 700 - Cor temática para Coração */       
+            --secondary: #D97706;      
+            --bg-body: #FAFAF9;        
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;      
+            --text-muted: #57534E;     
+            --border-subtle: #E7E5E4;  
+            --container-width: 1200px;
+            --header-height: 90px;
+            
+            /* Cores das Zonas */
+            --z1: #94a3b8; /* Cinza/Azul */
+            --z2: #3b82f6; /* Azul */
+            --z3: #10b981; /* Verde */
+            --z4: #f59e0b; /* Laranja */
+            --z5: #ef4444; /* Vermelho */
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #fb7185; /* Rose mais claro */
+            --border-subtle: #292524;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-theme-switch i, .animate-theme-switch svg { animation: rotate-scale 0.5s ease-in-out; }
+
+        /* --- HEADER (Links Relativos) --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container { display: flex; justify-content: flex-end; gap: 20px; }
+        
+        .lang-selector { display: flex; align-items: center; gap: 5px; }
+        .lang-selector select { background: transparent; color: #fff; border: none; font-size: 0.85rem; cursor: pointer; outline: none; }
+        .lang-selector select option { color: #000; }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            position: sticky;
+            top: 0;
+        }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+
+        .logo {
+            font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary);
+            display: flex; align-items: center; gap: 12px; letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: var(--text-muted);
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; position: relative;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: var(--secondary); transition: width 0.3s; }
+        .nav-link:hover { color: var(--primary); }
+
+        .btn-outline-white {
+            border: 1px solid var(--primary); color: var(--primary); padding: 8px 24px;
+            border-radius: 2px; text-transform: uppercase; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover { background-color: var(--primary); color: #fff; }
+
+        /* --- HERO --- */
+        .tool-hero {
+            background: linear-gradient(135deg, #be123c 0%, #881337 100%); /* Vermelho Cardíaco */
+            color: #fff;
+            padding: 60px 0 100px;
+            text-align: center;
+        }
+        .tool-hero h1 { color: #fff; font-size: 3rem; margin-bottom: 15px; }
+        .tool-hero p { max-width: 700px; margin: 0 auto; opacity: 0.9; font-size: 1.2rem; font-weight: 300; }
+        .tool-badge {
+            background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
+            display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;
+        }
+
+        /* --- TOOL LAYOUT --- */
+        .tool-layout {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            margin-top: -60px; margin-bottom: 80px; align-items: start;
+        }
+
+        .calc-card {
+            background-color: var(--bg-card); padding: 40px; border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-top: 5px solid var(--accent);
+        }
+
+        /* Inputs */
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--text-main); }
+        .input-wrapper { position: relative; }
+        .input-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+        .form-control {
+            width: 100%; padding: 15px 15px 15px 45px;
+            border: 1px solid var(--border-subtle); border-radius: 4px;
+            font-size: 1.05rem; font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body); color: var(--text-main); transition: 0.3s;
+        }
+        .form-control:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px rgba(190, 18, 60, 0.1); }
+
+        .btn-calc {
+            width: 100%; background-color: var(--accent); color: #fff;
+            border: none; padding: 18px; font-size: 1.1rem; font-weight: 700; text-transform: uppercase;
+            border-radius: 4px; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; gap: 10px; margin-top: 15px;
+        }
+        .btn-calc:hover { background-color: #9f1239; transform: translateY(-2px); }
+
+        /* RESULT */
+        .result-container { display: none; animation: fadeIn 0.8s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .result-box {
+            background-color: var(--bg-card); border: 1px solid var(--border-subtle);
+            padding: 30px; border-radius: 4px; text-align: center; position: relative; overflow: hidden;
+            margin-bottom: 25px;
+        }
+        
+        .max-hr-display {
+            display: flex; justify-content: space-around; align-items: center; margin-bottom: 20px;
+        }
+        .max-hr-item { text-align: center; }
+        .max-hr-val { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--accent); line-height: 1; }
+        .max-hr-label { font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; }
+
+        /* Zonas */
+        .zones-list { display: grid; gap: 12px; }
+        .zone-card {
+            background-color: var(--bg-body); border-radius: 4px; padding: 12px 15px;
+            display: flex; align-items: center; justify-content: space-between;
+            position: relative; overflow: hidden; border-left: 4px solid #ccc;
+        }
+        
+        /* Cores das Zonas */
+        .zone-card.z1 { border-color: var(--z1); }
+        .zone-card.z2 { border-color: var(--z2); }
+        .zone-card.z3 { border-color: var(--z3); }
+        .zone-card.z4 { border-color: var(--z4); }
+        .zone-card.z5 { border-color: var(--z5); }
+
+        .zone-info h4 { font-size: 1rem; margin-bottom: 2px; color: var(--text-main); }
+        .zone-info span { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+        .zone-bpm { font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--text-main); }
+
+        /* Content */
+        .content-section { margin-top: 60px; }
+        .highlight-box {
+            background-color: rgba(190, 18, 60, 0.05); padding: 25px; border-radius: 4px; border: 1px solid rgba(190, 18, 60, 0.2); margin: 30px 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917; color: #A8A29E; padding: 80px 0 0; font-size: 0.95rem; font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 50px; padding-bottom: 60px; }
+        .footer-grid h4 { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 25px; position: relative; }
+        .footer-grid h4::after { content: ''; display: block; width: 30px; height: 2px; background-color: var(--accent); margin-top: 10px; }
+        .footer-grid ul li { margin-bottom: 12px; }
+        .footer-grid ul li a:hover { color: #fff; transform: translateX(5px); }
+        .footer-bottom { border-top: 1px solid #333; padding: 30px 0; text-align: center; background-color: #151312; }
+
+        @media (max-width: 900px) {
+            .tool-layout { grid-template-columns: 1fr; margin-top: 0; }
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Botão de Tema -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Modo Escuro</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Modo Claro</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;">
+                    <option value="zonas-de-frequencia-cardiaca-karvonen.html" selected>Português</option>
+                    <option value="zonas-de-frequencia-cardiaca-karvonen-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Início</a></li>
+                <li><a href="../artigos.html" class="nav-link">Artigos</a></li>
+                <li><a href="../calculadoras.html" class="nav-link" style="color: var(--primary);">Calculadoras</a></li>
+                <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- TOOL HERO -->
+    <header class="tool-hero">
+        <div class="container">
+            <span class="tool-badge"><i data-lucide="heart-pulse"></i> Cardiologia do Esporte</span>
+            <h1>Zonas de Frequência Cardíaca</h1>
+            <p>Identifique a intensidade ideal para queimar gordura, ganhar resistência ou melhorar sua performance cardiovascular com a fórmula de Karvonen.</p>
+        </div>
+    </header>
+
+    <!-- TOOL SECTION -->
+    <section class="container">
+        <div class="tool-layout">
+            
+            <!-- INPUTS -->
+            <div class="calc-section">
+                <div class="calc-card">
+                    <form id="hrForm">
+                        <div class="input-group">
+                            <label>Sua Idade</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="calendar"></i>
+                                <input type="number" id="age" class="form-control" placeholder="Ex: 30" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Frequência Cardíaca de Repouso <span style="font-weight: 400; color: var(--text-muted); font-size: 0.8rem;">(Opcional)</span></label>
+                            <div class="input-wrapper">
+                                <i data-lucide="watch"></i>
+                                <input type="number" id="restingHR" class="form-control" placeholder="Ex: 60 bpm">
+                            </div>
+                            <small style="display: block; margin-top: 5px; font-size: 0.8rem; color: var(--text-muted);">Meça ao acordar, ainda na cama, para maior precisão.</small>
+                        </div>
+
+                        <button type="submit" class="btn-calc">
+                            Calcular Minhas Zonas
+                            <i data-lucide="activity"></i>
+                        </button>
+                        
+                        <div id="methodUsed" style="text-align: center; margin-top: 15px; font-size: 0.8rem; color: var(--text-muted);">
+                            Método padrão: FCM = 220 - idade
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- RESULTADO -->
+            <div id="resultArea">
+                <div id="initialState" style="text-align: center; padding: 40px; color: var(--text-muted); border: 2px dashed var(--border-subtle); border-radius: 4px;">
+                    <i data-lucide="heart-handshake" size="48" style="opacity: 0.3; margin-bottom: 20px;"></i>
+                    <h3>Aguardando Dados</h3>
+                    <p>Preencha sua idade para gerarmos o mapa de intensidade do seu coração.</p>
+                </div>
+
+                <div id="resultContainer" class="result-container">
+                    <!-- Frequência Máxima -->
+                    <div class="result-box">
+                        <div class="max-hr-display">
+                            <div class="max-hr-item">
+                                <span class="max-hr-label">Frequência Máxima</span>
+                                <div class="max-hr-val" id="maxHRVal">--</div>
+                                <span style="font-size: 0.8rem; color:var(--text-muted);">bpm</span>
+                            </div>
+                            <!-- Se Karvonen estiver ativo, mostra a reserva -->
+                            <div class="max-hr-item" id="reserveBox" style="display: none; border-left: 1px solid var(--border-subtle); padding-left: 20px;">
+                                <span class="max-hr-label">Reserva Cardíaca</span>
+                                <div class="max-hr-val" id="reserveVal" style="font-size: 1.8rem; color: var(--text-main);">--</div>
+                                <span style="font-size: 0.8rem; color:var(--text-muted);">bpm (Útil)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Zonas -->
+                    <div class="zones-list">
+                        <!-- Z5 -->
+                        <div class="zone-card z5">
+                            <div class="zone-info">
+                                <h4>Zona 5: Máximo Esforço (90-100%)</h4>
+                                <span>Performance / VO2 Max</span>
+                            </div>
+                            <div class="zone-bpm" id="bpmZ5">-- bpm</div>
+                        </div>
+
+                        <!-- Z4 -->
+                        <div class="zone-card z4">
+                            <div class="zone-info">
+                                <h4>Zona 4: Anaeróbico (80-90%)</h4>
+                                <span>Resistência Muscular / Hipertrofia</span>
+                            </div>
+                            <div class="zone-bpm" id="bpmZ4">-- bpm</div>
+                        </div>
+
+                        <!-- Z3 -->
+                        <div class="zone-card z3">
+                            <div class="zone-info">
+                                <h4>Zona 3: Aeróbico (70-80%)</h4>
+                                <span>Cardio / Fitness Cardiovascular</span>
+                            </div>
+                            <div class="zone-bpm" id="bpmZ3">-- bpm</div>
+                        </div>
+
+                        <!-- Z2 -->
+                        <div class="zone-card z2">
+                            <div class="zone-info">
+                                <h4>Zona 2: Controle de Peso (60-70%)</h4>
+                                <span>Queima de Gordura Eficiente</span>
+                            </div>
+                            <div class="zone-bpm" id="bpmZ2">-- bpm</div>
+                        </div>
+
+                        <!-- Z1 -->
+                        <div class="zone-card z1">
+                            <div class="zone-info">
+                                <h4>Zona 1: Recuperação (50-60%)</h4>
+                                <span>Aquecimento / Regenerativo</span>
+                            </div>
+                            <div class="zone-bpm" id="bpmZ1">-- bpm</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px; text-align: center;">
+                        <button onclick="window.print()" style="background: none; border: 1px solid var(--border-subtle); padding: 8px 20px; border-radius: 50px; cursor: pointer; color: var(--text-muted); font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;">
+                            <i data-lucide="printer" size="14"></i> Imprimir Tabela
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 60px 0;">
+
+        <!-- CONTEÚDO SEO -->
+        <div class="content-section">
+            <h2>Entendendo as Zonas de Treinamento</h2>
+            <p>Treinar na intensidade correta é a chave para alcançar objetivos específicos, seja emagrecer, correr uma maratona ou apenas manter a saúde. O monitoramento cardíaco permite que você treine de forma inteligente, evitando o <em>overtraining</em> ou o esforço insuficiente.</p>
+            
+            <div class="highlight-box">
+                <h4 style="color: var(--accent); margin-bottom: 10px;">A Diferença do Método Karvonen</h4>
+                <p style="margin-bottom: 0;">Fórmulas simples calculam apenas porcentagens da sua frequência máxima. O <strong>Método de Karvonen</strong> é superior porque subtrai sua frequência de repouso antes de calcular as porcentagens, e depois a adiciona de volta. Isso cria zonas de treino muito mais precisas e adaptadas ao seu nível atual de condicionamento físico.</p>
+            </div>
+
+            <h3>Detalhando cada Zona:</h3>
+            <ul style="list-style: none; margin-top: 20px; display: grid; gap: 15px;">
+                <li style="background: var(--bg-card); padding: 15px; border-left: 4px solid var(--z1);">
+                    <strong>Zona 1 (Recuperação Ativa):</strong> Nível de entrada para sedentários ou aquecimento. Melhora o fluxo sanguíneo muscular e auxilia na recuperação pós-treino intenso.
+                </li>
+                <li style="background: var(--bg-card); padding: 15px; border-left: 4px solid var(--z2);">
+                    <strong>Zona 2 (Queima de Gordura):</strong> Nesta intensidade moderada, o corpo utiliza a gordura como principal fonte de combustível e melhora a eficiência mitocondrial. Ideal para treinos longos e resistência.
+                </li>
+                <li style="background: var(--bg-card); padding: 15px; border-left: 4px solid var(--z3);">
+                    <strong>Zona 3 (Aeróbica):</strong> Zona de treino cardiovascular "padrão". Melhora a circulação sanguínea no coração e músculos esqueléticos. É onde se constrói a base aeróbica.
+                </li>
+                <li style="background: var(--bg-card); padding: 15px; border-left: 4px solid var(--z4);">
+                    <strong>Zona 4 (Limiar Anaeróbico):</strong> O ponto onde seu corpo começa a produzir ácido lático mais rápido do que consegue remover. Treinar aqui aumenta sua tolerância à fadiga e velocidade.
+                </li>
+                <li style="background: var(--bg-card); padding: 15px; border-left: 4px solid var(--z5);">
+                    <strong>Zona 5 (Esforço Máximo):</strong> Zona de tiro curto (HIIT). Melhora a potência neuromuscular e a velocidade máxima. Sustentável apenas por períodos muito curtos.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="../calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="../artigos.html">Artigos Científicos</a></li>
+                        <li><a href="../quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="../isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="../contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6;">As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento médico profissional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC -->
+    <script>
+        // Init Icons
+        function initIcons() {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            else setTimeout(initIcons, 100);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            // Theme Toggle
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    
+                    const iconMoon = document.getElementById('icon-moon');
+                    const iconSun = document.getElementById('icon-sun');
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+
+            // Resting HR Detector
+            const restingInput = document.getElementById('restingHR');
+            const methodDisplay = document.getElementById('methodUsed');
+            
+            restingInput.addEventListener('input', () => {
+                if(restingInput.value && restingInput.value > 0) {
+                    methodDisplay.innerHTML = '<span style="color: var(--accent); font-weight: 600;">Método Ativo: Fórmula de Karvonen (Alta Precisão)</span>';
+                } else {
+                    methodDisplay.innerHTML = 'Método padrão: FCM = 220 - idade';
+                }
+            });
+        });
+
+        document.getElementById('hrForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const age = parseInt(document.getElementById('age').value);
+            const resting = parseInt(document.getElementById('restingHR').value);
+
+            if(!age) return;
+
+            // 1. Calculate Max HR (Standard 220-age)
+            const maxHR = 220 - age;
+
+            let ranges = [];
+
+            // 2. Logic Selection
+            if (resting && resting > 0) {
+                // Karvonen Formula
+                // Target = ((Max - Resting) * %) + Resting
+                const reserve = maxHR - resting;
+                
+                document.getElementById('reserveBox').style.display = 'block';
+                document.getElementById('reserveVal').innerText = reserve;
+
+                const calcK = (p) => Math.round((reserve * p) + resting);
+
+                ranges = [
+                    { min: calcK(0.50), max: calcK(0.60) }, // Z1
+                    { min: calcK(0.60), max: calcK(0.70) }, // Z2
+                    { min: calcK(0.70), max: calcK(0.80) }, // Z3
+                    { min: calcK(0.80), max: calcK(0.90) }, // Z4
+                    { min: calcK(0.90), max: maxHR }        // Z5
+                ];
+            } else {
+                // Standard Percentage
+                document.getElementById('reserveBox').style.display = 'none';
+                
+                const calcS = (p) => Math.round(maxHR * p);
+
+                ranges = [
+                    { min: calcS(0.50), max: calcS(0.60) },
+                    { min: calcS(0.60), max: calcS(0.70) },
+                    { min: calcS(0.70), max: calcS(0.80) },
+                    { min: calcS(0.80), max: calcS(0.90) },
+                    { min: calcS(0.90), max: maxHR }
+                ];
+            }
+
+            // Update UI
+            document.getElementById('initialState').style.display = 'none';
+            document.getElementById('resultContainer').style.display = 'block';
+
+            document.getElementById('maxHRVal').innerText = maxHR;
+
+            document.getElementById('bpmZ1').innerText = `${ranges[0].min} - ${ranges[0].max} bpm`;
+            document.getElementById('bpmZ2').innerText = `${ranges[1].min} - ${ranges[1].max} bpm`;
+            document.getElementById('bpmZ3').innerText = `${ranges[2].min} - ${ranges[2].max} bpm`;
+            document.getElementById('bpmZ4').innerText = `${ranges[3].min} - ${ranges[3].max} bpm`;
+            document.getElementById('bpmZ5').innerText = `${ranges[4].min} - ${ranges[4].max} bpm`;
+
+            if(window.innerWidth < 900) {
+                document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>

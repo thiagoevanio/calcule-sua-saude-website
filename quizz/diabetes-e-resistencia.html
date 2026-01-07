@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>Quiz: Diabetes e Resistência à Insulina | Calcule Sua Saúde</title>
+    <meta name="description" content="Entenda como seu corpo processa o açúcar. Teste seus conhecimentos sobre insulina, glicemia e prevenção do diabetes tipo 2.">
+    
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Google Adsense & Analytics -->
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- DESIGN SYSTEM (Herdado) --- */
+        :root {
+            --primary: #0A4D68;        
+            --primary-dark: #06384d;
+            --accent: #047857;         
+            --secondary: #D97706;      
+            --bg-body: #FAFAF9;        
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;      
+            --text-muted: #57534E;     
+            --border-subtle: #E7E5E4;  
+            --container-width: 1200px;
+            --header-height: 90px;
+            
+            /* Cores do Quiz */
+            --correct: #10b981;
+            --wrong: #ef4444;
+            --option-bg: #f5f5f4;
+            --option-hover: #e7e5e4;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #34D399;
+            --border-subtle: #292524;
+            --option-bg: #292524;
+            --option-hover: #44403C;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: background-color 0.5s ease;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary); }
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .animate-theme-switch i, 
+        .animate-theme-switch svg { 
+            animation: rotate-scale 0.5s ease-in-out;
+        }
+
+        /* --- HEADER (PADRÃO CORRETO) --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .lang-selector select {
+            background: transparent;
+            color: #fff;
+            border: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+        .lang-selector select option { color: #000; }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            position: sticky;
+            top: 0;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: var(--primary); }
+
+        .btn-outline-white {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        /* --- QUIZ HERO --- */
+        .quiz-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff; padding: 60px 0 80px; text-align: center;
+        }
+        .quiz-hero h1 { color: #fff; font-size: 3rem; margin-bottom: 10px; }
+        .quiz-hero p { opacity: 0.9; font-size: 1.2rem; max-width: 600px; margin: 0 auto; font-weight: 300; }
+
+        /* --- QUIZ CONTAINER --- */
+        .quiz-wrapper {
+            max-width: 800px; margin: -50px auto 80px; padding: 0 20px; position: relative; z-index: 10;
+        }
+
+        .quiz-card {
+            background: var(--bg-card); border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden; border: 1px solid var(--border-subtle);
+        }
+
+        /* Progress Bar */
+        .progress-container { background: var(--border-subtle); height: 6px; width: 100%; }
+        .progress-bar { background: var(--accent); height: 100%; width: 0%; transition: width 0.5s ease; }
+
+        /* Content Area */
+        .quiz-content { 
+            padding: 40px; 
+            display: flow-root; 
+        }
+        
+        .question-meta {
+            display: flex; justify-content: space-between; color: var(--text-muted); 
+            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.5rem; font-weight: 700; color: var(--text-main); margin-bottom: 30px;
+            font-family: 'Playfair Display', serif; line-height: 1.3;
+        }
+
+        .options-grid { display: grid; gap: 15px; }
+
+        .option-btn {
+            background: var(--option-bg); border: 2px solid transparent; padding: 20px;
+            border-radius: 4px; cursor: pointer; text-align: left; font-size: 1rem;
+            color: var(--text-main); transition: 0.2s; font-family: 'Source Sans 3', sans-serif;
+            display: flex; align-items: center; gap: 15px;
+        }
+        .option-btn:hover:not(:disabled) { background: var(--option-hover); border-color: var(--primary); }
+        .option-btn:disabled { cursor: default; opacity: 0.7; }
+
+        /* Estados de Resposta */
+        .option-btn.correct { background: rgba(16, 185, 129, 0.1); border-color: var(--correct); color: var(--correct); font-weight: 600; }
+        .option-btn.wrong { background: rgba(239, 68, 68, 0.1); border-color: var(--wrong); color: var(--wrong); opacity: 0.6; }
+
+        /* Feedback Box */
+        .feedback-box {
+            margin-top: 30px; padding: 20px; border-radius: 4px; background: rgba(10, 77, 104, 0.05);
+            border-left: 4px solid var(--primary); display: none; animation: fadeIn 0.5s;
+        }
+        .feedback-title { font-weight: 700; color: var(--primary); margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Next Button (PADRÃO MELHORADO) */
+        .btn-next {
+            background-color: var(--primary); 
+            color: #fff; 
+            border: none; 
+            padding: 16px 45px; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em;
+            margin-top: 20px; 
+            margin-bottom: 10px;
+            cursor: pointer; 
+            display: none; 
+            float: right; 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: 0 4px 15px rgba(10, 77, 104, 0.25); 
+            font-family: 'Source Sans 3', sans-serif;
+            align-items: center;
+            gap: 12px;
+        }
+        .btn-next:hover { 
+            background-color: var(--secondary); 
+            transform: translateY(-3px) scale(1.02); 
+            box-shadow: 0 10px 25px rgba(217, 119, 6, 0.3); 
+        }
+        .btn-next:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.2);
+        }
+
+        /* Results Screen */
+        .results-screen { text-align: center; padding: 60px 40px; display: none; }
+        .score-circle {
+            width: 150px; height: 150px; border-radius: 50%; background: var(--primary); color: #fff;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            margin: 0 auto 30px; border: 8px solid var(--accent);
+        }
+        .score-number { font-size: 3.5rem; font-weight: 700; line-height: 1; font-family: 'Playfair Display', serif; }
+        .score-total { font-size: 1rem; opacity: 0.8; }
+        
+        .score-msg { font-size: 1.8rem; margin-bottom: 15px; color: var(--text-main); }
+        .score-desc { max-width: 500px; margin: 0 auto 40px; color: var(--text-muted); }
+
+        /* --- FOOTER COMPLETO (PADRÃO CORRETO) --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer-grid h4 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        
+        .footer-grid h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .footer-grid ul li { margin-bottom: 12px; }
+        .footer-grid ul li a { 
+            color: #A8A29E; 
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .footer-grid ul li a:hover { 
+            color: #fff; 
+            transform: translateX(5px); 
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312; 
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .quiz-content { padding: 25px; }
+            .question-text { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Botão de Tema -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Modo Escuro</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Modo Claro</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;">
+                    <option value="diabetes-e-resistencia.html" selected>Português</option>
+                    <option value="diabetes-e-resistencia-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Início</a></li>
+                <li><a href="../artigos.html" class="nav-link">Artigos</a></li>
+                <li><a href="../calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="../quizzes.html" class="nav-link" style="color: var(--primary);">Quizzes</a></li>
+                <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="quiz-hero">
+        <div class="container">
+            <h1>Diabetes e Resistência à Insulina</h1>
+            <p>Compreender o açúcar no sangue é o primeiro passo para a prevenção. Teste seu conhecimento sobre metabolismo da glicose e saúde metabólica.</p>
+        </div>
+    </header>
+
+    <!-- QUIZ CARD -->
+    <div class="quiz-wrapper">
+        <div class="quiz-card">
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <!-- PERGUNTA -->
+            <div class="quiz-content" id="questionScreen">
+                <div class="question-meta">
+                    <span id="questionCount">Questão 1 de 15</span>
+                    <span style="color: var(--accent);">Nível: Avançado</span>
+                </div>
+                
+                <h2 class="question-text" id="questionText">Carregando pergunta...</h2>
+                
+                <div class="options-grid" id="optionsContainer">
+                    <!-- Botões gerados via JS -->
+                </div>
+
+                <div class="feedback-box" id="feedbackBox">
+                    <div class="feedback-title" id="feedbackTitle"></div>
+                    <p id="feedbackText"></p>
+                </div>
+
+                <button class="btn-next" id="nextBtn" onclick="nextQuestion()">Próxima <i data-lucide="arrow-right"></i></button>
+            </div>
+
+            <!-- RESULTADOS -->
+            <div class="results-screen" id="resultsScreen">
+                <div class="score-circle">
+                    <span class="score-number" id="finalScore">0</span>
+                    <span class="score-total">de 15</span>
+                </div>
+                <h2 class="score-msg" id="scoreMsg"></h2>
+                <p class="score-desc" id="scoreDesc"></p>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; align-items: center; max-width: 400px; margin: 0 auto;">
+                    <!-- Botões de Ação Principais -->
+                    <div style="display: flex; gap: 15px; justify-content: center; width: 100%;">
+                        <button class="btn-outline-white" onclick="location.reload()" style="background: var(--primary); color: #fff; border:none; cursor:pointer; padding: 15px 30px; flex: 1;">
+                            <i data-lucide="rotate-ccw"></i> Tentar Novamente
+                        </button>
+                        <a href="../artigos.html" class="btn-outline-white" style="color: var(--text-main); border-color: var(--border-subtle); display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex: 1;">
+                            <i data-lucide="book-open"></i> Ler Artigos
+                        </a>
+                    </div>
+
+                    <!-- Botão de Compartilhar -->
+                    <button class="btn-outline-white" onclick="shareWhatsapp()" style="background: #25D366; color: #fff; border:none; cursor:pointer; padding: 15px 30px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <i data-lucide="message-circle"></i> Desafiar Amigos no WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER COMPLETO -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Coluna 1: Marca -->
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+
+                <!-- Coluna 2: Explorar -->
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="../calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="../artigos.html">Artigos Científicos</a></li>
+                        <li><a href="../quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Legal & Compliance -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="../isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="../contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Fontes e Social -->
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <!-- Ícones Sociais -->
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra Inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado com qualquer dúvida que possa ter sobre uma condição médica.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGICA DO QUIZ -->
+    <script>
+        // Ícones
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        // Dados do Quiz (Diabetes e Resistência)
+        const quizData = [
+            {
+                q: "O que é 'Resistência à Insulina'?",
+                a: [
+                    { text: "Quando o pâncreas para de produzir insulina completamente.", correct: false },
+                    { text: "Uma condição onde as células não respondem adequadamente à insulina, exigindo que o pâncreas produza mais.", correct: true },
+                    { text: "Alergia ao hormônio insulina.", correct: false },
+                    { text: "Excesso de açúcar na urina apenas.", correct: false }
+                ],
+                rationale: "Na resistência à insulina, a 'chave' (insulina) não abre a 'porta' das células corretamente, forçando o pâncreas a trabalhar dobrado para manter a glicemia normal."
+            },
+            {
+                q: "Qual a principal diferença entre Diabetes Tipo 1 e Tipo 2?",
+                a: [
+                    { text: "Tipo 1 é autoimune (falta de insulina); Tipo 2 é relacionado ao estilo de vida e resistência à insulina.", correct: true },
+                    { text: "Tipo 1 afeta adultos; Tipo 2 afeta crianças.", correct: false },
+                    { text: "Tipo 2 requer insulina desde o primeiro dia; Tipo 1 não.", correct: false },
+                    { text: "Não há diferença, apenas a gravidade muda.", correct: false }
+                ],
+                rationale: "O Tipo 1 é uma destruição autoimune das células beta. O Tipo 2 começa com resistência à insulina e falência progressiva do pâncreas."
+            },
+            {
+                q: "Qual órgão é responsável pela produção de insulina?",
+                a: [
+                    { text: "Fígado.", correct: false },
+                    { text: "Rins.", correct: false },
+                    { text: "Pâncreas.", correct: true },
+                    { text: "Estômago.", correct: false }
+                ],
+                rationale: "O pâncreas possui as Ilhotas de Langerhans, onde as células beta produzem insulina."
+            },
+            {
+                q: "Qual destes NÃO é um sintoma clássico de glicemia muito alta (hiperglicemia)?",
+                a: [
+                    { text: "Sede excessiva (polidipsia).", correct: false },
+                    { text: "Vontade frequente de urinar (poliúria).", correct: false },
+                    { text: "Ganho de peso rápido e inexplicável.", correct: true },
+                    { text: "Fome excessiva (polifagia).", correct: false }
+                ],
+                rationale: "O diabetes descontrolado (tipo 1 ou 2 avançado) geralmente causa perda de peso inexplicável, não ganho, pois o corpo queima gordura/músculo por não conseguir usar a glicose."
+            },
+            {
+                q: "O que mede o exame de Hemoglobina Glicada (HbA1c)?",
+                a: [
+                    { text: "O nível de açúcar no momento exato do exame.", correct: false },
+                    { text: "A média da glicemia nos últimos 3 meses.", correct: true },
+                    { text: "A quantidade de insulina no sangue.", correct: false },
+                    { text: "A função dos rins.", correct: false }
+                ],
+                rationale: "A glicose se liga à hemoglobina nas hemácias, que vivem cerca de 3 meses, fornecendo um histórico médio do controle glicêmico."
+            },
+            {
+                q: "Qual é o principal fator de risco modificável para Diabetes Tipo 2?",
+                a: [
+                    { text: "Genética.", correct: false },
+                    { text: "Idade.", correct: false },
+                    { text: "Obesidade e sedentarismo.", correct: true },
+                    { text: "Tipo sanguíneo.", correct: false }
+                ],
+                rationale: "Embora a genética importe, o excesso de gordura visceral e a falta de atividade física são os gatilhos mais fortes para a resistência à insulina."
+            },
+            {
+                q: "É possível colocar o Diabetes Tipo 2 em remissão?",
+                a: [
+                    { text: "Não, é uma doença progressiva e irreversível.", correct: false },
+                    { text: "Sim, através de perda de peso significativa e mudanças na dieta, normalizando a glicemia sem remédios.", correct: true },
+                    { text: "Apenas com cirurgia bariátrica.", correct: false },
+                    { text: "Sim, tomando chá de insulina.", correct: false }
+                ],
+                rationale: "Estudos mostram que muitos pacientes conseguem atingir níveis normais de glicose sem medicação ao perderem gordura visceral e mudarem o estilo de vida."
+            },
+            {
+                q: "Qual macronutriente tem o maior impacto direto na elevação da glicose sanguínea?",
+                a: [
+                    { text: "Gorduras.", correct: false },
+                    { text: "Proteínas.", correct: false },
+                    { text: "Carboidratos.", correct: true },
+                    { text: "Água.", correct: false }
+                ],
+                rationale: "Os carboidratos são convertidos em glicose (açúcar) na digestão, elevando diretamente a glicemia pós-prandial."
+            },
+            {
+                q: "O que é Pré-diabetes?",
+                a: [
+                    { text: "Um mito médico.", correct: false },
+                    { text: "Uma condição onde a glicemia está alta, mas não o suficiente para diagnóstico de diabetes, indicando alto risco.", correct: true },
+                    { text: "Quando você tem diabetes apenas de manhã.", correct: false },
+                    { text: "Uma infecção viral.", correct: false }
+                ],
+                rationale: "É um sinal de alerta crucial. A intervenção nesta fase pode prevenir a evolução para o diabetes tipo 2 em até 58% dos casos."
+            },
+            {
+                q: "A neuropatia diabética é uma complicação que afeta principalmente:",
+                a: [
+                    { text: "Os ossos.", correct: false },
+                    { text: "Os nervos, causando perda de sensibilidade ou dor, especialmente nos pés.", correct: true },
+                    { text: "O cabelo.", correct: false },
+                    { text: "O fígado.", correct: false }
+                ],
+                rationale: "O excesso de açúcar no sangue danifica os pequenos vasos que nutrem os nervos, levando à neuropatia periférica."
+            },
+            {
+                q: "Qual é o valor de referência normal para glicemia de jejum?",
+                a: [
+                    { text: "Abaixo de 99 mg/dL.", correct: true },
+                    { text: "Entre 100 e 125 mg/dL.", correct: false },
+                    { text: "Acima de 126 mg/dL.", correct: false },
+                    { text: "Abaixo de 50 mg/dL.", correct: false }
+                ],
+                rationale: "Valores entre 100-125 indicam pré-diabetes; acima de 126 (em dois testes) indicam diabetes. Abaixo de 70 é hipoglicemia."
+            },
+            {
+                q: "Qual o papel dos músculos na prevenção do diabetes?",
+                a: [
+                    { text: "Nenhum, apenas a dieta importa.", correct: false },
+                    { text: "Os músculos são os maiores consumidores de glicose do corpo; mais massa muscular melhora a sensibilidade à insulina.", correct: true },
+                    { text: "Músculos produzem insulina.", correct: false },
+                    { text: "Exercício aumenta a glicemia permanentemente.", correct: false }
+                ],
+                rationale: "O tecido muscular age como uma 'esponja' para a glicose. Treino de força é uma ferramenta poderosa contra a resistência à insulina."
+            },
+            {
+                q: "Mito ou Verdade: 'Apenas pessoas com sobrepeso desenvolvem Diabetes Tipo 2.'",
+                a: [
+                    { text: "Verdade. Gordura é a única causa.", correct: false },
+                    { text: "Mito. Pessoas magras podem ter resistência à insulina ('falsos magros' com gordura visceral) e desenvolver a doença.", correct: true },
+                    { text: "Verdade. O IMC baixo protege 100%.", correct: false },
+                    { text: "Mito. Magros só têm Tipo 1.", correct: false }
+                ],
+                rationale: "A gordura visceral e fatores genéticos permitem que pessoas com IMC normal (mas metabolicamente obesas) desenvolvam a doença."
+            },
+            {
+                q: "Como o estresse crônico (cortisol alto) afeta a glicemia?",
+                a: [
+                    { text: "O estresse baixa o açúcar no sangue.", correct: false },
+                    { text: "Não tem efeito.", correct: false },
+                    { text: "O cortisol estimula o fígado a liberar glicose, aumentando a glicemia e a resistência à insulina.", correct: true },
+                    { text: "O estresse cura o diabetes.", correct: false }
+                ],
+                rationale: "O cortisol prepara o corpo para 'lutar ou fugir' liberando energia (glicose), o que é prejudicial se for crônico."
+            },
+            {
+                q: "O que é Diabetes Gestacional?",
+                a: [
+                    { text: "Diabetes que a mulher já tinha antes de engravidar.", correct: false },
+                    { text: "Um tipo de diabetes diagnosticado pela primeira vez durante a gravidez, que geralmente desaparece após o parto.", correct: true },
+                    { text: "Diabetes do bebê.", correct: false },
+                    { text: "Alergia à gravidez.", correct: false }
+                ],
+                rationale: "Os hormônios da placenta causam resistência à insulina. Se o pâncreas da mãe não compensar, a glicemia sobe, exigindo cuidados."
+            }
+        ];
+
+        // Estado
+        let currentQ = 0;
+        let score = 0;
+
+        // Elementos DOM
+        const elProgress = document.getElementById('progressBar');
+        const elQCount = document.getElementById('questionCount');
+        const elQText = document.getElementById('questionText');
+        const elOptions = document.getElementById('optionsContainer');
+        const elFeedback = document.getElementById('feedbackBox');
+        const elFbTitle = document.getElementById('feedbackTitle');
+        const elFbText = document.getElementById('feedbackText');
+        const elNextBtn = document.getElementById('nextBtn');
+        const elQuizScreen = document.getElementById('questionScreen');
+        const elResultScreen = document.getElementById('resultsScreen');
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            loadQuestion();
+            
+            // Lógica de Tema
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+
+        // Iniciar Quiz
+        function loadQuestion() {
+            const data = quizData[currentQ];
+            
+            // Atualizar UI
+            elQCount.innerText = `Questão ${currentQ + 1} de ${quizData.length}`;
+            elQText.innerText = data.q;
+            elProgress.style.width = `${((currentQ) / quizData.length) * 100}%`;
+            
+            // Limpar estados anteriores
+            elOptions.innerHTML = '';
+            elFeedback.style.display = 'none';
+            elNextBtn.style.display = 'none';
+
+            // Gerar Opções
+            data.a.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerHTML = `<span style="font-weight:700; color:var(--primary);">${String.fromCharCode(65+index)}.</span> ${opt.text}`;
+                btn.onclick = () => checkAnswer(btn, opt.correct, data.rationale);
+                elOptions.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(btn, isCorrect, rationale) {
+            // Desabilitar todos botões
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(b => b.disabled = true);
+
+            // Estilizar escolha
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.innerHTML += ' <i data-lucide="check-circle" size="20"></i>';
+                score++;
+                elFbTitle.innerHTML = '<i data-lucide="check" size="18"></i> Correto!';
+                elFbTitle.style.color = 'var(--correct)';
+                elFeedback.style.borderLeftColor = 'var(--correct)';
+                elFeedback.style.background = 'rgba(16, 185, 129, 0.05)';
+            } else {
+                btn.classList.add('wrong');
+                btn.innerHTML += ' <i data-lucide="x-circle" size="20"></i>';
+                elFbTitle.innerHTML = '<i data-lucide="x" size="18"></i> Incorreto';
+                elFbTitle.style.color = 'var(--wrong)';
+                elFeedback.style.borderLeftColor = 'var(--wrong)';
+                elFeedback.style.background = 'rgba(239, 68, 68, 0.05)';
+                
+                // Mostrar qual era a certa
+                const correctBtn = Array.from(buttons).find(b => {
+                    return quizData[currentQ].a.find(a => a.correct && b.textContent.includes(a.text)); 
+                });
+                if(correctBtn) correctBtn.classList.add('correct');
+            }
+
+            // Mostrar Feedback
+            elFbText.innerText = rationale;
+            elFeedback.style.display = 'block';
+            
+            // MOSTRAR O BOTÃO COM DISPLAY INLINE-FLEX PARA O ALINHAMENTO FUNCIONAR
+            elNextBtn.style.display = 'inline-flex';
+            
+            // Re-render ícones novos
+            lucide.createIcons();
+        }
+
+        function nextQuestion() {
+            currentQ++;
+            if (currentQ < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            elQuizScreen.style.display = 'none';
+            elResultScreen.style.display = 'block';
+            elProgress.style.width = '100%';
+
+            const finalScoreEl = document.getElementById('finalScore');
+            const msgEl = document.getElementById('scoreMsg');
+            const descEl = document.getElementById('scoreDesc');
+
+            // Animar Score
+            let current = 0;
+            const timer = setInterval(() => {
+                current++;
+                finalScoreEl.innerText = current;
+                if(current >= score) clearInterval(timer);
+            }, 50);
+
+            // Mensagem
+            const percentage = (score / quizData.length) * 100;
+            
+            if (percentage === 100) {
+                msgEl.innerText = "Especialista em Metabolismo! 🏆";
+                descEl.innerText = "Parabéns! Você tem um conhecimento profundo sobre glicemia, insulina e prevenção. Continue cuidando bem da sua saúde!";
+            } else if (percentage >= 80) {
+                msgEl.innerText = "Excelente! 🩸";
+                descEl.innerText = "Você entende muito bem os mecanismos do diabetes e da resistência à insulina.";
+            } else if (percentage >= 50) {
+                msgEl.innerText = "Bom Conhecimento! 📚";
+                descEl.innerText = "Você conhece o básico, mas ainda há detalhes importantes sobre o metabolismo da glicose para aprender.";
+            } else {
+                msgEl.innerText = "Atenção à Saúde! ⚠️";
+                descEl.innerText = "O diabetes é uma doença silenciosa e complexa. Use este resultado como motivação para estudar mais sobre o tema.";
+            }
+        }
+
+        // Função de Compartilhamento WhatsApp
+        function shareWhatsapp() {
+            const scoreNum = document.getElementById('finalScore').innerText;
+            const msg = document.getElementById('scoreMsg').innerText;
+            // Mensagem URL encoded para quebra de linha correta
+            const text = `Fiz o Quiz de Diabetes e Resistência no Calcule Sua Saúde!\n\nResultado: ${scoreNum}/15 - ${msg}\n\nVocê sabe como seu corpo processa o açúcar? Tente aqui:`;
+            const url = window.location.href; // Pega a URL atual
+            
+            // Abre o WhatsApp com o texto pré-preenchido
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+        }
+
+    </script>
+</body>
+</html>

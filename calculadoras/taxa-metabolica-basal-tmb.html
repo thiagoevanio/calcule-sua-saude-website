@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Tags Avançadas -->
+    <title>Calculadora de TMB: Taxa Metabólica Basal e Gasto Calórico | Calcule Sua Saúde</title>
+    <meta name="description" content="Descubra quantas calorias seu corpo queima por dia. Calculadora de TMB baseada na equação Mifflin-St Jeor (Padrão Ouro), com estimativa de gasto energético total.">
+    <meta name="keywords" content="calculadora TMB, taxa metabólica basal, gasto calórico diário, quantas calorias comer, metabolismo basal, emagrecimento, Mifflin-St Jeor">
+    <meta name="author" content="Calcule Sua Saúde">
+    <meta property="og:title" content="Calculadora de Metabolismo Basal Profissional">
+    <meta property="og:description" content="Ferramenta científica para calcular suas necessidades calóricas diárias com precisão.">
+    <meta property="og:type" content="website">
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- Schema.org para Ferramentas de Saúde -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "Calculadora de Taxa Metabólica Basal (TMB)",
+      "description": "Ferramenta para estimativa de gasto energético basal e total baseada na fórmula Mifflin-St Jeor.",
+      "audience": "Patients",
+      "aspect": "Health",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Calculadora TMB Calcule Sua Saúde",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All"
+      }
+    }
+    </script>
+
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- DESIGN SYSTEM (Herdado e Adaptado) --- */
+        :root {
+            --primary: #0A4D68;        
+            --primary-dark: #06384d;
+            --accent: #047857;         
+            --secondary: #D97706; /* Cor de destaque para Energia/Calorias */     
+            --bg-body: #FAFAF9;        
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;      
+            --text-muted: #57534E;     
+            --border-subtle: #E7E5E4;  
+            --container-width: 1200px;
+            --header-height: 90px;
+            
+            /* Cores Específicas TMB */
+            --calorie-burn: #ea580c; /* Laranja queimado para fogo/metabolismo */
+            --calorie-gain: #16a34a;
+            --calorie-loss: #2563eb;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-theme-switch i, .animate-theme-switch svg { animation: rotate-scale 0.5s ease-in-out; }
+
+        /* --- HEADER & NAV (Idêntico ao Index) --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .lang-selector select {
+            background: transparent;
+            color: #fff;
+            border: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+        .lang-selector select option { color: #000; }
+
+        .main-header {
+            background-color: var(--bg-card); /* Fundo sólido para páginas internas */
+            border-bottom: 1px solid var(--border-subtle);
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            position: sticky;
+            top: 0;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: var(--primary); /* Ajustado para fundo claro */
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: var(--text-muted); /* Ajustado para fundo claro */
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: var(--primary); }
+
+        .btn-outline-white {
+            border: 1px solid var(--primary); /* Ajustado */
+            color: var(--primary); /* Ajustado */
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover {
+            background-color: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        /* --- TOOL HERO (Estilo Energia) --- */
+        .tool-hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #92400e 100%); /* Gradiente Âmbar */
+            color: #fff;
+            padding: 60px 0 100px;
+            text-align: center;
+        }
+        .tool-hero h1 { color: #fff; font-size: 3rem; margin-bottom: 15px; }
+        .tool-hero p { max-width: 700px; margin: 0 auto; opacity: 0.9; font-size: 1.2rem; font-weight: 300; }
+        .tool-badge {
+            background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
+            display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;
+        }
+
+        /* --- TOOL LAYOUT --- */
+        .tool-layout {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            margin-top: -60px; margin-bottom: 80px; align-items: start;
+        }
+
+        .calc-card {
+            background-color: var(--bg-card); padding: 40px; border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-top: 5px solid var(--primary);
+        }
+
+        /* Form Elements */
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--text-main); }
+        .input-wrapper { position: relative; }
+        .input-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+        
+        .form-control, .form-select {
+            width: 100%; padding: 15px 15px 15px 45px;
+            border: 1px solid var(--border-subtle); border-radius: 4px;
+            font-size: 1.05rem; font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body); color: var(--text-main); transition: 0.3s;
+        }
+        .form-select { cursor: pointer; appearance: none; }
+        .form-control:focus, .form-select:focus { border-color: var(--secondary); outline: none; box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1); }
+
+        .radio-group { display: flex; gap: 20px; margin-bottom: 25px; }
+        .radio-option { flex: 1; position: relative; }
+        .radio-option input { position: absolute; opacity: 0; cursor: pointer; }
+        .radio-tile {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 12px; border: 1px solid var(--border-subtle); border-radius: 4px;
+            cursor: pointer; transition: 0.3s; font-weight: 600; color: var(--text-muted);
+        }
+        .radio-option input:checked + .radio-tile {
+            background-color: rgba(217, 119, 6, 0.1); border-color: var(--secondary); color: var(--secondary);
+        }
+
+        .btn-calc {
+            width: 100%; background-color: var(--primary); color: #fff;
+            border: none; padding: 18px; font-size: 1.1rem; font-weight: 700; text-transform: uppercase;
+            border-radius: 4px; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; gap: 10px; margin-top: 10px;
+        }
+        .btn-calc:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
+
+        /* RESULT AREA */
+        .result-container { display: none; animation: fadeIn 0.8s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .result-box {
+            background-color: var(--bg-card); border: 1px solid var(--border-subtle);
+            padding: 30px; border-radius: 4px; text-align: center; position: relative; overflow: hidden;
+            margin-bottom: 25px;
+        }
+        .result-box::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background-color: var(--secondary);
+        }
+
+        .tmb-value {
+            font-size: 3.5rem; font-family: 'Playfair Display', serif; font-weight: 700;
+            line-height: 1; margin: 15px 0 5px; color: var(--secondary);
+        }
+        .tmb-unit { font-size: 1rem; color: var(--text-muted); font-weight: 400; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .strategies-grid {
+            margin-top: 30px; display: grid; gap: 15px;
+        }
+        .strategy-card {
+            background-color: var(--bg-body); padding: 15px 20px; border-radius: 4px;
+            display: flex; justify-content: space-between; align-items: center; border-left: 3px solid transparent;
+        }
+        .strategy-card.maintain { border-color: var(--calorie-burn); }
+        .strategy-card.lose { border-color: var(--calorie-loss); }
+        .strategy-card.gain { border-color: var(--calorie-gain); }
+        
+        .strat-title { font-weight: 600; font-size: 0.9rem; color: var(--text-main); }
+        .strat-val { font-weight: 700; font-size: 1.1rem; font-family: 'Playfair Display', serif; }
+
+        /* CONTENT */
+        .content-section { margin-top: 60px; }
+        .info-box {
+            background: rgba(10, 77, 104, 0.03); border-left: 4px solid var(--primary);
+            padding: 25px; border-radius: 0 4px 4px 0; margin: 30px 0;
+        }
+
+        /* --- FOOTER (Idêntico ao Index) --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer-grid h4 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        
+        .footer-grid h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .footer-grid ul li { margin-bottom: 12px; }
+        .footer-grid ul li a { 
+            color: #A8A29E; 
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .footer-grid ul li a:hover { 
+            color: #fff; 
+            transform: translateX(5px); 
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312; 
+        }
+
+        @media (max-width: 900px) {
+            .tool-layout { grid-template-columns: 1fr; margin-top: 0; }
+            .nav-menu { display: none; }
+            .tmb-value { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Botão de Tema -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Modo Escuro</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Modo Claro</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;">
+                    <option value="taxa-metabolica-basal-tmb.html" selected>Português</option>
+                    <option value="taxa-metabolica-basal-tmb-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Início</a></li>
+                <li><a href="../artigos.html" class="nav-link">Artigos</a></li>
+                <li><a href="../calculadoras.html" class="nav-link" style="color: var(--primary);">Calculadoras</a></li>
+                <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- TOOL HERO -->
+    <header class="tool-hero">
+        <div class="container">
+            <span class="tool-badge"><i data-lucide="flame"></i> Termodinâmica Humana</span>
+            <h1>Taxa Metabólica Basal</h1>
+            <p>Descubra quantas calorias seu corpo precisa apenas para existir e o quanto você gasta com suas atividades diárias.</p>
+        </div>
+    </header>
+
+    <!-- MAIN TOOL -->
+    <section class="container">
+        <div class="tool-layout">
+            
+            <!-- INPUTS -->
+            <div class="calc-section">
+                <div class="calc-card">
+                    <form id="tmbForm">
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="male" checked>
+                                <div class="radio-tile"><i data-lucide="user"></i> Homem</div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="female">
+                                <div class="radio-tile"><i data-lucide="user"></i> Mulher</div>
+                            </label>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Idade (anos)</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="calendar"></i>
+                                <input type="number" id="age" class="form-control" placeholder="Ex: 30" required>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="input-group">
+                                <label>Peso (kg)</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="weight"></i>
+                                    <input type="number" id="weight" class="form-control" placeholder="Ex: 75" step="0.1" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Altura (cm)</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="ruler"></i>
+                                    <input type="number" id="height" class="form-control" placeholder="Ex: 175" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Nível de Atividade Física</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="activity" style="z-index: 10;"></i>
+                                <select id="activity" class="form-select">
+                                    <option value="1.2">Sedentário (Pouco ou nenhum exercício)</option>
+                                    <option value="1.375">Levemente Ativo (1-3 dias/semana)</option>
+                                    <option value="1.55">Moderadamente Ativo (3-5 dias/semana)</option>
+                                    <option value="1.725">Muito Ativo (6-7 dias/semana)</option>
+                                    <option value="1.9">Extremamente Ativo (Trabalho físico/treino 2x dia)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-calc">
+                            Calcular Gasto Calórico
+                            <i data-lucide="zap"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- RESULTADO -->
+            <div id="resultArea">
+                <!-- Estado Inicial -->
+                <div id="initialState" style="text-align: center; padding: 40px; color: var(--text-muted); border: 2px dashed var(--border-subtle); border-radius: 4px;">
+                    <i data-lucide="battery-charging" size="48" style="opacity: 0.3; margin-bottom: 20px;"></i>
+                    <h3>Aguardando Dados</h3>
+                    <p>Preencha seus dados para estimarmos seu dispêndio energético diário.</p>
+                </div>
+
+                <!-- Resultado Gerado -->
+                <div id="resultContainer" class="result-container">
+                    <div class="result-box">
+                        <span style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); display: block;">Sua Taxa Metabólica Basal (Repouso)</span>
+                        <div class="tmb-value" id="tmbValue">--</div>
+                        <span class="tmb-unit">Kcal / dia</span>
+                        
+                        <p style="font-size: 0.9rem; margin-top: 15px; color: var(--text-muted); max-width: 90%; margin-left: auto; margin-right: auto;">
+                            Isso é o que seu corpo queima em <strong>coma</strong>, apenas para manter órgãos vitais funcionando.
+                        </p>
+                    </div>
+
+                    <h4 style="margin: 30px 0 15px; text-align: center; font-family: 'Playfair Display', serif;">Estimativa de Necessidade Diária (GET)</h4>
+                    
+                    <div class="strategies-grid">
+                        <div class="strategy-card maintain">
+                            <div>
+                                <div class="strat-title">Para Manter o Peso</div>
+                                <small style="color: var(--text-muted);">Gasto Total Real</small>
+                            </div>
+                            <div class="strat-val" id="valMaintain" style="color: var(--secondary);">-- kcal</div>
+                        </div>
+
+                        <div class="strategy-card lose">
+                            <div>
+                                <div class="strat-title">Perder Peso Leve</div>
+                                <small style="color: var(--text-muted);">Déficit de ~15%</small>
+                            </div>
+                            <div class="strat-val" id="valLose" style="color: var(--calorie-loss);">-- kcal</div>
+                        </div>
+
+                        <div class="strategy-card gain">
+                            <div>
+                                <div class="strat-title">Ganhar Massa</div>
+                                <small style="color: var(--text-muted);">Superávit de ~10%</small>
+                            </div>
+                            <div class="strat-val" id="valGain" style="color: var(--calorie-gain);">-- kcal</div>
+                        </div>
+                    </div>
+
+                    <!-- Compartilhar -->
+                    <div style="margin-top: 30px; border-top: 1px solid var(--border-subtle); padding-top: 20px; text-align: center;">
+                        <button onclick="copyResult()" style="background: none; border: 1px solid var(--border-subtle); padding: 8px 16px; border-radius: 50px; cursor: pointer; color: var(--text-muted); font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px;">
+                            <i data-lucide="copy" size="14"></i> Copiar Resumo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 60px 0;">
+
+        <!-- CONTEÚDO EDUCACIONAL -->
+        <div class="content-section">
+            <h2>A Ciência por trás do Metabolismo</h2>
+            <p>A Taxa Metabólica Basal (TMB) representa a quantidade mínima de energia necessária para manter as funções vitais do organismo em estado de repouso absoluto. Isso inclui processos como respiração, circulação sanguínea, controle da temperatura corporal e funcionamento celular.</p>
+
+            <div class="info-box">
+                <h4 style="margin-bottom: 10px; color: var(--primary);">Mifflin-St Jeor vs. Harris-Benedict</h4>
+                <p style="margin-bottom: 0;">Nossa calculadora utiliza a equação de <strong>Mifflin-St Jeor</strong>, desenvolvida em 1990. Estudos clínicos, incluindo revisões da <em>American Dietetic Association</em>, indicam que esta fórmula é cerca de 5% mais precisa para a população moderna atual do que a clássica equação de Harris-Benedict (1919), que tende a superestimar o gasto calórico.</p>
+            </div>
+
+            <h3>Fatores que Influenciam sua TMB</h3>
+            <ul style="list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                <li style="background: var(--bg-card); padding: 20px; border: 1px solid var(--border-subtle); border-radius: 4px;">
+                    <strong style="color: var(--secondary); display: block; margin-bottom: 5px;">Massa Muscular</strong>
+                    O músculo é um tecido metabolicamente ativo. Quanto mais massa magra você tem, maior será sua TMB, mesmo em repouso.
+                </li>
+                <li style="background: var(--bg-card); padding: 20px; border: 1px solid var(--border-subtle); border-radius: 4px;">
+                    <strong style="color: var(--secondary); display: block; margin-bottom: 5px;">Idade</strong>
+                    O metabolismo tende a desacelerar cerca de 2-3% a cada década após os 20 anos, principalmente devido à perda de massa muscular.
+                </li>
+                <li style="background: var(--bg-card); padding: 20px; border: 1px solid var(--border-subtle); border-radius: 4px;">
+                    <strong style="color: var(--secondary); display: block; margin-bottom: 5px;">Genética</strong>
+                    Algumas pessoas possuem um metabolismo naturalmente "rápido" ou "lento", embora o estilo de vida seja o fator determinante na maioria dos casos.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FOOTER COMPLETO E ORGANIZADO (Igual Index, Links Relativos) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Coluna 1: Marca -->
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+
+                <!-- Coluna 2: Explorar -->
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="../calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="../artigos.html">Artigos Científicos</a></li>
+                        <li><a href="../quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Legal & Compliance -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="../isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="../contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Fontes e Social -->
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <!-- Ícones Sociais (Por último) -->
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado com qualquer dúvida que possa ter sobre uma condição médica.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC -->
+    <script>
+        // Init Icons
+        function initIcons() {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            else setTimeout(initIcons, 100);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            // Theme Toggle Logic
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    
+                    const iconMoon = document.getElementById('icon-moon');
+                    const iconSun = document.getElementById('icon-sun');
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+
+        // TMB Calculation Logic (Mifflin-St Jeor)
+        document.getElementById('tmbForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const age = parseInt(document.getElementById('age').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const activityLevel = parseFloat(document.getElementById('activity').value);
+
+            if(!age || !weight || !height) return;
+
+            // 1. Calculate Basal Metabolic Rate (BMR/TMB)
+            let tmb = 0;
+            // Mifflin-St Jeor Formula
+            // Men: (10 × weight) + (6.25 × height) - (5 × age) + 5
+            // Women: (10 × weight) + (6.25 × height) - (5 × age) - 161
+            
+            let commonPart = (10 * weight) + (6.25 * height) - (5 * age);
+            
+            if (gender === 'male') {
+                tmb = commonPart + 5;
+            } else {
+                tmb = commonPart - 161;
+            }
+
+            // 2. Calculate Total Daily Energy Expenditure (TDEE/GET)
+            const tdee = tmb * activityLevel;
+
+            // 3. Update UI
+            document.getElementById('initialState').style.display = 'none';
+            document.getElementById('resultContainer').style.display = 'block';
+
+            // Animation for numbers could go here, but let's keep it simple and robust
+            document.getElementById('tmbValue').innerText = Math.round(tmb);
+            
+            // Strategies
+            document.getElementById('valMaintain').innerText = Math.round(tdee) + ' kcal';
+            document.getElementById('valLose').innerText = Math.round(tdee * 0.85) + ' kcal'; // 15% deficit
+            document.getElementById('valGain').innerText = Math.round(tdee * 1.10) + ' kcal'; // 10% surplus
+
+            if(window.innerWidth < 900) {
+                document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        function copyResult() {
+            const tmb = document.getElementById('tmbValue').innerText;
+            const tdee = document.getElementById('valMaintain').innerText;
+            const text = `Meu Metabolismo Basal: ${tmb} kcal/dia. Gasto Total Estimado: ${tdee}. Calculado em Calcule Sua Saúde.`;
+            navigator.clipboard.writeText(text);
+            alert('Resultado copiado para a área de transferência!');
+        }
+    </script>
+</body>
+</html>

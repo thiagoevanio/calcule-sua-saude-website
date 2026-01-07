@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Tags Avançadas -->
+    <title>Calculadora TDEE: Gasto Energético Diário Total & Macros | Calcule Sua Saúde</title>
+    <meta name="description" content="Calcule seu TDEE (Total Daily Energy Expenditure) com precisão. Opção de fórmula Katch-McArdle (com percentual de gordura) e divisão de macronutrientes.">
+    <meta name="keywords" content="calculadora TDEE, gasto energético total, macros, dieta, katch-mcardle, calorias diárias, hipertrofia, emagrecimento">
+    <meta name="author" content="Calcule Sua Saúde">
+    <meta property="og:title" content="Calculadora TDEE Profissional | Calcule Sua Saúde">
+    <meta property="og:description" content="A ferramenta definitiva para planejar sua dieta baseada no seu gasto energético real.">
+    <meta property="og:type" content="website">
+
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "Calculadora de Gasto Energético Diário (TDEE)",
+      "description": "Ferramenta para cálculo de dispêndio energético total considerando nível de atividade e composição corporal.",
+      "audience": "Patients",
+      "aspect": "Nutrition",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Calculadora TDEE Calcule Sua Saúde",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All"
+      }
+    }
+    </script>
+
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- DESIGN SYSTEM (Padrão Medical Journal) --- */
+        :root {
+            --primary: #0A4D68;        
+            --primary-dark: #06384d;
+            --accent: #047857;        
+            --secondary: #D97706;      
+            --bg-body: #FAFAF9;        
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;      
+            --text-muted: #57534E;     
+            --border-subtle: #E7E5E4;  
+            --container-width: 1200px;
+            --header-height: 90px;
+            
+            /* Cores Específicas TDEE/Macros */
+            --macro-prot: #0ea5e9; /* Azul Proteína */
+            --macro-carb: #eab308; /* Amarelo Carbo */
+            --macro-fat: #ef4444;  /* Vermelho Gordura */
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-theme-switch i, .animate-theme-switch svg { animation: rotate-scale 0.5s ease-in-out; }
+
+        /* --- HEADER (Links Relativos) --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container { display: flex; justify-content: flex-end; gap: 20px; }
+        
+        .lang-selector { display: flex; align-items: center; gap: 5px; }
+        .lang-selector select { background: transparent; color: #fff; border: none; font-size: 0.85rem; cursor: pointer; outline: none; }
+        .lang-selector select option { color: #000; }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            position: sticky;
+            top: 0;
+        }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+
+        .logo {
+            font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary);
+            display: flex; align-items: center; gap: 12px; letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: var(--text-muted);
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; position: relative;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: var(--secondary); transition: width 0.3s; }
+        .nav-link:hover { color: var(--primary); }
+
+        .btn-outline-white {
+            border: 1px solid var(--primary); color: var(--primary); padding: 8px 24px;
+            border-radius: 2px; text-transform: uppercase; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover { background-color: var(--primary); color: #fff; }
+
+        /* --- HERO --- */
+        .tool-hero {
+            background: linear-gradient(135deg, var(--accent) 0%, #064e3b 100%); /* Verde Esmeralda para "Energia/Natureza" */
+            color: #fff;
+            padding: 60px 0 100px;
+            text-align: center;
+        }
+        .tool-hero h1 { color: #fff; font-size: 3rem; margin-bottom: 15px; }
+        .tool-hero p { max-width: 700px; margin: 0 auto; opacity: 0.9; font-size: 1.2rem; font-weight: 300; }
+        .tool-badge {
+            background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
+            display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;
+        }
+
+        /* --- TOOL LAYOUT --- */
+        .tool-layout {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            margin-top: -60px; margin-bottom: 80px; align-items: start;
+        }
+
+        .calc-card {
+            background-color: var(--bg-card); padding: 40px; border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-top: 5px solid var(--accent);
+        }
+
+        /* Inputs */
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--text-main); }
+        .input-wrapper { position: relative; }
+        .input-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+        
+        .form-control, .form-select {
+            width: 100%; padding: 15px 15px 15px 45px;
+            border: 1px solid var(--border-subtle); border-radius: 4px;
+            font-size: 1.05rem; font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body); color: var(--text-main); transition: 0.3s;
+        }
+        .form-control:focus, .form-select:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.1); }
+        
+        /* Radios */
+        .radio-group { display: flex; gap: 20px; margin-bottom: 25px; }
+        .radio-option { flex: 1; position: relative; }
+        .radio-option input { position: absolute; opacity: 0; cursor: pointer; }
+        .radio-tile {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 12px; border: 1px solid var(--border-subtle); border-radius: 4px;
+            cursor: pointer; transition: 0.3s; font-weight: 600; color: var(--text-muted);
+        }
+        .radio-option input:checked + .radio-tile {
+            background-color: rgba(4, 120, 87, 0.1); border-color: var(--accent); color: var(--accent);
+        }
+
+        .btn-calc {
+            width: 100%; background-color: var(--accent); color: #fff;
+            border: none; padding: 18px; font-size: 1.1rem; font-weight: 700; text-transform: uppercase;
+            border-radius: 4px; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; gap: 10px; margin-top: 15px;
+        }
+        .btn-calc:hover { background-color: #065f46; transform: translateY(-2px); }
+
+        /* RESULTADO */
+        .result-container { display: none; animation: fadeIn 0.8s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .result-box {
+            background-color: var(--bg-card); border: 1px solid var(--border-subtle);
+            padding: 30px; border-radius: 4px; text-align: center; position: relative; overflow: hidden;
+            margin-bottom: 25px;
+        }
+        .result-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background-color: var(--accent); }
+
+        .tdee-value {
+            font-size: 3.5rem; font-family: 'Playfair Display', serif; font-weight: 700;
+            line-height: 1; margin: 15px 0 5px; color: var(--accent);
+        }
+        .tdee-label { font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em; }
+
+        /* MACROS */
+        .macros-container {
+            margin-top: 30px;
+        }
+        .macros-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 15px; }
+        
+        .macro-card {
+            background-color: var(--bg-body); padding: 15px; border-radius: 4px; margin-bottom: 10px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-left: 4px solid #ccc;
+        }
+        .macro-card.prot { border-color: var(--macro-prot); }
+        .macro-card.carb { border-color: var(--macro-carb); }
+        .macro-card.fat { border-color: var(--macro-fat); }
+        
+        .macro-name { font-weight: 600; font-size: 0.9rem; }
+        .macro-val { font-weight: 700; font-size: 1.1rem; }
+
+        .method-toggle {
+            font-size: 0.85rem; color: var(--secondary); cursor: pointer; text-decoration: underline; margin-top: 5px; display: inline-block;
+        }
+
+        /* Content */
+        .content-section { margin-top: 60px; }
+        .highlight-box {
+            background-color: rgba(4, 120, 87, 0.05); padding: 25px; border-radius: 4px; border: 1px solid rgba(4, 120, 87, 0.2); margin: 30px 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917; color: #A8A29E; padding: 80px 0 0; font-size: 0.95rem; font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 50px; padding-bottom: 60px; }
+        .footer-grid h4 { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 25px; position: relative; }
+        .footer-grid h4::after { content: ''; display: block; width: 30px; height: 2px; background-color: var(--accent); margin-top: 10px; }
+        .footer-grid ul li { margin-bottom: 12px; }
+        .footer-grid ul li a:hover { color: #fff; transform: translateX(5px); }
+        .footer-bottom { border-top: 1px solid #333; padding: 30px 0; text-align: center; background-color: #151312; }
+
+        @media (max-width: 900px) {
+            .tool-layout { grid-template-columns: 1fr; margin-top: 0; }
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Botão de Tema -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i> <span>Modo Escuro</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i> <span>Modo Claro</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;">
+                    <option value="gasto-energetico-diario-tdee.html" selected>Português</option>
+                    <option value="gasto-energetico-diario-tdee-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Início</a></li>
+                <li><a href="../artigos.html" class="nav-link">Artigos</a></li>
+                <li><a href="../calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- TOOL HERO -->
+    <header class="tool-hero">
+        <div class="container">
+            <span class="tool-badge"><i data-lucide="activity"></i> Performance & Nutrição</span>
+            <h1>Gasto Energético Total (TDEE)</h1>
+            <p>A ferramenta mais completa para calcular quantas calorias você realmente gasta, considerando seus treinos e composição corporal.</p>
+        </div>
+    </header>
+
+    <!-- TOOL SECTION -->
+    <section class="container">
+        <div class="tool-layout">
+            
+            <!-- INPUTS -->
+            <div class="calc-section">
+                <div class="calc-card">
+                    <form id="tdeeForm">
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="male" checked>
+                                <div class="radio-tile"><i data-lucide="user"></i> Homem</div>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="female">
+                                <div class="radio-tile"><i data-lucide="user"></i> Mulher</div>
+                            </label>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="input-group">
+                                <label>Idade</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="calendar"></i>
+                                    <input type="number" id="age" class="form-control" placeholder="30" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Gordura Corporal % <span style="font-weight: 400; color: var(--text-muted); font-size: 0.8rem;">(Opcional)</span></label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="percent"></i>
+                                    <input type="number" id="bodyFat" class="form-control" placeholder="Ex: 15">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="input-group">
+                                <label>Peso (kg)</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="weight"></i>
+                                    <input type="number" id="weight" class="form-control" placeholder="75" step="0.1" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Altura (cm)</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="ruler"></i>
+                                    <input type="number" id="height" class="form-control" placeholder="175" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Nível de Atividade</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="dumbbell" style="z-index: 10;"></i>
+                                <select id="activity" class="form-select">
+                                    <option value="1.2">Sedentário (Trabalho de escritório)</option>
+                                    <option value="1.375">Leve (Exercício 1-2x/semana)</option>
+                                    <option value="1.55">Moderado (Exercício 3-5x/semana)</option>
+                                    <option value="1.725">Intenso (Exercício 6-7x/semana)</option>
+                                    <option value="1.9">Atleta (Treino pesado 2x/dia)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-calc">
+                            Calcular TDEE & Macros
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+                        
+                        <div id="methodUsed" style="text-align: center; margin-top: 15px; font-size: 0.8rem; color: var(--text-muted);">
+                            Fórmula padrão: Mifflin-St Jeor
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- RESULTADO -->
+            <div id="resultArea">
+                <div id="initialState" style="text-align: center; padding: 40px; color: var(--text-muted); border: 2px dashed var(--border-subtle); border-radius: 4px;">
+                    <i data-lucide="pie-chart" size="48" style="opacity: 0.3; margin-bottom: 20px;"></i>
+                    <h3>Planejamento Nutricional</h3>
+                    <p>Insira seus dados para calcular seu gasto real e sugestão de macronutrientes.</p>
+                </div>
+
+                <div id="resultContainer" class="result-container">
+                    <div class="result-box">
+                        <span class="tdee-label">Seu Gasto Diário (Manutenção)</span>
+                        <div class="tdee-value" id="tdeeValue">--</div>
+                        <span style="color: var(--text-muted);">Kcal / dia</span>
+                    </div>
+
+                    <div class="macros-container">
+                        <h4 class="macros-title">Sugestão de Macros (Equilibrada)</h4>
+                        
+                        <div class="macro-card prot">
+                            <div>
+                                <span class="macro-name">Proteínas (30%)</span>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Construção Muscular</div>
+                            </div>
+                            <span class="macro-val" id="valProt">--g</span>
+                        </div>
+
+                        <div class="macro-card carb">
+                            <div>
+                                <span class="macro-name">Carboidratos (40%)</span>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Energia Principal</div>
+                            </div>
+                            <span class="macro-val" id="valCarb">--g</span>
+                        </div>
+
+                        <div class="macro-card fat">
+                            <div>
+                                <span class="macro-name">Gorduras (30%)</span>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Hormônios & Saúde</div>
+                            </div>
+                            <span class="macro-val" id="valFat">--g</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px; text-align: center;">
+                        <button onclick="copyResults()" style="background: none; border: 1px solid var(--border-subtle); padding: 8px 20px; border-radius: 50px; cursor: pointer; color: var(--text-muted); font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;">
+                            <i data-lucide="copy" size="14"></i> Copiar Planejamento
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 60px 0;">
+
+        <!-- CONTEÚDO SEO -->
+        <div class="content-section">
+            <h2>O que compõe o seu Gasto Energético (TDEE)?</h2>
+            <p>O <em>Total Daily Energy Expenditure</em> (TDEE) é a soma de todas as calorias que você queima em 24 horas. Diferente da TMB (que é apenas o coma induzido), o TDEE leva em consideração como você vive sua vida.</p>
+            
+            <div class="highlight-box">
+                <h4 style="color: var(--accent); margin-bottom: 10px;">A Fórmula do Gasto Total:</h4>
+                <ul style="list-style: none; margin: 0;">
+                    <li style="margin-bottom: 10px;">🔥 <strong>TMB (70%):</strong> Taxa Metabólica Basal (Funções vitais).</li>
+                    <li style="margin-bottom: 10px;">🚶 <strong>NEAT (15%):</strong> Atividade física não programada (andar, digitar, ficar em pé).</li>
+                    <li style="margin-bottom: 10px;">🍽️ <strong>TEF (10%):</strong> Efeito Térmico dos Alimentos (energia gasta para digerir).</li>
+                    <li>🏋️ <strong>EAT (5%):</strong> Exercício Físico programado (treino na academia, corrida).</li>
+                </ul>
+            </div>
+
+            <h3>Por que usamos a Fórmula Katch-McArdle?</h3>
+            <p>Se você inseriu seu <strong>Percentual de Gordura</strong>, nossa calculadora trocou automaticamente para a equação de Katch-McArdle. Diferente das fórmulas baseadas apenas em peso total (como Mifflin-St Jeor), esta equação considera apenas a sua <strong>Massa Magra</strong>. Isso é crucial para atletas, pois o músculo queima muito mais calorias que a gordura, tornando o cálculo muito mais preciso para quem treina.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="../calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="../artigos.html">Artigos Científicos</a></li>
+                        <li><a href="../quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="../politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="../isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="../contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6;">As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento médico profissional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC -->
+    <script>
+        function initIcons() {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            else setTimeout(initIcons, 100);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            // Theme Toggle
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    document.getElementById('icon-moon').style.display = next === 'dark' ? 'none' : 'flex';
+                    document.getElementById('icon-sun').style.display = next === 'dark' ? 'flex' : 'none';
+                });
+            }
+
+            // Detector de Percentual de Gordura
+            const bodyFatInput = document.getElementById('bodyFat');
+            const methodDisplay = document.getElementById('methodUsed');
+            
+            bodyFatInput.addEventListener('input', () => {
+                if(bodyFatInput.value && bodyFatInput.value > 0) {
+                    methodDisplay.innerHTML = '<span style="color: var(--accent); font-weight: 600;">Fórmula Ativa: Katch-McArdle (Alta Precisão)</span>';
+                } else {
+                    methodDisplay.innerHTML = 'Fórmula padrão: Mifflin-St Jeor';
+                }
+            });
+        });
+
+        document.getElementById('tdeeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const age = parseInt(document.getElementById('age').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const bodyFat = parseFloat(document.getElementById('bodyFat').value);
+            const activity = parseFloat(document.getElementById('activity').value);
+
+            if(!age || !weight || !height) return;
+
+            let bmr = 0;
+
+            // Lógica de Seleção de Fórmula
+            if (bodyFat && bodyFat > 0) {
+                // Katch-McArdle
+                const leanMass = weight * (1 - (bodyFat / 100));
+                bmr = 370 + (21.6 * leanMass);
+            } else {
+                // Mifflin-St Jeor
+                let common = (10 * weight) + (6.25 * height) - (5 * age);
+                bmr = (gender === 'male') ? common + 5 : common - 161;
+            }
+
+            const tdee = Math.round(bmr * activity);
+
+            // Cálculo de Macros (Divisão Moderada 30/40/30)
+            // Prot: 4kcal/g, Carb: 4kcal/g, Fat: 9kcal/g
+            const protG = Math.round((tdee * 0.30) / 4);
+            const carbG = Math.round((tdee * 0.40) / 4);
+            const fatG  = Math.round((tdee * 0.30) / 9);
+
+            // Update UI
+            document.getElementById('initialState').style.display = 'none';
+            document.getElementById('resultContainer').style.display = 'block';
+
+            document.getElementById('tdeeValue').innerText = tdee;
+            document.getElementById('valProt').innerText = protG + 'g';
+            document.getElementById('valCarb').innerText = carbG + 'g';
+            document.getElementById('valFat').innerText = fatG + 'g';
+
+            if(window.innerWidth < 900) {
+                document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        function copyResults() {
+            const tdee = document.getElementById('tdeeValue').innerText;
+            const p = document.getElementById('valProt').innerText;
+            const c = document.getElementById('valCarb').innerText;
+            const f = document.getElementById('valFat').innerText;
+            
+            const text = `Meu TDEE: ${tdee} kcal. Macros sugeridos: Proteína ${p}, Carbo ${c}, Gordura ${f}. Gerado em Calcule Sua Saúde.`;
+            navigator.clipboard.writeText(text);
+            alert('Plano copiado!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Advanced Meta Tags -->
+    <title>Pregnancy & Due Date Calculator (EDD) | Calcule Sua Saúde</title>
+    <meta name="description" content="Calculate your Estimated Due Date (EDD) and gestational age. Tool based on Naegele's rule with menstrual cycle adjustment. Track your pregnancy weeks.">
+    <meta name="keywords" content="pregnancy calculator, due date, EDD, pregnancy weeks, gestational age, naegele's rule, pregnancy trimesters">
+    <meta name="author" content="Calcule Sua Saúde">
+    <meta property="og:title" content="Pregnancy Due Date Calculator">
+    <meta property="og:description" content="Find out how many weeks along you are and when your baby is due.">
+    <meta property="og:type" content="website">
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "Pregnancy Due Date Calculator",
+      "description": "Tool for estimating birth date based on the first day of the last menstrual period (LMP).",
+      "audience": "Patients",
+      "aspect": "Pregnancy",
+      "mainEntity": {
+        "@type": "WebApplication",
+        "name": "Pregnancy Calculator Calcule Sua Saúde",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All"
+      }
+    }
+    </script>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- DESIGN SYSTEM (Inherited) --- */
+        :root {
+            --primary: #0A4D68;        
+            --primary-dark: #06384d;
+            --accent: #db2777;  /* Pink 600 - Theme color for Maternity */       
+            --secondary: #D97706;      
+            --bg-body: #FAFAF9;        
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;      
+            --text-muted: #57534E;     
+            --border-subtle: #E7E5E4;  
+            --container-width: 1200px;
+            --header-height: 90px;
+            
+            /* Trimester Colors */
+            --tri-1: #fbcfe8; /* Light Pink */
+            --tri-2: #f472b6; /* Medium Pink */
+            --tri-3: #db2777; /* Strong Pink */
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #f472b6;
+            --border-subtle: #292524;
+            
+            --tri-1: #831843;
+            --tri-2: #be185d;
+            --tri-3: #db2777;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+
+        /* --- ANIMATIONS --- */
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-theme-switch i, .animate-theme-switch svg { animation: rotate-scale 0.5s ease-in-out; }
+
+        /* --- HEADER (Relative Links) --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container { display: flex; justify-content: flex-end; gap: 20px; }
+        
+        .lang-selector { display: flex; align-items: center; gap: 5px; }
+        .lang-selector select { background: transparent; color: #fff; border: none; font-size: 0.85rem; cursor: pointer; outline: none; }
+        .lang-selector select option { color: #000; }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            position: sticky;
+            top: 0;
+        }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+
+        .logo {
+            font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary);
+            display: flex; align-items: center; gap: 12px; letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: var(--text-muted);
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; position: relative;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: var(--secondary); transition: width 0.3s; }
+        .nav-link:hover { color: var(--primary); }
+
+        .btn-outline-white {
+            border: 1px solid var(--primary); color: var(--primary); padding: 8px 24px;
+            border-radius: 2px; text-transform: uppercase; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover { background-color: var(--primary); color: #fff; }
+
+        /* --- HERO --- */
+        .tool-hero {
+            background: linear-gradient(135deg, #db2777 0%, #be185d 100%); /* Pink Gradient */
+            color: #fff;
+            padding: 60px 0 100px;
+            text-align: center;
+        }
+        .tool-hero h1 { color: #fff; font-size: 3rem; margin-bottom: 15px; }
+        .tool-hero p { max-width: 700px; margin: 0 auto; opacity: 0.9; font-size: 1.2rem; font-weight: 300; }
+        .tool-badge {
+            background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
+            display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;
+        }
+
+        /* --- TOOL LAYOUT --- */
+        .tool-layout {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            margin-top: -60px; margin-bottom: 80px; align-items: start;
+        }
+
+        .calc-card {
+            background-color: var(--bg-card); padding: 40px; border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-top: 5px solid var(--accent);
+        }
+
+        /* Inputs */
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--text-main); }
+        .input-wrapper { position: relative; }
+        .input-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+        
+        .form-control {
+            width: 100%; padding: 15px 15px 15px 45px;
+            border: 1px solid var(--border-subtle); border-radius: 4px;
+            font-size: 1.05rem; font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body); color: var(--text-main); transition: 0.3s;
+        }
+        .form-control:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.1); }
+        
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer; opacity: 0.6;
+        }
+
+        .btn-calc {
+            width: 100%; background-color: var(--accent); color: #fff;
+            border: none; padding: 18px; font-size: 1.1rem; font-weight: 700; text-transform: uppercase;
+            border-radius: 4px; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; gap: 10px; margin-top: 15px;
+        }
+        .btn-calc:hover { background-color: #be185d; transform: translateY(-2px); }
+
+        /* RESULT */
+        .result-container { display: none; animation: fadeIn 0.8s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .result-box {
+            background-color: var(--bg-card); border: 1px solid var(--border-subtle);
+            padding: 30px; border-radius: 4px; text-align: center; position: relative; overflow: hidden;
+            margin-bottom: 25px;
+        }
+        .result-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background-color: var(--accent); }
+        
+        .dpp-date { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--accent); line-height: 1.2; margin: 15px 0; }
+        .gestational-age { font-size: 1.2rem; color: var(--text-main); font-weight: 600; margin-bottom: 5px; }
+        
+        /* Timeline */
+        .trimester-timeline {
+            margin-top: 30px; position: relative; padding-top: 20px;
+        }
+        .timeline-bar {
+            height: 10px; background: #e5e7eb; border-radius: 5px; width: 100%; display: flex; overflow: hidden;
+        }
+        .tri-seg { height: 100%; }
+        .tri-seg.one { width: 32.5%; background-color: var(--tri-1); }
+        .tri-seg.two { width: 35%; background-color: var(--tri-2); }
+        .tri-seg.three { width: 32.5%; background-color: var(--tri-3); }
+        
+        .timeline-marker {
+            position: absolute; top: 12px; width: 4px; height: 26px; background-color: var(--text-main);
+            transform: translateX(-50%); transition: left 1s ease;
+            border: 2px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .timeline-labels {
+            display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 8px; text-transform: uppercase;
+        }
+
+        /* Milestone Table */
+        .milestone-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9rem; }
+        .milestone-table td { padding: 10px; border-bottom: 1px solid var(--border-subtle); text-align: left; }
+        .milestone-table tr:last-child td { border-bottom: none; }
+        .milestone-date { font-weight: 600; color: var(--primary); }
+
+        /* Content */
+        .content-section { margin-top: 60px; }
+        .highlight-box {
+            background-color: rgba(219, 39, 119, 0.05); padding: 25px; border-radius: 4px; border: 1px solid rgba(219, 39, 119, 0.2); margin: 30px 0;
+        }
+        .highlight-box h4 { color: var(--primary); margin-bottom: 10px; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917; color: #A8A29E; padding: 80px 0 0; font-size: 0.95rem; font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 50px; padding-bottom: 60px; }
+        .footer-grid h4 { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 25px; position: relative; }
+        .footer-grid h4::after { content: ''; display: block; width: 30px; height: 2px; background-color: var(--accent); margin-top: 10px; }
+        .footer-grid ul li { margin-bottom: 12px; }
+        .footer-grid ul li a:hover { color: #fff; transform: translateX(5px); }
+        .footer-bottom { border-top: 1px solid #333; padding: 30px 0; text-align: center; background-color: #151312; }
+
+        @media (max-width: 900px) {
+            .tool-layout { grid-template-columns: 1fr; margin-top: 0; }
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i> <span>Dark Mode</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i> <span>Light Mode</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;">
+                    <option value="data-provavel-do-parto.html">Português</option>
+                    <option value="data-provavel-do-parto-en.html" selected>English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index-en.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index-en.html" class="nav-link">Home</a></li>
+                <li><a href="../artigos-en.html" class="nav-link">Articles</a></li>
+                <li><a href="../calculadoras-en.html" class="nav-link">Calculators</a></li>
+                <li><a href="../quizzes-en.html" class="nav-link">Quizzes</a></li>
+                <li><a href="../contato-en.html" class="btn-outline-white">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- TOOL HERO -->
+    <header class="tool-hero">
+        <div class="container">
+            <span class="tool-badge"><i data-lucide="baby"></i> Obstetrics & Maternity</span>
+            <h1>Pregnancy Calculator</h1>
+            <p>Track your journey. Calculate the Estimated Due Date (EDD) and discover which gestational week you are in with the precision of Naegele's Rule.</p>
+        </div>
+    </header>
+
+    <!-- TOOL SECTION -->
+    <section class="container">
+        <div class="tool-layout">
+            
+            <!-- INPUTS -->
+            <div class="calc-section">
+                <div class="calc-card">
+                    <form id="dppForm">
+                        <div class="input-group">
+                            <label>First Day of Last Menstrual Period (LMP)</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="calendar-days"></i>
+                                <input type="date" id="dum" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Average Cycle Length (days)</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="rotate-ccw"></i>
+                                <input type="number" id="cycle" class="form-control" value="28" min="20" max="45">
+                            </div>
+                            <small style="color:var(--text-muted); font-size:0.8rem;">Standard is 28 days.</small>
+                        </div>
+
+                        <button type="submit" class="btn-calc">
+                            Calculate My Date
+                            <i data-lucide="arrow-right-circle"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- RESULT -->
+            <div id="resultArea">
+                <div id="initialState" style="text-align: center; padding: 40px; color: var(--text-muted); border: 2px dashed var(--border-subtle); border-radius: 4px;">
+                    <i data-lucide="calendar-heart" size="48" style="opacity: 0.3; margin-bottom: 20px;"></i>
+                    <h3>Awaiting Data</h3>
+                    <p>Enter the date of your last period to generate your gestational schedule.</p>
+                </div>
+
+                <div id="resultContainer" class="result-container">
+                    <div class="result-box">
+                        <span style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em;">Your baby is due on</span>
+                        <div class="dpp-date" id="dppResult">--/--/----</div>
+                        
+                        <div style="border-top: 1px solid var(--border-subtle); margin-top: 20px; padding-top: 20px;">
+                            <span style="font-size: 0.9rem; color: var(--text-muted);">You are approximately at:</span>
+                            <div class="gestational-age" id="gestationalAge">-- Weeks and -- Days</div>
+                        </div>
+
+                        <!-- Timeline -->
+                        <div class="trimester-timeline">
+                            <div class="timeline-bar">
+                                <div class="tri-seg one"></div>
+                                <div class="tri-seg two"></div>
+                                <div class="tri-seg three"></div>
+                            </div>
+                            <div class="timeline-marker" id="timeMarker" style="left: 0%;"></div>
+                            <div class="timeline-labels">
+                                <span>1st Tri</span>
+                                <span>2nd Tri</span>
+                                <span>3rd Tri</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milestones -->
+                    <div style="margin-top: 20px;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--primary);">Estimated Dates</h4>
+                        <table class="milestone-table">
+                            <tr>
+                                <td>End of 1st Trimester (13 wks)</td>
+                                <td class="milestone-date" id="dateTri1">--</td>
+                            </tr>
+                            <tr>
+                                <td>Fetal Viability (24 wks)</td>
+                                <td class="milestone-date" id="dateViability">--</td>
+                            </tr>
+                            <tr>
+                                <td>End of 2nd Trimester (27 wks)</td>
+                                <td class="milestone-date" id="dateTri2">--</td>
+                            </tr>
+                            <tr>
+                                <td>Full Term (39 wks)</td>
+                                <td class="milestone-date" id="dateTerm">--</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="margin-top: 25px; text-align: center;">
+                        <button onclick="window.print()" style="background: none; border: 1px solid var(--border-subtle); padding: 8px 20px; border-radius: 50px; cursor: pointer; color: var(--text-muted); font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;">
+                            <i data-lucide="printer" size="14"></i> Print Schedule
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-subtle); margin: 60px 0;">
+
+        <!-- SEO CONTENT -->
+        <div class="content-section">
+            <h2>How is the Due Date Calculated?</h2>
+            <p>Most pregnancies last about 40 weeks (or 280 days) from the first day of the last menstrual period. Our calculator uses <strong>Naegele's Rule</strong>, the worldwide standard adopted by obstetricians, but with an important difference: adjustment for your menstrual cycle.</p>
+            
+            <div class="highlight-box">
+                <h4><i data-lucide="check-circle" style="vertical-align: middle; margin-right: 8px;"></i> Why adjust for the cycle?</h4>
+                <p>The standard rule assumes a 28-day cycle with ovulation on the 14th day. If your cycle is shorter or longer, ovulation occurs at a different time, which alters the actual date of conception and, consequently, the due date.</p>
+            </div>
+
+            <h3>Understanding Trimesters</h3>
+            <ul style="list-style: none; display: grid; gap: 15px; margin-top: 20px;">
+                <li style="background: var(--bg-card); padding: 15px; border-left: 4px solid var(--tri-1);">
+                    <strong>1st Trimester (Week 1 to 13):</strong> Formation of the baby's vital organs. Adaptation period for the mother's body.
+                </li>
+                <li style="background: var(--bg-card); padding: 15px; border-left: 4px solid var(--tri-2);">
+                    <strong>2nd Trimester (Week 14 to 27):</strong> Rapid growth phase. Generally the most comfortable phase for the pregnant woman. Gender reveal is possible.
+                </li>
+                <li style="background: var(--bg-card); padding: 15px; border-left: 4px solid var(--tri-3);">
+                    <strong>3rd Trimester (Week 28 to 40+):</strong> Final maturation, baby weight gain, and preparation for birth.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Reference in evidence-based health. Committed to transparency, scientific education, and well-being.</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="../calculadoras-en.html">Medical Calculators</a></li>
+                        <li><a href="../artigos-en.html">Scientific Articles</a></li>
+                        <li><a href="../quizzes-en.html">Educational Quizzes</a></li>
+                        <li><a href="#">Editorial Methodology</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso-en.html">Terms of Use</a></li>
+                        <li><a href="../politica-de-privacidade-en.html">Privacy Policy</a></li>
+                        <li><a href="../isencao-de-responsabilidade-en.html">Disclaimer</a></li>
+                        <li><a href="../contato-en.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Trusted Sources</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/en" target="_blank" style="text-decoration: underline; color: var(--accent);">WHO</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. All rights reserved.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6;">The information contained in this site is for educational purposes only and does not substitute professional medical advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC -->
+    <script>
+        function initIcons() {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            else setTimeout(initIcons, 100);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            // Theme Toggle
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    document.getElementById('icon-moon').style.display = next === 'dark' ? 'none' : 'flex';
+                    document.getElementById('icon-sun').style.display = next === 'dark' ? 'flex' : 'none';
+                });
+            }
+        });
+
+        // Helper to format date US
+        function formatDate(date) {
+            return date.toLocaleDateString('en-US');
+        }
+
+        // Helper to add days
+        function addDays(date, days) {
+            const result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
+
+        document.getElementById('dppForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const dumInput = document.getElementById('dum').value;
+            const cycle = parseInt(document.getElementById('cycle').value) || 28;
+
+            if(!dumInput) return;
+
+            // Ensure date interpretation is correct
+            const parts = dumInput.split('-');
+            const dumDate = new Date(parts[0], parts[1] - 1, parts[2], 12, 0, 0);
+            
+            // Naegele's Rule Adjusted:
+            // Standard: LMP + 280 days (40 weeks)
+            // Adjustment: + (Cycle - 28) days
+            
+            const adjustment = cycle - 28;
+            const totalDuration = 280 + adjustment;
+            
+            const dueDate = addDays(dumDate, totalDuration);
+            
+            // Current Gestational Age Calculation
+            const today = new Date();
+            today.setHours(12, 0, 0, 0);
+            
+            if (dumDate > today) {
+                alert("The last menstrual period date cannot be in the future.");
+                return;
+            }
+
+            const diffTime = Math.abs(today - dumDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            const weeks = Math.floor(diffDays / 7);
+            const days = diffDays % 7;
+
+            // Milestone Dates
+            const dateTri1 = addDays(dumDate, (13 * 7) + adjustment);
+            const dateViability = addDays(dumDate, (24 * 7) + adjustment);
+            const dateTri2 = addDays(dumDate, (27 * 7) + adjustment);
+            const dateTerm = addDays(dumDate, (39 * 7) + adjustment);
+
+            // Update UI
+            document.getElementById('initialState').style.display = 'none';
+            document.getElementById('resultContainer').style.display = 'block';
+
+            document.getElementById('dppResult').innerText = formatDate(dueDate);
+            document.getElementById('gestationalAge').innerText = `${weeks} Weeks and ${days} Days`;
+
+            document.getElementById('dateTri1').innerText = formatDate(dateTri1);
+            document.getElementById('dateViability').innerText = formatDate(dateViability);
+            document.getElementById('dateTri2').innerText = formatDate(dateTri2);
+            document.getElementById('dateTerm').innerText = formatDate(dateTerm);
+
+            // Update Timeline Marker
+            let percent = (weeks / 40) * 100;
+            if (percent > 100) percent = 100;
+            if (percent < 0) percent = 0;
+            
+            document.getElementById('timeMarker').style.left = percent + '%';
+
+            if(window.innerWidth < 900) {
+                document.getElementById('resultContainer').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
