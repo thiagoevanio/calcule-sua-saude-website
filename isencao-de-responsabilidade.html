@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Isenção de Responsabilidade do Calcule Sua Saúde. Aviso legal sobre o caráter educativo do conteúdo e limites da responsabilidade médica.">
+    
+    <title>Isenção de Responsabilidade | Calcule Sua Saúde</title>
+    
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+	  <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- VARIÁVEIS (Padrão do Projeto) --- */
+        :root {
+            --primary: #0A4D68;       
+            --primary-dark: #06384d;
+            --accent: #047857;        
+            --secondary: #D97706;     
+            --bg-body: #FAFAF9;       
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;     
+            --text-muted: #57534E;    
+            --border-subtle: #E7E5E4; 
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Garante que o footer fique embaixo */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .animate-theme-switch i, 
+        .animate-theme-switch svg { 
+            animation: rotate-scale 0.5s ease-in-out;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container { display: flex; justify-content: flex-end; gap: 20px; }
+
+        /* Lang Selector Styles */
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .lang-selector select {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+        .lang-selector select option {
+            background-color: #0A4D68;
+            color: #fff;
+        }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--primary); }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline:hover { background-color: var(--primary); color: #fff; }
+
+        /* --- CONTEÚDO LEGAL --- */
+        .legal-page-header {
+            padding: 80px 0 40px;
+            text-align: center;
+            background-color: var(--bg-body);
+        }
+
+        .legal-page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .legal-content-wrapper {
+            max-width: 800px;
+            margin: 0 auto 100px;
+            background-color: var(--bg-card);
+            padding: 60px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .legal-text h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .legal-text h3 {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .legal-text p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        .legal-text ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .legal-text li {
+            margin-bottom: 10px;
+        }
+
+        /* Caixa de Alerta Vermelha para Isenção */
+        .disclaimer-alert-box {
+            background-color: rgba(220, 38, 38, 0.05); /* Vermelho suave */
+            border-left: 4px solid #DC2626;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .disclaimer-alert-box h3 {
+            margin-top: 0;
+            color: #DC2626; /* Texto vermelho */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
+
+        .disclaimer-alert-box p {
+            color: #7f1d1d;
+            margin-bottom: 10px;
+        }
+        
+        .disclaimer-alert-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- FOOTER (Padrão) --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            border-top: 4px solid var(--accent);
+            margin-top: auto; /* Empurra o footer para o final */
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 { color: #fff; font-size: 1.3rem; margin-bottom: 25px; position: relative; }
+        .footer h4::after { content: ''; display: block; width: 30px; height: 2px; background-color: var(--accent); margin-top: 10px; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { color: #A8A29E; transition: 0.2s; display: inline-block; } 
+        .footer ul li a:hover { color: #fff; transform: translateX(5px); }
+        .footer-bottom { border-top: 1px solid #333; padding: 30px 0; text-align: center; font-size: 0.85rem; background-color: #151312; }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .legal-content-wrapper { padding: 30px 20px; border: none; box-shadow: none; background: transparent; }
+            .page-header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;"><i data-lucide="moon" size="14"></i><span>Modo Escuro</span></span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;"><i data-lucide="sun" size="14"></i><span>Modo Claro</span></span>
+            </div>
+            
+            <!-- Lang Selector -->
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;">
+                    <option value="isencao-de-responsabilidade.html" selected>Português</option>
+                    <option value="isencao-de-responsabilidade-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="artigos.html" class="nav-link">Artigos</a></li>
+                <li><a href="calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="contato.html" class="btn-outline">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- TÍTULO DA PÁGINA -->
+    <header class="legal-page-header">
+        <div class="container">
+            <h1>Isenção de Responsabilidade</h1>
+            <p class="last-updated">Última atualização: 24 de Outubro de 2024</p>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO DA ISENÇÃO -->
+    <section class="container">
+        <div class="legal-content-wrapper legal-text">
+            
+            <p>A isenção de responsabilidade médica é uma parte fundamental da política de uso do site <strong>Calcule Sua Saúde</strong>. Leia com atenção as informações abaixo para compreender os limites do conteúdo oferecido e sua responsabilidade como usuário.</p>
+
+            <!-- CAIXA DE ALERTA MÉDICO -->
+            <div class="disclaimer-alert-box">
+                <h3><i data-lucide="alert-octagon"></i> Aviso Importante</h3>
+                <p><strong>ESTE SITE NÃO FORNECE ACONSELHAMENTO MÉDICO.</strong></p>
+                <p>Se você acha que pode ter uma emergência médica, ligue para seu médico ou para o serviço de emergência (192 no Brasil) imediatamente.</p>
+            </div>
+
+            <h2>1. Caráter Educativo e Informativo</h2>
+            <p>Todo o conteúdo disponibilizado no Calcule Sua Saúde, incluindo textos, gráficos, imagens, ferramentas de cálculo, quizzes e outras informações, tem finalidade <strong>estritamente educativa e informativa</strong>.</p>
+            <p>O conteúdo não se destina a ser um substituto para aconselhamento médico profissional, diagnóstico ou tratamento. Procure sempre o conselho do seu médico ou outro profissional de saúde qualificado com qualquer dúvida que possa ter sobre uma condição médica.</p>
+
+            <h2>2. Ausência de Relação Médico-Paciente</h2>
+            <p>O uso deste site e a transmissão de informações não criam uma relação médico-paciente entre você e o Calcule Sua Saúde ou qualquer um de seus autores/colaboradores. Nenhuma informação contida neste site deve ser interpretada como a prestação de consultoria médica ou a prática da medicina.</p>
+
+            <h2>3. Uso de Ferramentas e Calculadoras</h2>
+            <p>As calculadoras de saúde (IMC, TMB, risco cardíaco, etc.) disponíveis no site são baseadas em fórmulas matemáticas publicamente disponíveis e diretrizes gerais. Elas fornecem <strong>estimativas</strong> que podem não se aplicar ao seu caso clínico específico.</p>
+            <ul>
+                <li>Não utilize os resultados das calculadoras para auto-diagnóstico ou para alterar sua medicação.</li>
+                <li>Os resultados não levam em conta seu histórico médico completo, genética ou condições pré-existentes.</li>
+            </ul>
+
+            <h2>4. Precisão das Informações</h2>
+            <p>Embora nos esforcemos para manter o conteúdo atualizado e baseado em fontes confiáveis (como OMS, CDC e PubMed), a medicina é uma ciência em constante evolução. Não garantimos que o conteúdo seja completo, preciso ou esteja atualizado na data do seu acesso.</p>
+
+            <h2>5. Isenção sobre Terceiros</h2>
+            <p>O Calcule Sua Saúde não recomenda nem endossa quaisquer testes específicos, médicos, produtos, procedimentos, opiniões ou outras informações que possam ser mencionados no site. Links para conteúdos de terceiros são fornecidos apenas para conveniência e não implicam aprovação do conteúdo desses sites.</p>
+
+            <h2>6. Responsabilidade Pessoal</h2>
+            <p>Ao utilizar este site, você concorda que o uso das informações é de sua inteira responsabilidade. O Calcule Sua Saúde, seus proprietários e colaboradores não serão responsáveis por quaisquer danos, lesões ou perdas resultantes do uso ou confiança nas informações fornecidas neste site.</p>
+
+            <h2>7. Contato para Dúvidas Legais</h2>
+            <p>Se você tiver dúvidas sobre esta isenção de responsabilidade, entre em contato através dos canais oficiais:</p>
+            <p><strong>E-mail:</strong> legal@calculesuasaude.com.br<br>
+            <strong>Endereço:</strong> São Paulo, SP - Brasil</p>
+
+        </div>
+    </section>
+
+    <!-- FOOTER (LINKS CORRIGIDOS) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="artigos.html">Artigos Científicos</a></li>
+                        <li><a href="quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado com qualquer dúvida que possa ter sobre uma condição médica.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'dark') {
+                iconMoon.style.display = 'none';
+                iconSun.style.display = 'flex';
+            }
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    // Adiciona classe de animação
+                    themeBtn.classList.add('animate-theme-switch');
+                    
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+
+                    // Alterna visibilidade dos ícones
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    // Remove animação após ela terminar para poder clicar de novo
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

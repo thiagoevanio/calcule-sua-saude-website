@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags de SEO para a Página de Artigos -->
+    <meta name="description" content="Biblioteca de artigos científicos sobre saúde, nutrição e bem-estar. Conteúdo revisado e baseado em evidências (OMS, PubMed, CDC).">
+    <meta name="keywords" content="artigos saúde, medicina baseada em evidências, nutrição científica, estudos médicos, saúde mental">
+    
+    <title>Artigos Científicos | Calcule Sua Saúde</title>
+    
+    <!-- FONTES: Playfair Display (Títulos) e Source Sans 3 (Texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+	  <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+   </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- Ícones (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- REUTILIZANDO VARIÁVEIS DA HOME --- */
+        :root {
+            --primary: #0A4D68;       /* Deep Ocean Blue */
+            --primary-dark: #06384d;
+            --accent: #047857;        /* Emerald */
+            --secondary: #D97706;     /* Warm Amber */
+            --bg-body: #FAFAF9;       /* Stone 50 */
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;     /* Stone 900 */
+            --text-muted: #57534E;    /* Stone 600 */
+            --border-subtle: #E7E5E4; /* Stone 200 */
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- RESET & GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER IGUAL À HOME --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .lang-selector select {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .lang-selector select option {
+            background-color: #0A4D68;
+            color: #fff;
+        }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--primary); }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline:hover { background-color: var(--primary); color: #fff; }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            padding: 60px 0 30px;
+            text-align: center;
+            background-color: var(--bg-body);
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- FILTRO DE CATEGORIAS (SIMPLIFICADO) --- */
+        .category-filter-section {
+            background-color: var(--bg-body);
+            padding: 0 0 40px;
+            position: sticky;
+            top: var(--header-height);
+            z-index: 900;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .category-filter-section.is-pinned {
+            border-bottom: 1px solid var(--border-subtle);
+            background-color: var(--bg-card);
+            padding-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .category-scroll-container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 5px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+        
+        .category-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-btn {
+            white-space: nowrap;
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 1px solid var(--border-subtle);
+            background-color: var(--bg-card);
+            color: var(--text-muted);
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .category-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .category-btn.active {
+            background-color: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 10px rgba(10, 77, 104, 0.2);
+        }
+
+        /* --- GRID DE ARTIGOS --- */
+        .articles-section {
+            padding-bottom: 100px;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        /* CARD DESIGN */
+        .article-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            cursor: pointer; /* Indica que é clicável */
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+
+        .card-img-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .article-card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-category {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+        
+        .card-excerpt {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        
+        .footer h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { 
+            color: #A8A29E; 
+            transition: 0.2s; 
+            display: inline-block; 
+        }
+        .footer ul li a:hover { 
+            color: #fff; 
+            transform: translateX(5px); 
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .articles-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .articles-grid { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
+            .page-header h1 { font-size: 2.5rem; }
+            .category-scroll-container { justify-content: flex-start; flex-wrap: nowrap; padding-left: 24px; padding-right: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;"><i data-lucide="moon" size="14"></i><span>Modo Escuro</span></span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;"><i data-lucide="sun" size="14"></i><span>Modo Claro</span></span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;">
+                    <option value="artigos.html" selected>Português</option>
+                    <option value="artigos-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="artigos.html" class="nav-link active">Artigos</a></li>
+                <li><a href="calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="contato.html" class="btn-outline">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Biblioteca Científica</h1>
+            <p>Acervo completo de artigos baseados em evidências, diretrizes oficiais e estudos clínicos atualizados.</p>
+        </div>
+    </header>
+
+    <!-- FILTRO DE CATEGORIAS -->
+    <section class="category-filter-section" id="filter-bar">
+        <div class="container">
+            <div class="category-scroll-container">
+                <button class="category-btn active" data-filter="all">Todos</button>
+                <button class="category-btn" data-filter="Metabolismo">Metabolismo & Nutrição</button>
+                <button class="category-btn" data-filter="Mente">Mente & Sono</button>
+                <button class="category-btn" data-filter="Coracao">Coração & Circulação</button>
+                <button class="category-btn" data-filter="Corpo">Corpo & Movimento</button>
+                <button class="category-btn" data-filter="Longevidade">Longevidade & Prevenção</button>
+                <button class="category-btn" data-filter="Geral">Saúde Geral</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRID DE 30 ARTIGOS -->
+    <section class="articles-section">
+        <div class="container">
+            <div class="articles-grid" id="articles-grid">
+
+                <!-- 1 -->
+                <article class="article-card" data-category="Metabolismo" onclick="location.href='artigos/resistencia-insulina-mecanismos.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Resistência à Insulina Mecanismos.webp" class="card-img" alt="Insulina" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Endocrinologia</span>
+                        <h3 class="card-title">Resistência à Insulina: Mecanismos</h3>
+                        <p class="card-excerpt">Uma revisão detalhada sobre a fisiopatologia da resistência insulínica e estratégias não-farmacológicas.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 8 min</span><span>Dr. Especialista</span></div>
+                    </div>
+                </article>
+
+                <!-- 2 -->
+                <article class="article-card" data-category="Metabolismo" onclick="location.href='artigos/macronutrientes-guia-bioquimico.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Macronutrientes O Guia Bioquímico.webp" class="card-img" alt="Nutrição" onerror="this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Nutrição Clínica</span>
+                        <h3 class="card-title">Macronutrientes: O Guia Bioquímico</h3>
+                        <p class="card-excerpt">Entendendo o metabolismo de proteínas, carboidratos e lipídios em nível celular.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 12 min</span><span>Equipe Editorial</span></div>
+                    </div>
+                </article>
+
+                <!-- 3 -->
+                <article class="article-card" data-category="Coracao" onclick="location.href='artigos/hipertensao-diretrizes.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Hipertensão Diretrizes Atuais.webp" class="card-img" alt="Coração" onerror="this.src='https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Cardiologia</span>
+                        <h3 class="card-title">Hipertensão: Diretrizes Atuais</h3>
+                        <p class="card-excerpt">Atualizações sobre diagnóstico, monitoramento e controle da pressão arterial sistêmica.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 10 min</span><span>Revisão Médica</span></div>
+                    </div>
+                </article>
+
+                <!-- 4 -->
+                <article class="article-card" data-category="Mente" onclick="location.href='artigos/cortisol-estresse-cronico.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Cortisol e Estresse Crônico.webp" class="card-img" alt="Saúde Mental" onerror="this.src='https://images.unsplash.com/photo-1505548963783-a97920dc748b?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Saúde Mental</span>
+                        <h3 class="card-title">Cortisol e Estresse Crônico</h3>
+                        <p class="card-excerpt">Impactos neurobiológicos do estresse prolongado e marcadores hormonais de saúde mental.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 11 min</span><span>Neurociência</span></div>
+                    </div>
+                </article>
+
+                <!-- 5 -->
+                <article class="article-card" data-category="Mente" onclick="location.href='artigos/ritmo-circadiano.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Ritmo Circadiano e Saúde.webp" class="card-img" alt="Sono" onerror="this.src='https://images.unsplash.com/photo-1517340076-2e9988a2e5d5?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Medicina do Sono</span>
+                        <h3 class="card-title">Ritmo Circadiano e Saúde</h3>
+                        <p class="card-excerpt">Como a luz e os ciclos de sono afetam seu metabolismo, hormônios e sistema imunológico.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 9 min</span><span>Dr. Pneumologista</span></div>
+                    </div>
+                </article>
+
+                <!-- 6 -->
+                <article class="article-card" data-category="Corpo" onclick="location.href='artigos/mioquinas-movimento.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Mioquinas O Segredo do Movimento.webp" class="card-img" alt="Exercício" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Fisiologia</span>
+                        <h3 class="card-title">Mioquinas: O Segredo do Movimento</h3>
+                        <p class="card-excerpt">O papel do músculo esquelético como órgão endócrino e seus benefícios sistêmicos.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 14 min</span><span>Fisiologista</span></div>
+                    </div>
+                </article>
+
+                <!-- 7 -->
+                <article class="article-card" data-category="Longevidade" onclick="location.href='artigos/vitamina-d-imunidade.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Vitamina D e Resposta Imune.webp" class="card-img" alt="Imunidade" onerror="this.src='https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Imunologia</span>
+                        <h3 class="card-title">Vitamina D e Resposta Imune</h3>
+                        <p class="card-excerpt">O papel hormonal do calcitriol na modulação das células de defesa do organismo.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 7 min</span><span>Revisão Sistemática</span></div>
+                    </div>
+                </article>
+
+                <!-- 8 -->
+                <article class="article-card" data-category="Metabolismo" onclick="location.href='artigos/microbiota-cerebro.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Microbiota Intestinal e Cérebro.webp" class="card-img" alt="Vegetais" onerror="this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Nutrição Clínica</span>
+                        <h3 class="card-title">Microbiota Intestinal e Cérebro</h3>
+                        <p class="card-excerpt">O eixo intestino-cérebro: como as bactérias intestinais influenciam o humor e a ansiedade.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 13 min</span><span>Nature Reviews</span></div>
+                    </div>
+                </article>
+
+                <!-- 9 -->
+                <article class="article-card" data-category="Corpo" onclick="location.href='artigos/hiit-vs-aerobico.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/HIIT vs Aeróbico Contínuo.webp" class="card-img" alt="Corrida" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Ciência do Esporte</span>
+                        <h3 class="card-title">HIIT vs Aeróbico Contínuo</h3>
+                        <p class="card-excerpt">Comparação de eficácia na biogênese mitocondrial e na saúde cardiovascular.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 8 min</span><span>ACSM</span></div>
+                    </div>
+                </article>
+
+                <!-- 10 -->
+                <article class="article-card" data-category="Geral" onclick="location.href='artigos/glicacao-pele.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/O Efeito da Glicação na Pele.webp" class="card-img" alt="Pele" onerror="this.src='https://images.unsplash.com/photo-1556228720-1916362834b6?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Dermatologia</span>
+                        <h3 class="card-title">O Efeito da Glicação na Pele</h3>
+                        <p class="card-excerpt">Como o excesso de açúcar degrada o colágeno e acelera o envelhecimento cutâneo.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 6 min</span><span>SBD</span></div>
+                    </div>
+                </article>
+
+                <!-- 11 -->
+                <article class="article-card" data-category="Metabolismo" onclick="location.href='artigos/obesidade-infantil.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Obesidade Infantil Uma Pandemia.webp" class="card-img" alt="Criança" onerror="this.src='https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Pediatria</span>
+                        <h3 class="card-title">Obesidade Infantil: Uma Pandemia</h3>
+                        <p class="card-excerpt">Dados da OMS sobre o crescimento da obesidade em menores e estratégias de intervenção.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 10 min</span><span>OMS</span></div>
+                    </div>
+                </article>
+
+                <!-- 12 -->
+                <article class="article-card" data-category="Mente" onclick="location.href='artigos/neuroplasticidade-adultos.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Neuroplasticidade em Adultos.webp" class="card-img" alt="Neurônios" onerror="this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Neurologia</span>
+                        <h3 class="card-title">Neuroplasticidade em Adultos</h3>
+                        <p class="card-excerpt">A capacidade do cérebro de se reorganizar e aprender novas habilidades na idade adulta.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 12 min</span><span>Neurociência</span></div>
+                    </div>
+                </article>
+
+                <!-- 13 -->
+                <article class="article-card" data-category="Longevidade" onclick="location.href='artigos/resistencia-antibioticos.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Resistência a Antibióticos.webp" class="card-img" alt="Vacina" onerror="this.src='https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Saúde Pública</span>
+                        <h3 class="card-title">Resistência a Antibióticos</h3>
+                        <p class="card-excerpt">O perigo global das superbactérias e o uso racional de medicamentos antimicrobianos.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 9 min</span><span>CDC</span></div>
+                    </div>
+                </article>
+
+                <!-- 14 -->
+                <article class="article-card" data-category="Geral" onclick="location.href='artigos/doenca-do-refluxo.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Doença do Refluxo (DRGE).webp" class="card-img" alt="Estômago" onerror="this.src='https://images.unsplash.com/photo-1533633633202-3974477b7381?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Gastroenterologia</span>
+                        <h3 class="card-title">Doença do Refluxo (DRGE)</h3>
+                        <p class="card-excerpt">Protocolos dietéticos e comportamentais para o manejo do refluxo gastroesofágico.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 7 min</span><span>Clínica Médica</span></div>
+                    </div>
+                </article>
+
+                <!-- 15 -->
+                <article class="article-card" data-category="Corpo" onclick="location.href='artigos/prevencao-osteoporose.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Prevenção da Osteoporose.webp" class="card-img" alt="Ossos" onerror="this.src='https://images.unsplash.com/photo-1565225439401-d85c29202392?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Ortopedia</span>
+                        <h3 class="card-title">Prevenção da Osteoporose</h3>
+                        <p class="card-excerpt">A importância do cálcio, vitamina D e exercícios de impacto na saúde óssea.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 8 min</span><span>IOF</span></div>
+                    </div>
+                </article>
+
+                <!-- 16 -->
+                <article class="article-card" data-category="Geral" onclick="location.href='artigos/luz-azul-saude-ocular.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Luz Azul e Saúde Ocular.webp" class="card-img" alt="Olho" onerror="this.src='https://images.unsplash.com/photo-1599693175133-722f4776b364?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Oftalmologia</span>
+                        <h3 class="card-title">Luz Azul e Saúde Ocular</h3>
+                        <p class="card-excerpt">Mitos e verdades sobre o impacto das telas digitais na retina e no sono.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 6 min</span><span>AAO</span></div>
+                    </div>
+                </article>
+
+                <!-- 17 -->
+                <article class="article-card" data-category="Geral" onclick="location.href='artigos/sop-ovario-policistico.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Síndrome do Ovário Policístico.webp" class="card-img" alt="Mulher" onerror="this.src='https://images.unsplash.com/photo-1516549655169-df83a0929519?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Saúde da Mulher</span>
+                        <h3 class="card-title">SOP: Síndrome do Ovário Policístico</h3>
+                        <p class="card-excerpt">Diagnóstico, resistência insulínica e manejo multidisciplinar da SOP.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 11 min</span><span>Ginecologia</span></div>
+                    </div>
+                </article>
+
+                <!-- 18 -->
+                <article class="article-card" data-category="Geral" onclick="location.href='artigos/testosterona-envelhecimento.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Testosterona e Envelhecimento.webp" class="card-img" alt="Homem" onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Saúde do Homem</span>
+                        <h3 class="card-title">Testosterona e Envelhecimento</h3>
+                        <p class="card-excerpt">O declínio hormonal natural (DAEM) e quando a reposição é clinicamente indicada.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 9 min</span><span>Urologia</span></div>
+                    </div>
+                </article>
+
+                <!-- 19 -->
+                <article class="article-card" data-category="Geral" onclick="location.href='artigos/hidratacao-pedras-rins.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Hidratação e Pedras nos Rins.webp" class="card-img" alt="Rins" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Nefrologia</span>
+                        <h3 class="card-title">Hidratação e Pedras nos Rins</h3>
+                        <p class="card-excerpt">Fatores de risco dietéticos para litíase renal e estratégias de prevenção.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 7 min</span><span>SBN</span></div>
+                    </div>
+                </article>
+
+                <!-- 20 -->
+                <article class="article-card" data-category="Geral" onclick="location.href='artigos/dpoc-pulmao.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Doença Pulmonar Obstrutiva (DPOC).webp" class="card-img" alt="Pulmão" onerror="this.src='https://images.unsplash.com/photo-1584448082987-b93fc9641775?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Pneumologia</span>
+                        <h3 class="card-title">Doença Pulmonar Obstrutiva (DPOC)</h3>
+                        <p class="card-excerpt">O impacto do tabagismo e da poluição na função pulmonar a longo prazo.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 10 min</span><span>SBPT</span></div>
+                    </div>
+                </article>
+
+                <!-- 21 -->
+                <article class="article-card" data-category="Longevidade" onclick="location.href='artigos/prevencao-cancer.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Prevenção do Câncer Estilo de Vida.webp" class="card-img" alt="Células" onerror="this.src='https://images.unsplash.com/photo-1579165466741-7f35e4755652?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Oncologia</span>
+                        <h3 class="card-title">Prevenção do Câncer: Estilo de Vida</h3>
+                        <p class="card-excerpt">Evidências sobre como dieta, álcool e exercícios influenciam o risco oncológico.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 12 min</span><span>INCA</span></div>
+                    </div>
+                </article>
+
+                <!-- 22 -->
+                <article class="article-card" data-category="Mente" onclick="location.href='artigos/mindfulness-clinica.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Mindfulness na Prática Clínica.webp" class="card-img" alt="Meditação" onerror="this.src='https://images.unsplash.com/photo-1474418397713-7ede21d49118?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Psicologia</span>
+                        <h3 class="card-title">Mindfulness na Prática Clínica</h3>
+                        <p class="card-excerpt">Efeitos da atenção plena na redução de sintomas de ansiedade e dor crônica.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 8 min</span><span>APA</span></div>
+                    </div>
+                </article>
+
+                <!-- 23 -->
+                <article class="article-card" data-category="Corpo" onclick="location.href='artigos/creatina-mito-ciencia.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Creatina Mito e Ciência.webp" class="card-img" alt="Suplementos" onerror="this.src='https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Nutrição Esportiva</span>
+                        <h3 class="card-title">Creatina: Mito e Ciência</h3>
+                        <p class="card-excerpt">Segurança, dosagem e benefícios da creatina para além da hipertrofia muscular.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 9 min</span><span>ISSN</span></div>
+                    </div>
+                </article>
+
+                <!-- 24 -->
+                <article class="article-card" data-category="Longevidade" onclick="location.href='artigos/longevidade-zonas-azuis.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Longevidade e Zonas Azuis.webp" class="card-img" alt="Idoso" onerror="this.src='https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Geriatria</span>
+                        <h3 class="card-title">Longevidade e Zonas Azuis</h3>
+                        <p class="card-excerpt">O que podemos aprender com as populações que vivem mais de 100 anos.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 11 min</span><span>Estudo Populacional</span></div>
+                    </div>
+                </article>
+
+                <!-- 25 -->
+                <article class="article-card" data-category="Geral" onclick="location.href='artigos/alcool-danos-hepaticos.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Álcool e Danos Hepáticos.webp" class="card-img" alt="Fígado" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Hepatologia</span>
+                        <h3 class="card-title">Álcool e Danos Hepáticos</h3>
+                        <p class="card-excerpt">A progressão da esteatose para cirrose e os limites de consumo seguro.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 8 min</span><span>OMS</span></div>
+                    </div>
+                </article>
+
+                <!-- 26 -->
+                <article class="article-card" data-category="Longevidade" onclick="location.href='artigos/epigenetica-genes-destino.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Epigenética Genes não são Destino.webp" class="card-img" alt="DNA" onerror="this.src='https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Genética</span>
+                        <h3 class="card-title">Epigenética: Genes não são Destino</h3>
+                        <p class="card-excerpt">Como o ambiente e o estilo de vida podem ativar ou silenciar genes de doenças.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 13 min</span><span>Nature Genetics</span></div>
+                    </div>
+                </article>
+
+                <!-- 27 -->
+                <article class="article-card" data-category="Corpo" onclick="location.href='artigos/sindrome-tunel-carpo.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Síndrome do Túnel do Carpo.webp" class="card-img" alt="Postura" onerror="this.src='https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Saúde Ocupacional</span>
+                        <h3 class="card-title">Síndrome do Túnel do Carpo</h3>
+                        <p class="card-excerpt">Ergonomia no trabalho e exercícios preventivos para lesões por esforço repetitivo.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 7 min</span><span>Medicina do Trabalho</span></div>
+                    </div>
+                </article>
+
+                <!-- 28 -->
+                <article class="article-card" data-category="Geral" onclick="location.href='artigos/anemia-ferropriva.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Anemia Ferropriva Sinais.webp" class="card-img" alt="Sangue" onerror="this.src='https://images.unsplash.com/photo-1615631648086-325cd3d005a3?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Hematologia</span>
+                        <h3 class="card-title">Anemia Ferropriva: Sinais</h3>
+                        <p class="card-excerpt">Diagnóstico diferencial da falta de ferro e impacto na oxigenação e energia.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 8 min</span><span>ABHH</span></div>
+                    </div>
+                </article>
+
+                <!-- 29 -->
+                <article class="article-card" data-category="Geral" onclick="location.href='artigos/rinite-sinusite.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Rinite Alérgica vs Sinusite.webp" class="card-img" alt="Alergia" onerror="this.src='https://images.unsplash.com/photo-1513224502586-d1e60925534b?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Alergologia</span>
+                        <h3 class="card-title">Rinite Alérgica vs Sinusite</h3>
+                        <p class="card-excerpt">Diferenças clínicas, gatilhos ambientais e opções de tratamento médico.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 6 min</span><span>ASBAI</span></div>
+                    </div>
+                </article>
+
+                <!-- 30 -->
+                <article class="article-card" data-category="Longevidade" onclick="location.href='artigos/vacinacao-adultos.html'">
+                    <div class="card-img-container">
+                        <img src="img/artigos/Vacinação em Adultos.webp" class="card-img" alt="Vírus" onerror="this.src='https://images.unsplash.com/photo-1584036561566-b93a5a551dfe?q=80&w=800'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Infectologia</span>
+                        <h3 class="card-title">Vacinação em Adultos</h3>
+                        <p class="card-excerpt">O calendário vacinal além da infância: Herpes Zoster, Pneumonia e Hepatite B.</p>
+                        <div class="card-footer"><span><i data-lucide="clock" size="14"></i> 9 min</span><span>SBIm</span></div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Coluna 1: Marca -->
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+
+                <!-- Coluna 2: Explorar -->
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="artigos.html">Artigos Científicos</a></li>
+                        <li><a href="quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Legal & Compliance -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Fontes e Social -->
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra Inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado com qualquer dúvida que possa ter sobre uma condição médica.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Inicializar ícones com verificação de segurança
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            // Lógica do Dark Mode
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            // Carregar preferência salva
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'dark') {
+                iconMoon.style.display = 'none';
+                iconSun.style.display = 'flex';
+            }
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next); // Salvar preferência
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+                });
+            }
+
+            // Lógica de Filtragem de Categorias (Simplificada)
+            const filterBtns = document.querySelectorAll('.category-btn');
+            const articles = document.querySelectorAll('.article-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remover classe active de todos
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Adicionar ao clicado
+                    btn.classList.add('active');
+                    
+                    const filterValue = btn.getAttribute('data-filter');
+                    
+                    articles.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || cardCategory === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

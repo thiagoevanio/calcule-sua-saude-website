@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags for Calculators Page -->
+    <meta name="description" content="Access free professional health calculators: BMI, BMR, Body Fat, Hydration, and more. Tools based on clinical protocols.">
+    <meta name="keywords" content="bmi calculator, basal metabolic rate, macro calculator, pregnancy calculator, heart rate, online health">
+    
+    <title>Calculators & Tools | Calcule Sua Saúde</title>
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+	  <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+
+    
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- REUSING SYSTEM VARIABLES --- */
+        :root {
+            --primary: #0A4D68;       /* Deep Ocean Blue */
+            --primary-dark: #06384d;
+            --accent: #047857;        /* Emerald */
+            --secondary: #D97706;     /* Warm Amber */
+            --bg-body: #FAFAF9;       /* Stone 50 */
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;     /* Stone 900 */
+            --text-muted: #57534E;    /* Stone 600 */
+            --border-subtle: #E7E5E4; /* Stone 200 */
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- ANIMATIONS --- */
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .animate-theme-switch i, 
+        .animate-theme-switch svg { 
+            animation: rotate-scale 0.5s ease-in-out;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .lang-selector select {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .lang-selector select option {
+            background-color: #0A4D68;
+            color: #fff;
+        }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--primary); }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline:hover { background-color: var(--primary); color: #fff; }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            padding: 60px 0 30px;
+            text-align: center;
+            background-color: var(--bg-body);
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- CATEGORY FILTER --- */
+        .category-filter-section {
+            background-color: var(--bg-body);
+            padding: 0 0 40px;
+            position: sticky;
+            top: var(--header-height);
+            z-index: 900;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .category-filter-section.is-pinned {
+            border-bottom: 1px solid var(--border-subtle);
+            background-color: var(--bg-card);
+            padding-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .category-scroll-container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 5px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .category-scroll-container::-webkit-scrollbar { display: none; }
+
+        .category-btn {
+            white-space: nowrap;
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 1px solid var(--border-subtle);
+            background-color: var(--bg-card);
+            color: var(--text-muted);
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .category-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .category-btn.active {
+            background-color: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 10px rgba(10, 77, 104, 0.2);
+        }
+
+        /* --- TOOLS GRID --- */
+        .tools-section {
+            padding-bottom: 100px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        /* CARD DESIGN */
+        .tool-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+
+        /* Colored top strip */
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        .card-icon-header {
+            padding: 30px 25px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(10, 77, 104, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            border: 1px solid rgba(10, 77, 104, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover .icon-circle {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .card-content {
+            padding: 20px 25px 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .card-category {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+        
+        .card-excerpt {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .btn-tool {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 10px 0;
+            width: 100%;
+            border-radius: 2px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-tool:hover {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        
+        .footer h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { 
+            color: #A8A29E; 
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .footer ul li a:hover { 
+            color: #fff; 
+            transform: translateX(5px); 
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 1024px) {
+            .tools-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .tools-grid { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
+            .page-header h1 { font-size: 2.5rem; }
+            .category-scroll-container { justify-content: flex-start; flex-wrap: nowrap; padding-left: 24px; padding-right: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;"><i data-lucide="moon" size="14"></i><span>Dark Mode</span></span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;"><i data-lucide="sun" size="14"></i><span>Light Mode</span></span>
+            </div>
+            
+            <!-- Lang Selector -->
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;">
+                    <option value="calculadoras.html">Português</option>
+                    <option value="calculadoras-en.html" selected>English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="index-en.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index-en.html" class="nav-link">Home</a></li>
+                <li><a href="artigos-en.html" class="nav-link">Articles</a></li>
+                <li><a href="calculadoras-en.html" class="nav-link active">Calculators</a></li>
+                <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="contato.html" class="btn-outline">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Tools & Calculators</h1>
+            <p>Access the most used tools in clinical and sports practice. Instant results based on scientific protocols.</p>
+        </div>
+    </header>
+
+    <!-- CATEGORY FILTER (Translated Text, Same Logic Keys) -->
+    <section class="category-filter-section" id="filter-bar">
+        <div class="container">
+            <div class="category-scroll-container">
+                <button class="category-btn active" data-filter="all">All</button>
+                <button class="category-btn" data-filter="Antropometria">Anthropometry</button>
+                <button class="category-btn" data-filter="Metabolismo">Metabolism</button>
+                <button class="category-btn" data-filter="Cardio">Cardiovascular</button>
+                <button class="category-btn" data-filter="Nutrição">Nutrition</button>
+                <button class="category-btn" data-filter="Mulher">Women's Health</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOOLS GRID -->
+    <section class="tools-section">
+        <div class="container">
+            <div class="tools-grid" id="tools-grid">
+
+                <!-- 1. IMC -->
+                <article class="tool-card" data-category="Antropometria">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="scale" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Anthropometry</span>
+                        <h3 class="card-title">Body Mass Index (BMI)</h3>
+                        <p class="card-excerpt">The standard WHO tool for screening body weight, obesity, and associated health risks.</p>
+                        <a href="calculadoras/indice-de-massa-corporal-imc.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 2. TMB -->
+                <article class="tool-card" data-category="Metabolismo">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="flame" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Metabolism</span>
+                        <h3 class="card-title">Basal Metabolic Rate (BMR)</h3>
+                        <p class="card-excerpt">Calculate how many calories your body burns at absolute rest using the Mifflin-St Jeor equation.</p>
+                        <a href="calculadoras/taxa-metabolica-basal-tmb.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 3. Gasto Calórico -->
+                <article class="tool-card" data-category="Metabolismo">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="zap" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Metabolism</span>
+                        <h3 class="card-title">Total Daily Energy Expenditure (TDEE)</h3>
+                        <p class="card-excerpt">Precise estimate of your total calorie needs based on your physical activity level.</p>
+                        <a href="calculadoras/gasto-energetico-diario-tdee.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 4. Freq Cardíaca -->
+                <article class="tool-card" data-category="Cardio">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="heart-pulse" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Cardiovascular</span>
+                        <h3 class="card-title">Heart Rate Zones</h3>
+                        <p class="card-excerpt">Determine your Max HR and ideal zones for fat burning or aerobic conditioning.</p>
+                        <a href="calculadoras/zonas-de-frequencia-cardíaca.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 5. Água -->
+                <article class="tool-card" data-category="Nutrição">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="droplets" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Nutrition</span>
+                        <h3 class="card-title">Hydration Calculator</h3>
+                        <p class="card-excerpt">Discover the ideal amount of water you should drink daily based on your weight.</p>
+                        <a href="calculadoras/calculadora-de-hidratacao.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 6. Gordura Corporal -->
+                <article class="tool-card" data-category="Antropometria">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="activity" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Anthropometry</span>
+                        <h3 class="card-title">Body Fat Percentage</h3>
+                        <p class="card-excerpt">Estimation based on the US Navy method, using circumference measurements.</p>
+                        <a href="calculadoras/percentual-de-gordura-corporal.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 7. Gravidez -->
+                <article class="tool-card" data-category="Mulher">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="baby" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Women's Health</span>
+                        <h3 class="card-title">Due Date Calculator</h3>
+                        <p class="card-excerpt">Gestational calculator based on the last menstrual period date (Naegele's Rule).</p>
+                        <a href="calculadoras/data-provável-do-parto.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 8. Macros -->
+                <article class="tool-card" data-category="Nutrição">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="pie-chart" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Nutrition</span>
+                        <h3 class="card-title">Macronutrient Calculator</h3>
+                        <p class="card-excerpt">Ideal distribution of proteins, carbs, and fats for your goals (loss or gain).</p>
+                        <a href="calculadoras/calculadora-de-macronutrientes.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 9. RCQ -->
+                <article class="tool-card" data-category="Cardio">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="ruler" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Cardiovascular</span>
+                        <h3 class="card-title">Waist-to-Hip Ratio (WHR)</h3>
+                        <p class="card-excerpt">Important indicator of metabolic risk and visceral fat distribution.</p>
+                        <a href="calculadoras/relacao-cintura-quadril-rcq.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 10. Peso Ideal -->
+                <article class="tool-card" data-category="Antropometria">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="user-check" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Anthropometry</span>
+                        <h3 class="card-title">Ideal Body Weight (IBW)</h3>
+                        <p class="card-excerpt">Estimated healthy weight calculation based on height and gender (Devine & Robinson Formulas).</p>
+                        <a href="calculadoras/peso-ideal-ibw.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Reference in evidence-based health. Committed to transparency, scientific education, and well-being.</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="calculadoras-en.html">Medical Calculators</a></li>
+                        <li><a href="artigos-en.html">Scientific Articles</a></li>
+                        <li><a href="quizzes.html">Educational Quizzes</a></li>
+                        <li><a href="#">Editorial Methodology</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="termos-de-uso.html">Terms of Use</a></li>
+                        <li><a href="politica-de-privacidade.html">Privacy Policy</a></li>
+                        <li><a href="isencao-de-responsabilidade.html">Disclaimer</a></li>
+                        <li><a href="contato.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Trusted Sources</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/en" target="_blank" style="text-decoration: underline; color: var(--accent);">WHO</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. All rights reserved.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    The information contained in this site is for educational purposes only and does not substitute professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'dark') {
+                iconMoon.style.display = 'none';
+                iconSun.style.display = 'flex';
+            }
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+
+            // Filter Logic (Same as PT version)
+            const filterBtns = document.querySelectorAll('.category-btn');
+            const tools = document.querySelectorAll('.tool-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filterValue = btn.getAttribute('data-filter');
+                    
+                    tools.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (filterValue === 'all' || cardCategory === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

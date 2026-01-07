@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consultoria Online de Treino Personalizado. Planos exclusivos baseados em ciência e fisiologia do exercício.">
+    
+    <title>Consultoria Personal | Calcule Sua Saúde</title>
+    
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+	  <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- VARIÁVEIS (Mesma Identidade Visual) --- */
+        :root {
+            --primary: #0A4D68;       
+            --primary-dark: #06384d;
+            --accent: #047857;        
+            --secondary: #D97706;     
+            --bg-body: #FAFAF9;       
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;     
+            --text-muted: #57534E;    
+            --border-subtle: #E7E5E4; 
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- ANIMAÇÕES --- */
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .animate-theme-switch i, 
+        .animate-theme-switch svg { 
+            animation: rotate-scale 0.5s ease-in-out;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        .top-bar .container { display: flex; justify-content: flex-end; gap: 20px; }
+
+        /* Lang Selector Styles */
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .lang-selector select {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+        .lang-selector select option {
+            background-color: #0A4D68;
+            color: #fff;
+        }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--primary); }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline:hover { background-color: var(--primary); color: #fff; }
+
+        /* --- PERFIL HERO (Personalizado) --- */
+        .profile-hero {
+            padding: 80px 0;
+            background-color: var(--bg-body);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Fundo decorativo sutil */
+        .profile-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(10, 77, 104, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Cartão de Foto do Profissional */
+        .profile-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            border-radius: 4px; /* Cantos levemente arredondados */
+        }
+
+        .profile-img-container {
+            width: 100%;
+            height: 550px; /* AUMENTADO PARA 550px */
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center; /* Ajuste para focar no topo da imagem */
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-card:hover .profile-img { transform: scale(1.03); }
+
+        .profile-cref {
+            font-family: 'Source Sans 3', sans-serif;
+            display: inline-block;
+            background-color: rgba(10, 77, 104, 0.05);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(10, 77, 104, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Botões de Redes Sociais Customizados */
+        .btn-social {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+        .btn-whatsapp:hover { background-color: #1ebc57; transform: translateY(-2px); }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        }
+        .btn-instagram:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+        /* Texto de Bio */
+        .profile-info h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .profile-role {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1.2rem;
+            color: var(--secondary); /* Amber */
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .profile-bio {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .specialties-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .specialty-tag {
+            border: 1px solid var(--border-subtle);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            background-color: #fff;
+        }
+
+        /* --- PLANOS --- */
+        .plans-section {
+            padding: 80px 0;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .plan-card {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-subtle);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+            background-color: #fff;
+        }
+
+        /* Destaque para o plano do meio */
+        .plan-card.featured {
+            border-color: var(--secondary);
+            background-color: #fff;
+            box-shadow: 0 15px 30px rgba(217, 119, 6, 0.1);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        .plan-card.featured::before {
+            content: 'Mais Popular';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 30px;
+        }
+        
+        .plan-price span { font-size: 1rem; color: var(--text-muted); font-family: 'Source Sans 3', sans-serif; font-weight: 400; }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .plan-features li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .plan-features li i { color: var(--accent); }
+
+        .btn-plan {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--primary);
+            background-color: transparent;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center; /* Garante que o texto fique centralizado */
+            text-decoration: none; /* Remove sublinhado do link */
+        }
+        
+        .plan-card.featured .btn-plan {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            color: #fff;
+        }
+        
+        .btn-plan:hover { background-color: var(--primary); color: #fff; border-color: var(--primary); }
+
+        /* --- FOOTER (Padrão Completo) --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 { color: #fff; font-size: 1.3rem; margin-bottom: 25px; position: relative; }
+        .footer h4::after { content: ''; display: block; width: 30px; height: 2px; background-color: var(--accent); margin-top: 10px; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a {
+            color: #A8A29E;
+            transition: 0.2s;
+            display: inline-block;
+        } 
+        .footer ul li a:hover { color: #fff; transform: translateX(5px); }
+        
+        .footer-bottom { border-top: 1px solid #333; padding: 30px 0; text-align: center; font-size: 0.85rem; background-color: #151312; }
+
+        @media (max-width: 900px) {
+            .profile-grid { grid-template-columns: 1fr; text-align: center; }
+            .profile-card { max-width: 400px; margin: 0 auto; }
+            .plans-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; gap: 50px; }
+            .plan-card.featured { transform: scale(1); }
+            .nav-menu { display: none; }
+            .social-links { justify-content: center; }
+            .profile-bio { text-align: center; }
+            .specialties-list { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;"><i data-lucide="moon" size="14"></i><span>Modo Escuro</span></span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;"><i data-lucide="sun" size="14"></i><span>Modo Claro</span></span>
+            </div>
+            
+            <!-- Lang Selector -->
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;">
+                    <option value="personal.html" selected>Português</option>
+                    <option value="personal-en.html">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="artigos.html" class="nav-link">Artigos</a></li>
+                <li><a href="calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="contato.html" class="btn-outline">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PERFIL HERO -->
+    <section class="profile-hero">
+        <div class="container">
+            <div class="profile-grid">
+                <!-- Coluna da Foto e Contato -->
+                <div class="profile-card">
+                    <div class="profile-img-container">
+                        <!-- Foto Profissional Atualizada -->
+                        <img src="img/personal.webp" alt="Foto do Personal" class="profile-img">
+                    </div>
+                    
+                    <span class="profile-cref">CREF: 42.897-G/MG</span>
+                    
+                    <div class="social-links">
+                        <a href="https://wa.me/message/X5XSBKPUOUJDM1" target="_blank" class="btn-social btn-whatsapp" style="text-decoration: none;">
+                            <i data-lucide="message-circle" size="20"></i> WhatsApp
+                        </a>
+                        <a href="https://www.instagram.com/raphaquinopersonal?igsh=M3ExeDNpaWJmeHNx" target="_blank" class="btn-social btn-instagram" style="text-decoration: none;">
+                            <i data-lucide="instagram" size="20"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coluna da Bio -->
+                <div class="profile-info">
+                    <h1>Rapha Aquino - Personal</h1>
+                    <span class="profile-role">Especialista em Fisiologia do Exercício</span>
+                    
+                    <p class="profile-bio">
+                        Com mais de 10 anos de experiência clínica e esportiva, minha missão é traduzir a ciência complexa do treinamento em resultados práticos e sustentáveis para você. 
+                        <br><br>
+                        Minha metodologia é baseada em evidências, fugindo de modismos e focando no que realmente funciona para a sua biologia individual. Seja para emagrecimento, hipertrofia ou reabilitação, seu plano será único.
+                    </p>
+
+                    <div class="specialties-list">
+                        <span class="specialty-tag">Esp. Hipertrofia e Emagrecimento</span>
+                        <span class="specialty-tag">Esp. Treinamento funcional</span>
+                        <span class="specialty-tag">Esp. Alta performance</span>
+                        <span class="specialty-tag">Esp. TAF - Para concurso</span>
+                        <span class="specialty-tag">Esp. Reabilitação física</span>
+                        <span class="specialty-tag">Esp. Grupos especias</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANOS DE CONSULTORIA -->
+    <section class="plans-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Planos de Consultoria</h2>
+                <p>Escolha o acompanhamento ideal para os seus objetivos. Todos os planos incluem acesso ao aplicativo exclusivo.</p>
+            </div>
+
+            <div class="plans-grid">
+                <!-- Plano 1 -->
+                <article class="plan-card">
+                    <h3 class="plan-name">Mensal</h3>
+                    <div class="plan-price">R$ 150<span>/mês</span></div>
+                    <ul class="plan-features">
+                        <li><i data-lucide="check" size="18"></i> Treino Personalizado</li>
+                        <li><i data-lucide="check" size="18"></i> Acesso ao App</li>
+                        <li><i data-lucide="check" size="18"></i> Suporte via Chat (48h)</li>
+                        <li><i data-lucide="check" size="18"></i> 1 Videochamada</li>
+                    </ul>
+                    <a href="https://wa.me/message/X5XSBKPUOUJDM1" class="btn-plan" target="_blank">Começar Agora</a>
+                </article>
+
+                <!-- Plano 2 (Destaque) -->
+                <article class="plan-card featured">
+                    <h3 class="plan-name">Trimestral</h3>
+                    <div class="plan-price">R$ 390<span>/total</span></div>
+                    <ul class="plan-features">
+                        <li><i data-lucide="check" size="18"></i> Treino Personalizado</li>
+                        <li><i data-lucide="check" size="18"></i> Acesso ao App Premium</li>
+                        <li><i data-lucide="check" size="18"></i> <strong>Suporte WhatsApp Diário</strong></li>
+                        <li><i data-lucide="check" size="18"></i> Análise de Vídeos de Execução</li>
+                        <li><i data-lucide="check" size="18"></i> Ajustes Quinzenais</li>
+                    </ul>
+                    <a href="https://wa.me/message/X5XSBKPUOUJDM1" class="btn-plan" target="_blank">Começar Agora</a>
+                </article>
+
+                <!-- Plano 3 -->
+                <article class="plan-card">
+                    <h3 class="plan-name">Semestral</h3>
+                    <div class="plan-price">R$ 690<span>/total</span></div>
+                    <ul class="plan-features">
+                        <li><i data-lucide="check" size="18"></i> Todos benefícios do Trimestral</li>
+                        <li><i data-lucide="check" size="18"></i> Periodização de Longo Prazo</li>
+                        <li><i data-lucide="check" size="18"></i> Videochamada Mensal</li>
+                        <li><i data-lucide="check" size="18"></i> Guia de Suplementação</li>
+                    </ul>
+                    <a href="https://wa.me/message/X5XSBKPUOUJDM1" class="btn-plan" target="_blank">Começar Agora</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER COMPLETO E ORGANIZADO -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Coluna 1: Marca -->
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
+                </div>
+
+                <!-- Coluna 2: Explorar -->
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="artigos.html">Artigos Científicos</a></li>
+                        <li><a href="quizzes.html">Quizzes Educativos</a></li>
+                        <li><a href="#">Metodologia Editorial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Legal & Compliance -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="termos-de-uso.html">Termos de Uso</a></li>
+                        <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="isencao-de-responsabilidade.html">Isenção de Responsabilidade</a></li>
+                        <li><a href="contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Fontes e Social -->
+                <div>
+                    <h4>Fontes Confiáveis</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <!-- Ícones Sociais (Por último) -->
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra Inferior -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado com qualquer dúvida que possa ter sobre uma condição médica.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'dark') {
+                iconMoon.style.display = 'none';
+                iconSun.style.display = 'flex';
+            }
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
