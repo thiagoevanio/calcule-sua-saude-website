@@ -20,6 +20,9 @@
     <link rel="canonical" href="https://www.calculesuasaude.com.br/">
     <meta name="author" content="Calcule Sua Saúde">
     <meta name="theme-color" content="#0A4D68">
+    
+    <!-- Bloqueia a tentativa do Google de criar uma SearchBox que gera erro de redirecionamento no GitHub Pages -->
+    <meta name="google" content="nositelinkssearchbox">
 
     <!-- Open Graph / Facebook / WhatsApp (Para compartilhamento bonito) -->
     <meta property="og:type" content="website">
@@ -40,7 +43,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
     crossorigin="anonymous"></script>
 
-	  <!-- Google Analytics -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -49,10 +52,10 @@
     gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <!-- Favicon (Ícone da aba) -->
     <link rel="icon" href="favicon.ico">
 
-    <!-- SCHEMA.ORG (JSON-LD) - O "Segredo" do SEO Profissional -->
+    <!-- SCHEMA.ORG (JSON-LD) - Versão Corrigida para evitar Erro de Redirecionamento -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -60,11 +63,6 @@
       "name": "Calcule Sua Saúde",
       "url": "https://www.calculesuasaude.com.br/",
       "description": "Plataforma de ferramentas de saúde, calculadoras médicas e educação baseada em evidências.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.calculesuasaude.com.br/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      },
       "publisher": {
         "@type": "Organization",
         "name": "Calcule Sua Saúde",
@@ -84,7 +82,7 @@
     <!-- Ícones (Lucide) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- ESTILOS GLOBAIS (Caminho atualizado) -->
+    <!-- ESTILOS GLOBAIS -->
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -105,7 +103,7 @@
                 </span>
             </div>
             
-            <!-- SELETOR DE IDIOMA ATUALIZADO -->
+            <!-- SELETOR DE IDIOMA -->
             <div class="lang-selector">
                 <i data-lucide="globe" size="14"></i>
                 <select onchange="if(this.value) window.location.href = this.value;">
@@ -124,7 +122,7 @@
                 Calcule Sua Saúde
             </a>
             
-            <!-- MENU COM LINKS ATUALIZADOS -->
+            <!-- MENU COM LINKS -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Início</a></li>
                 <li><a href="artigos.html" class="nav-link">Artigos</a></li>
@@ -157,7 +155,7 @@
                     Conteúdo estritamente educativo e informativo.
                 </div>
 
-                <!-- Botão Hero Atualizado -->
+                <!-- Botão Hero -->
                 <a href="artigos.html" class="btn-hero delay-300">
                     Explorar Artigos
                     <i data-lucide="arrow-right"></i>
@@ -178,7 +176,7 @@
         </div>
     </header>
 
-    <!-- CALCULADORAS (LINKS ATUALIZADOS CORRETAMENTE) -->
+    <!-- CALCULADORAS -->
     <section class="container">
         <div class="calculators-bar">
             <div class="calc-header">
@@ -209,7 +207,7 @@
                     </div>
                 </a>
 
-                <!-- Calc 3: Risco Cardiovascular -> Zonas -->
+                <!-- Calc 3: Zonas Cardíacas -->
                 <a href="calculadoras/zonas-de-frequencia-cardíaca.html" class="calc-item">
                     <div class="calc-icon-wrapper">
                         <i data-lucide="heart-pulse" size="24"></i>
@@ -223,7 +221,7 @@
         </div>
     </section>
 
-    <!-- NOSSA METODOLOGIA (RESTAURADA E COMPACTA) -->
+    <!-- NOSSA METODOLOGIA -->
     <section class="methodology-section">
         <div class="container">
             <div class="method-header">
@@ -393,7 +391,7 @@
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO DE QUIZZES (LINKS ATUALIZADOS PARA PASTA QUIZZ/) -->
+    <!-- SEÇÃO DE QUIZZES -->
     <section class="quizzes-section">
         <div class="container">
             <div class="quiz-header">
@@ -437,7 +435,7 @@
         </div>
     </section>
 
-    <!-- NEWSLETTER (FORMULÁRIO ATIVADO) -->
+    <!-- NEWSLETTER -->
     <section class="newsletter-section">
         <div class="container newsletter-content">
             <i data-lucide="mail" size="40" style="margin-bottom:20px;"></i>
@@ -452,7 +450,7 @@
         </div>
     </section>
 
-    <!-- FOOTER COMPLETO E ORGANIZADO -->
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -462,7 +460,7 @@
                     <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
                 </div>
 
-                <!-- Coluna 2: Explorar (LINKS ATUALIZADOS) -->
+                <!-- Coluna 2: Explorar -->
                 <div>
                     <h4>Explorar</h4>
                     <ul>
@@ -493,7 +491,7 @@
                         <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
                     </p>
                     
-                    <!-- Ícones Sociais (Por último) -->
+                    <!-- Ícones Sociais -->
                     <div style="display: flex; gap: 15px; margin-top: 20px;">
                         <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
                         <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
@@ -507,7 +505,7 @@
         <!-- Barra Inferior -->
         <div class="footer-bottom">
             <div class="container">
-                <p>&copy; 2024 Calcule Sua Saúde. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Calcule Sua Saúde. Todos os direitos reservados.</p>
                 <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
                     As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado com qualquer dúvida que possa ter sobre uma condição médica.
                 </p>
