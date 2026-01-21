@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada - Redirecionando...</title>
+    
+    <script>
+        // ========================================================
+        // LISTA DE REDIRECIONAMENTOS
+        // ========================================================
+        const redirects = {
+            // --- FERRAMENTAS E CALCULADORAS ---
+            "/ferramentas/imc.html": "https://calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html", 
+            "/ferramentas/macros.html": "https://calculesuasaude.com.br/calculadoras/calculadora-de-macronutrientes.html",
+            "/ferramentas/agua_corporal.html": "https://calculesuasaude.com.br/calculadoras/calculadora-de-hidratacao.html",
+            "/ferramentas/agua.html": "https://calculesuasaude.com.br/index.html",
+            "/ferramentas/tmb.html": "https://calculesuasaude.com.br/calculadoras/taxa-metabolica-basal-tmb.html",
+            "/ferramentas/calorias.html": "https://calculesuasaude.com.br/calculadoras/taxa-metabolica-basal-tmb.html",
+            "/ferramentas/frequencia_cardiaca.html": "https://calculesuasaude.com.br/calculadoras/zonas-de-frequencia-card%C3%ADaca.html",
+            "/ferramentas/gordura.html": "https://calculesuasaude.com.br/calculadoras/percentual-de-gordura-corporal.html",
+            "/calculadoras/nutricionais.html": "https://calculesuasaude.com.br/index.html",
+            "/calculadoras/bem-estar.html": "https://calculesuasaude.com.br/index.html",
+            "/calculadoras/fitness.html": "https://calculesuasaude.com.br/index.html",
+            "/calculadoras/especificas.html": "https://calculesuasaude.com.br/index.html",
+            "/calculadoras/corporais.html": "https://calculesuasaude.com.br/calculadoras/gasto-energetico-diario-tdee.html",
+
+            // --- QUIZZES E JOGOS ---
+            "/quiz_treino.html": "https://calculesuasaude.com.br/quizzes.html",
+            "/quiz_alimentacao.html": "https://calculesuasaude.com.br/quizzes.html",
+            "/todos_quizzes.html": "https://calculesuasaude.com.br/quizzes.html",
+            "/jogos.html": "https://calculesuasaude.com.br/quizzes.html",
+            "/desafios.html": "https://calculesuasaude.com.br/quizzes.html",
+            "/jogos/adivinhe_caloria.html": "https://calculesuasaude.com.br/quizzes.html",
+
+            // --- ARTIGOS E CONTEÚDO ---
+            "/artigos/atividade-fisica-beneficios.html": "https://calculesuasaude.com.br/artigos.html",
+            "/artigos/macronutrientes-guia-completo.html": "https://calculesuasaude.com.br/artigos.html",
+            "/artigos/metabolismo-como-acelerar.html": "https://calculesuasaude.com.br/artigos.html",
+            "/artigos/ia-saude-chatgpt-gemini.html": "https://calculesuasaude.com.br/artigos.html",
+            "/artigos/imc-calculo-interpretacao.html": "https://calculesuasaude.com.br/artigos.html",
+            "/artigos/hidratacao-importancia-saude.html": "https://calculesuasaude.com.br/artigos.html",
+            "/artigos/saude-mental-bem-estar.html": "https://calculesuasaude.com.br/artigos.html",
+            "/artigos/hipertensao-controle-prevencao.html": "https://calculesuasaude.com.br/artigos.html",
+            "/artigos/sono-qualidade-saude.html": "https://calculesuasaude.com.br/artigos.html",
+            "/artigos/alimentacao-saudavel-guia.html": "https://calculesuasaude.com.br/artigos.html",
+            "/artigos/obesidade-causas-consequencias-tratamento.html": "https://calculesuasaude.com.br/artigos.html",
+
+            // --- PÁGINAS INSTITUCIONAIS ---
+            "/responsabilidade.html": "https://calculesuasaude.com.br/isencao-de-responsabilidade.html",
+            "/sobre.html": "https://calculesuasaude.com.br/contato.html",
+            "/termos.html": "https://calculesuasaude.com.br/termos-de-uso.html",
+            "/politica-de-privacidade.html": "https://calculesuasaude.com.br/politica-de-privacidade.html"
+        };
+
+        // LÓGICA DO REDIRECIONAMENTO (CORRIGIDA)
+        const currentPath = window.location.pathname;
+
+        // 1. Verifica se o link exato está na lista
+        if (redirects[currentPath]) {
+            // CORREÇÃO: Removemos o prefixo do site, pois seus links já são completos
+            window.location.replace(redirects[currentPath]);
+        } 
+        // 2. Tenta verificar sem a barra no final (caso exista)
+        else if (redirects[currentPath.replace(/\/$/, "")]) {
+             window.location.replace(redirects[currentPath.replace(/\/$/, "")]);
+        }
+        // 3. Se não achar nada, manda pra Home
+        else {
+             window.location.replace("https://calculesuasaude.com.br");
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2c3e50; font-size: 24px; }
+        p { color: #7f8c8d; }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>Redirecionando...</h1>
+        <p>A página que você procura mudou de lugar.</p>
+        <p>Estamos te levando para a página certa.</p>
+        <p><small>Se nada acontecer, <a href="https://calculesuasaude.com.br">clique aqui</a>.</small></p>
+    </div>
+</body>
+</html>
