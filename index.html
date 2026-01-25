@@ -96,6 +96,16 @@
             "priceCurrency": "BRL"
         },
         "featureList": "Cálculo de IMC, Classificação de Obesidade, Recomendações de Saúde"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://www.calculesuasaude.com.br/"
+        }]
       }
     ]
     </script>
@@ -117,8 +127,8 @@
     <!-- TOP BAR -->
     <div class="top-bar">
         <div class="container">
-            <!-- Theme Toggle -->
-            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+            <!-- Theme Toggle (Agora usando <button> para acessibilidade) -->
+            <button class="theme-toggle" id="theme-btn" aria-label="Alternar tema claro/escuro" style="background: none; border: none; font-family: inherit; color: inherit; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 0;">
                 <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
                     <i data-lucide="moon" size="14"></i>
                     <span>Modo Escuro</span>
@@ -127,12 +137,12 @@
                     <i data-lucide="sun" size="14"></i>
                     <span>Modo Claro</span>
                 </span>
-            </div>
+            </button>
             
             <!-- Language Selector -->
             <div class="lang-selector">
                 <i data-lucide="globe" size="14"></i>
-                <select onchange="if(this.value) window.location.href = this.value;">
+                <select onchange="if(this.value) window.location.href = this.value;" aria-label="Selecionar idioma">
                     <option value="index.html" selected>Português</option>
                     <option value="index-en.html">English</option>
                 </select>
@@ -302,7 +312,7 @@
                 <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/resistencia-insulina-mecanismos.html">
-                            <img src="img/artigos/Resistência à Insulina Mecanismos.webp" class="card-img" alt="Insulina" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop'">
+                            <img src="img/artigos/Resistência à Insulina Mecanismos.webp" class="card-img" alt="Insulina" loading="lazy" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop'">
                         </a>
                     </div>
                     <div class="card-content">
@@ -320,7 +330,7 @@
                 <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/macronutrientes-guia-bioquimico.html">
-                            <img src="img/artigos/Macronutrientes O Guia Bioquímico.webp" class="card-img" alt="Nutrição" onerror="this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop'">
+                            <img src="img/artigos/Macronutrientes O Guia Bioquímico.webp" class="card-img" alt="Nutrição" loading="lazy" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop'">
                         </a>
                     </div>
                     <div class="card-content">
@@ -338,7 +348,7 @@
                 <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/hipertensao-diretrizes.html">
-                            <img src="img/artigos/Hipertensão Diretrizes Atuais.webp" class="card-img" alt="Coração" onerror="this.src='https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800&auto=format&fit=crop'">
+                            <img src="img/artigos/Hipertensão Diretrizes Atuais.webp" class="card-img" alt="Coração" loading="lazy" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800&auto=format&fit=crop'">
                         </a>
                     </div>
                     <div class="card-content">
@@ -356,7 +366,7 @@
                  <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/cortisol-estresse-cronico.html">
-                            <img src="img/artigos/Cortisol e Estresse Crônico.webp" class="card-img" alt="Saúde Mental" onerror="this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=800&auto=format&fit=crop'">
+                            <img src="img/artigos/Cortisol e Estresse Crônico.webp" class="card-img" alt="Saúde Mental" loading="lazy" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=800&auto=format&fit=crop'">
                         </a>
                     </div>
                     <div class="card-content">
@@ -374,7 +384,7 @@
                  <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/ritmo-circadiano.html">
-                            <img src="img/artigos/Ritmo Circadiano e Saúde.webp" class="card-img" alt="Sono" onerror="this.src='https://images.unsplash.com/photo-1517340076-2e9988a2e5d5?q=80&w=800&auto=format&fit=crop'">
+                            <img src="img/artigos/Ritmo Circadiano e Saúde.webp" class="card-img" alt="Sono" loading="lazy" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1517340076-2e9988a2e5d5?q=80&w=800&auto=format&fit=crop'">
                         </a>
                     </div>
                     <div class="card-content">
@@ -392,7 +402,7 @@
                  <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/mioquinas-movimento.html">
-                            <img src="img/artigos/Mioquinas O Segredo do Movimento.webp" class="card-img" alt="Exercício" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop'">
+                            <img src="img/artigos/Mioquinas O Segredo do Movimento.webp" class="card-img" alt="Exercício" loading="lazy" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop'">
                         </a>
                     </div>
                     <div class="card-content">
