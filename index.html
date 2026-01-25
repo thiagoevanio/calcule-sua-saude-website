@@ -4,33 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- --- TAGS DE SEO INTERNACIONAL (CRÍTICO) --- -->
-    <!-- Isso diz ao Google que existem versões diferentes para cada idioma -->
+    <!-- --- SEO INTERNACIONAL (CRÍTICO) --- -->
     <link rel="alternate" hreflang="pt" href="https://www.calculesuasaude.com.br/index.html" />
     <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/index-en.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/index.html" />
     
-    <!-- --- SEO TÉCNICO & META TAGS AVANÇADAS --- -->
-    
-    <!-- Título Otimizado para CTR (Inclui termos de alta busca: "Gratuitas", "IMC", "TMB") -->
+    <!-- --- SEO TÉCNICO & META TAGS --- -->
     <title>Calculadoras de Saúde Gratuitas (IMC, TMB) e Artigos Médicos | Calcule Sua Saúde</title>
     
-    <!-- Descrição Atrativa -->
-    <meta name="description" content="Acesse calculadoras de saúde gratuitas (IMC, TMB, Risco Cardíaco), quizzes educativos e artigos médicos revisados. Sua fonte confiável de ciência e longevidade.">
+    <meta name="description" content="Acesse calculadoras de saúde online (IMC, TMB, Risco Cardíaco), quizzes e artigos médicos revisados. Ferramentas gratuitas para sua longevidade.">
+    <meta name="keywords" content="calculadora imc, taxa metabólica basal, risco cardíaco, saúde baseada em evidências, medicina preventiva, app saúde">
     
-    <!-- Palavras-chave Estratégicas -->
-    <meta name="keywords" content="calculadora imc, taxa metabólica, saúde baseada em evidências, nutrição, fisiologia, quiz saúde, medicina preventiva">
-    
-    <!-- Controle de Robôs -->
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.calculesuasaude.com.br/index.html">
     <meta name="author" content="Calcule Sua Saúde">
     <meta name="theme-color" content="#0A4D68">
-    
-    <!-- Bloqueia SearchBox automática (evita erros no GitHub Pages) -->
     <meta name="google" content="nositelinkssearchbox">
 
-    <!-- Open Graph / Facebook / WhatsApp -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.calculesuasaude.com.br/">
     <meta property="og:title" content="Ferramentas de Saúde e Ciência Médica | Calcule Sua Saúde">
@@ -40,14 +31,12 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ferramentas de Saúde e Ciência Médica | Calcule Sua Saúde">
+    <meta name="twitter:title" content="Ferramentas de Saúde e Ciência Médica">
     <meta name="twitter:description" content="Calculadoras de saúde, quizzes e artigos baseados em evidências.">
     <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
 
-
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
-    crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
@@ -58,37 +47,68 @@
     gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
 
-    <!-- SCHEMA.ORG (JSON-LD) -->
+    <!-- --- SCHEMA.ORG AVANÇADO (OURO PARA SEO) --- -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Calcule Sua Saúde",
-      "url": "https://www.calculesuasaude.com.br/",
-      "description": "Plataforma de ferramentas de saúde, calculadoras médicas e educação baseada em evidências.",
-      "publisher": {
-        "@type": "Organization",
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
         "name": "Calcule Sua Saúde",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.calculesuasaude.com.br/img/logo.png"
+        "url": "https://www.calculesuasaude.com.br/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.calculesuasaude.com.br/busca?q={search_term_string}",
+          "query-input": "required name=search_term_string"
         }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "name": "Calculadoras de Saúde e Artigos Científicos",
+        "description": "Plataforma de ferramentas de saúde baseadas em evidências e artigos médicos revisados.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Calcule Sua Saúde",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.calculesuasaude.com.br/img/logo.png"
+            }
+        },
+        "about": {
+            "@type": "MedicalSpecialty",
+            "name": "Medicina Preventiva e Nutrição"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Calculadora de IMC Online",
+        "url": "https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html",
+        "description": "Ferramenta gratuita para cálculo de Índice de Massa Corporal baseado em diretrizes da OMS.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+        },
+        "featureList": "Cálculo de IMC, Classificação de Obesidade, Recomendações de Saúde"
       }
-    }
+    ]
     </script>
     
-    <!-- FONTES DO DOCUMENTO -->
+    <!-- FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <!-- Ícones (Lucide) -->
+    <!-- Ícones -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- ESTILOS GLOBAIS -->
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -97,7 +117,7 @@
     <!-- TOP BAR -->
     <div class="top-bar">
         <div class="container">
-            <!-- Botão de Tema -->
+            <!-- Theme Toggle -->
             <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
                 <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
                     <i data-lucide="moon" size="14"></i>
@@ -109,7 +129,7 @@
                 </span>
             </div>
             
-            <!-- SELETOR DE IDIOMA -->
+            <!-- Language Selector -->
             <div class="lang-selector">
                 <i data-lucide="globe" size="14"></i>
                 <select onchange="if(this.value) window.location.href = this.value;">
@@ -128,7 +148,7 @@
                 Calcule Sua Saúde
             </a>
             
-            <!-- MENU COM LINKS -->
+            <!-- MENU -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Início</a></li>
                 <li><a href="artigos.html" class="nav-link">Artigos</a></li>
@@ -142,9 +162,7 @@
     <!-- HERO SECTION -->
     <header class="hero">
         <div class="container">
-            <!-- CONTEÚDO PRINCIPAL (ESQUERDA) -->
             <div class="hero-content animate-fade-in">
-                <!-- Badge Emerald -->
                 <div class="science-badge">
                     <i data-lucide="check-circle" size="14"></i>
                     Baseado em Evidências
@@ -161,14 +179,12 @@
                     Conteúdo estritamente educativo e informativo.
                 </div>
 
-                <!-- Botão Hero -->
                 <a href="artigos.html" class="btn-hero delay-300">
                     Explorar Artigos
                     <i data-lucide="arrow-right"></i>
                 </a>
             </div>
 
-            <!-- CARD FLUTUANTE DE PERSONAL -->
             <div class="personal-card-float">
                 <div class="p-info">
                     <h4 class="p-name">
@@ -186,7 +202,7 @@
     <section class="container">
         <div class="calculators-bar">
             <div class="calc-header">
-                <h2>Ferramentas</h2>
+                <h2>Ferramentas Gratuitas</h2>
                 <p>Protocolos de cálculo baseados em evidências para avaliação rápida.</p>
             </div>
 
@@ -198,7 +214,7 @@
                     </div>
                     <div class="calc-info">
                         <h3>Índice de Massa Corporal</h3>
-                        <span>Avaliação antropométrica (IMC)</span>
+                        <span>Calcular IMC Online</span>
                     </div>
                 </a>
                 
@@ -209,7 +225,7 @@
                     </div>
                     <div class="calc-info">
                         <h3>Taxa Metabólica Basal</h3>
-                        <span>Gasto energético (Harris-Benedict)</span>
+                        <span>Calcular Gasto Calórico (TMB)</span>
                     </div>
                 </a>
 
@@ -237,7 +253,6 @@
             </div>
 
             <div class="method-grid">
-                <!-- Pilar 1 -->
                 <div class="method-card">
                     <div class="method-icon-box">
                         <i data-lucide="book-open-check" size="24"></i>
@@ -246,7 +261,6 @@
                     <p>Todo nosso conteúdo é fundamentado em diretrizes oficiais (OMS, CDC) e estudos revisados por pares em bases como PubMed e Scielo.</p>
                 </div>
 
-                <!-- Pilar 2 -->
                 <div class="method-card">
                     <div class="method-icon-box">
                         <i data-lucide="shield-check" size="24"></i>
@@ -255,7 +269,6 @@
                     <p>Informações de saúde verificadas rigorosamente para garantir precisão clínica, segurança e atualização constante.</p>
                 </div>
 
-                <!-- Pilar 3 -->
                 <div class="method-card">
                     <div class="method-icon-box">
                         <i data-lucide="users" size="24"></i>
@@ -265,7 +278,6 @@
                 </div>
             </div>
             
-            <!-- Assinatura/Selo visual -->
             <div class="method-seal">
                 <div class="seal-line"></div>
                 <div class="seal-content">
@@ -286,7 +298,7 @@
             </div>
 
             <div class="articles-grid">
-                <!-- Artigo 1: Resistência à Insulina -->
+                <!-- Artigo 1 -->
                 <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/resistencia-insulina-mecanismos.html">
@@ -304,7 +316,7 @@
                     </div>
                 </article>
 
-                <!-- Artigo 2: Macronutrientes -->
+                <!-- Artigo 2 -->
                 <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/macronutrientes-guia-bioquimico.html">
@@ -322,7 +334,7 @@
                     </div>
                 </article>
 
-                <!-- Artigo 3: Hipertensão -->
+                <!-- Artigo 3 -->
                 <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/hipertensao-diretrizes.html">
@@ -340,7 +352,7 @@
                     </div>
                 </article>
 
-                 <!-- Artigo 4: Cortisol -->
+                 <!-- Artigo 4 -->
                  <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/cortisol-estresse-cronico.html">
@@ -358,7 +370,7 @@
                     </div>
                 </article>
 
-                 <!-- Artigo 5: Ritmo Circadiano -->
+                 <!-- Artigo 5 -->
                  <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/ritmo-circadiano.html">
@@ -376,7 +388,7 @@
                     </div>
                 </article>
 
-                 <!-- Artigo 6: Mioquinas -->
+                 <!-- Artigo 6 -->
                  <article class="article-card">
                     <div class="card-img-container">
                         <a href="artigos/mioquinas-movimento.html">
@@ -397,7 +409,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DE QUIZZES -->
+    <!-- QUIZZES SECTION -->
     <section class="quizzes-section">
         <div class="container">
             <div class="quiz-header">
@@ -460,13 +472,13 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <!-- Coluna 1: Marca -->
+                <!-- Col 1: Marca -->
                 <div>
                     <h4>Calcule Sua Saúde</h4>
                     <p style="margin-bottom: 20px;">Referência em saúde baseada em evidências. Comprometidos com a transparência, educação científica e bem-estar.</p>
                 </div>
 
-                <!-- Coluna 2: Explorar -->
+                <!-- Col 2: Explorar -->
                 <div>
                     <h4>Explorar</h4>
                     <ul>
@@ -477,7 +489,7 @@
                     </ul>
                 </div>
 
-                <!-- Coluna 3: Legal & Compliance -->
+                <!-- Col 3: Legal -->
                 <div>
                     <h4>Legal & Compliance</h4>
                     <ul>
@@ -488,7 +500,7 @@
                     </ul>
                 </div>
 
-                <!-- Coluna 4: Fontes e Social -->
+                <!-- Col 4: Fontes -->
                 <div>
                     <h4>Fontes Confiáveis</h4>
                     <p style="margin-bottom: 20px;">
@@ -497,7 +509,6 @@
                         <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
                     </p>
                     
-                    <!-- Ícones Sociais -->
                     <div style="display: flex; gap: 15px; margin-top: 20px;">
                         <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
                         <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
@@ -508,12 +519,11 @@
             </div>
         </div>
 
-        <!-- Barra Inferior -->
         <div class="footer-bottom">
             <div class="container">
                 <p>&copy; 2026 Calcule Sua Saúde. Todos os direitos reservados.</p>
                 <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
-                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional. Sempre procure o conselho do seu médico ou outro profissional de saúde qualificado com qualquer dúvida que possa ter sobre uma condição médica.
+                    As informações contidas neste site são apenas para fins educativos e não substituem o aconselhamento, diagnóstico ou tratamento médico profissional.
                 </p>
             </div>
         </div>
@@ -521,7 +531,6 @@
 
     <!-- SCRIPT -->
     <script>
-        // Função para iniciar os ícones com segurança
         function initIcons() {
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
@@ -530,7 +539,6 @@
             }
         }
 
-        // Aguarda o DOM carregar
         document.addEventListener('DOMContentLoaded', () => {
             initIcons();
             
@@ -541,15 +549,12 @@
 
             if(themeBtn) {
                 themeBtn.addEventListener('click', () => {
-                    // Adiciona classe de animação
                     themeBtn.classList.add('animate-theme-switch');
                     
-                    // Lógica de troca de tema
                     const current = html.getAttribute('data-theme');
                     const next = current === 'light' ? 'dark' : 'light';
                     html.setAttribute('data-theme', next);
 
-                    // Alterna visibilidade dos ícones
                     if (next === 'dark') {
                         iconMoon.style.display = 'none';
                         iconSun.style.display = 'flex';
@@ -558,7 +563,6 @@
                         iconSun.style.display = 'none';
                     }
 
-                    // Remove animação após ela terminar para poder clicar de novo
                     setTimeout(() => {
                         themeBtn.classList.remove('animate-theme-switch');
                     }, 500);
