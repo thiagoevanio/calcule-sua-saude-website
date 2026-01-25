@@ -1,4 +1,4 @@
-/* --- VARIÁVEIS BASEADAS NO DOCUMENTO --- */
+/* --- VARIÁVEIS --- */
 :root {
     --primary: #0A4D68;       /* Deep Ocean Blue */
     --primary-dark: #06384d;
@@ -47,6 +47,7 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     transition: background-color 0.5s ease, color 0.5s ease;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada no mobile */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -58,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 ul { list-style: none; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; } /* height auto evita distorção */
 
 /* --- ANIMAÇÕES --- */
 @keyframes fadeInUp {
@@ -90,6 +91,7 @@ img { max-width: 100%; display: block; }
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 24px;
+    width: 100%; /* Garante fluidez */
 }
 
 /* --- HEADER & NAV --- */
@@ -104,9 +106,15 @@ img { max-width: 100%; display: block; }
 
 .top-bar .container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Mantém alinhado à direita */
     gap: 20px;
-    padding-right: 20px;
+}
+
+/* Seletor de idioma e tema no mobile */
+@media (max-width: 480px) {
+    .top-bar .container {
+        justify-content: space-between; /* Distribui espaço em telas muito pequenas */
+    }
 }
 
 .main-header {
@@ -117,6 +125,7 @@ img { max-width: 100%; display: block; }
     height: var(--header-height);
     border-bottom: 1px solid rgba(255,255,255,0.15);
     background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent);
+    transition: all 0.3s ease;
 }
 
 .main-header .container {
@@ -124,10 +133,7 @@ img { max-width: 100%; display: block; }
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    margin: 0;
-    max-width: 100%;
-    padding-left: 40px;
-    padding-right: 40px;
+    margin: 0 auto; /* Corrigido de 0 */
 }
 
 .logo {
@@ -181,32 +187,37 @@ img { max-width: 100%; display: block; }
     border-color: #fff;
 }
 
-/* --- HERO SECTION ATUALIZADA (Posição do Texto) --- */
+/* --- HERO SECTION --- */
 .hero {
-    height: 800px;
-    /* Fundo atualizado para img/cabeçario.webp */
+    /* Height removido no mobile via media query */
+    min-height: 800px; 
     background-image: linear-gradient(to right, rgba(10, 77, 104, 0.95) 0%, rgba(10, 77, 104, 0.7) 40%, rgba(0,0,0,0.1) 100%), url('../img/cabeçario.webp');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Parallax bonito no desktop */
     display: flex;
-    align-items: flex-start; /* Mudado de center para flex-start para subir o conteúdo */
+    align-items: flex-start;
     position: relative;
-    padding-top: 150px; /* Ajuste para o conteúdo descer apenas o suficiente após o header */
+    padding-top: 150px;
     color: #fff;
 }
 
+/* Desativa parallax em mobile (melhora performance e evita bugs no iOS) */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+        min-height: auto; /* Altura flexível */
+        height: auto;
+        padding-bottom: 60px; /* Espaço extra embaixo */
+    }
+}
+
 .hero .container {
-    margin: 0;
-    max-width: 100%;
-    padding-left: 40px; 
-    padding-right: 60px; 
     display: flex; 
     justify-content: space-between;
     align-items: flex-start;
-    padding-top: 0; /* Removido padding extra interno */
-    width: 100%;
     position: relative; 
+    width: 100%;
 }
 
 .hero-content {
@@ -214,19 +225,17 @@ img { max-width: 100%; display: block; }
     margin-top: 0; 
 }
 
-/* NOVO CARD FLUTUANTE DE PERSONAL (HORIZONTAL E COMPACTO) */
+/* CARD FLUTUANTE DE PERSONAL */
 .personal-card-float {
     position: absolute;
-    top: -30px; /* Subi com valor negativo para alinhar bem no topo, junto ao menu */
-    right: 40px; 
+    top: -30px; 
+    right: 0; /* Alinhado à direita do container */
     
-    /* Layout Horizontal Flex */
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
     
-    /* Visual Glass */
     background: rgba(255, 255, 255, 0.08); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -241,7 +250,6 @@ img { max-width: 100%; display: block; }
     animation-delay: 0.5s;
     opacity: 0;
     z-index: 20;
-    
     min-width: 320px; 
 }
 
@@ -251,10 +259,7 @@ img { max-width: 100%; display: block; }
     transform: translateY(2px);
 }
 
-/* Coluna de Informação (Esquerda) */
-.p-info {
-    text-align: left;
-}
+.p-info { text-align: left; }
 
 .p-name {
     font-family: 'Playfair Display', serif;
@@ -265,13 +270,13 @@ img { max-width: 100%; display: block; }
     line-height: 1.1;
     display: flex;
     align-items: center;
-    gap: 8px; /* Espaço entre bolinha e nome */
+    gap: 8px;
 }
 
 .p-status-dot {
     width: 6px;
     height: 6px;
-    background-color: #4ade80; /* Verde online */
+    background-color: #4ade80;
     border-radius: 50%;
     display: inline-block;
     box-shadow: 0 0 6px #4ade80;
@@ -286,7 +291,6 @@ img { max-width: 100%; display: block; }
     margin-top: 3px;
 }
 
-/* Botão Pequeno (Direita) */
 .p-btn-small {
     background-color: var(--secondary);
     color: #fff;
@@ -326,7 +330,6 @@ img { max-width: 100%; display: block; }
     backdrop-filter: blur(4px);
 }
 
-/* --- TÍTULO HERO (AUMENTADO) --- */
 .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: 5.5rem; 
@@ -380,7 +383,7 @@ img { max-width: 100%; display: block; }
 .calculators-bar {
     background-color: var(--bg-card);
     max-width: var(--container-width);
-    margin: -80px auto 60px;
+    margin: -80px auto 60px; /* Margem negativa para sobrepor Hero */
     position: relative;
     z-index: 10;
     border-radius: 2px; 
@@ -451,9 +454,7 @@ img { max-width: 100%; display: block; }
     transform-origin: bottom;
 }
 
-.calc-item:hover::before {
-    transform: scaleY(1);
-}
+.calc-item:hover::before { transform: scaleY(1); }
 
 .calc-item:hover {
     border-color: rgba(10, 77, 104, 0.3);
@@ -498,17 +499,15 @@ img { max-width: 100%; display: block; }
     letter-spacing: 0.02em;
 }
 
-/* --- METHODOLOGY SECTION --- */
+/* --- METHODOLOGY --- */
 .methodology-section {
-    padding: 70px 0; /* Reduzido de 100px para ficar mais compacto */
+    padding: 70px 0;
     background-color: #fff;
     border-bottom: 1px solid var(--border-subtle);
     position: relative;
 }
 
-[data-theme="dark"] .methodology-section {
-    background-color: #1a1a1a;
-}
+[data-theme="dark"] .methodology-section { background-color: #1a1a1a; }
 
 .methodology-section::before {
     content: '';
@@ -517,19 +516,19 @@ img { max-width: 100%; display: block; }
     left: 50%;
     transform: translateX(-50%);
     width: 1px;
-    height: 30px; /* Altura reduzida */
+    height: 30px;
     background-color: var(--accent);
 }
 
 .method-header {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 50px; /* Margem reduzida */
+    margin: 0 auto 50px;
 }
 
 .section-badge {
     font-family: 'Source Sans 3', sans-serif;
-    font-size: 0.7rem; /* Fonte menor */
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: var(--accent);
@@ -542,7 +541,7 @@ img { max-width: 100%; display: block; }
 }
 
 .method-header h2 {
-    font-size: 2.5rem; /* Reduzido para ficar harmonioso */
+    font-size: 2.5rem;
     color: var(--primary);
     margin-bottom: 8px;
     line-height: 1.1;
@@ -550,7 +549,7 @@ img { max-width: 100%; display: block; }
 
 .method-subtitle {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem; /* Subtítulo mais delicado */
+    font-size: 1.3rem;
     color: var(--text-muted);
     font-style: italic;
     margin-top: 10px;
@@ -558,26 +557,24 @@ img { max-width: 100%; display: block; }
 
 .method-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Força 3 colunas lado a lado */
-    gap: 30px; /* Espaço entre elas reduzido */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     margin-bottom: 40px;
-    max-width: 1000px; /* Limita a largura para ficar mais junto */
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .method-card {
     text-align: center;
-    padding: 10px; /* Padding menor */
+    padding: 10px;
     transition: transform 0.3s;
 }
 
-.method-card:hover {
-    transform: translateY(-3px);
-}
+.method-card:hover { transform: translateY(-3px); }
 
 .method-icon-box {
-    width: 60px; /* Ícone menor (era 80px) */
+    width: 60px;
     height: 60px;
     background-color: rgba(10, 77, 104, 0.03);
     color: var(--primary);
@@ -585,7 +582,7 @@ img { max-width: 100%; display: block; }
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px; /* Margem menor */
+    margin: 0 auto 20px;
     border: 1px solid rgba(10, 77, 104, 0.1);
     position: relative;
 }
@@ -613,7 +610,7 @@ img { max-width: 100%; display: block; }
 }
 
 .method-card h3 {
-    font-size: 1.2rem; /* Título menor */
+    font-size: 1.2rem;
     margin-bottom: 10px;
     color: var(--text-main);
     font-weight: 700;
@@ -621,7 +618,7 @@ img { max-width: 100%; display: block; }
 
 .method-card p {
     font-family: 'Source Sans 3', sans-serif;
-    font-size: 0.95rem; /* Texto menor */
+    font-size: 0.95rem;
     color: var(--text-muted);
     line-height: 1.5;
 }
@@ -631,7 +628,7 @@ img { max-width: 100%; display: block; }
     align-items: center;
     justify-content: center;
     gap: 20px;
-    margin-top: 40px; /* Margem reduzida */
+    margin-top: 40px;
     opacity: 0.7;
 }
 
@@ -639,7 +636,7 @@ img { max-width: 100%; display: block; }
     height: 1px;
     background-color: var(--border-subtle);
     flex-grow: 1;
-    max-width: 100px; /* Linha mais curta */
+    max-width: 100px;
 }
 
 .seal-content {
@@ -654,7 +651,7 @@ img { max-width: 100%; display: block; }
     color: var(--primary);
 }
 
-/* --- ARTIGOS (CORREÇÃO DE DESIGN BUGADO) --- */
+/* --- ARTIGOS --- */
 .featured-section {
     padding: 40px 0 80px;
     background-color: var(--bg-body);
@@ -677,15 +674,13 @@ img { max-width: 100%; display: block; }
 
 .articles-grid {
     display: grid;
+    /* Grid inteligente: adapta automaticamente */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-/* CORREÇÃO: Força 3 colunas em telas grandes para simetria perfeita */
 @media (min-width: 1024px) {
-     .articles-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+     .articles-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .article-card {
@@ -694,7 +689,7 @@ img { max-width: 100%; display: block; }
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Garante que todos tenham a mesma altura */
+    height: 100%;
 }
 
 .article-card:hover {
@@ -707,23 +702,21 @@ img { max-width: 100%; display: block; }
     height: 220px;
     overflow: hidden;
     position: relative;
-    flex-shrink: 0; /* Impede que a imagem encolha */
+    flex-shrink: 0;
 }
 
 .card-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.article-card:hover .card-img {
-    transform: scale(1.05);
-}
+.article-card:hover .card-img { transform: scale(1.05); }
 
 .card-content {
     padding: 25px;
-    flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
@@ -750,7 +743,7 @@ img { max-width: 100%; display: block; }
     font-size: 1rem;
     color: var(--text-muted);
     margin-bottom: 20px;
-    flex-grow: 1; /* Empurra o rodapé para baixo */
+    flex-grow: 1;
 }
 
 .card-footer {
@@ -761,13 +754,13 @@ img { max-width: 100%; display: block; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto; /* Garante alinhamento na base */
+    margin-top: auto;
 }
 
-/* --- QUIZZES SECTION (NOVO) --- */
+/* --- QUIZZES --- */
 .quizzes-section {
     padding: 80px 0;
-    background-color: #fff; /* Contraste com o fundo off-white do corpo */
+    background-color: #fff;
     border-top: 1px solid var(--border-subtle);
 }
 
@@ -789,8 +782,8 @@ img { max-width: 100%; display: block; }
 }
 
 .quiz-card {
-    background-color: var(--bg-body); /* Fundo levemente diferente */
-    border: 2px dashed var(--border-subtle); /* Borda tracejada estilo caderno de exercícios */
+    background-color: var(--bg-body);
+    border: 2px dashed var(--border-subtle);
     border-radius: 4px;
     padding: 30px;
     text-align: center;
@@ -838,7 +831,6 @@ img { max-width: 100%; display: block; }
     line-height: 1.5;
 }
 
-/* BOTÃO DO QUIZ (ATUALIZADO PARA <a>) */
 .btn-quiz {
     background-color: transparent;
     color: var(--primary);
@@ -853,7 +845,7 @@ img { max-width: 100%; display: block; }
     cursor: pointer;
     transition: all 0.2s;
     display: inline-block;
-    text-decoration: none; /* Importante para links */
+    text-decoration: none;
 }
 
 .btn-quiz:hover {
@@ -908,7 +900,7 @@ img { max-width: 100%; display: block; }
     border-radius: 2px;
 }
 
-/* --- FOOTER ORGANIZADO --- */
+/* --- FOOTER --- */
 footer {
     background-color: #1C1917;
     color: #A8A29E;
@@ -962,45 +954,106 @@ footer {
     background-color: #151312;
 }
 
-/* MOBILE ADJUSTMENTS */
+/* ------------------------------------------------------------------ */
+/* --- AJUSTES DE RESPONSIVIDADE (CRÍTICO PARA MOBILE) --- */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 1024px) {
+    /* Ajustes para Tablets */
+    .hero h1 { font-size: 4rem; }
+    
+    .calc-grid, .method-grid, .quiz-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+    }
+}
+
 @media (max-width: 900px) {
+    /* Ajustes Gerais Mobile */
     .hero .container {
         flex-direction: column;
         align-items: flex-start;
-        padding-right: 20px;
         padding-top: 40px;
     }
+
     .hero-content {
-        margin-top: 0;
+        margin-top: 20px;
+        margin-bottom: 40px;
     }
+
+    /* O Card de personal agora fica abaixo do texto */
     .personal-card-float {
         position: relative; 
         top: auto;
         right: auto;
         width: 100%;
-        max-width: 350px; 
-        margin-top: 30px;
-        align-self: center;
+        max-width: 100%; 
+        margin-top: 10px;
+        box-sizing: border-box; /* Garante que padding não quebre a largura */
     }
     
-    .calc-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* MENU MOBILE VISÍVEL */
+    .main-header {
+        position: relative; /* Deixa de ser absoluto no mobile para empurrar o conteúdo */
+        top: 0;
+        background: var(--primary); /* Fundo sólido para leitura */
+        height: auto;
+        padding: 15px 0;
     }
+
+    .main-header .container {
+        flex-direction: column; /* Empilha logo e menu */
+        padding: 0 20px;
+        gap: 15px;
+    }
+
+    .nav-menu { 
+        display: flex; /* Garante visibilidade */
+        flex-wrap: wrap; /* Permite quebra de linha se muitos itens */
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .hero h1 { font-size: 3rem; } /* Título menor */
     
-    .nav-menu { display: none; }
-    .hero h1 { font-size: 3.8rem; } /* Ajustado para mobile */
-    .main-header .container { padding-left: 20px; }
     .newsletter-form { flex-direction: column; align-items: center; }
-    .calculators-bar { margin: 0; }
     
+    /* Reseta margem negativa da barra de calculadoras */
+    .calculators-bar { 
+        margin: 0 auto 60px; 
+        padding: 30px 20px;
+    }
+    
+    /* Grids viram 1 coluna no celular */
+    .calc-grid,
+    .method-grid,
     .quiz-grid {
         grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
+        gap: 20px;
+    }
+
+    .section-header-left h2 { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+    /* Celulares Pequenos */
+    .hero h1 { font-size: 2.5rem; }
+    
+    /* Personal Card vira coluna se precisar */
+    .personal-card-float {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
     }
     
-    .method-grid {
-        grid-template-columns: 1fr; /* Empilha no celular */
-        gap: 40px;
+    .p-info { text-align: center; }
+    .p-name { justify-content: center; }
+    
+    .top-bar .container {
+        justify-content: space-between;
     }
 }
