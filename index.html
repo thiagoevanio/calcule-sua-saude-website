@@ -2,6 +2,21 @@
 <html lang="pt-BR" data-theme="light">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Tema aplicado antes do CSS (reduz repaint e trabalho no carregamento) -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) {
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            t = prefersDark ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- --- SEO INTERNACIONAL (CRÍTICO) --- -->
@@ -34,6 +49,16 @@
     <meta name="twitter:title" content="Ferramentas de Saúde e Ciência Médica">
     <meta name="twitter:description" content="Calculadoras de saúde, quizzes e artigos baseados em evidências.">
     <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+
+    <!-- Performance hints (reduz latência de terceiros e ajuda priorização) -->
+    <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+
+    <!-- Preload do CSS principal -->
+    <link rel="preload" href="css/style.css" as="style">
 
     <!-- Ads / Analytics -->
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
@@ -555,14 +580,6 @@
 
     <!-- SCRIPT -->
     <script>
-        function initIcons() {
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            } else {
-                setTimeout(initIcons, 100);
-            }
-        }
-
         function applyTheme(theme) {
             const html = document.documentElement;
             const iconMoon = document.getElementById('icon-moon');
@@ -579,9 +596,20 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            initIcons();
+        function initLucideWhenIdle() {
+            const run = () => {
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
+                }
+            };
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(run, { timeout: 1500 });
+            } else {
+                setTimeout(run, 0);
+            }
+        }
 
+        document.addEventListener('DOMContentLoaded', () => {
             // Persistência de tema (localStorage) + fallback para preferência do sistema
             const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             const savedTheme = localStorage.getItem('theme');
@@ -601,6 +629,8 @@
                     setTimeout(() => themeBtn.classList.remove('animate-theme-switch'), 500);
                 });
             }
+
+            initLucideWhenIdle();
         });
     </script>
 </body>
