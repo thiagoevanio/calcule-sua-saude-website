@@ -61,6 +61,48 @@ a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 ul { list-style: none; }
 img { max-width: 100%; height: auto; display: block; } /* height auto evita distorção */
 
+/* ------------------------------------------------------------------ */
+/* --- PERFORMANCE & ACESSIBILIDADE --- */
+/* ------------------------------------------------------------------ */
+
+/* Evita que o conteúdo do HERO atrase LCP por animações de opacity/transform */
+.hero .animate-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* O card flutuante não deve começar invisível (evita “pintar” tarde) */
+.personal-card-float {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Desliga animações/transições quando o usuário prefere reduzir movimento */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+    .hero {
+        background-attachment: scroll !important;
+    }
+}
+
+/* Renderiza abaixo da dobra sob demanda (Chromium) — acelera FCP/LCP e reduz trabalho inicial */
+@supports (content-visibility: auto) {
+    .methodology-section,
+    .featured-section,
+    .quizzes-section,
+    .newsletter-section,
+    footer {
+        content-visibility: auto;
+        contain-intrinsic-size: 1200px;
+    }
+}
+
 /* --- ANIMAÇÕES --- */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -189,17 +231,33 @@ img { max-width: 100%; height: auto; display: block; } /* height auto evita dist
 
 /* --- HERO SECTION --- */
 .hero {
-    /* Height removido no mobile via media query */
     min-height: 800px; 
-    background-image: linear-gradient(to right, rgba(10, 77, 104, 0.95) 0%, rgba(10, 77, 104, 0.7) 40%, rgba(0,0,0,0.1) 100%), url('../img/cabeçario.webp');
+
+    /* Mantém seu visual atual, mas com base performance-friendly */
+    background-color: #0A4D68;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Parallax bonito no desktop */
+
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(10, 77, 104, 0.95) 0%,
+            rgba(10, 77, 104, 0.7) 40%,
+            rgba(0,0,0,0.1) 100%
+        ),
+        url('../img/cabeçario.webp');
+
     display: flex;
     align-items: flex-start;
     position: relative;
     padding-top: 150px;
     color: #fff;
+}
+
+/* Parallax só no desktop e só se não for “reduzir movimento” */
+@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+    .hero { background-attachment: fixed; }
 }
 
 /* Desativa parallax em mobile (melhora performance e evita bugs no iOS) */
@@ -245,10 +303,7 @@ img { max-width: 100%; height: auto; display: block; } /* height auto evita dist
     
     color: #fff;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    
-    animation: fadeInUp 1s ease-out forwards;
-    animation-delay: 0.5s;
-    opacity: 0;
+
     z-index: 20;
     min-width: 320px; 
 }
@@ -674,7 +729,6 @@ img { max-width: 100%; height: auto; display: block; } /* height auto evita dist
 
 .articles-grid {
     display: grid;
-    /* Grid inteligente: adapta automaticamente */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
@@ -917,7 +971,8 @@ footer {
     padding-bottom: 60px;
 }
 
-.footer h4 {
+/* Corrigido: seu HTML usa <footer> (não existe .footer no markup) */
+footer h4 {
     color: #fff;
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem;
@@ -926,7 +981,7 @@ footer {
     position: relative;
 }
 
-.footer h4::after {
+footer h4::after {
     content: '';
     display: block;
     width: 30px;
@@ -935,13 +990,15 @@ footer {
     margin-top: 10px;
 }
 
-.footer ul li { margin-bottom: 12px; }
-.footer ul li a { 
+footer ul li { margin-bottom: 12px; }
+
+footer ul li a { 
     color: #A8A29E; 
     transition: 0.2s;
     display: inline-block;
 }
-.footer ul li a:hover { 
+
+footer ul li a:hover { 
     color: #fff; 
     transform: translateX(5px); 
 }
@@ -1057,4 +1114,3 @@ footer {
         justify-content: space-between;
     }
 }
-
