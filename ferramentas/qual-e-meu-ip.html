@@ -124,6 +124,7 @@
       --radius-md: 14px;
       --radius-lg: 20px;
     }
+
     [data-theme="dark"] {
       --bg-body: #0C0A09;
       --bg-card: #1C1917;
@@ -143,6 +144,7 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-body);
@@ -150,189 +152,483 @@
       line-height: 1.75;
       transition: background-color 0.4s ease, color 0.4s ease;
     }
+
     a { text-decoration: none; color: inherit; transition: 0.2s ease; }
     .container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
-    .sr-only { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 
     /* --- TOPO E NAVEGAÇÃO --- */
     .top-bar { background-color: #0A4D68; color: #fff; padding: 8px 0; font-size: 0.85rem; }
-    .top-bar .container { display: flex; justify-content: flex-end; gap: 20px; align-items: center; }
-    
-    .theme-toggle, .lang-selector select { 
-      background: none; border: none; color: #fff; padding: 0; 
-      cursor: pointer; display: flex; align-items: center; gap: 6px;
-      font-family: inherit; font-size: 0.85rem;
+    .top-bar .container {
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
     }
-    .lang-selector select { padding-right: 15px; appearance: none; -webkit-appearance: none; }
-    .lang-selector { display: flex; align-items: center; gap: 6px; }
+
+    .theme-toggle, .lang-selector select {
+      background: none;
+      border: none;
+      color: #fff;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+      font-size: 0.85rem;
+    }
+
+    .lang-selector select {
+      padding-right: 18px;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .lang-selector {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     .lang-selector select option { background-color: #0A4D68; color: #fff; }
 
     .main-header {
-      background-color: var(--bg-card); border-bottom: 1px solid var(--border-subtle);
-      position: sticky; top: 0; z-index: 1000; height: var(--header-height);
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--header-height);
       box-shadow: var(--shadow-sm);
     }
-    .main-header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
-    
+
+    .main-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      gap: 16px;
+    }
+
     .logo {
-      font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700;
-      color: var(--primary); display: flex; align-items: center; gap: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
     }
-    
-    .nav-menu { display: flex; gap: 28px; list-style: none; align-items: center; }
-    .nav-link { font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 0.92rem; }
+
+    .nav-menu {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.92rem;
+    }
+
     .nav-link:hover, .nav-link.active { color: var(--primary); }
-    
+
     .btn-outline {
-      border: 2px solid var(--primary); color: var(--primary); padding: 8px 20px;
-      border-radius: 999px; text-transform: uppercase; font-weight: 800; font-size: 0.85rem;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      padding: 8px 20px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
     }
+
     .btn-outline:hover { background: var(--primary); color: #fff; }
 
     /* Dropdown CSS */
     .nav-dropdown { position: relative; }
+
     .nav-dropdown-toggle {
-        background: none; border: none; font-family: 'Source Sans 3', sans-serif;
-        font-size: 0.92rem; font-weight: 700; color: var(--text-muted);
-        cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
-        padding: 0; text-transform: uppercase;
+      background: none;
+      border: none;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0;
+      text-transform: uppercase;
     }
+
     .nav-dropdown-toggle:hover { color: var(--primary); }
     .dropdown-chevron { transition: transform 0.2s ease; }
     .nav-dropdown.open .dropdown-chevron { transform: rotate(180deg); }
 
     .nav-dropdown-menu {
-        position: absolute; top: 100%; right: 0; min-width: 260px;
-        background: var(--bg-card); border: 1px solid var(--border-subtle);
-        border-radius: 12px; box-shadow: var(--shadow-md); padding: 10px 0;
-        opacity: 0; visibility: hidden; transform: translateY(10px);
-        transition: all 0.2s ease; z-index: 9000;
-        margin-top: 10px;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      min-width: 260px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      padding: 10px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.2s ease;
+      z-index: 9000;
+      margin-top: 10px;
     }
-    .nav-dropdown.open .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-    
+
+    .nav-dropdown.open .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
     .dropdown-section-title {
-        display: block; padding: 10px 20px 5px; font-size: 0.75rem;
-        font-weight: 800; text-transform: uppercase; color: var(--text-light);
+      display: block;
+      padding: 10px 20px 5px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-light);
     }
+
     .dropdown-item {
-        display: flex; align-items: center; gap: 10px; padding: 10px 20px;
-        font-size: 0.9rem; color: var(--text-main); font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      font-weight: 500;
     }
-    .dropdown-item:hover { background: rgba(10, 77, 104, 0.05); color: var(--primary); }
+
+    .dropdown-item:hover {
+      background: rgba(10, 77, 104, 0.05);
+      color: var(--primary);
+    }
 
     /* Breadcrumb */
-    .breadcrumb-bar { background: var(--bg-section); border-bottom: 1px solid var(--border-subtle); padding: 12px 0; }
-    .breadcrumb-list { list-style: none; display: flex; gap: 8px; font-size: 0.85rem; color: var(--text-light); }
+    .breadcrumb-bar {
+      background: var(--bg-section);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 0;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      flex-wrap: wrap;
+    }
+
     .breadcrumb-list a { color: var(--primary); font-weight: 600; }
     .breadcrumb-sep { opacity: 0.5; }
 
     /* --- PAGE HEADER --- */
     .page-header {
-      padding: 48px 0 24px; text-align: center;
+      padding: 48px 0 24px;
+      text-align: center;
       background: linear-gradient(180deg, var(--bg-section) 0%, var(--bg-body) 100%);
     }
+
     .page-header h1 {
-      font-family: 'Playfair Display', serif; font-weight: 800;
-      font-size: clamp(2rem, 4vw, 3rem); color: var(--primary); margin-bottom: 16px;
-    }
-    .page-header .subtitle {
-      font-size: 1.15rem; color: var(--text-muted); max-width: 750px; margin: 0 auto;
-    }
-    .trust-row {
-      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 24px;
-    }
-    .trust-pill {
-      display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
-      border: 1px solid var(--border-subtle); border-radius: 999px;
-      background: var(--bg-card); font-size: 0.85rem; font-weight: 700; color: var(--text-muted);
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--primary);
+      margin-bottom: 16px;
     }
 
-    /* --- IP TOOL UI (AJUSTADO PARA IPv6) --- */
-    .ip-tool-card {
-      background: var(--bg-card); border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
-      overflow: hidden; max-width: 900px; margin: 0 auto;
-      text-align: center; position: relative;
+    .page-header .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto;
     }
+
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      background: var(--bg-card);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* --- SEÇÃO DA FERRAMENTA --- */
+    .tool-section { padding: 22px 0 0; }
+
+    /* --- IP TOOL UI (CORRIGIDO PARA IPv6) --- */
+    .ip-tool-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
     .ip-main-display {
       padding: 40px 20px;
       background: linear-gradient(135deg, rgba(10,77,104,0.05), rgba(4,120,87,0.05));
       border-bottom: 1px solid var(--border-subtle);
     }
+
     .ip-label {
-      font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;
-      font-weight: 800; color: var(--text-light); margin-bottom: 10px; display: block;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 800;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      display: block;
     }
+
     .ip-address-value {
       font-family: 'Fira Code', monospace;
-      /* Ajuste para caber IPv6 longo */
-      font-size: clamp(1.2rem, 4vw, 2.8rem); 
-      font-weight: 700; color: var(--primary);
-      word-break: break-word; overflow-wrap: break-word;
-      margin-bottom: 20px; line-height: 1.3;
-      padding: 0 10px;
+      font-size: clamp(1.1rem, 2.3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      margin: 10px auto 18px;
+      padding: 0 12px;
+      max-width: 100%;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: anywhere;
+      text-wrap: pretty;
     }
+
+    .copy-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .copy-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--bg-card); border: 2px solid var(--border-subtle);
-      padding: 10px 20px; border-radius: 999px; font-weight: 700; cursor: pointer;
-      transition: all 0.2s; color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 2px solid var(--border-subtle);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text-muted);
     }
+
     .copy-btn:hover { border-color: var(--primary); color: var(--primary); }
-    
+
+    .copy-btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .copy-msg {
+      display: none;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    /* Avisos (quando serviços bloqueiam / adblock / origem file://) */
+    .notice {
+      margin: 14px auto 0;
+      max-width: 720px;
+      text-align: left;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      border-radius: 14px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .notice-inner {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: start;
+      padding: 12px 12px;
+    }
+
+    .notice-text strong { display: block; font-size: 0.95rem; margin-bottom: 2px; }
+    .notice-text div { font-size: 0.95rem; color: var(--text-muted); }
+
+    .notice[data-variant="error"] { border-color: rgba(217,119,6,0.45); }
+    .notice[data-variant="warn"] { border-color: rgba(4,120,87,0.35); }
+    .notice[data-variant="info"] { border-color: rgba(56,189,248,0.35); }
+
+    .notice-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 0 12px 12px;
+      flex-wrap: wrap;
+    }
+
+    .notice-btn {
+      border: 2px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-main);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .notice-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+    .notice-close {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 6px;
+      border-radius: 10px;
+    }
+
+    .notice-close:hover { background: rgba(0,0,0,0.05); }
+
+    [data-theme="dark"] .notice-close:hover { background: rgba(255,255,255,0.06); }
+
     .ip-details-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1px; background: var(--border-subtle);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1px;
+      background: var(--border-subtle);
     }
+
     .ip-detail-item {
-      background: var(--bg-card); padding: 24px; text-align: left;
-      display: flex; flex-direction: column; gap: 6px;
+      background: var(--bg-card);
+      padding: 24px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
+
     .detail-label {
-      font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--text-light);
-      display: flex; align-items: center; gap: 6px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
+
     .detail-value {
-      font-size: 1.1rem; font-weight: 600; color: var(--text-main);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      word-break: break-word;
     }
-    .loading-pulse {
-        animation: pulse 1.5s infinite;
-        opacity: 0.6;
-    }
+
+    .loading-pulse { animation: pulse 1.5s infinite; opacity: 0.6; }
+
     @keyframes pulse {
-        0% { opacity: 0.6; } 50% { opacity: 0.3; } 100% { opacity: 0.6; }
+      0% { opacity: 0.6; }
+      50% { opacity: 0.3; }
+      100% { opacity: 0.6; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .loading-pulse { animation: none; }
+      * { scroll-behavior: auto; }
     }
 
     /* --- CONTEÚDO EDUCATIVO --- */
     .content-area { max-width: 800px; margin: 50px auto; padding: 0 20px; }
+
     .content-block h2 {
-      font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 16px;
-      color: var(--text-main); border-bottom: 2px solid var(--secondary); display: inline-block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      color: var(--text-main);
+      border-bottom: 2px solid var(--secondary);
+      display: inline-block;
       padding-bottom: 4px;
     }
+
     .content-block p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 20px; }
     .content-block ul { margin-left: 20px; margin-bottom: 20px; color: var(--text-muted); }
     .content-block li { margin-bottom: 8px; }
-    
+
     .info-box {
-        background: var(--bg-section); border-left: 4px solid var(--accent);
-        padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0;
+      background: var(--bg-section);
+      border-left: 4px solid var(--accent);
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 30px 0;
     }
 
     /* --- FOOTER --- */
     footer { background: #1C1917; color: #A8A29E; padding: 60px 0 20px; margin-top: 60px; font-size: 0.95rem; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
     .footer h4 { color: #fff; font-family: 'Playfair Display', serif; margin-bottom: 20px; }
     .footer ul { list-style: none; }
     .footer ul li { margin-bottom: 10px; }
     .footer ul li a:hover { color: #fff; }
+
     .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.85rem; }
+
+    @media (max-width: 920px) {
+      .container { padding: 0 18px; }
+      .logo { font-size: 1.45rem; }
+    }
 
     @media (max-width: 800px) {
       .nav-menu { display: none; }
       .page-header h1 { font-size: 2rem; }
-      .ip-address-value { font-size: 1.5rem; }
+      .ip-main-display { padding: 28px 14px; }
+      .ip-address-value { padding: 0 8px; }
     }
   </style>
 </head>
@@ -343,18 +639,18 @@
     <div class="container">
       <button class="theme-toggle" id="theme-btn" aria-label="Alternar tema">
         <span id="icon-moon" style="display:flex;align-items:center;gap:5px;">
-            <i data-lucide="moon" size="14"></i> <span>Modo Escuro</span>
+          <i data-lucide="moon" size="14"></i> <span>Modo Escuro</span>
         </span>
         <span id="icon-sun" style="display:none;align-items:center;gap:5px;">
-            <i data-lucide="sun" size="14"></i> <span>Modo Claro</span>
+          <i data-lucide="sun" size="14"></i> <span>Modo Claro</span>
         </span>
       </button>
 
       <div class="lang-selector">
         <i data-lucide="globe" size="14"></i>
         <select onchange="if(this.value) window.location.href = this.value;" aria-label="Selecionar idioma">
-          <option value="../ferramentas/qual-e-meu-ip.html" selected>Português</option>
-          <option value="../ferramentas/what-is-my-ip-en.html">English</option>
+          <option value="qual-e-meu-ip.html" selected>Português</option>
+          <option value="what-is-my-ip-en.html">English</option>
         </select>
       </div>
     </div>
@@ -371,30 +667,30 @@
         <li><a href="../index.html" class="nav-link">Início</a></li>
         <li><a href="../artigos.html" class="nav-link">Artigos</a></li>
         <li><a href="../calculadoras.html" class="nav-link">Calculadoras</a></li>
-        
+
         <!-- DROPDOWN FERRAMENTAS -->
         <li class="nav-dropdown">
-            <button class="nav-link nav-dropdown-toggle" aria-expanded="false">
-                Ferramentas <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
-            </button>
-            <div class="nav-dropdown-menu">
-                <span class="dropdown-section-title">Utilitários Gerais</span>
-                <a href="gerador-qr-code.html" class="dropdown-item">
-                    <i data-lucide="qr-code" size="18"></i> Gerador de QR Code
-                </a>
-                <a href="conversor-unidades.html" class="dropdown-item">
-                    <i data-lucide="ruler" size="18"></i> Conversor de Unidades
-                </a>
-                <a href="compressor-imagem.html" class="dropdown-item">
-                    <i data-lucide="image-down" size="18"></i> Compressor de Imagem
-                </a>
-                <a href="gerador-senhas.html" class="dropdown-item">
-                    <i data-lucide="key-round" size="18"></i> Gerador de Senhas
-                </a>
-                <a href="qual-e-meu-ip.html" class="dropdown-item">
-                    <i data-lucide="wifi" size="18"></i> Qual é o Meu IP?
-                </a>
-            </div>
+          <button class="nav-link nav-dropdown-toggle" aria-expanded="false">
+            Ferramentas <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
+          </button>
+          <div class="nav-dropdown-menu">
+            <span class="dropdown-section-title">Utilitários Gerais</span>
+            <a href="gerador-qr-code.html" class="dropdown-item">
+              <i data-lucide="qr-code" size="18"></i> Gerador de QR Code
+            </a>
+            <a href="conversor-unidades.html" class="dropdown-item">
+              <i data-lucide="ruler" size="18"></i> Conversor de Unidades
+            </a>
+            <a href="compressor-imagem.html" class="dropdown-item">
+              <i data-lucide="image-down" size="18"></i> Compressor de Imagem
+            </a>
+            <a href="gerador-senhas.html" class="dropdown-item">
+              <i data-lucide="key-round" size="18"></i> Gerador de Senhas
+            </a>
+            <a href="qual-e-meu-ip.html" class="dropdown-item">
+              <i data-lucide="wifi" size="18"></i> Qual é o Meu IP?
+            </a>
+          </div>
         </li>
 
         <li><a href="../contato.html" class="btn-outline">Contato</a></li>
@@ -421,28 +717,48 @@
       <div class="container">
         <h1>Qual é o Meu IP?</h1>
         <p class="subtitle">Identifique seu endereço IP público, provedor de internet e localização aproximada instantaneamente.</p>
-        
+
         <div class="trust-row">
-            <span class="trust-pill"><i data-lucide="lock" size="14"></i> 100% Seguro</span>
-            <span class="trust-pill"><i data-lucide="zap" size="14"></i> Detecção Instantânea</span>
-            <span class="trust-pill"><i data-lucide="shield-check" size="14"></i> Sem Logs</span>
+          <span class="trust-pill"><i data-lucide="lock" size="14"></i> 100% Seguro</span>
+          <span class="trust-pill"><i data-lucide="zap" size="14"></i> Detecção Instantânea</span>
+          <span class="trust-pill"><i data-lucide="shield-check" size="14"></i> Sem Logs</span>
         </div>
       </div>
     </header>
 
     <section class="tool-section">
       <div class="container">
-        
+
         <!-- CARD DA FERRAMENTA -->
         <div class="ip-tool-card">
           <div class="ip-main-display">
             <span class="ip-label">Seu Endereço IP Público</span>
-            <div class="ip-address-value" id="ip-display">Carregando...</div>
-            
-            <button class="copy-btn" id="copy-btn" onclick="copyIp()">
-              <i data-lucide="copy" size="18"></i> Copiar IP
-            </button>
-            <span id="copy-msg" style="display:none; color: var(--accent); font-size: 0.85rem; margin-left: 10px; font-weight: 700;">Copiado!</span>
+
+            <div class="ip-address-value" id="ip-display" aria-live="polite">Carregando...</div>
+
+            <div class="copy-row">
+              <button class="copy-btn" id="copy-btn" onclick="copyIp()" disabled>
+                <i data-lucide="copy" size="18"></i> Copiar IP
+              </button>
+              <span class="copy-msg" id="copy-msg" role="status" aria-live="polite">Copiado!</span>
+            </div>
+
+            <!-- Aviso quando alguma API for bloqueada / indisponível -->
+            <div class="notice" id="notice" role="alert" aria-live="polite" style="display:none;" data-variant="warn">
+              <div class="notice-inner">
+                <i data-lucide="info" size="18"></i>
+                <div class="notice-text">
+                  <strong id="notice-title">Aviso</strong>
+                  <div id="notice-body">&nbsp;</div>
+                </div>
+                <button class="notice-close" type="button" aria-label="Fechar aviso" onclick="hideNotice()">
+                  <i data-lucide="x" size="18"></i>
+                </button>
+              </div>
+              <div class="notice-actions">
+                <button class="notice-btn" type="button" onclick="fetchIpData(true)">Tentar novamente</button>
+              </div>
+            </div>
           </div>
 
           <div class="ip-details-grid">
@@ -512,7 +828,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-grid footer">
         <div>
           <h4>Calcule Sua Saúde</h4>
           <p>Ferramentas precisas e informação baseada em ciência para o seu bem-estar.</p>
@@ -543,132 +859,375 @@
   </footer>
 
   <script>
-    // --- LÓGICA DA FERRAMENTA DE IP ---
-    async function fetchIpData() {
-        const ipDisplay = document.getElementById('ip-display');
-        const ispDisplay = document.getElementById('isp-display');
-        const cityDisplay = document.getElementById('city-display');
-        const countryDisplay = document.getElementById('country-display');
+    // =========================================================
+    // Robustez: a maioria dos “Todos os serviços falharam” vem de
+    // - rate limit / bloqueio por origem
+    // - bloqueio por extensão (adblock/privacidade)
+    // - timeout de rede
+    // Solução: timeouts + retries + mais provedores + separar IP de GEO.
+    // =========================================================
 
-        // Helper to update UI
-        const updateUI = (ip, isp, city, country) => {
-            ipDisplay.textContent = ip || 'Indisponível';
-            ispDisplay.textContent = isp || 'Desconhecido';
-            cityDisplay.textContent = city || '-';
-            countryDisplay.textContent = country || '-';
-        };
-
-        try {
-            // Tentativa 1: ipapi.co
-            const response = await fetch('https://ipapi.co/json/');
-            if (!response.ok) throw new Error('ipapi.co failed');
-            const data = await response.json();
-            updateUI(
-                data.ip, 
-                data.org || data.asn, 
-                `${data.city || ''}, ${data.region_code || ''}`, 
-                data.country_name
-            );
-
-        } catch (error1) {
-            console.warn('Fallback 1 (ipwho.is) devido a:', error1);
-            try {
-                // Tentativa 2: ipwho.is (Geralmente aceita CORS melhor)
-                const response2 = await fetch('https://ipwho.is/');
-                if (!response2.ok) throw new Error('ipwho.is failed');
-                const data2 = await response2.json();
-                
-                if(!data2.success) throw new Error('ipwho.is returned success: false');
-
-                updateUI(
-                    data2.ip, 
-                    data2.connection?.isp || data2.connection?.org, 
-                    `${data2.city || ''}, ${data2.region_code || ''}`, 
-                    data2.country
-                );
-
-            } catch (error2) {
-                console.warn('Fallback 2 (ipify) devido a:', error2);
-                try {
-                    // Tentativa 3: ipify (Apenas IP)
-                    const response3 = await fetch('https://api.ipify.org?format=json');
-                    if (!response3.ok) throw new Error('ipify failed');
-                    const data3 = await response3.json();
-                    
-                    updateUI(data3.ip, 'Indisponível (Erro na Geolocalização)', '-', '-');
-                } catch (error3) {
-                    console.error('Todos os serviços de IP falharam:', error3);
-                    ipDisplay.textContent = 'Erro ao carregar';
-                    ispDisplay.textContent = '-';
-                    cityDisplay.textContent = '-';
-                    countryDisplay.textContent = '-';
-                }
-            }
-        }
+    // ---------- Helpers ----------
+    function sanitizeIp(ip) {
+      return String(ip || '').trim().replace(/\s+/g, '');
     }
 
-    function copyIp() {
-        const ipText = document.getElementById('ip-display').textContent;
-        if (ipText && ipText !== 'Carregando...' && ipText !== 'Erro ao carregar') {
-            navigator.clipboard.writeText(ipText).then(() => {
-                const msg = document.getElementById('copy-msg');
-                msg.style.display = 'inline';
-                setTimeout(() => msg.style.display = 'none', 2000);
-            });
-        }
+    function ipWithBreaks(rawIp) {
+      const safe = sanitizeIp(rawIp);
+      if (!safe) return 'Indisponível';
+      return safe.replace(/([:.])/g, '$1<wbr>');
     }
 
-    // --- ÍCONES & TEMA (Padrão) ---
+    function setIpDisplay(rawIp) {
+      const ipDisplay = document.getElementById('ip-display');
+      const copyBtn = document.getElementById('copy-btn');
+
+      const clean = sanitizeIp(rawIp);
+      ipDisplay.dataset.rawIp = clean;
+      ipDisplay.innerHTML = clean ? ipWithBreaks(clean) : 'Indisponível';
+
+      // Ajuste leve para IPv6 muito longo
+      if (clean.length >= 34) ipDisplay.style.fontSize = 'clamp(1.05rem, 2.1vw, 2.0rem)';
+      else ipDisplay.style.fontSize = '';
+
+      copyBtn.disabled = !clean;
+    }
+
+    function setDetails({ isp, city, region, country }) {
+      const ispDisplay = document.getElementById('isp-display');
+      const cityDisplay = document.getElementById('city-display');
+      const countryDisplay = document.getElementById('country-display');
+
+      ispDisplay.textContent = isp || 'Desconhecido';
+      const cityText = [city, region].filter(Boolean).join(', ');
+      cityDisplay.textContent = cityText || '-';
+      countryDisplay.textContent = country || '-';
+    }
+
+    function isFileLikeOrigin() {
+      return location.protocol === 'file:' || location.origin === 'null';
+    }
+
+    function showNotice(variant, title, bodyHtml) {
+      const box = document.getElementById('notice');
+      const t = document.getElementById('notice-title');
+      const b = document.getElementById('notice-body');
+      if (!box || !t || !b) return;
+
+      box.dataset.variant = variant || 'warn';
+      t.textContent = title || 'Aviso';
+      b.innerHTML = bodyHtml || '';
+      box.style.display = 'block';
+
+      // Re-render lucide icons (por segurança)
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    function hideNotice() {
+      const box = document.getElementById('notice');
+      if (box) box.style.display = 'none';
+    }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function fetchWithTimeout(url, options = {}, timeoutMs = 7000) {(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function fetchWithTimeout(url, options = {}, timeoutMs = 7000) {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(url, { ...options, signal: controller.signal });
+        return res;
+      } finally {
+        clearTimeout(id);
+      }
+    }
+
+    async function fetchJson(url, options = {}, timeoutMs = 7000) {
+      const res = await fetchWithTimeout(url, options, timeoutMs);
+      if (!res.ok) throw new Error(url + ' HTTP ' + res.status);
+      return await res.json();
+    }
+
+    async function fetchText(url, options = {}, timeoutMs = 7000) {
+      const res = await fetchWithTimeout(url, options, timeoutMs);
+      if (!res.ok) throw new Error(url + ' HTTP ' + res.status);
+      return await res.text();
+    }
+
+    function parseCloudflareTrace(text) {
+      // formato: key=value\n
+      // ip=1.2.3.4
+      const lines = String(text || '').split('\n');
+      const map = {};
+      for (const line of lines) {
+        const idx = line.indexOf('=');
+        if (idx > 0) map[line.slice(0, idx).trim()] = line.slice(idx + 1).trim();
+      }
+      return map;
+    }
+
+    async function tryMany(tasks, { retries = 1, backoffMs = 250 } = {}) {
+      // Executa em sequência (mais previsível) com retry.
+      let lastErr = null;
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        for (const task of tasks) {
+          try {
+            const v = await task();
+            if (v) return v;
+          } catch (e) {
+            lastErr = e;
+          }
+        }
+        if (attempt < retries) await sleep(backoffMs * (attempt + 1));
+      }
+      throw lastErr || new Error('No tasks succeeded');
+    }
+
+    // ---------- Provedores de IP (somente IP) ----------
+    async function getPublicIp() {
+      const tasks = [
+        async () => {
+          const j = await fetchJson('https://api64.ipify.org?format=json', { cache: 'no-store' }, 6000);
+          return sanitizeIp(j && j.ip);
+        },
+        async () => {
+          const j = await fetchJson('https://api.ipify.org?format=json', { cache: 'no-store' }, 6000);
+          return sanitizeIp(j && j.ip);
+        },
+        async () => {
+          // Cloudflare trace (muito resiliente)
+          const t = await fetchText('https://www.cloudflare.com/cdn-cgi/trace', { cache: 'no-store' }, 6000);
+          const m = parseCloudflareTrace(t);
+          return sanitizeIp(m && m.ip);
+        },
+        async () => {
+          // ifconfig.co (pode bloquear alguns origins, mas é bom fallback)
+          const j = await fetchJson('https://ifconfig.co/json', { cache: 'no-store' }, 6500);
+          return sanitizeIp(j && j.ip);
+        },
+        async () => {
+          // ipapi fornece ip também
+          const j = await fetchJson('https://ipapi.co/json/', { cache: 'no-store' }, 6500);
+          return sanitizeIp(j && j.ip);
+        }
+      ];
+
+      return await tryMany(tasks, { retries: 1, backoffMs: 350 });
+    }
+
+    // ---------- Provedores de GEO/ISP (usa IP quando possível) ----------
+    async function getGeoByIp(ip) {
+      const clean = sanitizeIp(ip);
+      const tasks = [
+        async () => {
+          const j = await fetchJson('https://ipapi.co/' + encodeURIComponent(clean) + '/json/', { cache: 'no-store' }, 7000);
+          return {
+            isp: j.org || j.asn,
+            city: j.city,
+            region: j.region_code,
+            country: j.country_name
+          };
+        },
+        async () => {
+          const j = await fetchJson('https://ipwho.is/' + encodeURIComponent(clean), { cache: 'no-store' }, 7000);
+          if (!j || j.success === false) throw new Error('ipwho.is success:false');
+          return {
+            isp: j.connection && (j.connection.isp || j.connection.org),
+            city: j.city,
+            region: j.region_code,
+            country: j.country
+          };
+        },
+        async () => {
+          // ipinfo sem token funciona em muitos casos, mas pode rate limitar
+          const j = await fetchJson('https://ipinfo.io/' + encodeURIComponent(clean) + '/json', { cache: 'no-store' }, 7000);
+          return {
+            isp: j.org,
+            city: j.city,
+            region: j.region,
+            country: j.country
+          };
+        }
+      ];
+
+      return await tryMany(tasks, { retries: 0 });
+    }
+
+    // ---------- Fluxo principal ----------
+    async function fetchIpData(forceRetry = false) {
+      const ipDisplay = document.getElementById('ip-display');
+
+      // Estado inicial
+      hideNotice();
+      ipDisplay.textContent = 'Carregando...';
+      setDetails({ isp: '...', city: '...', region: '', country: '...' });
+
+      const debug = {
+        providersTried: [],
+        errors: []
+      };
+
+      let ip = '';
+      try {
+        ip = await getPublicIp();
+        if (!ip) throw new Error('IP vazio');
+        setIpDisplay(ip);
+      } catch (e) {
+        console.error('Falha ao obter IP:', e);
+        setIpDisplay('');
+        setDetails({ isp: '-', city: '-', region: '', country: '-' });
+        ipDisplay.textContent = 'Erro ao obter IP';
+
+        const fileHint = isFileLikeOrigin()
+          ? '<br><br><strong>Dica:</strong> você parece estar abrindo a página como arquivo local (<code>file://</code>). Alguns serviços bloqueiam requisições por segurança. Se puder, teste publicando no seu domínio ou rodando um servidor local (ex.: Live Server).'
+          : '';
+
+        showNotice(
+          'error',
+          'Não foi possível detectar o IP',
+          'Isso pode acontecer se algum bloqueador (AdBlock/anti-tracker), firewall ou a rede estiver impedindo a consulta.' +
+          fileHint +
+          '<br><br><strong>O que fazer:</strong> desative bloqueadores para este site, atualize a página e clique em “Tentar novamente”.'
+        );
+
+        // Não segue, pois sem IP não dá para geo.
+        return;
+      }
+
+      // Tenta GEO/ISP, mas se falhar mantém IP.
+      try {
+        const geo = await getGeoByIp(ip);
+        setDetails(geo);
+      } catch (e) {
+        console.warn('Geolocalização/ISP indisponível:', e);
+        setDetails({
+          isp: 'Indisponível (bloqueado/limite)',
+          city: '-',
+          region: '',
+          country: '-'
+        });
+
+        // (B) — mostrar mensagem para o usuário quando bloquear
+        showNotice(
+          'warn',
+          'Detalhes bloqueados (ISP/Localização)',
+          'Seu <strong>IP foi detectado</strong>, mas a consulta de <strong>ISP/localização</strong> foi bloqueada ou atingiu limite.' +
+          '<br><br><strong>Como resolver:</strong> desative AdBlock/anti-tracker para este site (ou use uma janela anônima sem extensões) e clique em “Tentar novamente”.'
+        );
+      }
+    }
+
+    async function copyIp() {
+      const ipDisplay = document.getElementById('ip-display');
+      const raw = ipDisplay.dataset.rawIp || '';
+      if (!raw) return;
+
+      const msg = document.getElementById('copy-msg');
+
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(raw);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = raw;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+
+        msg.style.display = 'inline';
+        setTimeout(() => (msg.style.display = 'none'), 2000);
+      } catch (e) {
+        console.warn('Falha ao copiar:', e);
+      }
+    }
+
+    // ---------- ÍCONES & TEMA ----------
     function initIcons() {
       if (typeof lucide !== 'undefined') lucide.createIcons();
       else setTimeout(initIcons, 100);
     }
 
+    // ---------- Testes (rodar só quando ?test=1 ou localhost) ----------
+    function runTests() {
+      const enabled = (new URLSearchParams(location.search).get('test') === '1') ||
+                      (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
+      if (!enabled) return;
+
+      function assert(name, condition) {
+        if (!condition) throw new Error('Teste falhou: ' + name);
+        console.log('✅', name);
+      }
+
+      // Testes existentes/novos
+      assert('sanitizeIp remove espaços', sanitizeIp('  1.2.3.4 \n') === '1.2.3.4');
+      assert('ipWithBreaks insere wbr após :', ipWithBreaks('2804:abcd') === '2804:<wbr>abcd');
+      assert('ipWithBreaks insere wbr após .', ipWithBreaks('1.2.3.4') === '1.<wbr>2.<wbr>3.<wbr>4');
+      const m = parseCloudflareTrace('ip=1.2.3.4\nloc=BR\n');
+      assert('parseCloudflareTrace lê ip', m.ip === '1.2.3.4');
+      // Teste simples: função retorna boolean
+      assert('isFileLikeOrigin retorna boolean', typeof isFileLikeOrigin() === 'boolean');
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       initIcons();
-      fetchIpData(); // Inicia a busca do IP
 
       // Tema
       const savedTheme = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
-      
+
       const themeBtn = document.getElementById('theme-btn');
       const iconMoon = document.getElementById('icon-moon');
       const iconSun = document.getElementById('icon-sun');
 
       function updateThemeIcon(theme) {
-          if (theme === 'dark') {
-              iconMoon.style.display = 'none';
-              iconSun.style.display = 'inline-flex';
-          } else {
-              iconMoon.style.display = 'inline-flex';
-              iconSun.style.display = 'none';
-          }
+        if (theme === 'dark') {
+          iconMoon.style.display = 'none';
+          iconSun.style.display = 'inline-flex';
+        } else {
+          iconMoon.style.display = 'inline-flex';
+          iconSun.style.display = 'none';
+        }
       }
+
       updateThemeIcon(savedTheme);
 
       themeBtn.addEventListener('click', () => {
-          const current = document.documentElement.getAttribute('data-theme');
-          const next = current === 'light' ? 'dark' : 'light';
-          document.documentElement.setAttribute('data-theme', next);
-          localStorage.setItem('theme', next);
-          updateThemeIcon(next);
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateThemeIcon(next);
       });
 
-      // Lógica do Dropdown
-      document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
-          var toggle = dd.querySelector('.nav-dropdown-toggle');
-          if (!toggle) return;
-          toggle.addEventListener('click', function(e) {
-              e.stopPropagation();
-              var isOpen = dd.classList.contains('open');
-              document.querySelectorAll('.nav-dropdown.open').forEach(o => o.classList.remove('open'));
-              if (!isOpen) dd.classList.add('open');
-          });
+      // Dropdown
+      document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
+        var toggle = dd.querySelector('.nav-dropdown-toggle');
+        if (!toggle) return;
+
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var isOpen = dd.classList.contains('open');
+          document.querySelectorAll('.nav-dropdown.open').forEach(o => o.classList.remove('open'));
+          if (!isOpen) dd.classList.add('open');
+        });
       });
+
       document.addEventListener('click', () => {
-          document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
+        document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
       });
+
+      runTests();
+      fetchIpData();
     });
   </script>
 </body>
