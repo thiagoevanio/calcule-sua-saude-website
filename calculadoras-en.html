@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags for Calculators Page -->
     <meta name="description" content="Access free professional health calculators: BMI, BMR, Body Fat, Hydration, and more. Tools based on clinical protocols.">
-    <meta name="keywords" content="bmi calculator, basal metabolic rate, macro calculator, pregnancy calculator, heart rate, online health">
+    <meta name="keywords" content="bmi calculator, basal metabolic rate, macro calculator, pregnancy calculator, heart rate, online health, glucose converter, mg/dL to mmol/L, mmol/L to mg/dL">
     
     <title>Calculators & Tools | Calcule Sua Saúde</title>
     
@@ -28,10 +28,9 @@
     gtag('config', 'G-EVCQQZV60N');
     </script>
 
-    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
 
-    
     <!-- Icons (Lucide) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -531,12 +530,12 @@
         </div>
     </section>
 
-    <!-- TOOLS GRID -->
+    <!-- TOOLS GRID (NOW WITH GLUCOSE CONVERTER) -->
     <section class="tools-section">
         <div class="container">
             <div class="tools-grid" id="tools-grid">
 
-                <!-- 1. IMC -->
+                <!-- 1. BMI -->
                 <article class="tool-card" data-category="Antropometria">
                     <div class="card-icon-header">
                         <div class="icon-circle"><i data-lucide="scale" size="32"></i></div>
@@ -549,7 +548,7 @@
                     </div>
                 </article>
 
-                <!-- 2. TMB -->
+                <!-- 2. BMR -->
                 <article class="tool-card" data-category="Metabolismo">
                     <div class="card-icon-header">
                         <div class="icon-circle"><i data-lucide="flame" size="32"></i></div>
@@ -562,7 +561,20 @@
                     </div>
                 </article>
 
-                <!-- 3. Gasto Calórico -->
+                <!-- NEW. Glucose Converter -->
+                <article class="tool-card" data-category="Metabolismo">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="droplet" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Metabolism</span>
+                        <h3 class="card-title">Glucose Converter (mg/dL ↔ mmol/L)</h3>
+                        <p class="card-excerpt">Convert blood glucose values between mg/dL and mmol/L accurately (factor 18.0182), with quick reference and clear guidance.</p>
+                        <a href="calculadoras/glucose-converter.html" class="btn-tool">Access <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 3. TDEE -->
                 <article class="tool-card" data-category="Metabolismo">
                     <div class="card-icon-header">
                         <div class="icon-circle"><i data-lucide="zap" size="32"></i></div>
@@ -575,7 +587,7 @@
                     </div>
                 </article>
 
-                <!-- 4. Freq Cardíaca -->
+                <!-- 4. Heart Rate Zones -->
                 <article class="tool-card" data-category="Cardio">
                     <div class="card-icon-header">
                         <div class="icon-circle"><i data-lucide="heart-pulse" size="32"></i></div>
@@ -588,7 +600,7 @@
                     </div>
                 </article>
 
-                <!-- 5. Água -->
+                <!-- 5. Hydration -->
                 <article class="tool-card" data-category="Nutrição">
                     <div class="card-icon-header">
                         <div class="icon-circle"><i data-lucide="droplets" size="32"></i></div>
@@ -601,7 +613,7 @@
                     </div>
                 </article>
 
-                <!-- 6. Gordura Corporal -->
+                <!-- 6. Body Fat % -->
                 <article class="tool-card" data-category="Antropometria">
                     <div class="card-icon-header">
                         <div class="icon-circle"><i data-lucide="activity" size="32"></i></div>
@@ -614,7 +626,7 @@
                     </div>
                 </article>
 
-                <!-- 7. Gravidez -->
+                <!-- 7. Due Date -->
                 <article class="tool-card" data-category="Mulher">
                     <div class="card-icon-header">
                         <div class="icon-circle"><i data-lucide="baby" size="32"></i></div>
@@ -640,7 +652,7 @@
                     </div>
                 </article>
 
-                <!-- 9. RCQ -->
+                <!-- 9. WHR -->
                 <article class="tool-card" data-category="Cardio">
                     <div class="card-icon-header">
                         <div class="icon-circle"><i data-lucide="ruler" size="32"></i></div>
@@ -653,7 +665,7 @@
                     </div>
                 </article>
 
-                <!-- 10. Peso Ideal -->
+                <!-- 10. IBW -->
                 <article class="tool-card" data-category="Antropometria">
                     <div class="card-icon-header">
                         <div class="icon-circle"><i data-lucide="user-check" size="32"></i></div>
@@ -795,3 +807,4 @@
     </script>
 </body>
 </html>
+
