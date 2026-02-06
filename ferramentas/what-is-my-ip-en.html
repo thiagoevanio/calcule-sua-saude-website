@@ -35,7 +35,7 @@
   <meta name="twitter:description" content="Find your IP address and understand how it affects your online privacy." />
   <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/ferramentas/ip-og.webp" />
 
-    <!-- Ads / Analytics -->
+   <!-- Ads / Analytics -->
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
 
@@ -253,7 +253,7 @@
       background: var(--bg-card); font-size: 0.85rem; font-weight: 700; color: var(--text-muted);
     }
 
-    /* --- IP TOOL UI --- */
+    /* --- IP TOOL UI (IPv6 Adjusted) --- */
     .ip-tool-card {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
@@ -270,9 +270,13 @@
       font-weight: 800; color: var(--text-light); margin-bottom: 10px; display: block;
     }
     .ip-address-value {
-      font-family: 'Fira Code', monospace; font-size: clamp(1.8rem, 5vw, 3.5rem);
-      font-weight: 700; color: var(--primary); word-break: break-all;
-      margin-bottom: 20px; line-height: 1.2;
+      font-family: 'Fira Code', monospace;
+      /* Adjusted for long IPv6 */
+      font-size: clamp(1.2rem, 4vw, 2.8rem);
+      font-weight: 700; color: var(--primary);
+      word-break: break-word; overflow-wrap: break-word;
+      margin-bottom: 20px; line-height: 1.3;
+      padding: 0 10px;
     }
     .copy-btn {
       display: inline-flex; align-items: center; gap: 8px;
@@ -333,7 +337,7 @@
     @media (max-width: 800px) {
       .nav-menu { display: none; }
       .page-header h1 { font-size: 2rem; }
-      .ip-address-value { font-size: 1.8rem; }
+      .ip-address-value { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -344,20 +348,18 @@
     <div class="container">
       <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">
         <span id="icon-moon" style="display:flex;align-items:center;gap:5px;">
-            <i data-lucide="moon" size="14"></i>
-            <span>Dark</span>
+            <i data-lucide="moon" size="14"></i> <span>Dark Mode</span>
         </span>
         <span id="icon-sun" style="display:none;align-items:center;gap:5px;">
-            <i data-lucide="sun" size="14"></i>
-            <span>Light</span>
+            <i data-lucide="sun" size="14"></i> <span>Light Mode</span>
         </span>
       </button>
 
       <div class="lang-selector">
         <i data-lucide="globe" size="14"></i>
         <select onchange="if(this.value) window.location.href = this.value;" aria-label="Select language">
-          <option value="../ferramentas/what-is-my-ip-en.html" selected>English</option>
-          <option value="../ferramentas/qual-e-meu-ip.html">Português</option>
+          <option value="what-is-my-ip-en.html" selected>English</option>
+          <option value="qual-e-meu-ip.html">Português</option>
         </select>
       </div>
     </div>
