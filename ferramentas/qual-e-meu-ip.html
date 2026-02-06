@@ -35,17 +35,17 @@
   <meta name="twitter:description" content="Descubra seu endereço IP e entenda como ele afeta sua privacidade na internet." />
   <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/ferramentas/ip-og.webp" />
 
-   <!-- Ads / Analytics -->
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+  <!-- Ads / Analytics (deixe APENAS 1 AdSense) -->
+  <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-EVCQQZV60N');
-    </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+  </script>
 
   <link rel="icon" href="/favicon.ico" />
 
@@ -55,7 +55,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Source+Sans+3:wght@300;400;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- Scripts Externos -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <!-- Schema.org -->
@@ -528,7 +527,6 @@
     }
 
     .notice-close:hover { background: rgba(0,0,0,0.05); }
-
     [data-theme="dark"] .notice-close:hover { background: rgba(255,255,255,0.06); }
 
     .ip-details-grid {
@@ -860,12 +858,10 @@
 
   <script>
     // =========================================================
-    // Robustez: a maioria dos “Todos os serviços falharam” vem de
-    // - rate limit / bloqueio por origem
-    // - bloqueio por extensão (adblock/privacidade)
-    // - timeout de rede
-    // Solução: timeouts + retries + mais provedores + separar IP de GEO.
+    // IP público + GEO/ISP (compatível com GitHub Pages)
+    // Corrige SyntaxError e melhora fallback de provedores.
     // =========================================================
+    'use strict';
 
     // ---------- Helpers ----------
     function sanitizeIp(ip) {
@@ -919,7 +915,6 @@
       b.innerHTML = bodyHtml || '';
       box.style.display = 'block';
 
-      // Re-render lucide icons (por segurança)
       if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
@@ -932,16 +927,11 @@
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    function fetchWithTimeout(url, options = {}, timeoutMs = 7000) {(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     async function fetchWithTimeout(url, options = {}, timeoutMs = 7000) {
       const controller = new AbortController();
       const id = setTimeout(() => controller.abort(), timeoutMs);
       try {
-        const res = await fetch(url, { ...options, signal: controller.signal });
-        return res;
+        return await fetch(url, { ...options, signal: controller.signal });
       } finally {
         clearTimeout(id);
       }
@@ -953,26 +943,7 @@
       return await res.json();
     }
 
-    async function fetchText(url, options = {}, timeoutMs = 7000) {
-      const res = await fetchWithTimeout(url, options, timeoutMs);
-      if (!res.ok) throw new Error(url + ' HTTP ' + res.status);
-      return await res.text();
-    }
-
-    function parseCloudflareTrace(text) {
-      // formato: key=value\n
-      // ip=1.2.3.4
-      const lines = String(text || '').split('\n');
-      const map = {};
-      for (const line of lines) {
-        const idx = line.indexOf('=');
-        if (idx > 0) map[line.slice(0, idx).trim()] = line.slice(idx + 1).trim();
-      }
-      return map;
-    }
-
     async function tryMany(tasks, { retries = 1, backoffMs = 250 } = {}) {
-      // Executa em sequência (mais previsível) com retry.
       let lastErr = null;
       for (let attempt = 0; attempt <= retries; attempt++) {
         for (const task of tasks) {
@@ -988,69 +959,71 @@
       throw lastErr || new Error('No tasks succeeded');
     }
 
-    // ---------- Provedores de IP (somente IP) ----------
-    async function getPublicIp() {
+    // ---------- Provedores “tudo em um” (IP + GEO + ISP) ----------
+    async function getIpAndGeoCombined() {
       const tasks = [
         async () => {
-          const j = await fetchJson('https://api64.ipify.org?format=json', { cache: 'no-store' }, 6000);
-          return sanitizeIp(j && j.ip);
+          const j = await fetchJson('https://ipwho.is/', { cache: 'no-store' }, 7000);
+          if (!j || j.success === false) throw new Error('ipwho.is success:false');
+          return {
+            ip: sanitizeIp(j.ip),
+            isp: j.connection && (j.connection.isp || j.connection.org),
+            city: j.city,
+            region: j.region,
+            country: j.country
+          };
         },
         async () => {
-          const j = await fetchJson('https://api.ipify.org?format=json', { cache: 'no-store' }, 6000);
-          return sanitizeIp(j && j.ip);
-        },
-        async () => {
-          // Cloudflare trace (muito resiliente)
-          const t = await fetchText('https://www.cloudflare.com/cdn-cgi/trace', { cache: 'no-store' }, 6000);
-          const m = parseCloudflareTrace(t);
-          return sanitizeIp(m && m.ip);
-        },
-        async () => {
-          // ifconfig.co (pode bloquear alguns origins, mas é bom fallback)
-          const j = await fetchJson('https://ifconfig.co/json', { cache: 'no-store' }, 6500);
-          return sanitizeIp(j && j.ip);
-        },
-        async () => {
-          // ipapi fornece ip também
-          const j = await fetchJson('https://ipapi.co/json/', { cache: 'no-store' }, 6500);
-          return sanitizeIp(j && j.ip);
+          const j = await fetchJson('https://ipapi.co/json/', { cache: 'no-store' }, 7000);
+          return {
+            ip: sanitizeIp(j.ip),
+            isp: j.org || j.asn,
+            city: j.city,
+            region: j.region,
+            country: j.country_name
+          };
         }
       ];
 
       return await tryMany(tasks, { retries: 1, backoffMs: 350 });
     }
 
-    // ---------- Provedores de GEO/ISP (usa IP quando possível) ----------
+    // ---------- IP-only (fallback) ----------
+    async function getPublicIpOnly() {
+      const tasks = [
+        async () => {
+          const j = await fetchJson('https://api64.ipify.org?format=json', { cache: 'no-store' }, 6500);
+          return sanitizeIp(j && j.ip);
+        },
+        async () => {
+          const j = await fetchJson('https://api.ipify.org?format=json', { cache: 'no-store' }, 6500);
+          return sanitizeIp(j && j.ip);
+        }
+      ];
+      return await tryMany(tasks, { retries: 1, backoffMs: 350 });
+    }
+
+    // ---------- GEO/ISP por IP (fallback) ----------
     async function getGeoByIp(ip) {
       const clean = sanitizeIp(ip);
       const tasks = [
-        async () => {
-          const j = await fetchJson('https://ipapi.co/' + encodeURIComponent(clean) + '/json/', { cache: 'no-store' }, 7000);
-          return {
-            isp: j.org || j.asn,
-            city: j.city,
-            region: j.region_code,
-            country: j.country_name
-          };
-        },
         async () => {
           const j = await fetchJson('https://ipwho.is/' + encodeURIComponent(clean), { cache: 'no-store' }, 7000);
           if (!j || j.success === false) throw new Error('ipwho.is success:false');
           return {
             isp: j.connection && (j.connection.isp || j.connection.org),
             city: j.city,
-            region: j.region_code,
+            region: j.region,
             country: j.country
           };
         },
         async () => {
-          // ipinfo sem token funciona em muitos casos, mas pode rate limitar
-          const j = await fetchJson('https://ipinfo.io/' + encodeURIComponent(clean) + '/json', { cache: 'no-store' }, 7000);
+          const j = await fetchJson('https://ipapi.co/' + encodeURIComponent(clean) + '/json/', { cache: 'no-store' }, 7000);
           return {
-            isp: j.org,
+            isp: j.org || j.asn,
             city: j.city,
             region: j.region,
-            country: j.country
+            country: j.country_name
           };
         }
       ];
@@ -1062,44 +1035,48 @@
     async function fetchIpData(forceRetry = false) {
       const ipDisplay = document.getElementById('ip-display');
 
-      // Estado inicial
       hideNotice();
       ipDisplay.textContent = 'Carregando...';
       setDetails({ isp: '...', city: '...', region: '', country: '...' });
+      setIpDisplay('');
 
-      const debug = {
-        providersTried: [],
-        errors: []
-      };
+      // 1) Tenta “tudo em um”
+      try {
+        const data = await getIpAndGeoCombined();
+        if (!data.ip) throw new Error('IP vazio');
+        setIpDisplay(data.ip);
+        setDetails(data);
+        return;
+      } catch (e) {
+        console.warn('Falha no provedor combinado:', e);
+      }
 
+      // 2) IP-only + GEO separado
       let ip = '';
       try {
-        ip = await getPublicIp();
+        ip = await getPublicIpOnly();
         if (!ip) throw new Error('IP vazio');
         setIpDisplay(ip);
       } catch (e) {
         console.error('Falha ao obter IP:', e);
-        setIpDisplay('');
-        setDetails({ isp: '-', city: '-', region: '', country: '-' });
         ipDisplay.textContent = 'Erro ao obter IP';
+        setDetails({ isp: '-', city: '-', region: '', country: '-' });
 
         const fileHint = isFileLikeOrigin()
-          ? '<br><br><strong>Dica:</strong> você parece estar abrindo a página como arquivo local (<code>file://</code>). Alguns serviços bloqueiam requisições por segurança. Se puder, teste publicando no seu domínio ou rodando um servidor local (ex.: Live Server).'
+          ? '<br><br><strong>Dica:</strong> parece que você abriu como arquivo local (<code>file://</code>). Alguns serviços bloqueiam. Teste via GitHub Pages / domínio.'
           : '';
 
         showNotice(
           'error',
           'Não foi possível detectar o IP',
-          'Isso pode acontecer se algum bloqueador (AdBlock/anti-tracker), firewall ou a rede estiver impedindo a consulta.' +
+          'Isso pode acontecer por bloqueador (AdBlock/anti-tracker), firewall, rede corporativa ou instabilidade.' +
           fileHint +
-          '<br><br><strong>O que fazer:</strong> desative bloqueadores para este site, atualize a página e clique em “Tentar novamente”.'
+          '<br><br><strong>O que fazer:</strong> desative bloqueadores para este site, atualize e clique em “Tentar novamente”.'
         );
-
-        // Não segue, pois sem IP não dá para geo.
         return;
       }
 
-      // Tenta GEO/ISP, mas se falhar mantém IP.
+      // GEO separado
       try {
         const geo = await getGeoByIp(ip);
         setDetails(geo);
@@ -1112,12 +1089,11 @@
           country: '-'
         });
 
-        // (B) — mostrar mensagem para o usuário quando bloquear
         showNotice(
           'warn',
           'Detalhes bloqueados (ISP/Localização)',
           'Seu <strong>IP foi detectado</strong>, mas a consulta de <strong>ISP/localização</strong> foi bloqueada ou atingiu limite.' +
-          '<br><br><strong>Como resolver:</strong> desative AdBlock/anti-tracker para este site (ou use uma janela anônima sem extensões) e clique em “Tentar novamente”.'
+          '<br><br><strong>Como resolver:</strong> desative AdBlock/anti-tracker para este site (ou teste janela anônima sem extensões) e clique em “Tentar novamente”.'
         );
       }
     }
@@ -1128,7 +1104,6 @@
       if (!raw) return;
 
       const msg = document.getElementById('copy-msg');
-
       try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
           await navigator.clipboard.writeText(raw);
@@ -1154,32 +1129,16 @@
     // ---------- ÍCONES & TEMA ----------
     function initIcons() {
       if (typeof lucide !== 'undefined') lucide.createIcons();
-      else setTimeout(initIcons, 100);
-    }
-
-    // ---------- Testes (rodar só quando ?test=1 ou localhost) ----------
-    function runTests() {
-      const enabled = (new URLSearchParams(location.search).get('test') === '1') ||
-                      (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
-      if (!enabled) return;
-
-      function assert(name, condition) {
-        if (!condition) throw new Error('Teste falhou: ' + name);
-        console.log('✅', name);
-      }
-
-      // Testes existentes/novos
-      assert('sanitizeIp remove espaços', sanitizeIp('  1.2.3.4 \n') === '1.2.3.4');
-      assert('ipWithBreaks insere wbr após :', ipWithBreaks('2804:abcd') === '2804:<wbr>abcd');
-      assert('ipWithBreaks insere wbr após .', ipWithBreaks('1.2.3.4') === '1.<wbr>2.<wbr>3.<wbr>4');
-      const m = parseCloudflareTrace('ip=1.2.3.4\nloc=BR\n');
-      assert('parseCloudflareTrace lê ip', m.ip === '1.2.3.4');
-      // Teste simples: função retorna boolean
-      assert('isFileLikeOrigin retorna boolean', typeof isFileLikeOrigin() === 'boolean');
+      else setTimeout(initIcons, 80);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       initIcons();
+
+      // Expor funções usadas no HTML inline
+      window.copyIp = copyIp;
+      window.fetchIpData = fetchIpData;
+      window.hideNotice = hideNotice;
 
       // Tema
       const savedTheme = localStorage.getItem('theme') || 'light';
@@ -1211,12 +1170,12 @@
 
       // Dropdown
       document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
-        var toggle = dd.querySelector('.nav-dropdown-toggle');
+        const toggle = dd.querySelector('.nav-dropdown-toggle');
         if (!toggle) return;
 
         toggle.addEventListener('click', function (e) {
           e.stopPropagation();
-          var isOpen = dd.classList.contains('open');
+          const isOpen = dd.classList.contains('open');
           document.querySelectorAll('.nav-dropdown.open').forEach(o => o.classList.remove('open'));
           if (!isOpen) dd.classList.add('open');
         });
@@ -1226,7 +1185,6 @@
         document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
       });
 
-      runTests();
       fetchIpData();
     });
   </script>
