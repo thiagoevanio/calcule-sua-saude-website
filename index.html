@@ -131,6 +131,23 @@
         },
         "featureList": "Cálculo de IMC, Classificação de Obesidade, Recomendações de Saúde"
       },
+
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Conversor de Glicose (mg/dL ↔ mmol/L)",
+        "url": "https://www.calculesuasaude.com.br/calculadoras/conversor-glicose.html",
+        "description": "Ferramenta gratuita para converter glicose entre mg/dL e mmol/L (fator 18.0182), com tabela de referência e explicações educativas.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "BRL"
+        },
+        "featureList": "Conversão instantânea mg/dL ↔ mmol/L, tabela de referência, indicador de faixa"
+      },
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -166,6 +183,92 @@
         left:16px; top:16px; width:auto; height:auto; padding:10px 14px; z-index:9999;
         background:#0A4D68; color:#fff; border-radius:6px;
       }
+    
+      /* Featured tool card (Home) */
+      .featured-tool-card{
+        position: relative;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        padding: 18px 18px;
+        margin: 18px 0 18px;
+        border-radius: 18px;
+        border: 1px solid var(--border-subtle, rgba(0,0,0,0.10));
+        background:
+          linear-gradient(135deg, rgba(10,77,104,0.22), rgba(200,160,81,0.18)),
+          var(--bg-card, #ffffff);
+        box-shadow: var(--shadow-lg, 0 14px 40px rgba(0,0,0,0.10));
+        text-decoration: none;
+        transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      }
+      .featured-tool-card:hover{
+        transform: translateY(-2px);
+        border-color: rgba(200,160,81,0.45);
+      }
+      .featured-tool-badge{
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent, #C8A051);
+        color: #111;
+        font-weight: 900;
+        font-size: 0.78rem;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+      }
+      .featured-tool-icon{
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(200,160,81,0.35);
+        background: rgba(200,160,81,0.18);
+        flex-shrink: 0;
+      }
+      .featured-tool-body{ flex: 1; min-width: 0; }
+      .featured-tool-kicker{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 800;
+        color: var(--text-muted, #425466);
+        font-size: 0.88rem;
+        margin-bottom: 6px;
+      }
+      .featured-tool-title{
+        margin: 0;
+        font-size: 1.35rem;
+        line-height: 1.25;
+        color: var(--primary, #0A4D68);
+        font-family: 'Playfair Display', serif;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .featured-tool-desc{
+        margin: 8px 0 0;
+        color: var(--text-muted, #5b6470);
+        line-height: 1.6;
+        font-size: 1.02rem;
+        max-width: 70ch;
+      }
+      .featured-tool-cta{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        font-weight: 900;
+        color: var(--primary, #0A4D68);
+      }
+      @media (max-width: 640px){
+        .featured-tool-card{ padding: 16px; gap: 14px; }
+        .featured-tool-title{ font-size: 1.2rem; }
+        .featured-tool-desc{ font-size: 0.98rem; }
+      }
+
     </style>
 </head>
 <body>
@@ -264,6 +367,37 @@
                     <h2>Ferramentas Gratuitas</h2>
                     <p>Protocolos de cálculo baseados em evidências para avaliação rápida.</p>
                 </div>
+
+
+                <!-- NOVA FERRAMENTA (DESTAQUE) -->
+                <a
+                    id="featured-glucose-card"
+                    class="featured-tool-card"
+                    href="calculadoras/conversor-glicose.html"
+                    data-href-pt="calculadoras/conversor-glicose.html"
+                    data-href-en="en/tools/glucose-converter.html"
+                    aria-label="Abrir Conversor de Glicose (mg/dL ↔ mmol/L)"
+                >
+                    <span class="featured-tool-badge">Novo</span>
+
+                    <div class="featured-tool-icon" aria-hidden="true">
+                        <i data-lucide="droplet" size="22"></i>
+                    </div>
+
+                    <div class="featured-tool-body">
+                        <div class="featured-tool-kicker">
+                            <i data-lucide="arrow-left-right" size="16" aria-hidden="true"></i>
+                            mg/dL ↔ mmol/L
+                        </div>
+                        <h3 class="featured-tool-title">Conversor de Glicose</h3>
+                        <p class="featured-tool-desc">
+                            Converta valores de glicemia com precisão (fator 18.0182), com tabela de referência e indicação de faixa.
+                        </p>
+                        <span class="featured-tool-cta">
+                            Abrir ferramenta <i data-lucide="arrow-right" size="16" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </a>
 
                 <div class="calc-grid">
                     <a href="calculadoras/indice-de-massa-corporal-imc.html" class="calc-item" aria-label="Calcular Índice de Massa Corporal (IMC)">
@@ -631,7 +765,17 @@
             }
 
             initLucideWhenIdle();
+            // Featured tool card: adjust link for English home (if reused)
+            const glucoseCard = document.getElementById('featured-glucose-card');
+            if (glucoseCard) {
+                const lang = (document.documentElement.lang || '').toLowerCase();
+                const isEN = lang.startsWith('en') || /index-en\.html$/i.test(window.location.pathname);
+                const href = isEN ? glucoseCard.getAttribute('data-href-en') : glucoseCard.getAttribute('data-href-pt');
+                if (href) glucoseCard.setAttribute('href', href);
+            }
+
         });
     </script>
 </body>
 </html>
+
