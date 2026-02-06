@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en-US" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- --- SEO PRIMARY --- -->
+  <title>Free QR Code Generator | Create Custom QR Codes | Calcule Sua Saúde</title>
+  <meta name="description" content="Create custom QR Codes for free for links, text, Wi-Fi, and more. Secure tool, client-side generation, no expiration, and high-resolution download." />
+  <meta name="keywords" content="qr code generator, create qr code, free qr code, wifi qr code, link to qr, make qr code, qr tool" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0A4D68" />
+  <meta name="author" content="Calcule Sua Saúde Tech Team" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.calculesuasaude.com.br/ferramentas/qr-code-generator-en.html" />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/ferramentas/gerador-qr-code.html" />
+  <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/ferramentas/qr-code-generator-en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/ferramentas/qr-code-generator-en.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.calculesuasaude.com.br/ferramentas/qr-code-generator-en.html" />
+  <meta property="og:title" content="Professional & Free QR Code Generator" />
+  <meta property="og:description" content="Turn links and text into QR Codes instantly. Customize colors and download in high quality." />
+  <meta property="og:image" content="https://www.calculesuasaude.com.br/img/ferramentas/qrcode-og.webp" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Calcule Sua Saúde" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free QR Code Generator" />
+  <meta name="twitter:description" content="Create and download your custom QR Codes in seconds. 100% Free." />
+  <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/ferramentas/qrcode-og.webp" />
+
+    <!-- Ads / Analytics -->
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Source+Sans+3:wght@300;400;600;700;800&family=Fira+Code:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- External Scripts -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <!-- Lightweight QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" xintegrity="sha512-CNgIRspuACwgSD1TkdH0281TnyUeZih26DTeQ1hwvPqe1w9MKnP303bPT5YyvR71M27tH7U1rYQT0sM58w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calculesuasaude.com.br/index-en.html"},
+          {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.calculesuasaude.com.br/calculadoras.html"},
+          {"@type": "ListItem", "position": 3, "name": "QR Code Generator", "item": "https://www.calculesuasaude.com.br/ferramentas/qr-code-generator-en.html"}
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Online QR Code Generator",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "url": "https://www.calculesuasaude.com.br/ferramentas/qr-code-generator-en.html",
+        "description": "Tool for instant creation of Quick Response (QR) codes for URLs, text, and contacts. Allows customization and download.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "TechArticle",
+        "headline": "How QR Codes work and how to create yours",
+        "description": "Complete guide on Quick Response technology, common uses in marketing and health, and differences between static and dynamic codes.",
+        "author": {
+          "@type": "Organization",
+          "name": "Calcule Sua Saúde"
+        },
+        "datePublished": "2026-02-06",
+        "dateModified": "2026-02-06"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Styles -->
+  <style>
+    :root {
+      --primary: #0A4D68;
+      --primary-dark: #06384d;
+      --primary-light: #0e6b91;
+      --accent: #047857;
+      --accent-light: #059669;
+      --secondary: #D97706;
+      --bg-body: #F8FAFB;
+      --bg-card: #FFFFFF;
+      --bg-section: #F1F5F9;
+      --text-main: #1C1917;
+      --text-muted: #57534E;
+      --text-light: #78716C;
+      --border-subtle: #E2E8F0;
+      --container-width: 1200px;
+      --header-height: 90px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.10);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+    [data-theme="dark"] {
+      --bg-body: #0C0A09;
+      --bg-card: #1C1917;
+      --bg-section: #151312;
+      --text-main: #F5F5F4;
+      --text-muted: #A8A29E;
+      --text-light: #78716C;
+      --primary: #38BDF8;
+      --primary-light: #7DD3FC;
+      --accent: #34D399;
+      --accent-light: #6EE7B7;
+      --border-subtle: #292524;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.4);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    a { text-decoration: none; color: inherit; transition: 0.2s ease; }
+    .container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
+    .sr-only { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+    /* --- TOP BAR & NAV --- */
+    .top-bar { background-color: #0A4D68; color: #fff; padding: 8px 0; font-size: 0.85rem; }
+    .top-bar .container { display: flex; justify-content: flex-end; gap: 20px; align-items: center; }
+    
+    /* Clean Buttons */
+    .theme-toggle, .lang-selector select { 
+      background: none; border: none; color: #fff; padding: 0; 
+      cursor: pointer; display: flex; align-items: center; gap: 6px;
+      font-family: inherit; font-size: 0.85rem;
+    }
+    .lang-selector select { padding-right: 15px; appearance: none; -webkit-appearance: none; }
+    .lang-selector { display: flex; align-items: center; gap: 6px; }
+    .lang-selector select option { background-color: #0A4D68; color: #fff; }
+
+    .main-header {
+      background-color: var(--bg-card); border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 1000; height: var(--header-height);
+      box-shadow: var(--shadow-sm);
+    }
+    .main-header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+    
+    .logo {
+      font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700;
+      color: var(--primary); display: flex; align-items: center; gap: 12px;
+    }
+    
+    .nav-menu { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-link { font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 0.92rem; }
+    .nav-link:hover, .nav-link.active { color: var(--primary); }
+    
+    .btn-outline {
+      border: 2px solid var(--primary); color: var(--primary); padding: 8px 20px;
+      border-radius: 999px; text-transform: uppercase; font-weight: 800; font-size: 0.85rem;
+    }
+    .btn-outline:hover { background: var(--primary); color: #fff; }
+
+    /* Dropdown CSS */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle {
+        background: none; border: none; font-family: 'Source Sans 3', sans-serif;
+        font-size: 0.92rem; font-weight: 700; color: var(--text-muted);
+        cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+        padding: 0; text-transform: uppercase;
+    }
+    .nav-dropdown-toggle:hover { color: var(--primary); }
+    
+    .dropdown-chevron { transition: transform 0.2s ease; }
+    .nav-dropdown.open .dropdown-chevron { transform: rotate(180deg); }
+
+    .nav-dropdown-menu {
+        position: absolute; top: 100%; right: 0; min-width: 260px;
+        background: var(--bg-card); border: 1px solid var(--border-subtle);
+        border-radius: 12px; box-shadow: var(--shadow-md); padding: 10px 0;
+        opacity: 0; visibility: hidden; transform: translateY(10px);
+        transition: all 0.2s ease; z-index: 9000;
+        margin-top: 10px;
+    }
+    .nav-dropdown.open .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    
+    .dropdown-section-title {
+        display: block; padding: 10px 20px 5px; font-size: 0.75rem;
+        font-weight: 800; text-transform: uppercase; color: var(--text-light);
+    }
+    .dropdown-item {
+        display: flex; align-items: center; gap: 10px; padding: 10px 20px;
+        font-size: 0.9rem; color: var(--text-main); font-weight: 500;
+    }
+    .dropdown-item:hover { background: rgba(10, 77, 104, 0.05); color: var(--primary); }
+
+    /* Breadcrumb */
+    .breadcrumb-bar { background: var(--bg-section); border-bottom: 1px solid var(--border-subtle); padding: 12px 0; }
+    .breadcrumb-list { list-style: none; display: flex; gap: 8px; font-size: 0.85rem; color: var(--text-light); }
+    .breadcrumb-list a { color: var(--primary); font-weight: 600; }
+    .breadcrumb-sep { opacity: 0.5; }
+
+    /* --- PAGE HEADER --- */
+    .page-header {
+      padding: 48px 0 24px; text-align: center;
+      background: linear-gradient(180deg, var(--bg-section) 0%, var(--bg-body) 100%);
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif; font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem); color: var(--primary); margin-bottom: 16px;
+    }
+    .page-header .subtitle {
+      font-size: 1.15rem; color: var(--text-muted); max-width: 750px; margin: 0 auto;
+    }
+    .trust-row {
+      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 24px;
+    }
+    .trust-pill {
+      display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+      border: 1px solid var(--border-subtle); border-radius: 999px;
+      background: var(--bg-card); font-size: 0.85rem; font-weight: 700; color: var(--text-muted);
+    }
+
+    /* --- QR TOOL UI --- */
+    .qr-container {
+      display: flex; gap: 30px; max-width: 1000px; margin: 0 auto;
+      flex-direction: row; align-items: stretch;
+    }
+    
+    .qr-input-panel, .qr-preview-panel {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-md);
+      padding: 30px; flex: 1; display: flex; flex-direction: column;
+    }
+
+    .tool-label {
+      font-size: 0.85rem; font-weight: 700; color: var(--text-muted);
+      margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; display: block;
+    }
+
+    .qr-text-input {
+      width: 100%; padding: 14px; border: 2px solid var(--border-subtle);
+      border-radius: var(--radius-sm); font-size: 1rem; color: var(--text-main);
+      background: var(--bg-body); transition: border-color 0.2s;
+      font-family: inherit; resize: vertical; min-height: 100px;
+    }
+    .qr-text-input:focus { border-color: var(--primary); outline: none; }
+
+    .color-options {
+      display: flex; gap: 12px; margin-top: 15px; align-items: center;
+    }
+    .color-input {
+      border: none; padding: 0; width: 40px; height: 40px; 
+      border-radius: 50%; cursor: pointer; background: none;
+    }
+    .color-input::-webkit-color-swatch-wrapper { padding: 0; }
+    .color-input::-webkit-color-swatch { border: 2px solid var(--border-subtle); border-radius: 50%; }
+
+    .action-btn {
+      margin-top: 20px; width: 100%; background: var(--primary); color: #fff;
+      border: none; padding: 14px; border-radius: 999px; font-weight: 800;
+      font-size: 1rem; cursor: pointer; display: flex; justify-content: center;
+      align-items: center; gap: 8px; transition: background 0.2s;
+    }
+    .action-btn:hover { background: var(--primary-dark); }
+    
+    .download-btn {
+      margin-top: 15px; background: var(--bg-body); color: var(--text-main);
+      border: 2px solid var(--border-subtle);
+    }
+    .download-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--bg-card); }
+    .download-btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+    .qr-display-area {
+      flex-grow: 1; display: flex; align-items: center; justify-content: center;
+      background: var(--bg-section); border-radius: var(--radius-sm);
+      min-height: 300px; border: 1px dashed var(--border-subtle);
+      position: relative; overflow: hidden;
+    }
+    #qrcode img { max-width: 100%; height: auto; }
+    
+    .qr-placeholder {
+      text-align: center; color: var(--text-light); font-size: 0.9rem;
+    }
+
+    /* --- EDUCATIONAL CONTENT --- */
+    .content-area { max-width: 800px; margin: 50px auto; padding: 0 20px; }
+    .content-block h2 {
+      font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 16px;
+      color: var(--text-main); border-bottom: 2px solid var(--secondary); display: inline-block;
+      padding-bottom: 4px;
+    }
+    .content-block p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 20px; }
+    .content-block ul { margin-left: 20px; margin-bottom: 20px; color: var(--text-muted); }
+    .content-block li { margin-bottom: 8px; }
+    
+    .info-box {
+        background: var(--bg-section); border-left: 4px solid var(--accent);
+        padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0;
+    }
+
+    /* --- FOOTER --- */
+    footer { background: #1C1917; color: #A8A29E; padding: 60px 0 20px; margin-top: 60px; font-size: 0.95rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer h4 { color: #fff; font-family: 'Playfair Display', serif; margin-bottom: 20px; }
+    .footer ul { list-style: none; }
+    .footer ul li { margin-bottom: 10px; }
+    .footer ul li a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.85rem; }
+
+    @media (max-width: 800px) {
+      .nav-menu { display: none; }
+      .qr-container { flex-direction: column; }
+      .page-header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">
+        <span id="icon-moon" style="display:flex;align-items:center;gap:5px;">
+            <i data-lucide="moon" size="14"></i>
+            <span>Dark</span>
+        </span>
+        <span id="icon-sun" style="display:none;align-items:center;gap:5px;">
+            <i data-lucide="sun" size="14"></i>
+            <span>Light</span>
+        </span>
+      </button>
+
+      <div class="lang-selector">
+        <i data-lucide="globe" size="14"></i>
+        <select onchange="if(this.value) window.location.href = this.value;" aria-label="Select language">
+          <option value="qr-code-generator-en.html" selected>English</option>
+          <option value="gerador-qr-code.html">Português</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <nav class="main-header" aria-label="Main navigation">
+    <div class="container">
+      <a href="../index-en.html" class="logo">
+        <i data-lucide="microscope" size="30"></i> Calcule Sua Saúde
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="../index-en.html" class="nav-link">Home</a></li>
+        <li><a href="../artigos-en.html" class="nav-link">Articles</a></li>
+        <li><a href="../calculadoras.html" class="nav-link">Calculators</a></li>
+        
+        <!-- TOOLS DROPDOWN -->
+        <li class="nav-dropdown">
+            <button class="nav-link nav-dropdown-toggle" aria-expanded="false">
+                Tools <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu">
+                <span class="dropdown-section-title">General Utilities</span>
+                <a href="qr-code-generator-en.html" class="dropdown-item">
+                    <i data-lucide="qr-code" size="18"></i> QR Code Generator
+                </a>
+                <a href="unit-converter-en.html" class="dropdown-item">
+                    <i data-lucide="ruler" size="18"></i> Unit Converter
+                </a>
+                <a href="image-compressor-en.html" class="dropdown-item">
+                    <i data-lucide="image-down" size="18"></i> Image Compressor
+                </a>
+                <a href="password-generator-en.html" class="dropdown-item">
+                    <i data-lucide="key-round" size="18"></i> Password Generator
+                </a>
+                <a href="what-is-my-ip-en.html" class="dropdown-item">
+                    <i data-lucide="wifi" size="18"></i> What Is My IP?
+                </a>
+            </div>
+        </li>
+
+        <li><a href="../contato.html" class="btn-outline">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="../index-en.html">Home</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li><a href="../calculadoras.html">Tools</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li><strong>QR Code Generator</strong></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- HERO TOOL -->
+  <main id="main-content">
+    <header class="page-header">
+      <div class="container">
+        <h1>Free QR Code Generator</h1>
+        <p class="subtitle">Create custom QR codes for websites, text, or Wi-Fi. 100% free and no expiration.</p>
+        
+        <div class="trust-row">
+            <span class="trust-pill"><i data-lucide="lock" size="14"></i> 100% Privacy</span>
+            <span class="trust-pill"><i data-lucide="zap" size="14"></i> High Resolution</span>
+            <span class="trust-pill"><i data-lucide="infinity" size="14"></i> No Expiration</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="tool-section">
+      <div class="container">
+        
+        <div class="qr-container">
+          <!-- INPUT PANEL -->
+          <div class="qr-input-panel">
+            <label for="qr-text" class="tool-label">Content (URL or Text)</label>
+            <textarea id="qr-text" class="qr-text-input" placeholder="Enter link (https://...) or text for your QR Code here" rows="4"></textarea>
+
+            <div style="margin-top: 20px;">
+              <span class="tool-label">Customize Color</span>
+              <div class="color-options">
+                <input type="color" id="color-dark" class="color-input" value="#000000" title="QR Code Color">
+                <span style="font-size:0.9rem; color:var(--text-light);">Code Color</span>
+              </div>
+            </div>
+
+            <button class="action-btn" onclick="generateQR()">
+              <i data-lucide="qr-code" size="20"></i> Generate QR Code
+            </button>
+          </div>
+
+          <!-- PREVIEW PANEL -->
+          <div class="qr-preview-panel">
+            <span class="tool-label" style="text-align:center;">Preview</span>
+            <div id="qrcode" class="qr-display-area">
+              <div class="qr-placeholder" id="placeholder-msg">
+                <i data-lucide="image" size="48" style="opacity:0.3; margin-bottom:10px;"></i>
+                <br>Your QR Code will appear here
+              </div>
+            </div>
+            
+            <button class="action-btn download-btn" id="download-btn" onclick="downloadQR()" disabled>
+              <i data-lucide="download" size="20"></i> Download Image (PNG)
+            </button>
+          </div>
+        </div>
+
+        <!-- EDUCATIONAL CONTENT (SEO) -->
+        <div class="content-area">
+          <article class="content-block">
+            <h2>What is a QR Code?</h2>
+            <p>
+              A <strong>QR Code</strong> (Quick Response Code) is a two-dimensional barcode that can be easily scanned using most camera-equipped mobile phones. Unlike traditional barcodes that only store numbers, QR Codes can store information such as website addresses (URLs), text, phone numbers, and even Wi-Fi access data.
+            </p>
+
+            <div class="info-box">
+              <h3 style="margin-top:0; font-size:1.1rem; display:flex; align-items:center; gap:8px;">
+                <i data-lucide="shield-check" size="20"></i> Security and Privacy
+              </h3>
+              <p style="margin-bottom:0; font-size:0.95rem;">
+                Our tool runs 100% in your browser. This means the content you type to generate the code <strong>is never sent to our servers</strong>, ensuring total privacy of your data.
+              </p>
+            </div>
+
+            <h2>What is a QR Code for?</h2>
+            <p>
+              The versatility of QR Codes makes them useful in various everyday situations and business applications:
+            </p>
+            <ul>
+              <li><strong>Digital Menus:</strong> Restaurants use them to avoid physical menus.</li>
+              <li><strong>Easy Wi-Fi:</strong> Allows connection to the network without typing complex passwords.</li>
+              <li><strong>Payments:</strong> Widely used in payment systems globally.</li>
+              <li><strong>Marketing:</strong> Product packaging linking to videos or manuals.</li>
+            </ul>
+
+            <h2>Static vs. Dynamic QR Code</h2>
+            <p>
+              The code generated by this tool is of the <strong>Static</strong> type. This means the information (such as your website link) is "embedded" directly into the image pattern.
+            </p>
+            <p>
+              The main advantage is that it <strong>never expires</strong> and works forever, with no monthly fees. The disadvantage is that if you need to change the link, you will have to generate and print a new code.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Calcule Sua Saúde</h4>
+          <p>Precision tools and science-based information for your well-being.</p>
+        </div>
+        <div>
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="../calculadoras/indice-de-massa-corporal-imc.html">BMI Calculator</a></li>
+            <li><a href="../calculadoras/taxa-metabolica-basal-tmb.html">Basal Metabolic Rate</a></li>
+            <li><a href="qr-code-generator-en.html">QR Code Generator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../termos-de-uso.html">Terms of Use</a></li>
+            <li><a href="../politica-de-privacidade.html">Privacy</a></li>
+            <li><a href="../contato.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2026 Calcule Sua Saúde. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --- QR GENERATOR LOGIC ---
+    let qrcodeObj = null;
+
+    function generateQR() {
+      const text = document.getElementById("qr-text").value;
+      const colorDark = document.getElementById("color-dark").value;
+      const qrContainer = document.getElementById("qrcode");
+      const downloadBtn = document.getElementById("download-btn");
+      const placeholder = document.getElementById("placeholder-msg");
+
+      if (!text.trim()) {
+        alert("Please enter a URL or text to generate the code.");
+        return;
+      }
+
+      // Clear previous
+      qrContainer.innerHTML = "";
+      
+      // Create new QR
+      qrcodeObj = new QRCode(qrContainer, {
+        text: text,
+        width: 256,
+        height: 256,
+        colorDark : colorDark,
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+      });
+
+      // Enable download button
+      downloadBtn.disabled = false;
+      placeholder.style.display = "none";
+    }
+
+    function downloadQR() {
+      const qrContainer = document.getElementById("qrcode");
+      const img = qrContainer.querySelector("img");
+
+      if (img && img.src) {
+        const link = document.createElement("a");
+        link.href = img.src;
+        link.download = "qrcode-calculesuasaude.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+
+    // --- ICONS & THEME (Standard) ---
+    function initIcons() {
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+      else setTimeout(initIcons, 100);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initIcons();
+
+      // Theme
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      const themeBtn = document.getElementById('theme-btn');
+      const iconMoon = document.getElementById('icon-moon');
+      const iconSun = document.getElementById('icon-sun');
+
+      function updateThemeIcon(theme) {
+          if (theme === 'dark') {
+              iconMoon.style.display = 'none';
+              iconSun.style.display = 'inline-flex';
+          } else {
+              iconMoon.style.display = 'inline-flex';
+              iconSun.style.display = 'none';
+          }
+      }
+      updateThemeIcon(savedTheme);
+
+      themeBtn.addEventListener('click', () => {
+          const current = document.documentElement.getAttribute('data-theme');
+          const next = current === 'light' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          updateThemeIcon(next);
+      });
+
+      // Dropdown Logic
+      document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+          var toggle = dd.querySelector('.nav-dropdown-toggle');
+          if (!toggle) return;
+          toggle.addEventListener('click', function(e) {
+              e.stopPropagation();
+              var isOpen = dd.classList.contains('open');
+              document.querySelectorAll('.nav-dropdown.open').forEach(o => o.classList.remove('open'));
+              if (!isOpen) dd.classList.add('open');
+          });
+      });
+      document.addEventListener('click', () => {
+          document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
+      });
+    });
+  </script>
+</body>
+</html>

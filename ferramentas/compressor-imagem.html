@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- --- SEO PRINCIPAL --- -->
+  <title>Compressor de Imagem Grátis | Reduzir Tamanho de Fotos Online | Calcule Sua Saúde</title>
+  <meta name="description" content="Reduza o tamanho de suas imagens (JPG, PNG, WEBP) sem perder qualidade visível. Ferramenta gratuita, processamento 100% no navegador (privacidade total)." />
+  <meta name="keywords" content="comprimir imagem, reduzir foto, otimizar imagem, compressor online, diminuir tamanho png, otimizador jpg, ferramenta web" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0A4D68" />
+  <meta name="author" content="Equipe de Tecnologia Calcule Sua Saúde" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.calculesuasaude.com.br/ferramentas/compressor-imagem.html" />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/ferramentas/compressor-imagem.html" />
+  <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/ferramentas/image-compressor-en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/ferramentas/compressor-imagem.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.calculesuasaude.com.br/ferramentas/compressor-imagem.html" />
+  <meta property="og:title" content="Compressor de Imagem Seguro e Gratuito" />
+  <meta property="og:description" content="Comprima fotos diretamente no seu dispositivo. Sem upload, sem espera, privacidade garantida." />
+  <meta property="og:image" content="https://www.calculesuasaude.com.br/img/ferramentas/compressor-og.webp" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Calcule Sua Saúde" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Otimizador de Imagens Online" />
+  <meta name="twitter:description" content="Reduza o peso das suas fotos para web ou e-mail. Rápido e fácil." />
+  <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/ferramentas/compressor-og.webp" />
+
+    <!-- Ads / Analytics -->
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Source+Sans+3:wght@300;400;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Scripts Externos -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.calculesuasaude.com.br/"},
+          {"@type": "ListItem", "position": 2, "name": "Ferramentas", "item": "https://www.calculesuasaude.com.br/calculadoras.html"},
+          {"@type": "ListItem", "position": 3, "name": "Compressor de Imagem", "item": "https://www.calculesuasaude.com.br/ferramentas/compressor-imagem.html"}
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Compressor de Imagem Local",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web",
+        "url": "https://www.calculesuasaude.com.br/ferramentas/compressor-imagem.html",
+        "description": "Ferramenta baseada em navegador para compressão e otimização de arquivos de imagem (JPEG, PNG, WEBP).",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "BRL"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Estilos -->
+  <style>
+    :root {
+      --primary: #0A4D68;
+      --primary-dark: #06384d;
+      --primary-light: #0e6b91;
+      --accent: #047857;
+      --accent-light: #059669;
+      --secondary: #D97706;
+      --bg-body: #F8FAFB;
+      --bg-card: #FFFFFF;
+      --bg-section: #F1F5F9;
+      --text-main: #1C1917;
+      --text-muted: #57534E;
+      --text-light: #78716C;
+      --border-subtle: #E2E8F0;
+      --container-width: 1200px;
+      --header-height: 90px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.10);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+    [data-theme="dark"] {
+      --bg-body: #0C0A09;
+      --bg-card: #1C1917;
+      --bg-section: #151312;
+      --text-main: #F5F5F4;
+      --text-muted: #A8A29E;
+      --text-light: #78716C;
+      --primary: #38BDF8;
+      --primary-light: #7DD3FC;
+      --accent: #34D399;
+      --accent-light: #6EE7B7;
+      --border-subtle: #292524;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.4);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    a { text-decoration: none; color: inherit; transition: 0.2s ease; }
+    .container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
+    .sr-only { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+    /* --- TOPO E NAVEGAÇÃO --- */
+    .top-bar { background-color: #0A4D68; color: #fff; padding: 8px 0; font-size: 0.85rem; }
+    .top-bar .container { display: flex; justify-content: flex-end; gap: 20px; align-items: center; }
+    
+    .theme-toggle, .lang-selector select { 
+      background: none; border: none; color: #fff; padding: 0; 
+      cursor: pointer; display: flex; align-items: center; gap: 6px;
+      font-family: inherit; font-size: 0.85rem;
+    }
+    .lang-selector select { padding-right: 15px; appearance: none; -webkit-appearance: none; }
+    .lang-selector { display: flex; align-items: center; gap: 6px; }
+    .lang-selector select option { background-color: #0A4D68; color: #fff; }
+
+    .main-header {
+      background-color: var(--bg-card); border-bottom: 1px solid var(--border-subtle);
+      position: sticky; top: 0; z-index: 1000; height: var(--header-height);
+      box-shadow: var(--shadow-sm);
+    }
+    .main-header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+    
+    .logo {
+      font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700;
+      color: var(--primary); display: flex; align-items: center; gap: 12px;
+    }
+    
+    .nav-menu { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-link { font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 0.92rem; }
+    .nav-link:hover, .nav-link.active { color: var(--primary); }
+    
+    .btn-outline {
+      border: 2px solid var(--primary); color: var(--primary); padding: 8px 20px;
+      border-radius: 999px; text-transform: uppercase; font-weight: 800; font-size: 0.85rem;
+    }
+    .btn-outline:hover { background: var(--primary); color: #fff; }
+
+    /* Dropdown CSS */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle {
+        background: none; border: none; font-family: 'Source Sans 3', sans-serif;
+        font-size: 0.92rem; font-weight: 700; color: var(--text-muted);
+        cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+        padding: 0; text-transform: uppercase;
+    }
+    .nav-dropdown-toggle:hover { color: var(--primary); }
+    .dropdown-chevron { transition: transform 0.2s ease; }
+    .nav-dropdown.open .dropdown-chevron { transform: rotate(180deg); }
+
+    .nav-dropdown-menu {
+        position: absolute; top: 100%; right: 0; min-width: 260px;
+        background: var(--bg-card); border: 1px solid var(--border-subtle);
+        border-radius: 12px; box-shadow: var(--shadow-md); padding: 10px 0;
+        opacity: 0; visibility: hidden; transform: translateY(10px);
+        transition: all 0.2s ease; z-index: 9000;
+        margin-top: 10px;
+    }
+    .nav-dropdown.open .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    
+    .dropdown-section-title {
+        display: block; padding: 10px 20px 5px; font-size: 0.75rem;
+        font-weight: 800; text-transform: uppercase; color: var(--text-light);
+    }
+    .dropdown-item {
+        display: flex; align-items: center; gap: 10px; padding: 10px 20px;
+        font-size: 0.9rem; color: var(--text-main); font-weight: 500;
+    }
+    .dropdown-item:hover { background: rgba(10, 77, 104, 0.05); color: var(--primary); }
+
+    /* Breadcrumb */
+    .breadcrumb-bar { background: var(--bg-section); border-bottom: 1px solid var(--border-subtle); padding: 12px 0; }
+    .breadcrumb-list { list-style: none; display: flex; gap: 8px; font-size: 0.85rem; color: var(--text-light); }
+    .breadcrumb-list a { color: var(--primary); font-weight: 600; }
+    .breadcrumb-sep { opacity: 0.5; }
+
+    /* --- PAGE HEADER --- */
+    .page-header {
+      padding: 48px 0 24px; text-align: center;
+      background: linear-gradient(180deg, var(--bg-section) 0%, var(--bg-body) 100%);
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif; font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem); color: var(--primary); margin-bottom: 16px;
+    }
+    .page-header .subtitle {
+      font-size: 1.15rem; color: var(--text-muted); max-width: 750px; margin: 0 auto;
+    }
+    .trust-row {
+      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 24px;
+    }
+    .trust-pill {
+      display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+      border: 1px solid var(--border-subtle); border-radius: 999px;
+      background: var(--bg-card); font-size: 0.85rem; font-weight: 700; color: var(--text-muted);
+    }
+
+    /* --- COMPRESSOR TOOL UI --- */
+    .compressor-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+      max-width: 800px; margin: 0 auto; overflow: hidden; padding: 0;
+    }
+
+    /* Drop Zone */
+    .drop-zone {
+      padding: 50px 20px; text-align: center; border-bottom: 1px solid var(--border-subtle);
+      cursor: pointer; transition: background 0.2s; position: relative;
+    }
+    .drop-zone:hover { background: var(--bg-section); }
+    .drop-zone.dragover { background: rgba(10, 77, 104, 0.08); border-color: var(--primary); }
+    
+    .drop-icon { color: var(--primary); margin-bottom: 15px; opacity: 0.8; }
+    .drop-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main); }
+    .drop-desc { color: var(--text-light); font-size: 0.95rem; }
+    .file-input { position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; cursor: pointer; }
+
+    /* Results Area */
+    .results-area { padding: 30px; display: none; } /* Hidden by default */
+    .results-area.active { display: block; }
+
+    .image-preview-container {
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .preview-img {
+      max-width: 100%; max-height: 400px; border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid var(--border-subtle);
+    }
+
+    .controls-wrapper { width: 100%; margin-top: 20px; }
+    
+    .slider-container { margin-bottom: 25px; }
+    .slider-label-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
+    .slider-label { font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; }
+    .quality-value { font-weight: 800; color: var(--primary); font-family: 'Fira Code', monospace; }
+    
+    input[type=range] {
+      width: 100%; height: 6px; background: var(--border-subtle);
+      border-radius: 5px; outline: none; appearance: none; -webkit-appearance: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none; width: 22px; height: 22px;
+      border-radius: 50%; background: var(--accent); cursor: pointer;
+      border: 2px solid var(--bg-card); box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .stats-row {
+      display: flex; gap: 15px; justify-content: space-between; margin-bottom: 25px;
+      background: var(--bg-section); padding: 15px; border-radius: 12px;
+    }
+    .stat-box { text-align: center; flex: 1; }
+    .stat-label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 4px; }
+    .stat-value { font-weight: 700; color: var(--text-main); font-family: 'Fira Code', monospace; font-size: 1rem; }
+    .stat-saved { color: var(--accent); font-weight: 800; }
+
+    .action-row { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+    .btn-action {
+      padding: 12px 24px; border-radius: 999px; font-weight: 800; cursor: pointer;
+      display: flex; align-items: center; gap: 8px; transition: transform 0.2s; border: none; font-size: 1rem;
+    }
+    .btn-download { background: var(--primary); color: #fff; box-shadow: 0 4px 12px rgba(10,77,104,0.25); }
+    .btn-download:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    .btn-reset { background: transparent; border: 2px solid var(--border-subtle); color: var(--text-muted); }
+    .btn-reset:hover { border-color: var(--secondary); color: var(--secondary); }
+
+    /* --- EDUCATIONAL CONTENT --- */
+    .content-area { max-width: 800px; margin: 50px auto; padding: 0 20px; }
+    .content-block h2 {
+      font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 16px;
+      color: var(--text-main); border-bottom: 2px solid var(--secondary); display: inline-block;
+      padding-bottom: 4px;
+    }
+    .content-block p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 20px; }
+    .content-block ul { margin-left: 20px; margin-bottom: 20px; color: var(--text-muted); }
+    .content-block li { margin-bottom: 8px; }
+    
+    .info-box {
+        background: var(--bg-section); border-left: 4px solid var(--accent);
+        padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0;
+    }
+
+    /* --- FOOTER --- */
+    footer { background: #1C1917; color: #A8A29E; padding: 60px 0 20px; margin-top: 60px; font-size: 0.95rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer h4 { color: #fff; font-family: 'Playfair Display', serif; margin-bottom: 20px; }
+    .footer ul { list-style: none; }
+    .footer ul li { margin-bottom: 10px; }
+    .footer ul li a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .page-header h1 { font-size: 2rem; }
+      .stats-row { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <button class="theme-toggle" id="theme-btn" aria-label="Alternar tema">
+        <span id="icon-moon" style="display:flex;align-items:center;gap:5px;">
+            <i data-lucide="moon" size="14"></i> <span>Modo Escuro</span>
+        </span>
+        <span id="icon-sun" style="display:none;align-items:center;gap:5px;">
+            <i data-lucide="sun" size="14"></i> <span>Modo Claro</span>
+        </span>
+      </button>
+
+      <div class="lang-selector">
+        <i data-lucide="globe" size="14"></i>
+        <select onchange="if(this.value) window.location.href = this.value;" aria-label="Selecionar idioma">
+          <option value="compressor-imagem.html" selected>Português</option>
+          <option value="image-compressor-en.html">English</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <nav class="main-header" aria-label="Navegação principal">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <i data-lucide="microscope" size="30"></i> Calcule Sua Saúde
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">Início</a></li>
+        <li><a href="../artigos.html" class="nav-link">Artigos</a></li>
+        <li><a href="../calculadoras.html" class="nav-link">Calculadoras</a></li>
+        
+        <!-- DROPDOWN FERRAMENTAS -->
+        <li class="nav-dropdown">
+            <button class="nav-link nav-dropdown-toggle" aria-expanded="false">
+                Ferramentas <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
+            </button>
+            <div class="nav-dropdown-menu">
+                <span class="dropdown-section-title">Utilitários Gerais</span>
+                <a href="gerador-qr-code.html" class="dropdown-item">
+                    <i data-lucide="qr-code" size="18"></i> Gerador de QR Code
+                </a>
+                <a href="conversor-unidades.html" class="dropdown-item">
+                    <i data-lucide="ruler" size="18"></i> Conversor de Unidades
+                </a>
+                <a href="compressor-imagem.html" class="dropdown-item">
+                    <i data-lucide="image-down" size="18"></i> Compressor de Imagem
+                </a>
+                <a href="gerador-senhas.html" class="dropdown-item">
+                    <i data-lucide="key-round" size="18"></i> Gerador de Senhas
+                </a>
+                <a href="qual-e-meu-ip.html" class="dropdown-item">
+                    <i data-lucide="wifi" size="18"></i> Qual é o Meu IP?
+                </a>
+            </div>
+        </li>
+
+        <li><a href="../contato.html" class="btn-outline">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Início</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li><a href="../calculadoras.html">Ferramentas</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li><strong>Compressor de Imagem</strong></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- HERO TOOL -->
+  <main id="main-content">
+    <header class="page-header">
+      <div class="container">
+        <h1>Compressor de Imagem</h1>
+        <p class="subtitle">Reduza o tamanho das suas fotos com segurança. Sem upload, sem perda visível de qualidade.</p>
+        
+        <div class="trust-row">
+            <span class="trust-pill"><i data-lucide="shield" size="14"></i> 100% Privado</span>
+            <span class="trust-pill"><i data-lucide="zap" size="14"></i> Processamento Local</span>
+            <span class="trust-pill"><i data-lucide="download" size="14"></i> Download Imediato</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="tool-section">
+      <div class="container">
+        
+        <div class="compressor-card">
+          <!-- DROP ZONE -->
+          <div id="drop-zone" class="drop-zone">
+            <i data-lucide="upload-cloud" size="48" class="drop-icon"></i>
+            <h3 class="drop-title">Arraste sua imagem aqui</h3>
+            <p class="drop-desc">Ou clique para selecionar (JPG, PNG, WEBP)</p>
+            <input type="file" id="file-input" class="file-input" accept="image/png, image/jpeg, image/webp">
+          </div>
+
+          <!-- RESULTS -->
+          <div id="results-area" class="results-area">
+            <div class="image-preview-container">
+              <img id="preview-img" class="preview-img" src="" alt="Preview">
+              
+              <div class="controls-wrapper">
+                <div class="slider-container">
+                  <div class="slider-label-row">
+                    <span class="slider-label">Qualidade</span>
+                    <span id="quality-val" class="quality-value">80%</span>
+                  </div>
+                  <input type="range" id="quality-slider" min="1" max="100" value="80">
+                </div>
+
+                <div class="stats-row">
+                  <div class="stat-box">
+                    <span class="stat-label">Original</span>
+                    <span id="original-size" class="stat-value">-</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-label">Comprimido</span>
+                    <span id="compressed-size" class="stat-value">-</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-label">Economia</span>
+                    <span id="saved-percent" class="stat-value stat-saved">-</span>
+                  </div>
+                </div>
+
+                <div class="action-row">
+                  <button id="download-btn" class="btn-action btn-download">
+                    <i data-lucide="download" size="20"></i> Baixar Imagem
+                  </button>
+                  <button id="reset-btn" class="btn-action btn-reset">
+                    <i data-lucide="x" size="20"></i> Nova Imagem
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDUCATIONAL CONTENT -->
+        <div class="content-area">
+          <article class="content-block">
+            <h2>Por que comprimir imagens?</h2>
+            <p>
+              Imagens grandes são a principal causa de lentidão em sites e ocupam espaço desnecessário em e-mails e armazenamento. A compressão inteligente remove dados redundantes do arquivo sem afetar drasticamente a qualidade visual que o olho humano consegue perceber.
+            </p>
+
+            <div class="info-box">
+              <h3 style="margin-top:0; font-size:1.1rem; display:flex; align-items:center; gap:8px;">
+                <i data-lucide="lock" size="20"></i> Privacidade Total
+              </h3>
+              <p style="margin-bottom:0; font-size:0.95rem;">
+                Ao contrário de outros sites, <strong>nós não enviamos suas fotos para nenhum servidor</strong>. Toda a compressão acontece instantaneamente dentro do seu navegador (celular ou computador). Suas fotos nunca saem do seu dispositivo.
+              </p>
+            </div>
+
+            <h2>Formatos Suportados</h2>
+            <ul>
+              <li><strong>JPG/JPEG:</strong> O melhor formato para fotos com muitas cores. Permite alta compressão.</li>
+              <li><strong>PNG:</strong> Ideal para gráficos, logos e imagens com transparência.</li>
+              <li><strong>WEBP:</strong> O formato moderno para web que oferece qualidade superior com tamanhos menores.</li>
+            </ul>
+          </article>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Calcule Sua Saúde</h4>
+          <p>Ferramentas precisas e informação baseada em ciência para o seu bem-estar.</p>
+        </div>
+        <div>
+          <h4>Ferramentas</h4>
+          <ul>
+            <li><a href="../calculadoras/indice-de-massa-corporal-imc.html">Calculadora IMC</a></li>
+            <li><a href="gerador-qr-code.html">Gerador QR Code</a></li>
+            <li><a href="compressor-imagem.html">Compressor de Imagem</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../termos-de-uso.html">Termos de Uso</a></li>
+            <li><a href="../politica-de-privacidade.html">Privacidade</a></li>
+            <li><a href="../contato.html">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2026 Calcule Sua Saúde. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --- LÓGICA DE COMPRESSÃO ---
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const resultsArea = document.getElementById('results-area');
+    const previewImg = document.getElementById('preview-img');
+    const qualitySlider = document.getElementById('quality-slider');
+    const qualityVal = document.getElementById('quality-val');
+    const originalSizeDisplay = document.getElementById('original-size');
+    const compressedSizeDisplay = document.getElementById('compressed-size');
+    const savedPercentDisplay = document.getElementById('saved-percent');
+    const downloadBtn = document.getElementById('download-btn');
+    const resetBtn = document.getElementById('reset-btn');
+
+    let originalFile = null;
+    let compressedBlob = null;
+
+    // Drag & Drop
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      handleFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+
+    function handleFile(file) {
+      if (!file || !file.type.startsWith('image/')) return;
+      originalFile = file;
+      originalSizeDisplay.textContent = formatBytes(file.size);
+      
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        previewImg.src = e.target.result;
+        dropZone.style.display = 'none';
+        resultsArea.classList.add('active');
+        compressImage(); // Primeira compressão
+      };
+      reader.readAsDataURL(file);
+    }
+
+    qualitySlider.addEventListener('input', (e) => {
+      qualityVal.textContent = e.target.value + '%';
+      compressImage();
+    });
+
+    function compressImage() {
+      if (!originalFile) return;
+
+      const img = new Image();
+      img.src = previewImg.src;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+
+        const quality = parseInt(qualitySlider.value) / 100;
+        
+        // Mantém o tipo original ou fallback para jpeg
+        let mimeType = originalFile.type;
+        if(mimeType === 'image/svg+xml') mimeType = 'image/jpeg'; // Canvas não exporta SVG
+
+        canvas.toBlob((blob) => {
+          compressedBlob = blob;
+          const size = blob.size;
+          compressedSizeDisplay.textContent = formatBytes(size);
+          
+          const saved = ((originalFile.size - size) / originalFile.size) * 100;
+          savedPercentDisplay.textContent = saved > 0 ? `-${saved.toFixed(1)}%` : '0%';
+        }, mimeType, quality);
+      };
+    }
+
+    downloadBtn.addEventListener('click', () => {
+      if (!compressedBlob) return;
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(compressedBlob);
+      // Adiciona sufixo ao nome original
+      const newName = originalFile.name.replace(/\.[^/.]+$/, "") + "_min" + originalFile.name.match(/\.[^/.]+$/);
+      link.download = newName;
+      link.click();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      originalFile = null;
+      compressedBlob = null;
+      fileInput.value = '';
+      resultsArea.classList.remove('active');
+      dropZone.style.display = 'block';
+    });
+
+    function formatBytes(bytes, decimals = 2) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const dm = decimals < 0 ? 0 : decimals;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+
+    // --- ÍCONES E TEMA ---
+    function initIcons() {
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+      else setTimeout(initIcons, 100);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initIcons();
+
+      // Tema
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      const themeBtn = document.getElementById('theme-btn');
+      const iconMoon = document.getElementById('icon-moon');
+      const iconSun = document.getElementById('icon-sun');
+
+      function updateThemeIcon(theme) {
+          if (theme === 'dark') {
+              iconMoon.style.display = 'none';
+              iconSun.style.display = 'inline-flex';
+          } else {
+              iconMoon.style.display = 'inline-flex';
+              iconSun.style.display = 'none';
+          }
+      }
+      updateThemeIcon(savedTheme);
+
+      themeBtn.addEventListener('click', () => {
+          const current = document.documentElement.getAttribute('data-theme');
+          const next = current === 'light' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          updateThemeIcon(next);
+      });
+
+      // Dropdown Logic
+      document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+          var toggle = dd.querySelector('.nav-dropdown-toggle');
+          if (!toggle) return;
+          toggle.addEventListener('click', function(e) {
+              e.stopPropagation();
+              var isOpen = dd.classList.contains('open');
+              document.querySelectorAll('.nav-dropdown.open').forEach(o => o.classList.remove('open'));
+              if (!isOpen) dd.classList.add('open');
+          });
+      });
+      document.addEventListener('click', () => {
+          document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
+      });
+    });
+  </script>
+</body>
+</html>
