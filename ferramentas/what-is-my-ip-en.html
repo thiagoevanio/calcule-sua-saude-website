@@ -35,17 +35,17 @@
   <meta name="twitter:description" content="Find your IP address and understand how it affects your online privacy." />
   <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/ferramentas/ip-og.webp" />
 
-   <!-- Ads / Analytics -->
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+  <!-- Ads / Analytics (KEEP ONLY ONE ADSENSE SCRIPT) -->
+  <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-EVCQQZV60N');
-    </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+  </script>
 
   <link rel="icon" href="/favicon.ico" />
 
@@ -55,7 +55,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Source+Sans+3:wght@300;400;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- External Scripts -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <!-- Schema.org -->
@@ -156,19 +155,18 @@
 
     /* --- TOP BAR & NAV --- */
     .top-bar { background-color: #0A4D68; color: #fff; padding: 8px 0; font-size: 0.85rem; }
-    .top-bar .container { display: flex; justify-content: flex-end; gap: 20px; align-items: center; }
-    
-    /* Clean Button Styles */
-    .theme-toggle, .lang-selector select { 
-      background: none; border: none; color: #fff; padding: 0; 
-      cursor: pointer; display: flex; align-items: center; gap: 6px;
+    .top-bar .container { display: flex; justify-content: flex-end; gap: 20px; align-items: center; flex-wrap: wrap; }
+
+    .theme-toggle, .lang-selector select {
+      background: none; border: none; color: #fff; padding: 0;
+      cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
       font-family: inherit; font-size: 0.85rem;
     }
-    .lang-selector select { 
-        padding-right: 15px;
-        appearance: none; -webkit-appearance: none;
+    .lang-selector select {
+      padding-right: 15px;
+      appearance: none; -webkit-appearance: none;
     }
-    .lang-selector { display: flex; align-items: center; gap: 6px; }
+    .lang-selector { display: inline-flex; align-items: center; gap: 6px; }
     .lang-selector select option { background-color: #0A4D68; color: #fff; }
 
     .main-header {
@@ -176,59 +174,59 @@
       position: sticky; top: 0; z-index: 1000; height: var(--header-height);
       box-shadow: var(--shadow-sm);
     }
-    .main-header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
-    
+    .main-header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; gap: 16px; }
+
     .logo {
       font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700;
       color: var(--primary); display: flex; align-items: center; gap: 12px;
+      white-space: nowrap;
     }
-    
+
     .nav-menu { display: flex; gap: 28px; list-style: none; align-items: center; }
     .nav-link { font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 0.92rem; }
     .nav-link:hover, .nav-link.active { color: var(--primary); }
-    
+
     .btn-outline {
       border: 2px solid var(--primary); color: var(--primary); padding: 8px 20px;
       border-radius: 999px; text-transform: uppercase; font-weight: 800; font-size: 0.85rem;
+      display: inline-flex; align-items: center; justify-content: center; line-height: 1;
     }
     .btn-outline:hover { background: var(--primary); color: #fff; }
 
     /* Dropdown CSS */
     .nav-dropdown { position: relative; }
     .nav-dropdown-toggle {
-        background: none; border: none; font-family: 'Source Sans 3', sans-serif;
-        font-size: 0.92rem; font-weight: 700; color: var(--text-muted);
-        cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
-        padding: 0; text-transform: uppercase;
+      background: none; border: none; font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.92rem; font-weight: 700; color: var(--text-muted);
+      cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+      padding: 0; text-transform: uppercase;
     }
     .nav-dropdown-toggle:hover { color: var(--primary); }
-    
     .dropdown-chevron { transition: transform 0.2s ease; }
     .nav-dropdown.open .dropdown-chevron { transform: rotate(180deg); }
 
     .nav-dropdown-menu {
-        position: absolute; top: 100%; right: 0; min-width: 260px;
-        background: var(--bg-card); border: 1px solid var(--border-subtle);
-        border-radius: 12px; box-shadow: var(--shadow-md); padding: 10px 0;
-        opacity: 0; visibility: hidden; transform: translateY(10px);
-        transition: all 0.2s ease; z-index: 9000;
-        margin-top: 10px;
+      position: absolute; top: 100%; right: 0; min-width: 260px;
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: 12px; box-shadow: var(--shadow-md); padding: 10px 0;
+      opacity: 0; visibility: hidden; transform: translateY(10px);
+      transition: all 0.2s ease; z-index: 9000; margin-top: 10px;
     }
     .nav-dropdown.open .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-    
+
     .dropdown-section-title {
-        display: block; padding: 10px 20px 5px; font-size: 0.75rem;
-        font-weight: 800; text-transform: uppercase; color: var(--text-light);
+      display: block; padding: 10px 20px 5px; font-size: 0.75rem;
+      font-weight: 800; text-transform: uppercase; color: var(--text-light);
     }
     .dropdown-item {
-        display: flex; align-items: center; gap: 10px; padding: 10px 20px;
-        font-size: 0.9rem; color: var(--text-main); font-weight: 500;
+      display: flex; align-items: center; gap: 10px; padding: 10px 20px;
+      font-size: 0.9rem; color: var(--text-main); font-weight: 500;
     }
     .dropdown-item:hover { background: rgba(10, 77, 104, 0.05); color: var(--primary); }
 
     /* Breadcrumb */
     .breadcrumb-bar { background: var(--bg-section); border-bottom: 1px solid var(--border-subtle); padding: 12px 0; }
-    .breadcrumb-list { list-style: none; display: flex; gap: 8px; font-size: 0.85rem; color: var(--text-light); }
+    .breadcrumb-list { list-style: none; display: flex; gap: 8px; font-size: 0.85rem; color: var(--text-light); flex-wrap: wrap; }
     .breadcrumb-list a { color: var(--primary); font-weight: 600; }
     .breadcrumb-sep { opacity: 0.5; }
 
@@ -253,7 +251,10 @@
       background: var(--bg-card); font-size: 0.85rem; font-weight: 700; color: var(--text-muted);
     }
 
-    /* --- IP TOOL UI (IPv6 Adjusted) --- */
+    /* Tool section spacing (same as PT page) */
+    .tool-section { padding: 22px 0 0; }
+
+    /* --- IP TOOL UI (IPv6 friendly) --- */
     .ip-tool-card {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
@@ -271,21 +272,101 @@
     }
     .ip-address-value {
       font-family: 'Fira Code', monospace;
-      /* Adjusted for long IPv6 */
-      font-size: clamp(1.2rem, 4vw, 2.8rem);
+      font-size: clamp(1.1rem, 2.3vw, 2.2rem);
       font-weight: 700; color: var(--primary);
-      word-break: break-word; overflow-wrap: break-word;
-      margin-bottom: 20px; line-height: 1.3;
-      padding: 0 10px;
+      line-height: 1.25; letter-spacing: 0.01em;
+      margin: 10px auto 18px;
+      padding: 0 12px;
+      max-width: 100%;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: anywhere;
+      text-wrap: pretty;
     }
+
+    .copy-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .copy-btn {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--bg-card); border: 2px solid var(--border-subtle);
       padding: 10px 20px; border-radius: 999px; font-weight: 700; cursor: pointer;
       transition: all 0.2s; color: var(--text-muted);
+      line-height: 1;
     }
     .copy-btn:hover { border-color: var(--primary); color: var(--primary); }
-    
+    .copy-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .copy-msg {
+      display: none;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    /* Notice (retry + warnings) */
+    .notice {
+      margin: 14px auto 0;
+      max-width: 720px;
+      text-align: left;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      border-radius: 14px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .notice-inner {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: start;
+      padding: 12px 12px;
+    }
+
+    .notice-text strong { display: block; font-size: 0.95rem; margin-bottom: 2px; }
+    .notice-text div { font-size: 0.95rem; color: var(--text-muted); }
+
+    .notice[data-variant="error"] { border-color: rgba(217,119,6,0.45); }
+    .notice[data-variant="warn"] { border-color: rgba(4,120,87,0.35); }
+    .notice[data-variant="info"] { border-color: rgba(56,189,248,0.35); }
+
+    .notice-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 0 12px 12px;
+      flex-wrap: wrap;
+    }
+
+    .notice-btn {
+      border: 2px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-main);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .notice-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+    .notice-close {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 6px;
+      border-radius: 10px;
+    }
+    .notice-close:hover { background: rgba(0,0,0,0.05); }
+    [data-theme="dark"] .notice-close:hover { background: rgba(255,255,255,0.06); }
+
     .ip-details-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1px; background: var(--border-subtle);
@@ -300,13 +381,14 @@
     }
     .detail-value {
       font-size: 1.1rem; font-weight: 600; color: var(--text-main);
+      word-break: break-word;
     }
-    .loading-pulse {
-        animation: pulse 1.5s infinite;
-        opacity: 0.6;
-    }
-    @keyframes pulse {
-        0% { opacity: 0.6; } 50% { opacity: 0.3; } 100% { opacity: 0.6; }
+    .loading-pulse { animation: pulse 1.5s infinite; opacity: 0.6; }
+    @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 0.3; } 100% { opacity: 0.6; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .loading-pulse { animation: none; }
+      * { scroll-behavior: auto; }
     }
 
     /* --- EDUCATIONAL CONTENT --- */
@@ -319,10 +401,10 @@
     .content-block p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 20px; }
     .content-block ul { margin-left: 20px; margin-bottom: 20px; color: var(--text-muted); }
     .content-block li { margin-bottom: 8px; }
-    
+
     .info-box {
-        background: var(--bg-section); border-left: 4px solid var(--accent);
-        padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0;
+      background: var(--bg-section); border-left: 4px solid var(--accent);
+      padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0;
     }
 
     /* --- FOOTER --- */
@@ -334,10 +416,16 @@
     .footer ul li a:hover { color: #fff; }
     .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.85rem; }
 
+    @media (max-width: 920px) {
+      .container { padding: 0 18px; }
+      .logo { font-size: 1.45rem; }
+    }
+
     @media (max-width: 800px) {
       .nav-menu { display: none; }
       .page-header h1 { font-size: 2rem; }
-      .ip-address-value { font-size: 1.5rem; }
+      .ip-main-display { padding: 28px 14px; }
+      .ip-address-value { padding: 0 8px; }
     }
   </style>
 </head>
@@ -348,10 +436,10 @@
     <div class="container">
       <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">
         <span id="icon-moon" style="display:flex;align-items:center;gap:5px;">
-            <i data-lucide="moon" size="14"></i> <span>Dark Mode</span>
+          <i data-lucide="moon" size="14"></i> <span>Dark Mode</span>
         </span>
         <span id="icon-sun" style="display:none;align-items:center;gap:5px;">
-            <i data-lucide="sun" size="14"></i> <span>Light Mode</span>
+          <i data-lucide="sun" size="14"></i> <span>Light Mode</span>
         </span>
       </button>
 
@@ -376,30 +464,30 @@
         <li><a href="../index-en.html" class="nav-link">Home</a></li>
         <li><a href="../artigos-en.html" class="nav-link">Articles</a></li>
         <li><a href="../calculadoras.html" class="nav-link">Calculators</a></li>
-        
+
         <!-- TOOLS DROPDOWN -->
         <li class="nav-dropdown">
-            <button class="nav-link nav-dropdown-toggle" aria-expanded="false">
-                Tools <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
-            </button>
-            <div class="nav-dropdown-menu">
-                <span class="dropdown-section-title">General Utilities</span>
-                <a href="qr-code-generator-en.html" class="dropdown-item">
-                    <i data-lucide="qr-code" size="18"></i> QR Code Generator
-                </a>
-                <a href="unit-converter-en.html" class="dropdown-item">
-                    <i data-lucide="ruler" size="18"></i> Unit Converter
-                </a>
-                <a href="image-compressor-en.html" class="dropdown-item">
-                    <i data-lucide="image-down" size="18"></i> Image Compressor
-                </a>
-                <a href="password-generator-en.html" class="dropdown-item">
-                    <i data-lucide="key-round" size="18"></i> Password Generator
-                </a>
-                <a href="what-is-my-ip-en.html" class="dropdown-item">
-                    <i data-lucide="wifi" size="18"></i> What Is My IP?
-                </a>
-            </div>
+          <button class="nav-link nav-dropdown-toggle" aria-expanded="false">
+            Tools <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
+          </button>
+          <div class="nav-dropdown-menu">
+            <span class="dropdown-section-title">General Utilities</span>
+            <a href="qr-code-generator-en.html" class="dropdown-item">
+              <i data-lucide="qr-code" size="18"></i> QR Code Generator
+            </a>
+            <a href="unit-converter-en.html" class="dropdown-item">
+              <i data-lucide="ruler" size="18"></i> Unit Converter
+            </a>
+            <a href="image-compressor-en.html" class="dropdown-item">
+              <i data-lucide="image-down" size="18"></i> Image Compressor
+            </a>
+            <a href="password-generator-en.html" class="dropdown-item">
+              <i data-lucide="key-round" size="18"></i> Password Generator
+            </a>
+            <a href="what-is-my-ip-en.html" class="dropdown-item">
+              <i data-lucide="wifi" size="18"></i> What Is My IP?
+            </a>
+          </div>
         </li>
 
         <li><a href="../contato.html" class="btn-outline">Contact</a></li>
@@ -426,28 +514,48 @@
       <div class="container">
         <h1>What Is My IP?</h1>
         <p class="subtitle">Identify your public IP address, internet provider, and approximate location instantly.</p>
-        
+
         <div class="trust-row">
-            <span class="trust-pill"><i data-lucide="lock" size="14"></i> 100% Secure</span>
-            <span class="trust-pill"><i data-lucide="zap" size="14"></i> Instant Detection</span>
-            <span class="trust-pill"><i data-lucide="shield-check" size="14"></i> No Logs</span>
+          <span class="trust-pill"><i data-lucide="lock" size="14"></i> 100% Secure</span>
+          <span class="trust-pill"><i data-lucide="zap" size="14"></i> Instant Detection</span>
+          <span class="trust-pill"><i data-lucide="shield-check" size="14"></i> No Logs</span>
         </div>
       </div>
     </header>
 
     <section class="tool-section">
       <div class="container">
-        
+
         <!-- TOOL CARD -->
         <div class="ip-tool-card">
           <div class="ip-main-display">
             <span class="ip-label">Your Public IP Address</span>
-            <div class="ip-address-value" id="ip-display">Loading...</div>
-            
-            <button class="copy-btn" id="copy-btn" onclick="copyIp()">
-              <i data-lucide="copy" size="18"></i> Copy IP
-            </button>
-            <span id="copy-msg" style="display:none; color: var(--accent); font-size: 0.85rem; margin-left: 10px; font-weight: 700;">Copied!</span>
+
+            <div class="ip-address-value" id="ip-display" aria-live="polite">Loading...</div>
+
+            <div class="copy-row">
+              <button class="copy-btn" id="copy-btn" onclick="copyIp()" disabled>
+                <i data-lucide="copy" size="18"></i> Copy IP
+              </button>
+              <span class="copy-msg" id="copy-msg" role="status" aria-live="polite">Copied!</span>
+            </div>
+
+            <!-- Notice (when APIs are blocked / unavailable) -->
+            <div class="notice" id="notice" role="alert" aria-live="polite" style="display:none;" data-variant="warn">
+              <div class="notice-inner">
+                <i data-lucide="info" size="18"></i>
+                <div class="notice-text">
+                  <strong id="notice-title">Notice</strong>
+                  <div id="notice-body">&nbsp;</div>
+                </div>
+                <button class="notice-close" type="button" aria-label="Close notice" onclick="hideNotice()">
+                  <i data-lucide="x" size="18"></i>
+                </button>
+              </div>
+              <div class="notice-actions">
+                <button class="notice-btn" type="button" onclick="fetchIpData(true)">Try again</button>
+              </div>
+            </div>
           </div>
 
           <div class="ip-details-grid">
@@ -500,12 +608,12 @@
               <strong>Not exactly.</strong> The location provided by an IP tool is based on the geolocation of your Internet Service Provider's (ISP) node.
             </p>
             <p>
-              Usually, this points to the city or region where your provider's server is located, not your doorstep. While it's accurate enough for websites to know your country or state (to show content in the right language or local offers), it is not precise enough to track your exact physical location in real-time without a court order to the provider.
+              Usually, this points to the city or region where your provider's server is located, not your doorstep. While it's accurate enough for websites to know your country or state, it is not precise enough to track your exact physical location in real time without legal processes with the provider.
             </p>
 
             <h2>Why does my IP change?</h2>
             <p>
-              Most residential internet providers use <strong>Dynamic IPs</strong>. This means your address can change periodically, or every time you restart your modem. <strong>Static IPs</strong> (which never change) are typically paid extra services, used primarily by businesses that need to host servers or security cameras.
+              Most residential internet providers use <strong>Dynamic IPs</strong>. This means your address can change periodically, or every time you restart your modem. <strong>Static IPs</strong> are typically paid extra services, used mainly by businesses that need to host servers or security cameras.
             </p>
           </article>
         </div>
@@ -517,7 +625,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-grid footer">
         <div>
           <h4>Calcule Sua Saúde</h4>
           <p>Precision tools and science-based information for your well-being.</p>
@@ -548,132 +656,336 @@
   </footer>
 
   <script>
-    // --- IP TOOL LOGIC ---
-    async function fetchIpData() {
-        const ipDisplay = document.getElementById('ip-display');
-        const ispDisplay = document.getElementById('isp-display');
-        const cityDisplay = document.getElementById('city-display');
-        const countryDisplay = document.getElementById('country-display');
+    // =========================================================
+    // IP + GEO/ISP (GitHub Pages friendly)
+    // - Timeouts + fallbacks
+    // - Combined providers first (IP + GEO) then IP-only fallback
+    // =========================================================
+    'use strict';
 
-        // Helper to update UI
-        const updateUI = (ip, isp, city, country) => {
-            ipDisplay.textContent = ip || 'Unavailable';
-            ispDisplay.textContent = isp || 'Unknown';
-            cityDisplay.textContent = city || '-';
-            countryDisplay.textContent = country || '-';
-        };
-
-        try {
-            // Attempt 1: ipapi.co
-            const response = await fetch('https://ipapi.co/json/');
-            if (!response.ok) throw new Error('ipapi.co failed');
-            const data = await response.json();
-            updateUI(
-                data.ip, 
-                data.org || data.asn, 
-                `${data.city || ''}, ${data.region_code || ''}`, 
-                data.country_name
-            );
-
-        } catch (error1) {
-            console.warn('Fallback 1 (ipwho.is) due to:', error1);
-            try {
-                // Attempt 2: ipwho.is (Usually better with CORS)
-                const response2 = await fetch('https://ipwho.is/');
-                if (!response2.ok) throw new Error('ipwho.is failed');
-                const data2 = await response2.json();
-                
-                if(!data2.success) throw new Error('ipwho.is returned success: false');
-
-                updateUI(
-                    data2.ip, 
-                    data2.connection?.isp || data2.connection?.org, 
-                    `${data2.city || ''}, ${data2.region_code || ''}`, 
-                    data2.country
-                );
-
-            } catch (error2) {
-                console.warn('Fallback 2 (ipify) due to:', error2);
-                try {
-                    // Attempt 3: ipify (IP only)
-                    const response3 = await fetch('https://api.ipify.org?format=json');
-                    if (!response3.ok) throw new Error('ipify failed');
-                    const data3 = await response3.json();
-                    
-                    updateUI(data3.ip, 'Unavailable (Geolocation Error)', '-', '-');
-                } catch (error3) {
-                    console.error('All IP services failed:', error3);
-                    ipDisplay.textContent = 'Error loading';
-                    ispDisplay.textContent = '-';
-                    cityDisplay.textContent = '-';
-                    countryDisplay.textContent = '-';
-                }
-            }
-        }
+    // ---------- Helpers ----------
+    function sanitizeIp(ip) {
+      return String(ip || '').trim().replace(/\s+/g, '');
     }
 
-    function copyIp() {
-        const ipText = document.getElementById('ip-display').textContent;
-        if (ipText && ipText !== 'Loading...' && ipText !== 'Error loading') {
-            navigator.clipboard.writeText(ipText).then(() => {
-                const msg = document.getElementById('copy-msg');
-                msg.style.display = 'inline';
-                setTimeout(() => msg.style.display = 'none', 2000);
-            });
-        }
+    function ipWithBreaks(rawIp) {
+      const safe = sanitizeIp(rawIp);
+      if (!safe) return 'Unavailable';
+      return safe.replace(/([:.])/g, '$1<wbr>');
     }
 
-    // --- ICONS & THEME (Standard) ---
+    function setIpDisplay(rawIp) {
+      const ipDisplay = document.getElementById('ip-display');
+      const copyBtn = document.getElementById('copy-btn');
+
+      const clean = sanitizeIp(rawIp);
+      ipDisplay.dataset.rawIp = clean;
+      ipDisplay.innerHTML = clean ? ipWithBreaks(clean) : 'Unavailable';
+
+      // Small tweak for very long IPv6
+      if (clean.length >= 34) ipDisplay.style.fontSize = 'clamp(1.05rem, 2.1vw, 2.0rem)';
+      else ipDisplay.style.fontSize = '';
+
+      copyBtn.disabled = !clean;
+    }
+
+    function setDetails({ isp, city, region, country }) {
+      const ispDisplay = document.getElementById('isp-display');
+      const cityDisplay = document.getElementById('city-display');
+      const countryDisplay = document.getElementById('country-display');
+
+      ispDisplay.textContent = isp || 'Unknown';
+      const cityText = [city, region].filter(Boolean).join(', ');
+      cityDisplay.textContent = cityText || '-';
+      countryDisplay.textContent = country || '-';
+    }
+
+    function isFileLikeOrigin() {
+      return location.protocol === 'file:' || location.origin === 'null';
+    }
+
+    function showNotice(variant, title, bodyHtml) {
+      const box = document.getElementById('notice');
+      const t = document.getElementById('notice-title');
+      const b = document.getElementById('notice-body');
+      if (!box || !t || !b) return;
+
+      box.dataset.variant = variant || 'warn';
+      t.textContent = title || 'Notice';
+      b.innerHTML = bodyHtml || '';
+      box.style.display = 'block';
+
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    function hideNotice() {
+      const box = document.getElementById('notice');
+      if (box) box.style.display = 'none';
+    }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function fetchWithTimeout(url, options = {}, timeoutMs = 7000) {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        return await fetch(url, { ...options, signal: controller.signal });
+      } finally {
+        clearTimeout(id);
+      }
+    }
+
+    async function fetchJson(url, options = {}, timeoutMs = 7000) {
+      const res = await fetchWithTimeout(url, options, timeoutMs);
+      if (!res.ok) throw new Error(url + ' HTTP ' + res.status);
+      return await res.json();
+    }
+
+    async function tryMany(tasks, { retries = 1, backoffMs = 250 } = {}) {
+      let lastErr = null;
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        for (const task of tasks) {
+          try {
+            const v = await task();
+            if (v) return v;
+          } catch (e) {
+            lastErr = e;
+          }
+        }
+        if (attempt < retries) await sleep(backoffMs * (attempt + 1));
+      }
+      throw lastErr || new Error('No tasks succeeded');
+    }
+
+    // ---------- Combined providers (IP + GEO + ISP) ----------
+    async function getIpAndGeoCombined() {
+      const tasks = [
+        async () => {
+          const j = await fetchJson('https://ipwho.is/', { cache: 'no-store' }, 7000);
+          if (!j || j.success === false) throw new Error('ipwho.is success:false');
+          return {
+            ip: sanitizeIp(j.ip),
+            isp: j.connection && (j.connection.isp || j.connection.org),
+            city: j.city,
+            region: j.region,
+            country: j.country
+          };
+        },
+        async () => {
+          const j = await fetchJson('https://ipapi.co/json/', { cache: 'no-store' }, 7000);
+          return {
+            ip: sanitizeIp(j.ip),
+            isp: j.org || j.asn,
+            city: j.city,
+            region: j.region,
+            country: j.country_name
+          };
+        }
+      ];
+
+      return await tryMany(tasks, { retries: 1, backoffMs: 350 });
+    }
+
+    // ---------- IP-only fallback ----------
+    async function getPublicIpOnly() {
+      const tasks = [
+        async () => {
+          const j = await fetchJson('https://api64.ipify.org?format=json', { cache: 'no-store' }, 6500);
+          return sanitizeIp(j && j.ip);
+        },
+        async () => {
+          const j = await fetchJson('https://api.ipify.org?format=json', { cache: 'no-store' }, 6500);
+          return sanitizeIp(j && j.ip);
+        }
+      ];
+      return await tryMany(tasks, { retries: 1, backoffMs: 350 });
+    }
+
+    // ---------- GEO/ISP by IP (fallback) ----------
+    async function getGeoByIp(ip) {
+      const clean = sanitizeIp(ip);
+      const tasks = [
+        async () => {
+          const j = await fetchJson('https://ipwho.is/' + encodeURIComponent(clean), { cache: 'no-store' }, 7000);
+          if (!j || j.success === false) throw new Error('ipwho.is success:false');
+          return {
+            isp: j.connection && (j.connection.isp || j.connection.org),
+            city: j.city,
+            region: j.region,
+            country: j.country
+          };
+        },
+        async () => {
+          const j = await fetchJson('https://ipapi.co/' + encodeURIComponent(clean) + '/json/', { cache: 'no-store' }, 7000);
+          return {
+            isp: j.org || j.asn,
+            city: j.city,
+            region: j.region,
+            country: j.country_name
+          };
+        }
+      ];
+
+      return await tryMany(tasks, { retries: 0 });
+    }
+
+    // ---------- Main flow ----------
+    async function fetchIpData(forceRetry = false) {
+      const ipDisplay = document.getElementById('ip-display');
+
+      hideNotice();
+      ipDisplay.textContent = 'Loading...';
+      setDetails({ isp: '...', city: '...', region: '', country: '...' });
+      setIpDisplay('');
+
+      // 1) Combined providers (best for static hosting like GitHub Pages)
+      try {
+        const data = await getIpAndGeoCombined();
+        if (!data.ip) throw new Error('Empty IP');
+        setIpDisplay(data.ip);
+        setDetails(data);
+        return;
+      } catch (e) {
+        console.warn('Combined provider failed:', e);
+      }
+
+      // 2) IP-only + GEO separate
+      let ip = '';
+      try {
+        ip = await getPublicIpOnly();
+        if (!ip) throw new Error('Empty IP');
+        setIpDisplay(ip);
+      } catch (e) {
+        console.error('Failed to detect IP:', e);
+        ipDisplay.textContent = 'Error loading IP';
+        setDetails({ isp: '-', city: '-', region: '', country: '-' });
+
+        const fileHint = isFileLikeOrigin()
+          ? '<br><br><strong>Tip:</strong> It looks like you opened this page as a local file (<code>file://</code>). Some services block these requests. Test via your domain / GitHub Pages.'
+          : '';
+
+        showNotice(
+          'error',
+          'Could not detect your IP',
+          'This may happen if an ad blocker / anti-tracker, firewall, or your network is blocking the request.' +
+          fileHint +
+          '<br><br><strong>Try:</strong> disable blockers for this site, refresh the page, and click “Try again”.'
+        );
+        return;
+      }
+
+      // GEO separate
+      try {
+        const geo = await getGeoByIp(ip);
+        setDetails(geo);
+      } catch (e) {
+        console.warn('GEO/ISP unavailable:', e);
+        setDetails({
+          isp: 'Unavailable (blocked / rate limit)',
+          city: '-',
+          region: '',
+          country: '-'
+        });
+
+        showNotice(
+          'warn',
+          'Details blocked (ISP / Location)',
+          'Your <strong>IP was detected</strong>, but the <strong>ISP/location</strong> request was blocked or rate-limited.' +
+          '<br><br><strong>Fix:</strong> disable ad blockers / anti-trackers for this site (or use a private window with extensions off) and click “Try again”.'
+        );
+      }
+    }
+
+    async function copyIp() {
+      const ipDisplay = document.getElementById('ip-display');
+      const raw = ipDisplay.dataset.rawIp || '';
+      if (!raw) return;
+
+      const msg = document.getElementById('copy-msg');
+
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(raw);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = raw;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+
+        msg.style.display = 'inline';
+        setTimeout(() => (msg.style.display = 'none'), 2000);
+      } catch (e) {
+        console.warn('Copy failed:', e);
+      }
+    }
+
+    // ---------- Icons & Theme ----------
     function initIcons() {
       if (typeof lucide !== 'undefined') lucide.createIcons();
-      else setTimeout(initIcons, 100);
+      else setTimeout(initIcons, 80);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       initIcons();
-      fetchIpData(); // Start IP fetch
+
+      // Expose functions used by inline HTML handlers
+      window.copyIp = copyIp;
+      window.fetchIpData = fetchIpData;
+      window.hideNotice = hideNotice;
 
       // Theme
       const savedTheme = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
-      
+
       const themeBtn = document.getElementById('theme-btn');
       const iconMoon = document.getElementById('icon-moon');
       const iconSun = document.getElementById('icon-sun');
 
       function updateThemeIcon(theme) {
-          if (theme === 'dark') {
-              iconMoon.style.display = 'none';
-              iconSun.style.display = 'inline-flex';
-          } else {
-              iconMoon.style.display = 'inline-flex';
-              iconSun.style.display = 'none';
-          }
+        if (theme === 'dark') {
+          iconMoon.style.display = 'none';
+          iconSun.style.display = 'inline-flex';
+        } else {
+          iconMoon.style.display = 'inline-flex';
+          iconSun.style.display = 'none';
+        }
       }
       updateThemeIcon(savedTheme);
 
       themeBtn.addEventListener('click', () => {
-          const current = document.documentElement.getAttribute('data-theme');
-          const next = current === 'light' ? 'dark' : 'light';
-          document.documentElement.setAttribute('data-theme', next);
-          localStorage.setItem('theme', next);
-          updateThemeIcon(next);
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateThemeIcon(next);
       });
 
-      // Dropdown Logic
-      document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
-          var toggle = dd.querySelector('.nav-dropdown-toggle');
-          if (!toggle) return;
-          toggle.addEventListener('click', function(e) {
-              e.stopPropagation();
-              var isOpen = dd.classList.contains('open');
-              document.querySelectorAll('.nav-dropdown.open').forEach(o => o.classList.remove('open'));
-              if (!isOpen) dd.classList.add('open');
-          });
+      // Dropdown logic
+      document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
+        const toggle = dd.querySelector('.nav-dropdown-toggle');
+        if (!toggle) return;
+
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const isOpen = dd.classList.contains('open');
+          document.querySelectorAll('.nav-dropdown.open').forEach(o => o.classList.remove('open'));
+          if (!isOpen) dd.classList.add('open');
+        });
       });
+
       document.addEventListener('click', () => {
-          document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
+        document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
       });
+
+      fetchIpData();
     });
   </script>
 </body>
