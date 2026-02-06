@@ -2,6 +2,19 @@
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
+    
+    <!-- Theme applied before CSS to reduce flash -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = saved ? saved : (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- --- INTERNATIONAL SEO (CRITICAL) --- -->
@@ -35,18 +48,6 @@
     <meta name="twitter:title" content="Health Tools & Medical Science | Calcule Sua Saúde">
     <meta name="twitter:description" content="Health calculators, quizzes, and evidence-based articles.">
     <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
-
-    <!-- Fast theme set (prevents flash) -->
-    <script>
-      (function () {
-        try {
-          var saved = localStorage.getItem('theme');
-          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var theme = saved ? saved : (prefersDark ? 'dark' : 'light');
-          document.documentElement.setAttribute('data-theme', theme);
-        } catch (e) {}
-      })();
-    </script>
 
     <!-- LCP hint: preload hero image -->
     <link rel="preload" as="image" href="img/cabeçario.webp" type="image/webp" fetchpriority="high">
@@ -163,7 +164,7 @@
     <!-- Global styles -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- CSS Adicional (Skip Link + Dropdown Menu + Featured Cards) -->
+    <!-- CSS Adicional (Skip Link + Dropdown Menu + Featured Cards + Cookie Banner) -->
     <style>
       .skip-link{
         position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
@@ -430,10 +431,128 @@
         color: var(--primary, #0A4D68);
         font-family: 'Source Sans 3', sans-serif;
       }
+      
+      /* ===== COOKIE BANNER PROFISSIONAL ===== */
+      .cookie-banner {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(150%);
+        width: 90%;
+        max-width: 1200px;
+        background-color: var(--bg-card, #ffffff);
+        color: var(--text-main, #1c1917);
+        padding: 20px 24px;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        border: 1px solid var(--border-subtle, #e2e8f0);
+        z-index: 10000;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .cookie-banner.show {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .cookie-content {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .cookie-title {
+        font-weight: 800;
+        font-size: 1rem;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .cookie-text {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      .cookie-text a {
+        color: var(--primary);
+        text-decoration: underline;
+        font-weight: 600;
+      }
+
+      .cookie-actions {
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-cookie-accept {
+        background-color: #0A4D68; /* Fixed color to ensure visibility */
+        color: #fff;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+
+      .btn-cookie-accept:hover {
+        background-color: #06384d; /* Fixed hover color */
+      }
+
+      .btn-cookie-close {
+        background: transparent;
+        border: 2px solid var(--border-subtle);
+        color: var(--text-muted);
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-cookie-close:hover {
+        border-color: var(--text-muted);
+        color: var(--text-main);
+      }
+
+      @media (max-width: 768px) {
+        .cookie-banner {
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          border-radius: 16px 16px 0 0;
+          transform: translateY(100%);
+          border-left: none;
+          border-right: none;
+          border-bottom: none;
+        }
+        .cookie-banner.show {
+          transform: translateY(0);
+        }
+        .cookie-actions {
+          width: 100%;
+          flex-direction: column-reverse;
+        }
+        .btn-cookie-accept, .btn-cookie-close {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
       @media (max-width: 640px){
         .featured-tool-card{ padding: 16px; gap: 14px; }
         .featured-tool-title{ font-size: 1.2rem; }
-        .featured-tool-desc{ font-size: 1.0rem; }
+        .featured-tool-desc{ font-size: 0.98rem; }
       }
 
     </style>
@@ -484,26 +603,26 @@
                 <li><a href="calculadoras.html" class="nav-link">Calculators</a></li>
                 <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
                 
-                <!-- DROPDOWN MENU ADDED HERE -->
+                <!-- DROPDOWN MENU -->
                 <li class="nav-dropdown">
                     <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
                         Tools <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
                     </button>
                     <div class="nav-dropdown-menu" role="menu">
                         <span class="dropdown-section-title">General Utilities</span>
-                        <a href="ferramentas/gerador-qr-code.html" class="dropdown-item" role="menuitem">
+                        <a href="ferramentas/qr-code-generator-en.html" class="dropdown-item" role="menuitem">
                             <i data-lucide="qr-code" size="18"></i> QR Code Generator
                         </a>
-                        <a href="ferramentas/conversor-unidades.html" class="dropdown-item" role="menuitem">
+                        <a href="ferramentas/unit-converter-en.html" class="dropdown-item" role="menuitem">
                             <i data-lucide="ruler" size="18"></i> Unit Converter
                         </a>
-                        <a href="ferramentas/compressor-imagem.html" class="dropdown-item" role="menuitem">
+                        <a href="ferramentas/image-compressor-en.html" class="dropdown-item" role="menuitem">
                             <i data-lucide="image-down" size="18"></i> Image Compressor
                         </a>
-                        <a href="ferramentas/gerador-senhas.html" class="dropdown-item" role="menuitem">
+                        <a href="ferramentas/password-generator-en.html" class="dropdown-item" role="menuitem">
                             <i data-lucide="key-round" size="18"></i> Password Generator
                         </a>
-                        <a href="ferramentas/qual-e-meu-ip.html" class="dropdown-item" role="menuitem">
+                        <a href="ferramentas/what-is-my-ip-en.html" class="dropdown-item" role="menuitem">
                             <i data-lucide="wifi" size="18"></i> What Is My IP?
                         </a>
                     </div>
@@ -565,7 +684,6 @@
                     <h2>Tools</h2>
                     <p>Evidence-based tools for quick health assessment.</p>
                 </div>
-
 
                 <!-- NEW TOOL (FEATURED) -->
                 <a class="featured-tool-card" href="calculadoras/glucose-converter-en.html" aria-label="Open Blood Sugar Converter (mg/dL ↔ mmol/L)">
@@ -945,6 +1063,23 @@
         </div>
     </footer>
 
+    <!-- COOKIE BANNER -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+      <div class="cookie-content">
+        <div id="cookie-title" class="cookie-title">
+          <i data-lucide="cookie" size="20" style="color: var(--primary);"></i>
+          Your Privacy Matters
+        </div>
+        <p class="cookie-text">
+          We use cookies to improve your experience, analyze traffic, and personalize ads. By continuing, you agree to our <a href="politica-de-privacidade-en.html">Privacy Policy</a>.
+        </p>
+      </div>
+      <div class="cookie-actions">
+        <button id="btn-cookie-close" class="btn-cookie-close">Close</button>
+        <button id="btn-cookie-accept" class="btn-cookie-accept">Accept & Continue</button>
+      </div>
+    </div>
+
     <!-- SCRIPT -->
     <script>
         function initIcons() {
@@ -993,6 +1128,26 @@
                     setTimeout(() => themeBtn.classList.remove('animate-theme-switch'), 500);
                 });
             }
+
+            // ===== COOKIE BANNER LOGIC =====
+            const cookieBanner = document.getElementById('cookie-banner');
+            const btnAccept = document.getElementById('btn-cookie-accept');
+            const btnClose = document.getElementById('btn-cookie-close');
+
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            }
+
+            btnAccept.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieBanner.classList.remove('show');
+            });
+
+            btnClose.addEventListener('click', () => {
+                cookieBanner.classList.remove('show');
+            });
 
             // ===== DROPDOWN TOOLS (New) =====
             document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
