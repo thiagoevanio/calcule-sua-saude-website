@@ -50,7 +50,7 @@
     <meta name="twitter:description" content="Calculadoras de saúde, quizzes e artigos baseados em evidências.">
     <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
 
-    <!-- Performance hints (reduz latência de terceiros e ajuda priorização) -->
+    <!-- Performance hints -->
     <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -131,7 +131,6 @@
         },
         "featureList": "Cálculo de IMC, Classificação de Obesidade, Recomendações de Saúde"
       },
-
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
@@ -169,12 +168,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- Ícones -->
-    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- ESTILOS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Acessibilidade: skip link (CSS mínimo independente do style.css) -->
+    <!-- CSS Adicional (Skip Link + Dropdown + Cookie Banner) -->
     <style>
       .skip-link{
         position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
@@ -440,6 +439,123 @@
         .featured-tool-desc{ font-size: 0.98rem; }
       }
 
+      /* ===== COOKIE BANNER PROFISSIONAL ===== */
+      .cookie-banner {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(150%); /* Começa escondido */
+        width: 90%;
+        max-width: 1200px;
+        background-color: var(--bg-card, #ffffff);
+        color: var(--text-main, #1c1917);
+        padding: 20px 24px;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        border: 1px solid var(--border-subtle, #e2e8f0);
+        z-index: 10000;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .cookie-banner.show {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .cookie-content {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .cookie-title {
+        font-weight: 800;
+        font-size: 1rem;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .cookie-text {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      .cookie-text a {
+        color: var(--primary);
+        text-decoration: underline;
+        font-weight: 600;
+      }
+
+      .cookie-actions {
+        display: flex;
+        gap: 12px;
+      }
+
+      /* FIX: Cor de fundo forçada para garantir visibilidade */
+      .btn-cookie-accept {
+        background-color: #0A4D68; 
+        color: #fff;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+
+      .btn-cookie-accept:hover {
+        background-color: #06384d;
+      }
+
+      .btn-cookie-close {
+        background: transparent;
+        border: 2px solid var(--border-subtle);
+        color: var(--text-muted);
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-cookie-close:hover {
+        border-color: var(--text-muted);
+        color: var(--text-main);
+      }
+
+      @media (max-width: 768px) {
+        .cookie-banner {
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          border-radius: 16px 16px 0 0;
+          transform: translateY(100%);
+          border-left: none;
+          border-right: none;
+          border-bottom: none;
+        }
+        .cookie-banner.show {
+          transform: translateY(0);
+        }
+        .cookie-actions {
+          width: 100%;
+          flex-direction: column-reverse;
+        }
+        .btn-cookie-accept, .btn-cookie-close {
+          width: 100%;
+          text-align: center;
+        }
+      }
     </style>
 </head>
 <body>
@@ -569,7 +685,7 @@
                     class="featured-tool-card"
                     href="calculadoras/conversor-glicose.html"
                     data-href-pt="calculadoras/conversor-glicose.html"
-                    data-href-en="en/tools/glucose-converter.html"
+                    data-href-en="calculadoras/glucose-converter-en.html"
                     aria-label="Abrir Conversor de Glicose (mg/dL ↔ mmol/L)"
                 >
                     <span class="featured-tool-badge">Novo</span>
@@ -839,7 +955,7 @@
                     <label class="sr-only" for="newsletter-email" style="position:absolute;left:-9999px;">E-mail</label>
                     <input id="newsletter-email" type="email" name="email" placeholder="Seu melhor e-mail" class="newsletter-input" autocomplete="email" inputmode="email" required>
 
-                    <!-- Honeypot anti-spam (Formspree ignora se configurado; também reduz bots simples) -->
+                    <!-- Honeypot anti-spam -->
                     <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
                     <button type="submit" class="btn-subscribe">Inscrever-se</button>
@@ -906,6 +1022,23 @@
         </div>
     </footer>
 
+    <!-- AVISO DE COOKIES -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+      <div class="cookie-content">
+        <div id="cookie-title" class="cookie-title">
+          <i data-lucide="cookie" size="20" style="color: var(--primary);"></i>
+          Sua privacidade importa
+        </div>
+        <p class="cookie-text">
+          Utilizamos cookies para melhorar sua experiência, analisar o tráfego e personalizar anúncios. Ao continuar, você concorda com nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.
+        </p>
+      </div>
+      <div class="cookie-actions">
+        <button id="btn-cookie-close" class="btn-cookie-close">Fechar</button>
+        <button id="btn-cookie-accept" class="btn-cookie-accept">Aceitar e Continuar</button>
+      </div>
+    </div>
+
     <!-- SCRIPT -->
     <script>
         function applyTheme(theme) {
@@ -960,6 +1093,29 @@
 
             initLucideWhenIdle();
 
+            // ===== LÓGICA DO COOKIE BANNER =====
+            const cookieBanner = document.getElementById('cookie-banner');
+            const btnAccept = document.getElementById('btn-cookie-accept');
+            const btnClose = document.getElementById('btn-cookie-close');
+
+            // Verifica se já aceitou (chave 'cookiesAccepted' no localStorage)
+            if (!localStorage.getItem('cookiesAccepted')) {
+                // Pequeno delay para a animação ficar suave ao entrar
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            }
+
+            btnAccept.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieBanner.classList.remove('show');
+            });
+
+            btnClose.addEventListener('click', () => {
+                // Apenas fecha sem salvar a preferência permanente (aparecerá na próxima sessão)
+                cookieBanner.classList.remove('show');
+            });
+
             // ===== DROPDOWN FERRAMENTAS =====
             document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
                 var toggle = dd.querySelector('.nav-dropdown-toggle');
@@ -1008,8 +1164,9 @@
             const glucoseCard = document.getElementById('featured-glucose-card');
             if (glucoseCard) {
                 const lang = (document.documentElement.lang || '').toLowerCase();
-                const isEN = lang.startsWith('en') || /index-en\.html$/i.test(window.location.pathname);
-                const href = isEN ? glucoseCard.getAttribute('data-href-en') : glucoseCard.getAttribute('data-href-pt');
+                const isEN = lang.startsWith('en') || /index-en\\.html$/i.test(window.location.pathname);
+                // ATUALIZADO: Link correto para a nova estrutura de pastas
+                const href = isEN ? 'calculadoras/glucose-converter-en.html' : 'calculadoras/conversor-glicose.html';
                 if (href) glucoseCard.setAttribute('href', href);
             }
 
