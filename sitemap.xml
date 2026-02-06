@@ -266,6 +266,74 @@
   </url>
 
   <!-- ========================================== -->
+  <!-- PASTA: FERRAMENTAS (NOVO) -->
+  <!-- ========================================== -->
+  
+  <!-- Ferramentas (PT-BR) -->
+  <url>
+    <loc>https://www.calculesuasaude.com.br/ferramentas/qual-e-meu-ip.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.calculesuasaude.com.br/ferramentas/gerador-qr-code.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.calculesuasaude.com.br/ferramentas/conversor-unidades.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.calculesuasaude.com.br/ferramentas/compressor-imagem.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.calculesuasaude.com.br/ferramentas/gerador-senhas.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Ferramentas (EN) -->
+  <url>
+    <loc>https://www.calculesuasaude.com.br/ferramentas/what-is-my-ip-en.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.calculesuasaude.com.br/ferramentas/qr-code-generator-en.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.calculesuasaude.com.br/ferramentas/unit-converter-en.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.calculesuasaude.com.br/ferramentas/image-compressor-en.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.calculesuasaude.com.br/ferramentas/password-generator-en.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ========================================== -->
   <!-- PASTA: QUIZZ (quizz/) -->
   <!-- ========================================== -->
 
