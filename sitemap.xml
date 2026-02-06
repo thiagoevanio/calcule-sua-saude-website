@@ -143,6 +143,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://www.calculesuasaude.com.br/calculadoras/conversor-glicose.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://www.calculesuasaude.com.br/calculadoras/data-prov%C3%A1vel-do-parto.html</loc>
     <lastmod>2026-01-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -213,6 +219,12 @@
   <url>
     <loc>https://www.calculesuasaude.com.br/calculadoras/gasto-energetico-diario-tdee-en.html</loc>
     <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.calculesuasaude.com.br/calculadoras/glucose-converter-en.html</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
