@@ -122,7 +122,7 @@
           "priceCurrency": "BRL"
         },
         "featureList": "BMI calculation, classification, basic health guidance"
-      },,
+      },
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
@@ -138,7 +138,7 @@
           "priceCurrency": "BRL"
         },
         "featureList": "Instant conversion mg/dL ↔ mmol/L, conversion chart, reference ranges"
-      }
+      },
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -158,12 +158,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- Icons (Lucide) -->
-    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Global styles -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- A11y: skip link (minimal CSS independent of style.css) -->
+    <!-- CSS Adicional (Skip Link + Dropdown Menu + Featured Cards) -->
     <style>
       .skip-link{
         position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
@@ -171,6 +171,177 @@
       .skip-link:focus{
         left:16px; top:16px; width:auto; height:auto; padding:10px 14px; z-index:9999;
         background:#0A4D68; color:#fff; border-radius:6px;
+      }
+
+      /* ===== DROPDOWN TOOLS (NAV) ===== */
+      .nav-dropdown{
+        position: relative;
+      }
+      .nav-dropdown-toggle{
+        background: none;
+        border: none;
+        font-family: 'Source Sans 3', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        position: relative;
+      }
+      .nav-dropdown-toggle::after{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--secondary);
+        transition: width 0.3s;
+      }
+      .nav-dropdown-toggle:hover::after{ width: 100%; }
+      .nav-dropdown-toggle:hover{ color: #fff; }
+
+      .dropdown-chevron{
+        transition: transform .25s ease;
+        display: inline-flex;
+      }
+      .nav-dropdown.open .dropdown-chevron{
+        transform: rotate(180deg);
+      }
+
+      /* Dropdown Panel — LIGHT MODE */
+      .nav-dropdown-menu{
+        position: absolute;
+        top: calc(100% + 14px);
+        right: 0;
+        min-width: 270px;
+        background: #ffffff;
+        border: 1px solid #E7E5E4;
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
+        transition: opacity .22s ease, transform .22s ease, visibility .22s;
+        z-index: 9000;
+      }
+      .nav-dropdown.open .nav-dropdown-menu{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      /* Dropdown Panel — DARK MODE */
+      [data-theme="dark"] .nav-dropdown-menu{
+        background: #1C1917;
+        border-color: #44403C;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+      }
+
+      .dropdown-section-title{
+        display: block;
+        padding: 10px 20px 6px;
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        color: #57534E;
+      }
+      [data-theme="dark"] .dropdown-section-title{
+        color: #A8A29E;
+      }
+
+      .dropdown-item{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        color: #1C1917;
+        text-decoration: none;
+        transition: background .15s ease, color .15s ease;
+        white-space: nowrap;
+      }
+      [data-theme="dark"] .dropdown-item{
+        color: #F5F5F4;
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item:focus-visible{
+        background: rgba(10,77,104,0.07);
+        color: #0A4D68;
+      }
+      [data-theme="dark"] .dropdown-item:hover,
+      [data-theme="dark"] .dropdown-item:focus-visible{
+        background: rgba(56,189,248,0.10);
+        color: #38BDF8;
+      }
+
+      .dropdown-item i{
+        flex-shrink: 0;
+        color: #0A4D68;
+        opacity: .7;
+      }
+      [data-theme="dark"] .dropdown-item i{
+        color: #38BDF8;
+      }
+
+      /* Mobile: dropdown becomes expandable list */
+      @media (max-width: 900px){
+        .nav-dropdown-menu{
+          position: static;
+          box-shadow: none;
+          border: none;
+          border-radius: 0;
+          background: transparent !important;
+          padding: 6px 0 0 0;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height .3s ease;
+        }
+        .nav-dropdown.open .nav-dropdown-menu{
+          max-height: 500px;
+        }
+        .dropdown-section-title{
+          color: rgba(255,255,255,0.5);
+          padding: 6px 8px 4px;
+        }
+        .dropdown-item{
+          color: rgba(255,255,255,0.9);
+          padding: 6px 8px;
+          font-size: 0.88rem;
+        }
+        .dropdown-item:hover,
+        .dropdown-item:focus-visible{
+          background: rgba(255,255,255,0.08);
+          color: #fff;
+        }
+        .dropdown-item i{
+          color: rgba(255,255,255,0.7);
+        }
+        [data-theme="dark"] .dropdown-section-title{
+          color: rgba(255,255,255,0.5);
+        }
+        [data-theme="dark"] .dropdown-item{
+          color: rgba(255,255,255,0.9);
+        }
+        [data-theme="dark"] .dropdown-item:hover{
+          background: rgba(255,255,255,0.08);
+          color: #fff;
+        }
+        [data-theme="dark"] .dropdown-item i{
+          color: rgba(255,255,255,0.7);
+        }
       }
     
       /* Featured tool card (Home) */
@@ -310,11 +481,34 @@
             <ul class="nav-menu">
                 <li><a href="index-en.html" class="nav-link active" aria-current="page">Home</a></li>
                 <li><a href="artigos-en.html" class="nav-link">Articles</a></li>
-
-                <!-- Se você tiver páginas EN para esses itens, troque aqui:
-                     calculators-en.html / quizzes-en.html / contato-en.html -->
                 <li><a href="calculadoras.html" class="nav-link">Calculators</a></li>
                 <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
+                
+                <!-- DROPDOWN MENU ADDED HERE -->
+                <li class="nav-dropdown">
+                    <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        Tools <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <span class="dropdown-section-title">General Utilities</span>
+                        <a href="ferramentas/gerador-qr-code.html" class="dropdown-item" role="menuitem">
+                            <i data-lucide="qr-code" size="18"></i> QR Code Generator
+                        </a>
+                        <a href="ferramentas/conversor-unidades.html" class="dropdown-item" role="menuitem">
+                            <i data-lucide="ruler" size="18"></i> Unit Converter
+                        </a>
+                        <a href="ferramentas/compressor-imagem.html" class="dropdown-item" role="menuitem">
+                            <i data-lucide="image-down" size="18"></i> Image Compressor
+                        </a>
+                        <a href="ferramentas/gerador-senhas.html" class="dropdown-item" role="menuitem">
+                            <i data-lucide="key-round" size="18"></i> Password Generator
+                        </a>
+                        <a href="ferramentas/qual-e-meu-ip.html" class="dropdown-item" role="menuitem">
+                            <i data-lucide="wifi" size="18"></i> What Is My IP?
+                        </a>
+                    </div>
+                </li>
+
                 <li><a href="contato.html" class="btn-outline-white">Contact</a></li>
             </ul>
         </div>
@@ -341,7 +535,6 @@
                         Content for educational and informational purposes only.
                     </div>
 
-                    <!-- Igual ao PT: dois CTAs -->
                     <div class="delay-300" style="display:flex; gap:12px; flex-wrap:wrap;">
                         <a href="calculadoras.html" class="btn-hero" aria-label="Open calculators">
                             Use Calculators <i data-lucide="arrow-right"></i>
@@ -375,7 +568,7 @@
 
 
                 <!-- NEW TOOL (FEATURED) -->
-                <a class="featured-tool-card" href="calculadoras/glucose-converter.html" aria-label="Open Blood Sugar Converter (mg/dL ↔ mmol/L)">
+                <a class="featured-tool-card" href="calculadoras/glucose-converter-en.html" aria-label="Open Blood Sugar Converter (mg/dL ↔ mmol/L)">
                     <span class="featured-tool-badge">New</span>
 
                     <div class="featured-tool-icon" aria-hidden="true">
@@ -800,6 +993,50 @@
                     setTimeout(() => themeBtn.classList.remove('animate-theme-switch'), 500);
                 });
             }
+
+            // ===== DROPDOWN TOOLS (New) =====
+            document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+                var toggle = dd.querySelector('.nav-dropdown-toggle');
+                if (!toggle) return;
+
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var isOpen = dd.classList.contains('open');
+                    // Close other dropdowns if any
+                    document.querySelectorAll('.nav-dropdown.open').forEach(function(other) {
+                        other.classList.remove('open');
+                        var btn = other.querySelector('.nav-dropdown-toggle');
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    });
+                    if (!isOpen) {
+                        dd.classList.add('open');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.nav-dropdown.open').forEach(function(dd) {
+                    dd.classList.remove('open');
+                    var btn = dd.querySelector('.nav-dropdown-toggle');
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Close dropdown with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd) {
+                        dd.classList.remove('open');
+                        var btn = dd.querySelector('.nav-dropdown-toggle');
+                        if (btn) {
+                            btn.setAttribute('aria-expanded', 'false');
+                            btn.focus();
+                        }
+                    });
+                }
+            });
         });
     </script>
 </body>
