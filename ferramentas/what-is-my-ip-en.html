@@ -34,18 +34,18 @@
   <meta name="twitter:title" content="What Is My IP? Free Detection Tool" />
   <meta name="twitter:description" content="Find your IP address and understand how it affects your online privacy." />
   <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/ferramentas/ip-og.webp" />
-  
-    <!-- Ads / Analytics -->
-    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-EVCQQZV60N');
-    </script>
+  <!-- Ads / Analytics -->
+  <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+  </script>
 
   <link rel="icon" href="/favicon.ico" />
 
@@ -76,7 +76,7 @@
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Web",
         "url": "https://www.calculesuasaude.com.br/ferramentas/what-is-my-ip-en.html",
-        "description": "Free online tool to identify the user's public IP address, internet service provider (ISP), and approximate location.",
+        "description": "Free online tool to identify the user's public IP address (IPv4/IPv6), internet service provider (ISP), and approximate location.",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -98,7 +98,7 @@
   }
   </script>
 
-  <!-- Styles (Matching site standard) -->
+  <!-- Styles -->
   <style>
     :root {
       --primary: #0A4D68;
@@ -242,19 +242,16 @@
     .page-header .subtitle {
       font-size: 1.15rem; color: var(--text-muted); max-width: 750px; margin: 0 auto;
     }
-    .trust-row {
-      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 24px;
-    }
+    .trust-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
     .trust-pill {
       display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
       border: 1px solid var(--border-subtle); border-radius: 999px;
       background: var(--bg-card); font-size: 0.85rem; font-weight: 700; color: var(--text-muted);
     }
 
-    /* Tool section spacing (same as PT page) */
     .tool-section { padding: 22px 0 0; }
 
-    /* --- IP TOOL UI (IPv6 friendly) --- */
+    /* --- IP TOOL UI --- */
     .ip-tool-card {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
@@ -266,6 +263,23 @@
       background: linear-gradient(135deg, rgba(10,77,104,0.05), rgba(4,120,87,0.05));
       border-bottom: 1px solid var(--border-subtle);
     }
+
+    /* --- IP dual (IPv4 + IPv6) --- */
+    .ip-dual-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+    .ip-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
     .ip-label {
       font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;
       font-weight: 800; color: var(--text-light); margin-bottom: 10px; display: block;
@@ -275,8 +289,7 @@
       font-size: clamp(1.1rem, 2.3vw, 2.2rem);
       font-weight: 700; color: var(--primary);
       line-height: 1.25; letter-spacing: 0.01em;
-      margin: 10px auto 18px;
-      padding: 0 12px;
+      margin: 10px auto 18px; padding: 0 12px;
       max-width: 100%;
       white-space: normal;
       word-break: normal;
@@ -285,50 +298,31 @@
     }
 
     .copy-row {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: inline-flex; align-items: center; gap: 10px;
+      flex-wrap: wrap; justify-content: center;
     }
-
     .copy-btn {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--bg-card); border: 2px solid var(--border-subtle);
-      padding: 10px 20px; border-radius: 999px; font-weight: 700; cursor: pointer;
-      transition: all 0.2s; color: var(--text-muted);
-      line-height: 1;
+      padding: 10px 20px; border-radius: 999px;
+      font-weight: 700; cursor: pointer; transition: all 0.2s;
+      color: var(--text-muted); line-height: 1;
     }
     .copy-btn:hover { border-color: var(--primary); color: var(--primary); }
     .copy-btn:disabled { opacity: 0.55; cursor: not-allowed; }
 
-    .copy-msg {
-      display: none;
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 800;
-    }
+    .copy-msg { display: none; color: var(--accent); font-size: 0.85rem; font-weight: 800; }
 
-    /* Notice (retry + warnings) */
+    /* Notice */
     .notice {
-      margin: 14px auto 0;
-      max-width: 720px;
-      text-align: left;
-      border: 1px solid var(--border-subtle);
-      background: var(--bg-card);
-      border-radius: 14px;
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
+      margin: 14px auto 0; max-width: 720px; text-align: left;
+      border: 1px solid var(--border-subtle); background: var(--bg-card);
+      border-radius: 14px; box-shadow: var(--shadow-sm); overflow: hidden;
     }
-
     .notice-inner {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 10px;
-      align-items: start;
-      padding: 12px 12px;
+      display: grid; grid-template-columns: auto 1fr auto;
+      gap: 10px; align-items: start; padding: 12px 12px;
     }
-
     .notice-text strong { display: block; font-size: 0.95rem; margin-bottom: 2px; }
     .notice-text div { font-size: 0.95rem; color: var(--text-muted); }
 
@@ -337,32 +331,18 @@
     .notice[data-variant="info"] { border-color: rgba(56,189,248,0.35); }
 
     .notice-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      padding: 0 12px 12px;
-      flex-wrap: wrap;
+      display: flex; gap: 10px; align-items: center;
+      padding: 0 12px 12px; flex-wrap: wrap;
     }
-
     .notice-btn {
-      border: 2px solid var(--border-subtle);
-      background: var(--bg-card);
-      color: var(--text-main);
-      padding: 9px 14px;
-      border-radius: 999px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.2s;
+      border: 2px solid var(--border-subtle); background: var(--bg-card); color: var(--text-main);
+      padding: 9px 14px; border-radius: 999px; font-weight: 800; cursor: pointer; transition: all 0.2s;
     }
     .notice-btn:hover { border-color: var(--primary); color: var(--primary); }
 
     .notice-close {
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      color: var(--text-muted);
-      padding: 6px;
-      border-radius: 10px;
+      border: none; background: transparent; cursor: pointer; color: var(--text-muted);
+      padding: 6px; border-radius: 10px;
     }
     .notice-close:hover { background: rgba(0,0,0,0.05); }
     [data-theme="dark"] .notice-close:hover { background: rgba(255,255,255,0.06); }
@@ -379,10 +359,8 @@
       font-size: 0.8rem; text-transform: uppercase; font-weight: 700; color: var(--text-light);
       display: flex; align-items: center; gap: 6px;
     }
-    .detail-value {
-      font-size: 1.1rem; font-weight: 600; color: var(--text-main);
-      word-break: break-word;
-    }
+    .detail-value { font-size: 1.1rem; font-weight: 600; color: var(--text-main); word-break: break-word; }
+
     .loading-pulse { animation: pulse 1.5s infinite; opacity: 0.6; }
     @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 0.3; } 100% { opacity: 0.6; } }
 
@@ -391,12 +369,24 @@
       * { scroll-behavior: auto; }
     }
 
+    @media (max-width: 920px) {
+      .container { padding: 0 18px; }
+      .logo { font-size: 1.45rem; }
+    }
+
+    @media (max-width: 800px) {
+      .nav-menu { display: none; }
+      .page-header h1 { font-size: 2rem; }
+      .ip-main-display { padding: 28px 14px; }
+      .ip-address-value { padding: 0 8px; }
+      .ip-dual-grid { grid-template-columns: 1fr; }
+    }
+
     /* --- EDUCATIONAL CONTENT --- */
     .content-area { max-width: 800px; margin: 50px auto; padding: 0 20px; }
     .content-block h2 {
       font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 16px;
-      color: var(--text-main); border-bottom: 2px solid var(--secondary); display: inline-block;
-      padding-bottom: 4px;
+      color: var(--text-main); border-bottom: 2px solid var(--secondary); display: inline-block; padding-bottom: 4px;
     }
     .content-block p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 20px; }
     .content-block ul { margin-left: 20px; margin-bottom: 20px; color: var(--text-muted); }
@@ -415,18 +405,6 @@
     .footer ul li { margin-bottom: 10px; }
     .footer ul li a:hover { color: #fff; }
     .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.85rem; }
-
-    @media (max-width: 920px) {
-      .container { padding: 0 18px; }
-      .logo { font-size: 1.45rem; }
-    }
-
-    @media (max-width: 800px) {
-      .nav-menu { display: none; }
-      .page-header h1 { font-size: 2rem; }
-      .ip-main-display { padding: 28px 14px; }
-      .ip-address-value { padding: 0 8px; }
-    }
   </style>
 </head>
 
@@ -513,7 +491,7 @@
     <header class="page-header">
       <div class="container">
         <h1>What Is My IP?</h1>
-        <p class="subtitle">Identify your public IP address, internet provider, and approximate location instantly.</p>
+        <p class="subtitle">Identify your public IP address (IPv4/IPv6), internet provider, and approximate location instantly.</p>
 
         <div class="trust-row">
           <span class="trust-pill"><i data-lucide="lock" size="14"></i> 100% Secure</span>
@@ -529,15 +507,33 @@
         <!-- TOOL CARD -->
         <div class="ip-tool-card">
           <div class="ip-main-display">
-            <span class="ip-label">Your Public IP Address</span>
 
-            <div class="ip-address-value" id="ip-display" aria-live="polite">Loading...</div>
+            <div class="ip-dual-grid">
+              <!-- IPv4 -->
+              <div class="ip-block">
+                <span class="ip-label">Your Public IPv4</span>
+                <div class="ip-address-value" id="ip4-display" aria-live="polite">Loading...</div>
 
-            <div class="copy-row">
-              <button class="copy-btn" id="copy-btn" onclick="copyIp()" disabled>
-                <i data-lucide="copy" size="18"></i> Copy IP
-              </button>
-              <span class="copy-msg" id="copy-msg" role="status" aria-live="polite">Copied!</span>
+                <div class="copy-row">
+                  <button class="copy-btn" id="copy4-btn" onclick="copyIp('v4')" disabled>
+                    <i data-lucide="copy" size="18"></i> Copy IPv4
+                  </button>
+                  <span class="copy-msg" id="copy4-msg" role="status" aria-live="polite">Copied!</span>
+                </div>
+              </div>
+
+              <!-- IPv6 -->
+              <div class="ip-block">
+                <span class="ip-label">Your Public IPv6</span>
+                <div class="ip-address-value" id="ip6-display" aria-live="polite">Loading...</div>
+
+                <div class="copy-row">
+                  <button class="copy-btn" id="copy6-btn" onclick="copyIp('v6')" disabled>
+                    <i data-lucide="copy" size="18"></i> Copy IPv6
+                  </button>
+                  <span class="copy-msg" id="copy6-msg" role="status" aria-live="polite">Copied!</span>
+                </div>
+              </div>
             </div>
 
             <!-- Notice (when APIs are blocked / unavailable) -->
@@ -590,7 +586,7 @@
                 <i data-lucide="info" size="20"></i> Fact
               </h3>
               <p style="margin-bottom:0; font-size:0.95rem;">
-                There are two main types of IP addresses: <strong>Public</strong> (like the one shown above, used to communicate with the outside world) and <strong>Private</strong> (used only within your local Wi-Fi network to connect your devices to each other).
+                There are two main types of IP addresses: <strong>Public</strong> (like the ones shown above: IPv4/IPv6, used to communicate with the outside world) and <strong>Private</strong> (used only within your local Wi-Fi network to connect your devices to each other).
               </p>
             </div>
 
@@ -657,9 +653,10 @@
 
   <script>
     // =========================================================
-    // IP + GEO/ISP (GitHub Pages friendly)
-    // - Timeouts + fallbacks
-    // - Combined providers first (IP + GEO) then IP-only fallback
+    // Public IP (IPv4 + IPv6) + GEO/ISP (GitHub Pages friendly)
+    // - Shows both IPs (when available)
+    // - Separate copy buttons
+    // - GEO/ISP via ipwho.is / ipapi.co
     // =========================================================
     'use strict';
 
@@ -668,25 +665,14 @@
       return String(ip || '').trim().replace(/\s+/g, '');
     }
 
+    function isIPv6(ip) {
+      return String(ip || '').includes(':');
+    }
+
     function ipWithBreaks(rawIp) {
       const safe = sanitizeIp(rawIp);
       if (!safe) return 'Unavailable';
       return safe.replace(/([:.])/g, '$1<wbr>');
-    }
-
-    function setIpDisplay(rawIp) {
-      const ipDisplay = document.getElementById('ip-display');
-      const copyBtn = document.getElementById('copy-btn');
-
-      const clean = sanitizeIp(rawIp);
-      ipDisplay.dataset.rawIp = clean;
-      ipDisplay.innerHTML = clean ? ipWithBreaks(clean) : 'Unavailable';
-
-      // Small tweak for very long IPv6
-      if (clean.length >= 34) ipDisplay.style.fontSize = 'clamp(1.05rem, 2.1vw, 2.0rem)';
-      else ipDisplay.style.fontSize = '';
-
-      copyBtn.disabled = !clean;
     }
 
     function setDetails({ isp, city, region, country }) {
@@ -698,6 +684,10 @@
       const cityText = [city, region].filter(Boolean).join(', ');
       cityDisplay.textContent = cityText || '-';
       countryDisplay.textContent = country || '-';
+    }
+
+    function showLoadingDetails() {
+      setDetails({ isp: '...', city: '...', region: '', country: '...' });
     }
 
     function isFileLikeOrigin() {
@@ -743,6 +733,17 @@
       return await res.json();
     }
 
+    async function fetchText(url, options = {}, timeoutMs = 7000) {
+      const res = await fetchWithTimeout(url, options, timeoutMs);
+      if (!res.ok) throw new Error(url + ' HTTP ' + res.status);
+      return (await res.text()).trim();
+    }
+
+    function pickIpFromJson(j) {
+      if (!j) return '';
+      return sanitizeIp(j.ip || j.address || j.query || j.value);
+    }
+
     async function tryMany(tasks, { retries = 1, backoffMs = 250 } = {}) {
       let lastErr = null;
       for (let attempt = 0; attempt <= retries; attempt++) {
@@ -757,6 +758,53 @@
         if (attempt < retries) await sleep(backoffMs * (attempt + 1));
       }
       throw lastErr || new Error('No tasks succeeded');
+    }
+
+    function resetIpUI() {
+      const ip4El = document.getElementById('ip4-display');
+      const ip6El = document.getElementById('ip6-display');
+      const btn4 = document.getElementById('copy4-btn');
+      const btn6 = document.getElementById('copy6-btn');
+      const msg4 = document.getElementById('copy4-msg');
+      const msg6 = document.getElementById('copy6-msg');
+
+      ip4El.dataset.rawIp = '';
+      ip6El.dataset.rawIp = '';
+
+      ip4El.innerHTML = 'Loading...';
+      ip6El.innerHTML = 'Loading...';
+
+      ip4El.style.fontSize = '';
+      ip6El.style.fontSize = '';
+
+      btn4.disabled = true;
+      btn6.disabled = true;
+
+      msg4.style.display = 'none';
+      msg6.style.display = 'none';
+    }
+
+    function setIpDisplay(kind, rawIp) {
+      const isV4 = kind === 'v4';
+      const ipEl = document.getElementById(isV4 ? 'ip4-display' : 'ip6-display');
+      const btn = document.getElementById(isV4 ? 'copy4-btn' : 'copy6-btn');
+
+      const clean = sanitizeIp(rawIp);
+      ipEl.dataset.rawIp = clean;
+
+      if (!clean) {
+        ipEl.innerHTML = isV4 ? 'Unavailable (no public IPv4)' : 'Unavailable (no IPv6)';
+        btn.disabled = true;
+        return;
+      }
+
+      ipEl.innerHTML = ipWithBreaks(clean);
+
+      // Small tweak for very long IPv6
+      if (!isV4 && clean.length >= 34) ipEl.style.fontSize = 'clamp(1.05rem, 2.1vw, 2.0rem)';
+      else ipEl.style.fontSize = '';
+
+      btn.disabled = false;
     }
 
     // ---------- Combined providers (IP + GEO + ISP) ----------
@@ -788,19 +836,26 @@
       return await tryMany(tasks, { retries: 1, backoffMs: 350 });
     }
 
-    // ---------- IP-only fallback ----------
-    async function getPublicIpOnly() {
+    // ---------- IPv4 / IPv6 (separate) ----------
+    async function getPublicIPv4() {
       const tasks = [
-        async () => {
-          const j = await fetchJson('https://api64.ipify.org?format=json', { cache: 'no-store' }, 6500);
-          return sanitizeIp(j && j.ip);
-        },
-        async () => {
-          const j = await fetchJson('https://api.ipify.org?format=json', { cache: 'no-store' }, 6500);
-          return sanitizeIp(j && j.ip);
-        }
+        async () => pickIpFromJson(await fetchJson('https://api4.my-ip.io/v2/ip.json', { cache: 'no-store' }, 6500)),
+        async () => pickIpFromJson(await fetchJson('https://api.ipify.org?format=json', { cache: 'no-store' }, 6500)),
+        async () => sanitizeIp(await fetchText('https://ipv4.icanhazip.com/', { cache: 'no-store' }, 6500))
       ];
-      return await tryMany(tasks, { retries: 1, backoffMs: 350 });
+      const ip = await tryMany(tasks, { retries: 1, backoffMs: 350 });
+      return isIPv6(ip) ? '' : ip;
+    }
+
+    async function getPublicIPv6() {
+      const tasks = [
+        async () => pickIpFromJson(await fetchJson('https://api6.my-ip.io/v2/ip.json', { cache: 'no-store' }, 6500)),
+        async () => pickIpFromJson(await fetchJson('https://api64.ipify.org?format=json', { cache: 'no-store' }, 6500)),
+        async () => sanitizeIp(await fetchText('https://ipv6.icanhazip.com/', { cache: 'no-store' }, 6500))
+      ];
+      const ip = await tryMany(tasks, { retries: 1, backoffMs: 350 });
+      // api64 may return IPv4 on networks without IPv6 — filter it out
+      return isIPv6(ip) ? ip : '';
     }
 
     // ---------- GEO/ISP by IP (fallback) ----------
@@ -833,33 +888,31 @@
 
     // ---------- Main flow ----------
     async function fetchIpData(forceRetry = false) {
-      const ipDisplay = document.getElementById('ip-display');
-
       hideNotice();
-      ipDisplay.textContent = 'Loading...';
-      setDetails({ isp: '...', city: '...', region: '', country: '...' });
-      setIpDisplay('');
+      resetIpUI();
+      showLoadingDetails();
 
-      // 1) Combined providers (best for static hosting like GitHub Pages)
-      try {
-        const data = await getIpAndGeoCombined();
-        if (!data.ip) throw new Error('Empty IP');
-        setIpDisplay(data.ip);
-        setDetails(data);
-        return;
-      } catch (e) {
-        console.warn('Combined provider failed:', e);
+      // Parallel fetch: GEO combined + IPv4 + IPv6
+      const pGeo = getIpAndGeoCombined().catch(() => null);
+      const p4 = getPublicIPv4().catch(() => '');
+      const p6 = getPublicIPv6().catch(() => '');
+
+      const [geo, ip4Raw, ip6Raw] = await Promise.all([pGeo, p4, p6]);
+
+      let ip4 = sanitizeIp(ip4Raw);
+      let ip6 = sanitizeIp(ip6Raw);
+
+      // If combined GEO returned an IP, use it as a fallback for whichever is missing
+      if (geo && geo.ip) {
+        if (isIPv6(geo.ip) && !ip6) ip6 = sanitizeIp(geo.ip);
+        if (!isIPv6(geo.ip) && !ip4) ip4 = sanitizeIp(geo.ip);
       }
 
-      // 2) IP-only + GEO separate
-      let ip = '';
-      try {
-        ip = await getPublicIpOnly();
-        if (!ip) throw new Error('Empty IP');
-        setIpDisplay(ip);
-      } catch (e) {
-        console.error('Failed to detect IP:', e);
-        ipDisplay.textContent = 'Error loading IP';
+      setIpDisplay('v4', ip4);
+      setIpDisplay('v6', ip6);
+
+      // If neither IP was detected
+      if (!ip4 && !ip6) {
         setDetails({ isp: '-', city: '-', region: '', country: '-' });
 
         const fileHint = isFileLikeOrigin()
@@ -868,42 +921,45 @@
 
         showNotice(
           'error',
-          'Could not detect your IP',
+          'Could not detect IPv4/IPv6',
           'This may happen if an ad blocker / anti-tracker, firewall, or your network is blocking the request.' +
-          fileHint +
-          '<br><br><strong>Try:</strong> disable blockers for this site, refresh the page, and click “Try again”.'
+            fileHint +
+            '<br><br><strong>Try:</strong> disable blockers for this site, refresh the page, and click “Try again”.'
         );
         return;
       }
 
-      // GEO separate
-      try {
-        const geo = await getGeoByIp(ip);
+      // Details: use combined GEO if available
+      if (geo) {
         setDetails(geo);
+        return;
+      }
+
+      // Fallback: GEO by whichever IP exists (prefer IPv4)
+      try {
+        const preferred = ip4 || ip6;
+        const geo2 = await getGeoByIp(preferred);
+        setDetails(geo2);
       } catch (e) {
         console.warn('GEO/ISP unavailable:', e);
-        setDetails({
-          isp: 'Unavailable (blocked / rate limit)',
-          city: '-',
-          region: '',
-          country: '-'
-        });
+        setDetails({ isp: 'Unavailable', city: '-', region: '', country: '-' });
 
         showNotice(
           'warn',
           'Details blocked (ISP / Location)',
-          'Your <strong>IP was detected</strong>, but the <strong>ISP/location</strong> request was blocked or rate-limited.' +
-          '<br><br><strong>Fix:</strong> disable ad blockers / anti-trackers for this site (or use a private window with extensions off) and click “Try again”.'
+          'Your <strong>IP(s) were detected</strong>, but the <strong>ISP/location</strong> request was blocked or rate-limited.' +
+            '<br><br><strong>Fix:</strong> disable ad blockers / anti-trackers for this site (or use a private window with extensions off) and click “Try again”.'
         );
       }
     }
 
-    async function copyIp() {
-      const ipDisplay = document.getElementById('ip-display');
-      const raw = ipDisplay.dataset.rawIp || '';
+    async function copyIp(kind) {
+      const isV4 = kind === 'v4';
+      const ipEl = document.getElementById(isV4 ? 'ip4-display' : 'ip6-display');
+      const raw = ipEl.dataset.rawIp || '';
       if (!raw) return;
 
-      const msg = document.getElementById('copy-msg');
+      const msg = document.getElementById(isV4 ? 'copy4-msg' : 'copy6-msg');
 
       try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -936,7 +992,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       initIcons();
 
-      // Expose functions used by inline HTML handlers
+      // Expose functions used by inline handlers
       window.copyIp = copyIp;
       window.fetchIpData = fetchIpData;
       window.hideNotice = hideNotice;
@@ -990,4 +1046,3 @@
   </script>
 </body>
 </html>
-
