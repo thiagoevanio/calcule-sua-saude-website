@@ -63,6 +63,18 @@
     <priority>0.90</priority>
   </url>
   <url>
+    <loc>https://www.calculesuasaude.com.br/glossario.html</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.calculesuasaude.com.br/glossary-en.html</loc>
+    <lastmod>2026-03-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://www.calculesuasaude.com.br/personal.html</loc>
     <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
