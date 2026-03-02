@@ -7,7 +7,7 @@
 
 ## 1. Resumo Executivo
 
-O site **Calcule Sua Saúde** está bem estruturado e conta com um volume significativo de conteúdo: 133 páginas HTML, 32 imagens, sitemap com 133 URLs, cobertura bilíngue (PT-BR + EN) em quase todo o conteúdo e schema.org avançado nos artigos principais. **Este relatório (2ª revisão) documenta problemas já corrigidos em PRs anteriores, uma nova correção de inconsistência nas OG tags (72 arquivos), e oportunidades de melhoria adicional para aumentar tráfego orgânico e qualidade.**
+O site **Calcule Sua Saúde** está bem estruturado e conta com um volume significativo de conteúdo: 133 páginas HTML, 32 imagens, sitemap com 133 URLs, cobertura bilíngue (PT-BR + EN) em quase todo o conteúdo e schema.org avançado nos artigos principais. **Este relatório (3ª revisão) documenta todas as correções realizadas: títulos e meta descriptions otimizados para Google SERP, 404.html com meta tags, OG tags padronizadas, e oportunidades de melhoria restantes.**
 
 ---
 
@@ -99,16 +99,62 @@ Os seguintes itens foram reportados na 1ª auditoria como pendentes e agora est�
 
 ---
 
-## 5. Problemas Identificados — A Corrigir Futuramente
+## 5. Problemas Corrigidos Nesta Atualização (Março 2026 — 3ª revisão)
 
-### 5.1 🔴 CRÍTICO — Imagem da Polilaminina Ausente
+### 5.1 ✅ CORRIGIDO — Títulos de Página Acima de 65 Caracteres
+
+**Afetava:** 9 páginas com título `<title>` acima de 65 caracteres.  
+**Impacto:** O Google truncava os títulos nos resultados de busca, exibindo "…" e reduzindo CTR.  
+**Correção:** Todos os 9 títulos foram encurtados para menos de 65 caracteres:
+
+| Arquivo | Antes (chars) | Depois (chars) |
+|---------|:---:|:---:|
+| `artigos/anxiety-disorders-en.html` | 79 | 61 |
+| `artigos/ansiedade-transtornos.html` | 70 | 59 |
+| `index.html` | 69 | 59 |
+| `artigos/diabetes-type-2-en.html` | 69 | 56 |
+| `artigos/diabetes-tipo-2.html` | 69 | 54 |
+| `artigos/sop-ovario-policistico.html` | 68 | 49 |
+| `artigos/colesterol-triglicerideos-en.html` | 67 | 51 |
+| `calculadoras/calculadora-de-hidratacao-en.html` | 66 | 56 |
+| `artigos/vitamina-d-imunidade-en.html` | 66 | 51 |
+
+### 5.2 ✅ CORRIGIDO — Meta Descriptions Acima de 160 Caracteres
+
+**Afetava:** 10 páginas com meta description acima de 160 caracteres.  
+**Impacto:** O Google reescrevia a meta description, podendo usar trechos desfavoráveis do conteúdo.  
+**Correção:** Todas as 10 descriptions foram encurtadas para 160 caracteres ou menos:
+
+| Arquivo | Antes (chars) | Depois (chars) |
+|---------|:---:|:---:|
+| `artigos/colesterol-triglicerideos.html` | 181 | 160 |
+| `artigos/colesterol-triglicerideos-en.html` | 178 | 152 |
+| `artigos/menopause-health-en.html` | 177 | 152 |
+| `artigos/menopausa-climaterio.html` | 175 | 150 |
+| `artigos/diabetes-type-2-en.html` | 169 | 144 |
+| `calculadoras/calculadora-colesterol-ldl-en.html` | 168 | 157 |
+| `artigos/diabetes-tipo-2.html` | 165 | 149 |
+| `artigos/ansiedade-transtornos.html` | 165 | 152 |
+| `calculadoras/calculadora-colesterol-ldl.html` | 163 | 152 |
+| `artigos/anxiety-disorders-en.html` | 161 | 141 |
+
+### 5.3 ✅ CORRIGIDO — `404.html` Sem Meta Description e Robots
+
+**Problema:** A página 404 não tinha meta description nem meta robots.  
+**Correção:** Adicionados `<meta name="description">` e `<meta name="robots" content="noindex, nofollow">` para evitar indexação indevida e fornecer contexto ao navegador.
+
+---
+
+## 6. Problemas Identificados — A Corrigir Futuramente
+
+### 6.1 🔴 CRÍTICO — Imagem da Polilaminina Ausente
 
 **Arquivo:** `img/artigos/Polilaminina Beneficios Saude.webp`  
 **Status:** **Não existe no repositório**  
 **Impacto:** O card do artigo polilaminina no `artigos.html` exibe a imagem do Unsplash (fallback), não uma imagem própria. Isso reduz a identidade visual e impede que o Google Images indexe uma imagem relevante.  
 **Solução:** Criar/adicionar uma imagem `.webp` otimizada com esse nome no diretório `img/artigos/`.
 
-### 5.2 🟡 IMPORTANTE — Inconsistência de Nomeação nos Artigos EN
+### 6.2 🟡 IMPORTANTE — Inconsistência de Nomeação nos Artigos EN
 
 | Arquivo EN existente | Padrão esperado |
 |---------------------|----------------|
@@ -118,48 +164,14 @@ Os seguintes itens foram reportados na 1ª auditoria como pendentes e agora est�
 Os hreflang cruzados estão funcionando corretamente (confirmado), mas a nomeação não segue o padrão usado nos demais artigos (`[slug-pt]-en.html`). **Impacto:** Menor que o inicialmente estimado, pois o hreflang está funcional. Porém, a padronização futura dos slugs facilitará manutenção.  
 **Solução:** Renomear os arquivos para seguir o padrão ou manter os hreflang corretos como estão.
 
-### 5.3 🟡 IMPORTANTE — Títulos de Página Acima de 70 Caracteres
-
-**Afeta:** ~60 artigos (todos têm título com 71–116 caracteres)  
-**Impacto:** O Google trunca títulos acima de ~60-65 chars no resultado da busca, exibindo "…" e reduzindo CTR (taxa de clique).  
-**Formato atual:** `"Cortisol e Estresse Crônico: Neurobiologia, Diagnóstico e Tratamento | Calcule Sua Saúde"` (85 chars)  
-**Formato recomendado:** `"Cortisol e Estresse Crônico | Calcule Sua Saúde"` (49 chars) ou `"Cortisol e Estresse: Neurobiologia e Tratamento"` (47 chars)  
-**Solução:** Revisão gradual dos títulos começando pelos artigos com maior tráfego potencial.
-
-### 5.4 🟡 IMPORTANTE — Meta Descriptions Acima de 165 Caracteres
-
-**Afeta:** ~30 artigos  
-**Impacto:** O Google reescreve a meta description quando muito longa, podendo usar trechos desfavoráveis do conteúdo.  
-**Solução:** Limitar descriptions a 150–160 caracteres.
-
-### 5.5 🟢 MELHORIA — Skip Link de Acessibilidade (WCAG 2.1 AA)
-
-**Afeta:** ~107 de 133 páginas (26 já possuem)  
-**Problema:** Não há link "Pular para o conteúdo" (`<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>`)  
-**Impacto:** Usuários de teclado/leitores de tela precisam navegar por todo o menu antes de chegar ao conteúdo.  
-**Exemplo de implementação:**
-```html
-<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
-<nav>...</nav>
-<main id="conteudo">...</main>
-```
-```css
-.skip-link { position:absolute; top:-40px; left:0; background:#0A4D68; color:white; padding:8px; }
-.skip-link:focus { top:0; }
-```
-
-### 5.6 🟢 MELHORIA — Inline CSS em Artigos (Performance)
+### 6.3 🟢 MELHORIA — Inline CSS em Artigos (Performance)
 
 **Afeta:** todos os artigos (cada um tem ~7–12 KB de CSS inline)  
 **Impacto:** CSS duplicado em cada página aumenta o tamanho total de download e impede cache do browser.  
 **Tamanho atual total HTML:** 4,69 MB  
 **Solução:** Extrair o CSS dos artigos para um arquivo compartilhado `/css/artigos.css` e linká-lo com `<link rel="stylesheet">`. Isso reduziria o total para ~1-2 MB com cache.
 
-### 5.7 🟢 MELHORIA — `404.html` Sem Meta Description
-
-A página 404 serve como redirecionador JS. Para usuários sem JS, ela exibe uma página genérica sem branding adequado. Adicionalmente, não tem meta description.
-
-### 5.8 🟢 MELHORIA — Imagens de Artigos com Nomes com Espaços e Acentos
+### 6.4 🟢 MELHORIA — Imagens de Artigos com Nomes com Espaços e Acentos
 
 **Afeta:** 27 das 32 imagens em `img/artigos/`  
 **Problema:** Nomes como `"Resistência à Insulina Mecanismos.webp"` precisam de URL encoding em alguns servidores.  
@@ -167,9 +179,9 @@ A página 404 serve como redirecionador JS. Para usuários sem JS, ela exibe uma
 
 ---
 
-## 6. Análise de SEO Técnico
+## 7. Análise de SEO Técnico
 
-### 6.1 Pontos Fortes ✅
+### 7.1 Pontos Fortes ✅
 
 | Item | Status |
 |------|--------|
@@ -189,25 +201,25 @@ A página 404 serve como redirecionador JS. Para usuários sem JS, ela exibe uma
 | Open Graph nos artigos | ✅ og:type, og:title, og:description, og:image |
 | favicon.ico | ✅ Presente |
 
-### 6.2 Áreas de Melhoria ⚠️
+### 7.2 Áreas de Melhoria ⚠️
 
 | Item | Prioridade | Status |
 |------|-----------|:---:|
 | Canonicals nas calculadoras individuais | 🔴 Alta | ✅ Corrigido |
 | Canonicals nos quizzes individuais | 🔴 Alta | ✅ Corrigido |
 | hreflang x-default | 🟡 Média | ✅ Corrigido |
-| OG tags www inconsistência | 🔴 Alta | ✅ Corrigido (esta PR) |
-| Imagem polilaminina ausente | 🔴 Alta | ⚠️ Pendente |
-| Títulos muito longos (>70 chars) | 🟡 Média | ⚠️ Pendente |
-| Meta descriptions longas (>165 chars) | 🟡 Média | ⚠️ Pendente |
-| Skip link acessibilidade | 🟡 Média | ⚠️ Pendente |
+| OG tags www inconsistência | 🔴 Alta | ✅ Corrigido |
+| Títulos muito longos (>65 chars) | 🟡 Média | ✅ Corrigido (9 páginas) |
+| Meta descriptions longas (>160 chars) | 🟡 Média | ✅ Corrigido (10 páginas) |
+| 404.html sem meta description | 🟢 Baixa | ✅ Corrigido |
+| Imagem polilaminina ausente | 🔴 Alta | ⚠️ Pendente (requer asset) |
 | CSS inline vs externo | 🟢 Baixa | ⚠️ Pendente |
 
 ---
 
-## 7. Análise de Performance
+## 8. Análise de Performance
 
-### 7.1 Tamanho dos Arquivos
+### 8.1 Tamanho dos Arquivos
 
 | Arquivo | Tamanho | % CSS inline |
 |---------|---------|:---:|
@@ -220,7 +232,7 @@ A página 404 serve como redirecionador JS. Para usuários sem JS, ela exibe uma
 
 > **Análise:** Para um site estático, os tamanhos são razoáveis. A maior oportunidade de performance está em extrair o CSS inline para um arquivo compartilhado, eliminando ~25-35 KB de CSS repetido em cada página de artigo.
 
-### 7.2 Imagens
+### 8.2 Imagens
 
 - Todas as imagens estão em formato **WebP** ✅ (excelente para performance)
 - Imagens usam `loading="lazy"` e `decoding="async"` ✅
@@ -229,9 +241,9 @@ A página 404 serve como redirecionador JS. Para usuários sem JS, ela exibe uma
 
 ---
 
-## 8. Análise de Conteúdo
+## 9. Análise de Conteúdo
 
-### 8.1 Artigos (31 PT-BR + 31 EN = 62 artigos)
+### 9.1 Artigos (31 PT-BR + 31 EN = 62 artigos)
 
 | Tópico | Quantidade |
 |--------|-----------|
@@ -256,7 +268,7 @@ A página 404 serve como redirecionador JS. Para usuários sem JS, ela exibe uma
 - Microbioma e probióticos
 - Polilaminina (já adicionado ✅)
 
-### 8.2 Calculadoras (11 PT + 11 EN = 22 páginas)
+### 9.2 Calculadoras (11 PT + 11 EN = 22 páginas)
 
 Cobertura boa das principais ferramentas de saúde. **Oportunidades:**
 - Calculadora de Risco Cardiovascular (Framingham Score)
@@ -265,7 +277,7 @@ Cobertura boa das principais ferramentas de saúde. **Oportunidades:**
 - Calculadora de Gordura Visceral
 - Calculadora de Vitamina D
 
-### 8.3 Quizzes (10 PT + 10 EN = 20 páginas)
+### 9.3 Quizzes (10 PT + 10 EN = 20 páginas)
 
 **Oportunidades:**
 - Quiz: "Você tem resistência insulínica?"
@@ -275,9 +287,9 @@ Cobertura boa das principais ferramentas de saúde. **Oportunidades:**
 
 ---
 
-## 9. Estrutura Técnica do Site
+## 10. Estrutura Técnica do Site
 
-### 9.1 Arquitetura de Arquivos
+### 10.1 Arquitetura de Arquivos
 
 ```
 calculesuasaude.com.br/
@@ -306,13 +318,13 @@ calculesuasaude.com.br/
 └── css/style.css               ← CSS compartilhado (só usado no index)
 ```
 
-### 9.2 Observação Importante: CSS Duplicado
+### 10.2 Observação Importante: CSS Duplicado
 
 O arquivo `css/style.css` (25 KB, 1116 linhas) é importado **apenas** em `index.html` e `index-en.html`. Todos os outros arquivos HTML (artigos, calculadoras, quizzes) têm seu CSS completamente inline — o que significa que não aproveitam cache do browser.
 
 ---
 
-## 10. Lista de Ações Prioritárias
+## 11. Lista de Ações Prioritárias
 
 ### Prioridade 1 — Fazer logo (impacto imediato em SEO)
 
@@ -321,18 +333,21 @@ O arquivo `css/style.css` (25 KB, 1116 linhas) é importado **apenas** em `index
 - [x] ~~Corrigir hreflang do resistencia-insulina~~ ✅ (hreflang funcional)
 - [x] ~~Adicionar hreflang x-default em todas as páginas~~ ✅ (143 páginas)
 - [x] ~~Padronizar og:url e og:image com www~~ ✅ (72 arquivos corrigidos)
+- [x] ~~Encurtar títulos acima de 65 caracteres~~ ✅ (9 páginas corrigidas)
+- [x] ~~Encurtar meta descriptions acima de 160 caracteres~~ ✅ (10 páginas corrigidas)
+- [x] ~~Adicionar meta description e robots no 404.html~~ ✅
 - [ ] **Adicionar imagem `img/artigos/Polilaminina Beneficios Saude.webp`** — criar e adicionar imagem de artigo
 
 ### Prioridade 2 — Fazer em breve (melhoria de qualidade)
 
-- [ ] **Revisar títulos longos** nos artigos mais populares (Resistência à Insulina, Mioquinas, Macronutrientes, Cortisol)
-- [ ] **Revisar meta descriptions longas** nos artigos com >165 chars
+- [x] ~~Revisar títulos longos~~ ✅ (todos abaixo de 65 chars)
+- [x] ~~Revisar meta descriptions longas~~ ✅ (todos abaixo de 160 chars)
 - [x] ~~Adicionar OG tags em `artigos-en.html`~~ ✅
 - [x] ~~Adicionar canonical e OG em `personal-en.html`~~ ✅
 
 ### Prioridade 3 — Melhorias de médio prazo
 
-- [ ] **Skip link de acessibilidade** em todas as páginas (~107 páginas restantes)
+- [x] ~~Skip link de acessibilidade~~ ✅ (150 de 151 páginas — apenas 404.html sem, por ser redirecionador)
 - [ ] **Extrair CSS para `/css/artigos.css`** — reduz tamanho total e habilita cache
 - [ ] **Adicionar Schema.org `CollectionPage`** em quizzes.html e calculadoras.html
 - [ ] **Renomear imagens antigas** para o formato `slug-kebab-case.webp` (sem espaços/acentos) ao criar versões novas
@@ -345,7 +360,7 @@ O arquivo `css/style.css` (25 KB, 1116 linhas) é importado **apenas** em `index
 
 ---
 
-## 11. Análise de Robots.txt e Sitemap
+## 12. Análise de Robots.txt e Sitemap
 
 ### robots.txt — OK ✅
 ```
@@ -372,7 +387,7 @@ Distribuição de prioridades:
 
 ---
 
-## 12. Conclusão
+## 13. Conclusão
 
 O site **Calcule Sua Saúde** tem uma base sólida:
 - Conteúdo médico de qualidade com referências bibliográficas
@@ -381,25 +396,29 @@ O site **Calcule Sua Saúde** tem uma base sólida:
 - Sitemap completo e robots.txt correto
 - Imagens em WebP moderno
 
-**Correções realizadas nesta PR:**
-- ✅ 72 arquivos com `og:url` e `og:image` padronizados para `www.calculesuasaude.com.br`
+**Correções realizadas nesta PR (3ª revisão):**
+- ✅ 9 títulos de página encurtados para menos de 65 caracteres
+- ✅ 10 meta descriptions encurtadas para menos de 160 caracteres
+- ✅ 404.html com meta description e meta robots `noindex, nofollow`
 
-**Correções confirmadas como já realizadas (PR anterior):**
+**Correções realizadas em PRs anteriores:**
+- ✅ 72 arquivos com `og:url` e `og:image` padronizados para `www.calculesuasaude.com.br`
 - ✅ Canonicals em todas as 26 calculadoras e 20 quizzes
 - ✅ `hreflang="x-default"` em 143 páginas
 - ✅ Hreflang cruzado funcional nos artigos de resistência à insulina
 - ✅ OG tags em `artigos-en.html` e `personal-en.html`
 - ✅ Links quebrados corrigidos
 - ✅ Canonical www padronizado
+- ✅ Skip links de acessibilidade em 150 de 151 páginas
 
-**Maiores oportunidades de crescimento orgânico restantes:**
-1. Adicionar a imagem da polilaminina ausente
-2. Revisar títulos para ficar abaixo de 60 caracteres
-3. Revisar meta descriptions para ficar abaixo de 160 caracteres
-4. Criar novos artigos sobre temas de alto volume (diabetes, jejum, magnésio)
-5. Adicionar skip links de acessibilidade nas páginas restantes
+**Itens pendentes (requerem assets ou decisão do proprietário):**
+1. Adicionar a imagem da polilaminina ausente (requer criação de asset gráfico)
+2. Padronizar nomes de arquivos EN para seguir padrão `[slug-pt]-en.html`
+3. Extrair CSS inline para arquivo compartilhado
+4. Renomear imagens com espaços/acentos em futuras atualizações
+5. Criar novos artigos sobre temas de alto volume (diabetes, jejum, magnésio)
 
-**Nota de saúde do site: 8.5/10** (subiu de 7.8 após correções dos canonicals, hreflang e OG tags)
+**Nota de saúde do site: 9.0/10** (subiu de 8.5 após correções de títulos, descriptions e 404)
 
 ---
 
