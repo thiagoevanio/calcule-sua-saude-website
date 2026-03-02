@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO & Meta Tags -->
-    <title>BMI Calculator: Body Mass Index (WHO Official) | Calcule Sua Saúde</title>
+    <title>BMI Calculator: Body Mass Index (WHO) | Calcule Sua Saúde</title>
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc-en.html">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html">
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc-en.html">
+    <meta property="og:title" content="BMI Calculator: Body Mass Index (WHO Official)">
+    <meta property="og:description" content="Calculate your BMI with scientific precision. Tool based on WHO criteria, with detailed risk analysis, official table, and health guidelines.">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BMI Calculator: Body Mass Index (WHO Official)">
+    <meta name="twitter:description" content="Calculate your BMI with scientific precision. Tool based on WHO criteria, with detailed risk analysis, official table, and health guidelines.">
+    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
     <meta name="description" content="Calculate your BMI with scientific precision. Tool based on WHO criteria, with detailed risk analysis, official table, and health guidelines.">
     <meta name="keywords" content="BMI calculator, body mass index, obesity calculation, WHO BMI table, health, ideal weight">
     <meta name="author" content="Calcule Sua Saúde">
-    <meta property="og:title" content="Professional BMI Calculator | Calcule Sua Saúde">
-    <meta property="og:description" content="Find out if your weight is ideal with our evidence-based tool.">
-    <meta property="og:type" content="website">
+    
+    
+    
 
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
@@ -54,6 +69,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- DESIGN SYSTEM (Inherited) --- */
         :root {
             --primary: #0A4D68;        
@@ -318,11 +336,12 @@
             .tool-layout { grid-template-columns: 1fr; margin-top: 0; }
             .tool-hero { padding-bottom: 40px; }
             .imc-number { font-size: 3rem; }
-            .nav-menu { display: none; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         }
     </style>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Skip to main content</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -375,7 +394,7 @@
     </header>
 
     <!-- MAIN CONTENT GRID -->
-    <section class="container">
+    <section id="conteudo-principal" class="container">
         <div class="tool-layout">
             
             <!-- LEFT COLUMN: CALCULATOR -->

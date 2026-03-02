@@ -7,10 +7,10 @@
     <!-- --- TECHNICAL SEO & ADVANCED META TAGS --- -->
     
     <!-- Optimized Title -->
-    <title>COPD and Lung Health: The Impact of Smoking and Pollution | Calculate Your Health</title>
+    <title>COPD: Obstructive Pulmonary Disease | Calcule Sua Saúde</title>
     
     <!-- Description -->
-    <meta name="description" content="Scientific treatise on Chronic Obstructive Pulmonary Disease (COPD). Understand emphysema, chronic bronchitis, spirometry, FEV1 decline, and pulmonary rehabilitation.">
+    <meta name="description" content="Scientific treatise on Chronic Obstructive Pulmonary Disease (COPD). Understand emphysema, chronic bronchitis, spirometry, FEV1 decline, and pulmonary">
     
     <!-- Keywords -->
     <meta name="keywords" content="COPD, pulmonary emphysema, chronic bronchitis, smoking, air pollution, spirometry, FEV1, pulmonary rehabilitation, alpha-1 antitrypsin, pulmonology">
@@ -18,7 +18,10 @@
     <!-- Robot Control & Canonical -->
     <meta name="robots" content="index, follow, max-image-preview:large">
     <!-- Updated Canonical Link with the requested filename -->
-    <link rel="canonical" href="https://calculesuasaude.com.br/artigos/dpoc-pulmao-en.html">
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/artigos/dpoc-pulmao-en.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/artigos/dpoc-pulmao.html">
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/artigos/dpoc-pulmao-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/artigos/dpoc-pulmao.html">
     <meta name="author" content="Calculate Your Health - Editorial Board">
     <meta name="theme-color" content="#0A4D68">
 
@@ -95,6 +98,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- GLOBAL VARIABLES --- */
         :root {
             --primary: #0A4D68;       /* Deep Ocean Blue */
@@ -575,7 +581,7 @@
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
-            .nav-menu { display: none; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
             .article-hero h1 { font-size: 2.2rem; }
             .article-container { padding: 0 20px; }
             .toc-list { grid-template-columns: 1fr; }
@@ -585,6 +591,7 @@
     </style>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Skip to main content</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -655,7 +662,7 @@
     <div class="article-container">
         
         <!-- Main Body -->
-        <article class="article-body">
+        <article id="conteudo-principal" class="article-body">
             
             <!-- INTEGRATED TOC -->
             <div class="toc-integrated">

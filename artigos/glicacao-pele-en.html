@@ -7,7 +7,7 @@
     <!-- --- TECHNICAL SEO & ADVANCED META TAGS --- -->
     
     <!-- Optimized Title -->
-    <title>Glycation and Skin Aging: How Sugar Degrades Collagen | Calculate Your Health</title>
+    <title>Glycation and Skin: Sugar and Collagen | Calcule Sua Saúde</title>
     
     <!-- Description -->
     <meta name="description" content="Scientific treatise on Glycation and AGEs in the skin. Understand how excess sugar causes collagen cross-linking, sagging, and deep wrinkles (Sugar Sag).">
@@ -17,7 +17,10 @@
     
     <!-- Robot Control & Canonical -->
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <link rel="canonical" href="https://calculesuasaude.com.br/artigos/glicacao-pele-en.html">
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/artigos/glicacao-pele-en.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/artigos/glicacao-pele.html">
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/artigos/glicacao-pele-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/artigos/glicacao-pele.html">
     <meta name="author" content="Calculate Your Health - Editorial Board">
     <meta name="theme-color" content="#0A4D68">
 
@@ -94,6 +97,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- GLOBAL VARIABLES --- */
         :root {
             --primary: #0A4D68;       /* Deep Ocean Blue */
@@ -574,7 +580,7 @@
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
-            .nav-menu { display: none; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
             .article-hero h1 { font-size: 2.2rem; }
             .article-container { padding: 0 20px; }
             .toc-list { grid-template-columns: 1fr; }
@@ -584,6 +590,7 @@
     </style>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Skip to main content</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -654,7 +661,7 @@
     <div class="article-container">
         
         <!-- Main Body -->
-        <article class="article-body">
+        <article id="conteudo-principal" class="article-body">
             
             <!-- INTEGRATED TOC -->
             <div class="toc-integrated">

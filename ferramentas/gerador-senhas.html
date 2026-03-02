@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- --- SEO PRINCIPAL --- -->
-  <title>Gerador de Senhas Fortes e Seguras | Ferramenta Grátis | Calcule Sua Saúde</title>
+  <title>Gerador de Senhas Seguras Online | Calcule Sua Saúde</title>
   <meta name="description" content="Crie senhas fortes, aleatórias e seguras instantaneamente. Proteja suas contas com nosso gerador de senhas personalizável. 100% gratuito e seguro." />
   <meta name="keywords" content="gerador de senhas, criar senha forte, senha segura, gerador de password, segurança online, senha aleatória" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -91,6 +91,9 @@
 
   <!-- Estilos -->
   <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
     :root {
       --primary: #0A4D68;
       --primary-dark: #06384d;
@@ -340,7 +343,7 @@
     .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.85rem; }
 
     @media (max-width: 768px) {
-      .nav-menu { display: none; }
+      .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
       .controls-grid { grid-template-columns: 1fr; gap: 20px; }
       .password-display { font-size: 1.2rem; padding: 15px 50px 15px 15px; }
       .page-header h1 { font-size: 2rem; }
@@ -349,6 +352,7 @@
 </head>
 
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
   <!-- TOP BAR -->
   <div class="top-bar">
     <div class="container">
@@ -427,7 +431,7 @@
   </div>
 
   <!-- HERO TOOL -->
-  <main id="main-content">
+  <main id="conteudo-principal">
     <header class="page-header">
       <div class="container">
         <h1>Gerador de Senhas</h1>

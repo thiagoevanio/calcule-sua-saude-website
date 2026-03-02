@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- --- SEO PRINCIPAL --- -->
-  <title>Conversor de Unidades Online | Peso, Medidas e Temperatura | Calcule Sua Saúde</title>
+  <title>Conversor de Unidades Online Gratuito | Calcule Sua Saúde</title>
   <meta name="description" content="Conversor de unidades gratuito e preciso. Converta peso (kg/lbs), comprimento (m/ft), temperatura (C/F) e volume instantaneamente. Simples e rápido." />
   <meta name="keywords" content="conversor de unidades, converter medidas, conversor peso, conversor temperatura, conversor metros pés, kg para libras, celsius para fahrenheit" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -91,6 +91,9 @@
 
   <!-- Estilos -->
   <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
     :root {
       --primary: #0A4D68;
       --primary-dark: #06384d;
@@ -305,7 +308,7 @@
     .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.85rem; }
 
     @media (max-width: 768px) {
-      .nav-menu { display: none; }
+      .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
       .converter-grid { grid-template-columns: 1fr; gap: 15px; }
       .swap-btn { margin: 0 auto; transform: rotate(90deg); }
       .swap-btn:hover { transform: rotate(270deg); }
@@ -315,6 +318,7 @@
 </head>
 
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
   <!-- TOP BAR -->
   <div class="top-bar">
     <div class="container">
@@ -393,7 +397,7 @@
   </div>
 
   <!-- HERO TOOL -->
-  <main id="main-content">
+  <main id="conteudo-principal">
     <header class="page-header">
       <div class="container">
         <h1>Conversor de Unidades</h1>

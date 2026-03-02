@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO & Meta Tags Avançadas -->
-    <title>Calculadora de IMC: Índice de Massa Corporal (Oficial OMS) | Calcule Sua Saúde</title>
+    <title>Calculadora de IMC (Índice de Massa Corporal) | Calcule Sua Saúde</title>
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html">
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html">
+    <meta property="og:title" content="Calculadora de IMC: Índice de Massa Corporal (Oficial OMS)">
+    <meta property="og:description" content="Calcule seu IMC com precisão científica. Ferramenta baseada nos critérios da OMS, com análise detalhada de riscos, tabela oficial e orientações de saúde.">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Calculadora de IMC: Índice de Massa Corporal (Oficial OMS)">
+    <meta name="twitter:description" content="Calcule seu IMC com precisão científica. Ferramenta baseada nos critérios da OMS, com análise detalhada de riscos, tabela oficial e orientações de saúde.">
+    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
     <meta name="description" content="Calcule seu IMC com precisão científica. Ferramenta baseada nos critérios da OMS, com análise detalhada de riscos, tabela oficial e orientações de saúde.">
     <meta name="keywords" content="calculadora IMC, índice de massa corporal, cálculo obesidade, tabela IMC OMS, saúde, peso ideal">
     <meta name="author" content="Calcule Sua Saúde">
-    <meta property="og:title" content="Calculadora de IMC Profissional | Calcule Sua Saúde">
-    <meta property="og:description" content="Descubra se seu peso está ideal com nossa ferramenta baseada em evidências científicas.">
-    <meta property="og:type" content="website">
+    
+    
+    
 
 
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
@@ -55,6 +70,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- HERANÇA DO DESIGN SYSTEM (Do seu index.html) --- */
         :root {
             --primary: #0A4D68;        
@@ -452,11 +470,12 @@
             .tool-layout { grid-template-columns: 1fr; margin-top: 0; }
             .tool-hero { padding-bottom: 40px; }
             .imc-number { font-size: 3rem; }
-            .nav-menu { display: none; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         }
     </style>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -515,7 +534,7 @@
     </header>
 
     <!-- MAIN CONTENT GRID -->
-    <section class="container">
+    <section id="conteudo-principal" class="container">
         <div class="tool-layout">
             
             <!-- COLUNA ESQUERDA: A CALCULADORA -->

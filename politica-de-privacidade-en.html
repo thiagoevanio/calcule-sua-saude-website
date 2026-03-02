@@ -6,6 +6,12 @@
     <meta name="description" content="Privacy Policy of Calcule Sua Saúde. Understand how we collect, use, and protect your data.">
     
     <title>Privacy Policy | Calcule Sua Saúde</title>
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/politica-de-privacidade-en.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/politica-de-privacidade-en.html">
+    <meta property="og:title" content="Privacy Policy | Calcule Sua Saúde">
+    <meta property="og:locale" content="en_US">
     
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +39,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- VARIABLES --- */
         :root {
             --primary: #0A4D68;       
@@ -268,13 +277,14 @@
         .footer-bottom { border-top: 1px solid #333; padding: 30px 0; text-align: center; font-size: 0.85rem; background-color: #151312; }
 
         @media (max-width: 768px) {
-            .nav-menu { display: none; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
             .legal-content-wrapper { padding: 30px 20px; border: none; box-shadow: none; background: transparent; }
             .page-header h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Skip to main content</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -321,7 +331,7 @@
     </header>
 
     <!-- POLICY CONTENT -->
-    <section class="container">
+    <section id="conteudo-principal" class="container">
         <div class="legal-content-wrapper legal-text">
             
             <p><strong>Calcule Sua Saúde</strong> values your privacy and is committed to protecting your personal data. This Privacy Policy transparently explains how we collect, use, share, and protect the information of users who access our website.</p>

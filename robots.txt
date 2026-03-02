@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /404.html
 
 # Aponta para o mapa do site para facilitar a indexação
 Sitemap: https://www.calculesuasaude.com.br/sitemap.xml

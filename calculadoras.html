@@ -8,6 +8,21 @@
     <meta name="keywords" content="calculadora imc, taxa metabólica basal, calcular macros, calculadora gravidez, frequência cardíaca, saúde online, conversor glicose, mg/dl para mmol/l, mmol/l para mg/dl">
     
     <title>Calculadoras e Ferramentas | Calcule Sua Saúde</title>
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/calculadoras.html">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/calculadoras.html">
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/calculadoras-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/calculadoras.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/calculadoras.html">
+    <meta property="og:title" content="Calculadoras de Saúde Gratuitas | Calcule Sua Saúde">
+    <meta property="og:description" content="Acesse calculadoras de saúde profissionais gratuitas: IMC, TMB, Gordura Corporal, Hidratação e mais. Ferramentas baseadas em protocolos clínicos.">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Calculadoras de Saúde Gratuitas">
+    <meta name="twitter:description" content="IMC, TMB, Gordura Corporal, Hidratação e mais. Ferramentas baseadas em protocolos clínicos.">
+    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
     
     <!-- FONTES: Playfair Display (Títulos) e Source Sans 3 (Texto) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +49,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- REUTILIZANDO VARIÁVEIS DO SISTEMA --- */
         :root {
             --primary: #0A4D68;       /* Deep Ocean Blue */
@@ -463,13 +481,41 @@
         }
         @media (max-width: 768px) {
             .tools-grid { grid-template-columns: 1fr; }
-            .nav-menu { display: none; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
             .page-header h1 { font-size: 2.5rem; }
             .category-scroll-container { justify-content: flex-start; flex-wrap: nowrap; padding-left: 24px; padding-right: 24px; }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Calculadoras de Saúde",
+      "description": "Coleção de calculadoras de saúde profissionais baseadas em protocolos clínicos: IMC, TMB, Gordura Corporal, Hidratação e mais.",
+      "url": "https://www.calculesuasaude.com.br/calculadoras.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "url": "https://www.calculesuasaude.com.br"
+      },
+      "hasPart": [
+        {"@type": "SoftwareApplication", "name": "Calculadora de IMC", "url": "https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html"},
+        {"@type": "SoftwareApplication", "name": "Calculadora de TMB", "url": "https://www.calculesuasaude.com.br/calculadoras/taxa-metabolica-basal-tmb.html"},
+        {"@type": "SoftwareApplication", "name": "Calculadora TDEE", "url": "https://www.calculesuasaude.com.br/calculadoras/gasto-energetico-diario-tdee.html"},
+        {"@type": "SoftwareApplication", "name": "Calculadora de Macronutrientes", "url": "https://www.calculesuasaude.com.br/calculadoras/calculadora-de-macronutrientes.html"},
+        {"@type": "SoftwareApplication", "name": "Calculadora de Hidratação", "url": "https://www.calculesuasaude.com.br/calculadoras/calculadora-de-hidratacao.html"},
+        {"@type": "SoftwareApplication", "name": "Calculadora de Gordura Corporal", "url": "https://www.calculesuasaude.com.br/calculadoras/percentual-de-gordura-corporal.html"},
+        {"@type": "SoftwareApplication", "name": "Calculadora de Peso Ideal (IBW)", "url": "https://www.calculesuasaude.com.br/calculadoras/peso-ideal-ibw.html"},
+        {"@type": "SoftwareApplication", "name": "Calculadora de Data do Parto", "url": "https://www.calculesuasaude.com.br/calculadoras/data-provável-do-parto.html"},
+        {"@type": "SoftwareApplication", "name": "Calculadora RCQ", "url": "https://www.calculesuasaude.com.br/calculadoras/relacao-cintura-quadril-rcq.html"},
+        {"@type": "SoftwareApplication", "name": "Calculadora Zonas de Frequência Cardíaca", "url": "https://www.calculesuasaude.com.br/calculadoras/zonas-de-frequencia-cardíaca.html"},
+        {"@type": "SoftwareApplication", "name": "Conversor de Glicose", "url": "https://www.calculesuasaude.com.br/calculadoras/conversor-glicose.html"}
+      ]
+    }
+    </script>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -535,7 +581,7 @@
             <div class="tools-grid" id="tools-grid">
 
                 <!-- 1. IMC -->
-                <article class="tool-card" data-category="Antropometria">
+                <article id="conteudo-principal" class="tool-card" data-category="Antropometria">
                     <div class="card-icon-header">
                         <div class="icon-circle"><i data-lucide="scale" size="32"></i></div>
                     </div>
@@ -674,6 +720,32 @@
                         <h3 class="card-title">Peso Ideal (IBW)</h3>
                         <p class="card-excerpt">Cálculo estimado do peso saudável baseado na altura e gênero (Fórmulas de Devine e Robinson).</p>
                         <a href="calculadoras/peso-ideal-ibw.html" class="btn-tool">Acessar <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 11. LDL Colesterol -->
+                <article class="tool-card" data-category="Cardio">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="heart-pulse" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Cardiovascular</span>
+                        <h3 class="card-title">Calculadora de Colesterol LDL</h3>
+                        <p class="card-excerpt">Estime seu LDL-C pelas fórmulas Friedewald e Martin-Hopkins com classificação de risco cardiovascular (SBC 2023).</p>
+                        <a href="calculadoras/calculadora-colesterol-ldl.html" class="btn-tool">Acessar <i data-lucide="arrow-right" size="16"></i></a>
+                    </div>
+                </article>
+
+                <!-- 12. Ciclo Menstrual -->
+                <article class="tool-card" data-category="Mulher">
+                    <div class="card-icon-header">
+                        <div class="icon-circle"><i data-lucide="calendar-heart" size="32"></i></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Saúde da Mulher</span>
+                        <h3 class="card-title">Calculadora de Ciclo Menstrual</h3>
+                        <p class="card-excerpt">Preveja sua próxima menstruação, ovulação e janela fértil com base na duração do seu ciclo.</p>
+                        <a href="calculadoras/calculadora-ciclo-menstrual.html" class="btn-tool">Acessar <i data-lucide="arrow-right" size="16"></i></a>
                     </div>
                 </article>
 

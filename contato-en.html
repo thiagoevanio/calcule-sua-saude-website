@@ -6,6 +6,16 @@
     <meta name="description" content="Contact the Calcule Sua Saúde team. An email-only channel for questions, suggestions, and partnerships.">
 
     <title>Contact Us | Calcule Sua Saúde</title>
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/contato-en.html">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/contato.html">
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/contato-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/contato.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/contato-en.html">
+    <meta property="og:title" content="Contact Us | Calcule Sua Saúde">
+    <meta property="og:description" content="Contact the Calcule Sua Saúde team. An email-only channel for questions, suggestions, and partnerships.">
+    <meta property="og:locale" content="en_US">
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +42,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- VARIABLES (Project Standard) --- */
         :root {
             --primary: #0A4D68;
@@ -318,7 +331,7 @@
         .footer-bottom { border-top: 1px solid #333; padding: 30px 0; text-align: center; font-size: 0.85rem; background-color: #151312; }
 
         @media (max-width: 768px) {
-            .nav-menu { display: none; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
             .contact-card { padding: 30px 20px; }
             .page-header h1 { font-size: 2.5rem; }
             .email-display { font-size: 1rem; }
@@ -326,6 +339,7 @@
     </style>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Skip to main content</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -339,7 +353,7 @@
             <div class="lang-selector">
                 <i data-lucide="globe" size="14"></i>
                 <select onchange="if(this.value) window.location.href = this.value;">
-                    <option value="contact.html" selected>English</option>
+                    <option value="contato-en.html" selected>English</option>
                     <option value="contato.html">Português</option>
                 </select>
             </div>
@@ -355,10 +369,10 @@
             </a>
             <ul class="nav-menu">
                 <li><a href="index-en.html" class="nav-link">Home</a></li>
-                <li><a href="articles.html" class="nav-link">Articles</a></li>
-                <li><a href="calculators.html" class="nav-link">Calculators</a></li>
+                <li><a href="artigos-en.html" class="nav-link">Articles</a></li>
+                <li><a href="calculadoras-en.html" class="nav-link">Calculators</a></li>
                 <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
-                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="contato-en.html" class="nav-link active">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -372,7 +386,7 @@
     </header>
 
     <!-- CONTACT CONTENT -->
-    <section class="container">
+    <section id="conteudo-principal" class="container">
         <div class="contact-wrapper">
 
             <div class="contact-card">
@@ -406,8 +420,8 @@
                 <div>
                     <h4>Explore</h4>
                     <ul>
-                        <li><a href="calculators.html">Medical Calculators</a></li>
-                        <li><a href="articles.html">Science-Based Articles</a></li>
+                        <li><a href="calculadoras-en.html">Medical Calculators</a></li>
+                        <li><a href="artigos-en.html">Science-Based Articles</a></li>
                         <li><a href="quizzes.html">Educational Quizzes</a></li>
                         <li><a href="#">Editorial Methodology</a></li>
                     </ul>
@@ -415,10 +429,10 @@
                 <div>
                     <h4>Legal &amp; Compliance</h4>
                     <ul>
-                        <li><a href="terms-of-use.html">Terms of Use</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="disclaimer.html">Disclaimer</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="termos-de-uso-en.html">Terms of Use</a></li>
+                        <li><a href="politica-de-privacidade-en.html">Privacy Policy</a></li>
+                        <li><a href="isencao-de-responsabilidade-en.html">Disclaimer</a></li>
+                        <li><a href="contato-en.html">Contact Us</a></li>
                     </ul>
                 </div>
                 <div>

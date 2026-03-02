@@ -8,6 +8,21 @@
     <meta name="keywords" content="health quiz, medical knowledge test, nutrition quiz, anatomy, physiology, health education">
     
     <title>Educational Quizzes | Calcule Sua Saúde</title>
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/quizzes-en.html">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/quizzes.html">
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/quizzes-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/quizzes.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/quizzes-en.html">
+    <meta property="og:title" content="Educational Health Quizzes | Calcule Sua Saúde">
+    <meta property="og:description" content="Test your health knowledge with evidence-based quizzes. Complex topics: Diabetes, Cardiology, Neuroscience and more.">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Educational Health Quizzes">
+    <meta name="twitter:description" content="Evidence-based health quizzes on Diabetes, Cardiology, Neuroscience and more.">
+    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
     
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +51,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- VARIABLES --- */
         :root {
             --primary: #0A4D68;       
@@ -446,13 +464,14 @@
         }
         @media (max-width: 768px) {
             .quizzes-grid { grid-template-columns: 1fr; }
-            .nav-menu { display: none; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
             .page-header h1 { font-size: 2.5rem; }
             .category-scroll-container { justify-content: flex-start; flex-wrap: nowrap; padding-left: 24px; padding-right: 24px; }
         }
     </style>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Skip to main content</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -518,7 +537,7 @@
             <div class="quizzes-grid" id="quizzes-grid">
 
                 <!-- 1. Mitos do Metabolismo -->
-                <article class="quiz-card" data-category="Nutricao">
+                <article id="conteudo-principal" class="quiz-card" data-category="Nutricao">
                     <div class="quiz-icon-wrapper"><i data-lucide="brain-circuit" size="36"></i></div>
                     <span class="card-difficulty">Level: Intermediate</span>
                     <h3 class="card-title">Metabolism Myths</h3>

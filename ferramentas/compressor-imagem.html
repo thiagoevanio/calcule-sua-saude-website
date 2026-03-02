@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- --- SEO PRINCIPAL --- -->
-  <title>Compressor de Imagem Grátis | Reduzir Tamanho de Fotos Online | Calcule Sua Saúde</title>
+  <title>Compressor de Imagem Online Gratuito | Calcule Sua Saúde</title>
   <meta name="description" content="Reduza o tamanho de suas imagens (JPG, PNG, WEBP) sem perder qualidade visível. Ferramenta gratuita, processamento 100% no navegador (privacidade total)." />
   <meta name="keywords" content="comprimir imagem, reduzir foto, otimizar imagem, compressor online, diminuir tamanho png, otimizador jpg, ferramenta web" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -90,6 +90,9 @@
 
   <!-- Estilos -->
   <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
     :root {
       --primary: #0A4D68;
       --primary-dark: #06384d;
@@ -331,7 +334,7 @@
     .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.85rem; }
 
     @media (max-width: 768px) {
-      .nav-menu { display: none; }
+      .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
       .page-header h1 { font-size: 2rem; }
       .stats-row { flex-direction: column; gap: 10px; }
     }
@@ -339,6 +342,7 @@
 </head>
 
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
   <!-- TOP BAR -->
   <div class="top-bar">
     <div class="container">
@@ -417,7 +421,7 @@
   </div>
 
   <!-- HERO TOOL -->
-  <main id="main-content">
+  <main id="conteudo-principal">
     <header class="page-header">
       <div class="container">
         <h1>Compressor de Imagem</h1>

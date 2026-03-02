@@ -6,6 +6,21 @@
     
     <!-- SEO -->
     <title>Quiz: Mitos do Metabolismo | Calcule Sua Saúde</title>
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/quizz/mitos-do-metabolismo.html">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/quizz/mitos-do-metabolismo.html">
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/quizz/mitos-do-metabolismo-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/quizz/mitos-do-metabolismo.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/quizz/mitos-do-metabolismo.html">
+    <meta property="og:title" content="Quiz: Mitos do Metabolismo">
+    <meta property="og:description" content="Teste seus conhecimentos sobre o metabolismo. Descubra o que é mito e o que é verdade com base na ciência nutricional atual.">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quiz: Mitos do Metabolismo">
+    <meta name="twitter:description" content="Teste seus conhecimentos sobre o metabolismo. Descubra o que é mito e o que é verdade com base na ciência nutricional atual.">
+    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
     <meta name="description" content="Teste seus conhecimentos sobre o metabolismo. Descubra o que é mito e o que é verdade com base na ciência nutricional atual.">
     
     <!-- FONTES -->
@@ -33,6 +48,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- DESIGN SYSTEM (Herdado) --- */
         :root {
             --primary: #0A4D68;        
@@ -355,13 +373,14 @@
         }
 
         @media (max-width: 768px) {
-            .nav-menu { display: none; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
             .quiz-content { padding: 25px; }
             .question-text { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
