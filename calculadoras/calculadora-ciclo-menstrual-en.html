@@ -8,7 +8,7 @@
     <meta name="keywords" content="calculadora ciclo menstrual, período fértil, ovulação, próxima menstruação, ciclo irregular, fertilidade, calendário menstrual">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.calculesuasaude.com.br/calculadoras/calculadora-ciclo-menstrual-en.html">
-    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/calculadoras/calculadora-ciclo-menstrual.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/calculadoras/calculadora-ciclo-menstrual.html">
     <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/calculadoras/calculadora-ciclo-menstrual-en.html">
     <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/calculadoras/calculadora-ciclo-menstrual-en.html">
     <meta property="og:type" content="website">
@@ -208,10 +208,10 @@
             const ovDay1=addDays(lp,cl-14);
             const daysUntilOv=diffDays(today,ovDay1);
             summaryBox.innerHTML=`
-                <div class="summary-item"><strong>Próximo período</strong>${fmtDate(nextPeriodStart)} (${daysUntilNext>0?'in '+daysUntilNext+' days':daysUntilNext===0?'Today':'Late by '+Math.abs(daysUntilNext)+' days'})</div>
-                <div class="summary-item"><strong>Próxima ovulação</strong>${fmtDate(ovDay1)} (${daysUntilOv>0?'in '+daysUntilOv+' days':daysUntilOv===0?'Today':'Passed'})</div>
-                <div class="summary-item"><strong>Duração do ciclo</strong>${cl} dias</div>
-                <div class="summary-item"><strong>Duração do período</strong>${pl} dias</div>
+                <div class="summary-item"><strong>Next period</strong>${fmtDate(nextPeriodStart)} (${daysUntilNext>0?'in '+daysUntilNext+' days':daysUntilNext===0?'Today':'Late by '+Math.abs(daysUntilNext)+' days'})</div>
+                <div class="summary-item"><strong>Next ovulation</strong>${fmtDate(ovDay1)} (${daysUntilOv>0?'in '+daysUntilOv+' days':daysUntilOv===0?'Today':'Passed'})</div>
+                <div class="summary-item"><strong>Cycle length</strong>${cl} days</div>
+                <div class="summary-item"><strong>Period duration</strong>${pl} days</div>
             `;
             for(let i=0;i<nc;i++){
                 const pStart=addDays(lp,(i+1)*cl);
@@ -223,18 +223,18 @@
                 const card=document.createElement('div');
                 card.className='cycle-card';
                 card.innerHTML=`
-                    <div class="cycle-card-header purple">Ciclo ${i+1}${isLate?' <span style="font-size:0.75rem;opacity:0.9">(possível atraso)</span>':''}</div>
+                    <div class="cycle-card-header purple">Cycle ${i+1}${isLate?' <span style="font-size:0.75rem;opacity:0.9">(possible delay)</span>':''}</div>
                     <div class="cycle-card-body">
                         <div class="cycle-row">
-                            <div class="cycle-row-label">Menstruação</div>
+                            <div class="cycle-row-label">Period</div>
                             <div class="cycle-row-value"><span class="badge-period">${fmtDate(pStart)} – ${fmtDate(pEnd)}</span></div>
                         </div>
                         <div class="cycle-row">
-                            <div class="cycle-row-label">Ovulação estimada</div>
+                            <div class="cycle-row-label">Estimated ovulation</div>
                             <div class="cycle-row-value"><span class="badge-ovulation">${fmtDate(ovulation)}</span></div>
                         </div>
                         <div class="cycle-row">
-                            <div class="cycle-row-label">Janela fértil</div>
+                            <div class="cycle-row-label">Fertile window</div>
                             <div class="cycle-row-value"><span class="badge-fertile">${fmtDate(fertileStart)} – ${fmtDate(fertileEnd)}</span></div>
                         </div>
                     </div>`;
