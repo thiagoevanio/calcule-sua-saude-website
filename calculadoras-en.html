@@ -482,11 +482,38 @@
         }
         @media (max-width: 768px) {
             .tools-grid { grid-template-columns: 1fr; }
-            .nav-menu { display: none; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
             .page-header h1 { font-size: 2.5rem; }
             .category-scroll-container { justify-content: flex-start; flex-wrap: nowrap; padding-left: 24px; padding-right: 24px; }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Health Calculators",
+      "description": "Collection of professional health calculators based on clinical protocols: BMI, BMR, Body Fat, Hydration and more.",
+      "url": "https://www.calculesuasaude.com.br/calculadoras-en.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "url": "https://www.calculesuasaude.com.br"
+      },
+      "hasPart": [
+        {"@type": "SoftwareApplication", "name": "BMI Calculator", "url": "https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc-en.html"},
+        {"@type": "SoftwareApplication", "name": "BMR Calculator", "url": "https://www.calculesuasaude.com.br/calculadoras/taxa-metabolica-basal-tmb-en.html"},
+        {"@type": "SoftwareApplication", "name": "TDEE Calculator", "url": "https://www.calculesuasaude.com.br/calculadoras/gasto-energetico-diario-tdee-en.html"},
+        {"@type": "SoftwareApplication", "name": "Macro Calculator", "url": "https://www.calculesuasaude.com.br/calculadoras/calculadora-de-macronutrientes-en.html"},
+        {"@type": "SoftwareApplication", "name": "Hydration Calculator", "url": "https://www.calculesuasaude.com.br/calculadoras/calculadora-de-hidratacao-en.html"},
+        {"@type": "SoftwareApplication", "name": "Body Fat Calculator", "url": "https://www.calculesuasaude.com.br/calculadoras/percentual-de-gordura-corporal-en.html"},
+        {"@type": "SoftwareApplication", "name": "Ideal Weight Calculator (IBW)", "url": "https://www.calculesuasaude.com.br/calculadoras/peso-ideal-ibw-en.html"},
+        {"@type": "SoftwareApplication", "name": "Due Date Calculator", "url": "https://www.calculesuasaude.com.br/calculadoras/data-provavel-do-parto-en.html"},
+        {"@type": "SoftwareApplication", "name": "WHR Calculator", "url": "https://www.calculesuasaude.com.br/calculadoras/relacao-cintura-quadril-rcq-en.html"},
+        {"@type": "SoftwareApplication", "name": "Heart Rate Zone Calculator", "url": "https://www.calculesuasaude.com.br/calculadoras/zonas-de-frequencia-cardiaca-karvonen-en.html"},
+        {"@type": "SoftwareApplication", "name": "Glucose Converter", "url": "https://www.calculesuasaude.com.br/calculadoras/glucose-converter-en.html"}
+      ]
+    }
+    </script>
 </head>
 <body>
     <a href="#conteudo-principal" class="skip-link">Skip to main content</a>
