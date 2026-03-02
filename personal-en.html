@@ -6,6 +6,17 @@
     <meta name="description" content="Online Personalized Training Consulting. Exclusive plans based on science and exercise physiology.">
     
     <title>Personal Consulting | Calcule Sua Saúde</title>
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/personal-en.html">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/personal.html">
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/personal-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/personal.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/personal-en.html">
+    <meta property="og:title" content="Personal Training Consultation | Calcule Sua Saúde">
+    <meta property="og:description" content="Online personalized training consultation. Exclusive plans based on science and exercise physiology.">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/personal.webp">
+    <meta property="og:locale" content="en_US">
     
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +45,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- VARIABLES --- */
         :root {
             --primary: #0A4D68;       
@@ -450,6 +464,7 @@
     </style>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Skip to main content</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -543,7 +558,7 @@
 
             <div class="plans-grid">
                 <!-- Plan 1 -->
-                <article class="plan-card">
+                <article id="conteudo-principal" class="plan-card">
                     <h3 class="plan-name">Monthly</h3>
                     <div class="plan-price">R$ 150<span>/mo</span></div>
                     <ul class="plan-features">

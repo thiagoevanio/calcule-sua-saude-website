@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- --- SEO PRIMARY --- -->
-  <title>Free QR Code Generator | Create Custom QR Codes | Calcule Sua Saúde</title>
+  <title>Free QR Code Generator Online | Calcule Sua Saúde</title>
   <meta name="description" content="Create custom QR Codes for free for links, text, Wi-Fi, and more. Secure tool, client-side generation, no expiration, and high-resolution download." />
   <meta name="keywords" content="qr code generator, create qr code, free qr code, wifi qr code, link to qr, make qr code, qr tool" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -103,6 +103,9 @@
 
   <!-- Styles -->
   <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
     :root {
       --primary: #0A4D68;
       --primary-dark: #06384d;
@@ -348,6 +351,7 @@
 </head>
 
 <body>
+    <a href="#conteudo-principal" class="skip-link">Skip to main content</a>
   <!-- TOP BAR -->
   <div class="top-bar">
     <div class="container">
@@ -428,7 +432,7 @@
   </div>
 
   <!-- HERO TOOL -->
-  <main id="main-content">
+  <main id="conteudo-principal">
     <header class="page-header">
       <div class="container">
         <h1>Free QR Code Generator</h1>

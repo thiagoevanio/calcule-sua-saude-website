@@ -39,6 +39,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- VARIÁVEIS (Padrão do Projeto) --- */
         :root {
             --primary: #0A4D68;       
@@ -293,6 +296,7 @@
     </style>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -339,7 +343,7 @@
     </header>
 
     <!-- CONTEÚDO DOS TERMOS -->
-    <section class="container">
+    <section id="conteudo-principal" class="container">
         <div class="legal-content-wrapper legal-text">
             
             <p>Bem-vindo ao <strong>Calcule Sua Saúde</strong>. Ao acessar e utilizar este website, você concorda em cumprir e estar vinculado aos seguintes Termos de Uso. Por favor, leia-os atentamente antes de utilizar nossos serviços.</p>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- --- SEO PRIMARY --- -->
-  <title>Free Image Compressor | Reduce Photo Size Online | Calcule Sua Saúde</title>
+  <title>Free Image Compressor Online | Calcule Sua Saúde</title>
   <meta name="description" content="Reduce image size (JPG, PNG, WEBP) without losing visible quality. Free tool, 100% browser-based processing (total privacy)." />
   <meta name="keywords" content="compress image, reduce photo size, optimize image, online compressor, shrink png, jpg optimizer, web tool" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -91,6 +91,9 @@
 
   <!-- Styles -->
   <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
     :root {
       --primary: #0A4D68;
       --primary-dark: #06384d;
@@ -340,6 +343,7 @@
 </head>
 
 <body>
+    <a href="#conteudo-principal" class="skip-link">Skip to main content</a>
   <!-- TOP BAR -->
   <div class="top-bar">
     <div class="container">
@@ -418,7 +422,7 @@
   </div>
 
   <!-- HERO TOOL -->
-  <main id="main-content">
+  <main id="conteudo-principal">
     <header class="page-header">
       <div class="container">
         <h1>Image Compressor</h1>

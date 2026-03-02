@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- --- SEO PRINCIPAL --- -->
-  <title>Gerador de QR Code Grátis e Seguro | Criar QR Code Personalizado | Calcule Sua Saúde</title>
-  <meta name="description" content="Crie QR Codes personalizados gratuitamente para links, textos, Wi-Fi e mais. Ferramenta segura, sem validade e com download em alta resolução. Gere seu código agora!" />
+  <title>Gerador de QR Code Online Gratuito | Calcule Sua Saúde</title>
+  <meta name="description" content="Crie QR Codes personalizados gratuitamente para links, textos, Wi-Fi e mais. Ferramenta segura, sem validade e com download em alta resolução." />
   <meta name="keywords" content="gerador qr code, criar qr code, qr code grátis, qr code wi-fi, qr code link, fazer qr code, ferramenta qr code" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#0A4D68" />
@@ -103,6 +103,9 @@
 
   <!-- Estilos -->
   <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
     :root {
       --primary: #0A4D68;
       --primary-dark: #06384d;
@@ -347,6 +350,7 @@
 </head>
 
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
   <!-- TOP BAR -->
   <div class="top-bar">
     <div class="container">
@@ -427,7 +431,7 @@
   </div>
 
   <!-- HERO TOOL -->
-  <main id="main-content">
+  <main id="conteudo-principal">
     <header class="page-header">
       <div class="container">
         <h1>Gerador de QR Code Grátis</h1>

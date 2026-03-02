@@ -12,6 +12,7 @@
     <meta name="robots" content="index, follow">
     <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/quizzes.html">
     <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/quizzes-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/quizzes.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.calculesuasaude.com.br/quizzes.html">
     <meta property="og:title" content="Quizzes Educativos de Saúde | Calcule Sua Saúde">
@@ -49,6 +50,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
         /* --- VARIÁVEIS (Padrão do Projeto) --- */
         :root {
             --primary: #0A4D68;       
@@ -464,8 +468,35 @@
             .category-scroll-container { justify-content: flex-start; flex-wrap: nowrap; padding-left: 24px; padding-right: 24px; }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Quizzes Educativos de Saúde",
+      "description": "Coleção de quizzes baseados em evidências científicas sobre saúde, nutrição, metabolismo e fisiologia.",
+      "url": "https://www.calculesuasaude.com.br/quizzes.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "url": "https://www.calculesuasaude.com.br"
+      },
+      "hasPart": [
+        {"@type": "Quiz", "name": "Mitos do Metabolismo", "url": "https://www.calculesuasaude.com.br/quizz/mitos-do-metabolismo.html"},
+        {"@type": "Quiz", "name": "Saúde Cardiovascular", "url": "https://www.calculesuasaude.com.br/quizz/saude-cardiovascular.html"},
+        {"@type": "Quiz", "name": "Higiene do Sono", "url": "https://www.calculesuasaude.com.br/quizz/higiene-do-sono.html"},
+        {"@type": "Quiz", "name": "Diabetes e Resistência à Insulina", "url": "https://www.calculesuasaude.com.br/quizz/diabetes-e-resistencia.html"},
+        {"@type": "Quiz", "name": "Fundamentos dos Macronutrientes", "url": "https://www.calculesuasaude.com.br/quizz/fundamentos-dos-macronutrientes.html"},
+        {"@type": "Quiz", "name": "Primeiros Socorros Básico", "url": "https://www.calculesuasaude.com.br/quizz/primeiros-socorros-basico.html"},
+        {"@type": "Quiz", "name": "Mecanismos do Estresse", "url": "https://www.calculesuasaude.com.br/quizz/mecanismos-do-estresse.html"},
+        {"@type": "Quiz", "name": "Fisiologia do Exercício", "url": "https://www.calculesuasaude.com.br/quizz/fisiologia-do-exercicio.html"},
+        {"@type": "Quiz", "name": "Imunologia Básica", "url": "https://www.calculesuasaude.com.br/quizz/imunologia-basica.html"},
+        {"@type": "Quiz", "name": "Microbiota e Saúde Intestinal", "url": "https://www.calculesuasaude.com.br/quizz/microbiota-e-saude-intestinal.html"}
+      ]
+    }
+    </script>
 </head>
 <body>
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -531,7 +562,7 @@
             <div class="quizzes-grid" id="quizzes-grid">
 
                 <!-- 1. Mitos do Metabolismo -->
-                <article class="quiz-card" data-category="Nutricao">
+                <article id="conteudo-principal" class="quiz-card" data-category="Nutricao">
                     <div class="quiz-icon-wrapper"><i data-lucide="brain-circuit" size="36"></i></div>
                     <span class="card-difficulty">Nível: Intermediário</span>
                     <h3 class="card-title">Mitos do Metabolismo</h3>
