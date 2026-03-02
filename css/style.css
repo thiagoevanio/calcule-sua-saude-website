@@ -96,6 +96,8 @@ img { max-width: 100%; height: auto; display: block; } /* height auto evita dist
     .methodology-section,
     .featured-section,
     .quizzes-section,
+    .categories-section,
+    .faq-section,
     .newsletter-section,
     footer {
         content-visibility: auto;
@@ -1123,4 +1125,230 @@ footer ul li a:hover {
         -webkit-overflow-scrolling: touch;
         max-width: 100%;
     }
+}
+
+/* --- STATS COUNTER SECTION --- */
+.stats-section {
+    padding: 60px 0;
+    background-color: var(--bg-body);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 20px 10px;
+}
+
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .stat-number { font-size: 2.2rem; }
+}
+
+/* --- POPULAR CATEGORIES SECTION --- */
+.categories-section {
+    padding: 70px 0;
+    background-color: #fff;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+[data-theme="dark"] .categories-section { background-color: #1a1a1a; }
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-color: var(--primary);
+}
+
+.category-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.category-icon.endocrinologia { background-color: #0A4D68; }
+.category-icon.cardiologia { background-color: #DC2626; }
+.category-icon.nutricao { background-color: #047857; }
+.category-icon.saude-mental { background-color: #7C3AED; }
+.category-icon.fisiologia { background-color: #D97706; }
+.category-icon.sono { background-color: #1D4ED8; }
+.category-icon.imunologia { background-color: #059669; }
+.category-icon.preventiva { background-color: #DB2777; }
+
+.category-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.category-card span {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .categories-grid { grid-template-columns: 1fr; }
+}
+
+/* --- VIEW ALL LINK --- */
+.section-view-all {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 32px;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-view-all:hover {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+/* --- FAQ SECTION --- */
+.faq-section {
+    padding: 80px 0;
+    background-color: var(--bg-body);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.faq-header p {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-align: left;
+    gap: 16px;
+}
+
+.faq-question:hover { color: var(--primary); }
+
+.faq-question i {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    color: var(--primary);
+}
+
+.faq-item.open .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding-bottom: 20px;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 300px;
 }
