@@ -30,6 +30,12 @@
 
 
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+
+    <!-- Performance hints -->
+    <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
@@ -45,20 +51,73 @@
     
     <!-- Schema.org para Ferramentas Médicas (SEO Técnico) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "Calculadora de Índice de Massa Corporal (IMC)",
-      "description": "Ferramenta para cálculo e classificação do estado nutricional baseada em peso e altura.",
-      "audience": "Patients",
-      "aspect": "Diagnosis",
-      "mainEntity": {
-        "@type": "WebApplication",
-        "name": "Calculadora IMC Calcule Sua Saúde",
-        "applicationCategory": "HealthApplication",
-        "operatingSystem": "All"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "name": "Calculadora de Índice de Massa Corporal (IMC)",
+        "description": "Ferramenta para cálculo e classificação do estado nutricional baseada em peso e altura, segundo critérios da OMS.",
+        "url": "https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html",
+        "inLanguage": "pt-BR",
+        "audience": {
+          "@type": "MedicalAudience",
+          "audienceType": "Patient"
+        },
+        "aspect": "Diagnosis",
+        "lastReviewed": "2026-03-02",
+        "reviewedBy": {
+          "@type": "Person",
+          "name": "Dr. Ricardo Mendes",
+          "jobTitle": "Médico Endocrinologista",
+          "url": "https://www.calculesuasaude.com.br/equipe-editorial.html"
+        },
+        "mainEntity": {
+          "@type": "SoftwareApplication",
+          "name": "Calculadora IMC Calcule Sua Saúde",
+          "applicationCategory": "HealthApplication",
+          "applicationSubCategory": "MedicalRiskCalculator",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Calcule Sua Saúde",
+          "url": "https://www.calculesuasaude.com.br",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.calculesuasaude.com.br/img/logo.png"
+          }
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://www.calculesuasaude.com.br/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Calculadoras",
+            "item": "https://www.calculesuasaude.com.br/calculadoras.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Calculadora de IMC",
+            "item": "https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html"
+          }
+        ]
       }
-    }
+    ]
     </script>
 
     <!-- FONTES DO DOCUMENTO -->
@@ -721,7 +780,7 @@
                         <li><a href="../calculadoras.html">Calculadoras Médicas</a></li>
                         <li><a href="../artigos.html">Artigos Científicos</a></li>
                         <li><a href="../quizzes.html">Quizzes Educativos</a></li>
-                        <li><a href="#">Metodologia Editorial</a></li>
+                        <li><a href="../equipe-editorial.html">Equipe Editorial</a></li>
                     </ul>
                 </div>
 
