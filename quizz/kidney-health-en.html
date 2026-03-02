@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>Quiz: Kidney Health | Calcule Sua Saúde</title>
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/quizz/kidney-health-en.html">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/quizz/saude-renal.html">
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/quizz/kidney-health-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/quizz/saude-renal.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/quizz/kidney-health-en.html">
+    <meta property="og:title" content="Quiz: Kidney Health">
+    <meta property="og:description" content="Test your knowledge about kidney function, chronic kidney disease, and renal health prevention strategies.">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quiz: Kidney Health">
+    <meta name="twitter:description" content="Test your knowledge about kidney function, chronic kidney disease, and renal health prevention strategies.">
+    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta name="description" content="Test your knowledge about kidney function, chronic kidney disease, and renal health prevention strategies.">
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Google Adsense & Analytics -->
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
+        /* --- DESIGN SYSTEM (Inherited) --- */
+        :root {
+            --primary: #0A4D68;        
+            --primary-dark: #06384d;
+            --accent: #8b5cf6;         /* Purple - Theme color for Kidney */       
+            --secondary: #D97706;      
+            --bg-body: #FAFAF9;        
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;      
+            --text-muted: #57534E;     
+            --border-subtle: #E7E5E4;  
+            --container-width: 1200px;
+            --header-height: 90px;
+            
+            /* Quiz Colors */
+            --correct: #10b981;
+            --wrong: #ef4444;
+            --option-bg: #f5f5f4;
+            --option-hover: #e7e5e4;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #a78bfa;
+            --border-subtle: #292524;
+            --option-bg: #292524;
+            --option-hover: #44403C;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: background-color 0.5s ease;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary); }
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- ANIMATIONS --- */
+        @keyframes rotate-scale {
+            0% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .animate-theme-switch i, 
+        .animate-theme-switch svg { 
+            animation: rotate-scale 0.5s ease-in-out;
+        }
+
+        /* --- HEADER --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 20px;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .lang-selector select {
+            background: transparent;
+            color: #fff;
+            border: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+        .lang-selector select option { color: #000; }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            position: sticky;
+            top: 0;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: var(--primary); }
+
+        .btn-outline-white {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline-white:hover {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        /* --- QUIZ HERO --- */
+        .quiz-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff; padding: 60px 0 80px; text-align: center;
+        }
+        .quiz-hero h1 { color: #fff; font-size: 3rem; margin-bottom: 10px; }
+        .quiz-hero p { opacity: 0.9; font-size: 1.2rem; max-width: 600px; margin: 0 auto; font-weight: 300; }
+
+        /* --- QUIZ CONTAINER --- */
+        .quiz-wrapper {
+            max-width: 800px; margin: -50px auto 80px; padding: 0 20px; position: relative; z-index: 10;
+        }
+
+        .quiz-card {
+            background: var(--bg-card); border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden; border: 1px solid var(--border-subtle);
+        }
+
+        /* Progress Bar */
+        .progress-container { background: var(--border-subtle); height: 6px; width: 100%; }
+        .progress-bar { background: var(--accent); height: 100%; width: 0%; transition: width 0.5s ease; }
+
+        /* Content Area */
+        .quiz-content { 
+            padding: 40px; 
+            display: flow-root; 
+        }
+        
+        .question-meta {
+            display: flex; justify-content: space-between; color: var(--text-muted); 
+            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.5rem; font-weight: 700; color: var(--text-main); margin-bottom: 30px;
+            font-family: 'Playfair Display', serif; line-height: 1.3;
+        }
+
+        .options-grid { display: grid; gap: 15px; }
+
+        .option-btn {
+            background: var(--option-bg); border: 2px solid transparent; padding: 20px;
+            border-radius: 4px; cursor: pointer; text-align: left; font-size: 1rem;
+            color: var(--text-main); transition: 0.2s; font-family: 'Source Sans 3', sans-serif;
+            display: flex; align-items: center; gap: 15px;
+        }
+        .option-btn:hover:not(:disabled) { background: var(--option-hover); border-color: var(--primary); }
+        .option-btn:disabled { cursor: default; opacity: 0.7; }
+
+        /* Answer States */
+        .option-btn.correct { background: rgba(16, 185, 129, 0.1); border-color: var(--correct); color: var(--correct); font-weight: 600; }
+        .option-btn.wrong { background: rgba(239, 68, 68, 0.1); border-color: var(--wrong); color: var(--wrong); opacity: 0.6; }
+
+        /* Feedback Box */
+        .feedback-box {
+            margin-top: 30px; padding: 20px; border-radius: 4px; background: rgba(10, 77, 104, 0.05);
+            border-left: 4px solid var(--primary); display: none; animation: fadeIn 0.5s;
+        }
+        .feedback-title { font-weight: 700; color: var(--primary); margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Next Button */
+        .btn-next {
+            background-color: var(--primary); 
+            color: #fff; 
+            border: none; 
+            padding: 16px 45px; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em;
+            margin-top: 20px; 
+            margin-bottom: 10px;
+            cursor: pointer; 
+            display: none; 
+            float: right; 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: 0 4px 15px rgba(10, 77, 104, 0.25); 
+            font-family: 'Source Sans 3', sans-serif;
+            align-items: center;
+            gap: 12px;
+        }
+        .btn-next:hover { 
+            background-color: var(--secondary); 
+            transform: translateY(-3px) scale(1.02); 
+            box-shadow: 0 10px 25px rgba(217, 119, 6, 0.3); 
+        }
+        .btn-next:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.2);
+        }
+
+        /* Results Screen */
+        .results-screen { text-align: center; padding: 60px 40px; display: none; }
+        .score-circle {
+            width: 150px; height: 150px; border-radius: 50%; background: var(--primary); color: #fff;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            margin: 0 auto 30px; border: 8px solid var(--accent);
+        }
+        .score-number { font-size: 3.5rem; font-weight: 700; line-height: 1; font-family: 'Playfair Display', serif; }
+        .score-total { font-size: 1rem; opacity: 0.8; }
+        
+        .score-msg { font-size: 1.8rem; margin-bottom: 15px; color: var(--text-main); }
+        .score-desc { max-width: 500px; margin: 0 auto 40px; color: var(--text-muted); }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer-grid h4 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        
+        .footer-grid h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .footer-grid ul li { margin-bottom: 12px; }
+        .footer-grid ul li a { 
+            color: #A8A29E; 
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .footer-grid ul li a:hover { 
+            color: #fff; 
+            transform: translateX(5px); 
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312; 
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+            .quiz-content { padding: 25px; }
+            .question-text { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#conteudo-principal">Skip to content</a>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Dark Mode</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Light Mode</span>
+                </span>
+            </div>
+            
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;">
+                    <option value="saude-renal.html">Português</option>
+                    <option value="kidney-health-en.html" selected>English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="../index-en.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="../index-en.html" class="nav-link">Home</a></li>
+                <li><a href="../artigos-en.html" class="nav-link">Articles</a></li>
+                <li><a href="../calculadoras-en.html" class="nav-link">Calculators</a></li>
+                <li><a href="../quizzes-en.html" class="nav-link" style="color: var(--primary);">Quizzes</a></li>
+                <li><a href="../contato-en.html" class="btn-outline-white">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="quiz-hero" id="conteudo-principal">
+        <div class="container">
+            <h1>Kidney Health</h1>
+            <p>How well do you know your kidneys? Test your knowledge about renal function, chronic kidney disease, and prevention strategies.</p>
+        </div>
+    </header>
+
+    <!-- QUIZ CARD -->
+    <div class="quiz-wrapper">
+        <div class="quiz-card">
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <!-- QUESTION -->
+            <div class="quiz-content" id="questionScreen">
+                <div class="question-meta">
+                    <span id="questionCount">Question 1 of 15</span>
+                    <span style="color: var(--accent);">Level: Essential</span>
+                </div>
+                
+                <h2 class="question-text" id="questionText">Loading question...</h2>
+                
+                <div class="options-grid" id="optionsContainer">
+                    <!-- Buttons generated via JS -->
+                </div>
+
+                <div class="feedback-box" id="feedbackBox">
+                    <div class="feedback-title" id="feedbackTitle"></div>
+                    <p id="feedbackText"></p>
+                </div>
+
+                <button class="btn-next" id="nextBtn" onclick="nextQuestion()">Next <i data-lucide="arrow-right"></i></button>
+            </div>
+
+            <!-- RESULTS -->
+            <div class="results-screen" id="resultsScreen">
+                <div class="score-circle">
+                    <span class="score-number" id="finalScore">0</span>
+                    <span class="score-total">of 15</span>
+                </div>
+                <h2 class="score-msg" id="scoreMsg"></h2>
+                <p class="score-desc" id="scoreDesc"></p>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; align-items: center; max-width: 400px; margin: 0 auto;">
+                    <!-- Action Buttons -->
+                    <div style="display: flex; gap: 15px; justify-content: center; width: 100%;">
+                        <button class="btn-outline-white" onclick="location.reload()" style="background: var(--primary); color: #fff; border:none; cursor:pointer; padding: 15px 30px; flex: 1;">
+                            <i data-lucide="rotate-ccw"></i> Start Over
+                        </button>
+                        <a href="../artigos-en.html" class="btn-outline-white" style="color: var(--text-main); border-color: var(--border-subtle); display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex: 1;">
+                            <i data-lucide="book-open"></i> Read Articles
+                        </a>
+                    </div>
+
+                    <!-- Share Button -->
+                    <button class="btn-outline-white" onclick="shareWhatsapp()" style="background: #25D366; color: #fff; border:none; cursor:pointer; padding: 15px 30px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <i data-lucide="message-circle"></i> Share on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1 -->
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Reference in evidence-based health. Committed to transparency, scientific education, and well-being.</p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="../calculadoras-en.html">Medical Calculators</a></li>
+                        <li><a href="../artigos-en.html">Scientific Articles</a></li>
+                        <li><a href="../quizzes-en.html">Educational Quizzes</a></li>
+                        <li><a href="#">Editorial Methodology</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4>Legal & Compliance</h4>
+                    <ul>
+                        <li><a href="../termos-de-uso-en.html">Terms of Use</a></li>
+                        <li><a href="../politica-de-privacidade-en.html">Privacy Policy</a></li>
+                        <li><a href="../isencao-de-responsabilidade-en.html">Disclaimer</a></li>
+                        <li><a href="../contato-en.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h4>Trusted Sources</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/en" target="_blank" style="text-decoration: underline; color: var(--accent);">WHO</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    
+                    <!-- Social Icons -->
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. All rights reserved.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    The information contained in this site is for educational purposes only and does not substitute professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QUIZ LOGIC -->
+    <script>
+        // Icons
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        // Quiz Data (Kidney Health - English)
+        const quizData = [
+            {
+                q: "What is the primary function of the kidneys?",
+                a: [
+                    { text: "To produce red blood cells.", correct: false },
+                    { text: "To filter waste products and excess fluids from the blood.", correct: true },
+                    { text: "To store bile for digestion.", correct: false },
+                    { text: "To regulate body temperature.", correct: false }
+                ],
+                rationale: "The kidneys filter about 200 liters of blood daily, removing waste products (like urea and creatinine) and excess fluids, which are excreted as urine."
+            },
+            {
+                q: "What does creatinine in a blood test indicate about kidney health?",
+                a: [
+                    { text: "The level of sugar being processed by the kidneys.", correct: false },
+                    { text: "The amount of protein in the urine.", correct: false },
+                    { text: "How well the kidneys are filtering waste from the blood.", correct: true },
+                    { text: "The number of kidney stones present.", correct: false }
+                ],
+                rationale: "Creatinine is a waste product from muscle metabolism. Elevated blood creatinine levels suggest the kidneys are not filtering efficiently. Along with GFR (Glomerular Filtration Rate), it is a key marker used to assess and stage kidney function."
+            },
+            {
+                q: "How many stages does chronic kidney disease (CKD) have?",
+                a: [
+                    { text: "3 stages.", correct: false },
+                    { text: "4 stages.", correct: false },
+                    { text: "5 stages.", correct: true },
+                    { text: "2 stages.", correct: false }
+                ],
+                rationale: "CKD is classified into 5 stages based on GFR: Stage 1 (normal GFR ≥90 with kidney damage) to Stage 5 (GFR <15, kidney failure), which may require dialysis or transplant."
+            },
+            {
+                q: "Which two conditions are the leading causes of chronic kidney disease?",
+                a: [
+                    { text: "Asthma and allergies.", correct: false },
+                    { text: "Diabetes and hypertension (high blood pressure).", correct: true },
+                    { text: "Arthritis and osteoporosis.", correct: false },
+                    { text: "Anemia and thyroid disorders.", correct: false }
+                ],
+                rationale: "Diabetes damages the small blood vessels in the kidneys (diabetic nephropathy), while hypertension puts excessive pressure on the glomeruli. Together, they account for about two-thirds of all CKD cases."
+            },
+            {
+                q: "What is the most common type of kidney stone?",
+                a: [
+                    { text: "Uric acid stones.", correct: false },
+                    { text: "Struvite stones.", correct: false },
+                    { text: "Calcium oxalate stones.", correct: true },
+                    { text: "Cystine stones.", correct: false }
+                ],
+                rationale: "Calcium oxalate stones account for about 80% of all kidney stones. They form when calcium combines with oxalate in the urine, often due to dehydration, high-oxalate diet, or metabolic factors."
+            },
+            {
+                q: "What is the primary purpose of dialysis?",
+                a: [
+                    { text: "To cure chronic kidney disease.", correct: false },
+                    { text: "To replace the filtering function of damaged kidneys.", correct: true },
+                    { text: "To dissolve kidney stones.", correct: false },
+                    { text: "To increase urine production.", correct: false }
+                ],
+                rationale: "Dialysis artificially removes waste products, toxins, and excess fluids from the blood when the kidneys can no longer do so adequately. It is a life-sustaining treatment, not a cure."
+            },
+            {
+                q: "How does adequate water intake help the kidneys?",
+                a: [
+                    { text: "It increases kidney size over time.", correct: false },
+                    { text: "It helps flush out toxins and reduces the risk of kidney stones.", correct: true },
+                    { text: "It directly lowers blood creatinine levels.", correct: false },
+                    { text: "It repairs damaged nephrons.", correct: false }
+                ],
+                rationale: "Staying well-hydrated helps the kidneys clear sodium, urea, and other toxins from the body. It also dilutes minerals in the urine, reducing the risk of kidney stone formation."
+            },
+            {
+                q: "What does proteinuria (protein in the urine) indicate?",
+                a: [
+                    { text: "A healthy and efficient kidney.", correct: false },
+                    { text: "Excess protein intake from diet.", correct: false },
+                    { text: "Possible kidney damage, as healthy kidneys typically retain protein.", correct: true },
+                    { text: "Normal aging of the urinary system.", correct: false }
+                ],
+                rationale: "Healthy kidneys keep protein in the blood. When the glomeruli are damaged, protein (especially albumin) leaks into the urine. Persistent proteinuria is an early warning sign of kidney disease."
+            },
+            {
+                q: "Which class of common medications can be nephrotoxic (harmful to the kidneys) when overused?",
+                a: [
+                    { text: "Vitamins and supplements.", correct: false },
+                    { text: "NSAIDs (Non-Steroidal Anti-Inflammatory Drugs) like ibuprofen.", correct: true },
+                    { text: "Probiotics.", correct: false },
+                    { text: "Antihistamines.", correct: false }
+                ],
+                rationale: "NSAIDs reduce blood flow to the kidneys and can cause acute kidney injury, especially with prolonged use, dehydration, or pre-existing kidney conditions. Always use them as directed."
+            },
+            {
+                q: "What is the main advantage of a kidney transplant over long-term dialysis?",
+                a: [
+                    { text: "It is less expensive in the short term.", correct: false },
+                    { text: "It eliminates the need for any medication.", correct: false },
+                    { text: "It generally offers better quality of life and longer survival.", correct: true },
+                    { text: "It is available to all patients without a waiting list.", correct: false }
+                ],
+                rationale: "A successful kidney transplant restores near-normal kidney function, allowing a more flexible lifestyle and better long-term outcomes compared to dialysis. However, recipients must take immunosuppressant drugs for life."
+            },
+            {
+                q: "Why should patients with advanced kidney disease limit potassium intake?",
+                a: [
+                    { text: "Potassium causes kidney stones.", correct: false },
+                    { text: "Damaged kidneys cannot excrete excess potassium, which can cause dangerous heart rhythms.", correct: true },
+                    { text: "Potassium increases blood pressure.", correct: false },
+                    { text: "Potassium accelerates kidney tissue damage.", correct: false }
+                ],
+                rationale: "When kidneys fail, potassium builds up in the blood (hyperkalemia). High potassium levels can disrupt the electrical signals of the heart, potentially leading to cardiac arrest."
+            },
+            {
+                q: "What is the key difference between Acute Kidney Injury (AKI) and Chronic Kidney Disease (CKD)?",
+                a: [
+                    { text: "AKI only affects children, while CKD affects adults.", correct: false },
+                    { text: "AKI is a sudden loss of function that may be reversible; CKD is a gradual, usually irreversible decline.", correct: true },
+                    { text: "AKI is caused by diet, while CKD is caused by genetics.", correct: false },
+                    { text: "There is no difference; they are the same condition.", correct: false }
+                ],
+                rationale: "AKI develops rapidly (hours to days), often from dehydration, infection, or medication, and can often be reversed with prompt treatment. CKD develops over months to years and the damage is typically permanent."
+            },
+            {
+                q: "How can urinary tract infections (UTIs) affect the kidneys?",
+                a: [
+                    { text: "UTIs never reach the kidneys.", correct: false },
+                    { text: "If untreated, a lower UTI can spread upward and cause pyelonephritis (kidney infection).", correct: true },
+                    { text: "UTIs only affect the bladder.", correct: false },
+                    { text: "UTIs improve kidney function by stimulating filtration.", correct: false }
+                ],
+                rationale: "Bacteria from the bladder can travel up the ureters to the kidneys, causing pyelonephritis. This serious infection can lead to permanent kidney damage or sepsis if not treated promptly with antibiotics."
+            },
+            {
+                q: "How are blood pressure and kidney health connected?",
+                a: [
+                    { text: "They are unrelated systems.", correct: false },
+                    { text: "High blood pressure only affects the heart, not the kidneys.", correct: false },
+                    { text: "High blood pressure damages kidney blood vessels, and damaged kidneys worsen blood pressure — a vicious cycle.", correct: true },
+                    { text: "Low blood pressure causes kidney stones.", correct: false }
+                ],
+                rationale: "Hypertension damages the delicate blood vessels in the kidneys, reducing their ability to filter blood. In turn, damaged kidneys produce hormones that further raise blood pressure, creating a dangerous feedback loop."
+            },
+            {
+                q: "Which of the following is an effective strategy for preventing kidney disease?",
+                a: [
+                    { text: "Taking high doses of vitamin supplements daily.", correct: false },
+                    { text: "Avoiding water to reduce kidney workload.", correct: false },
+                    { text: "Managing blood sugar, controlling blood pressure, staying hydrated, and avoiding overuse of NSAIDs.", correct: true },
+                    { text: "Eating a high-sodium diet to stimulate kidney function.", correct: false }
+                ],
+                rationale: "Prevention focuses on controlling the main risk factors: keeping blood sugar and blood pressure in check, drinking enough water, maintaining a healthy weight, not smoking, and using medications responsibly."
+            }
+        ];
+
+        // State
+        let currentQ = 0;
+        let score = 0;
+
+        // DOM Elements
+        const elProgress = document.getElementById('progressBar');
+        const elQCount = document.getElementById('questionCount');
+        const elQText = document.getElementById('questionText');
+        const elOptions = document.getElementById('optionsContainer');
+        const elFeedback = document.getElementById('feedbackBox');
+        const elFbTitle = document.getElementById('feedbackTitle');
+        const elFbText = document.getElementById('feedbackText');
+        const elNextBtn = document.getElementById('nextBtn');
+        const elQuizScreen = document.getElementById('questionScreen');
+        const elResultScreen = document.getElementById('resultsScreen');
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            loadQuestion();
+            
+            // Theme Logic
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+        });
+
+        // Start Quiz
+        function loadQuestion() {
+            const data = quizData[currentQ];
+            
+            // Update UI
+            elQCount.innerText = `Question ${currentQ + 1} of ${quizData.length}`;
+            elQText.innerText = data.q;
+            elProgress.style.width = `${((currentQ) / quizData.length) * 100}%`;
+            
+            // Clear previous states
+            elOptions.innerHTML = '';
+            elFeedback.style.display = 'none';
+            elNextBtn.style.display = 'none';
+
+            // Generate Options
+            data.a.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerHTML = `<span style="font-weight:700; color:var(--primary);">${String.fromCharCode(65+index)}.</span> ${opt.text}`;
+                btn.onclick = () => checkAnswer(btn, opt.correct, data.rationale);
+                elOptions.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(btn, isCorrect, rationale) {
+            // Disable all buttons
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(b => b.disabled = true);
+
+            // Style choice
+            if (isCorrect) {
+                btn.classList.add('correct');
+                btn.innerHTML += ' <i data-lucide="check-circle" size="20"></i>';
+                score++;
+                elFbTitle.innerHTML = '<i data-lucide="check" size="18"></i> Correct!';
+                elFbTitle.style.color = 'var(--correct)';
+                elFeedback.style.borderLeftColor = 'var(--correct)';
+                elFeedback.style.background = 'rgba(16, 185, 129, 0.05)';
+            } else {
+                btn.classList.add('wrong');
+                btn.innerHTML += ' <i data-lucide="x-circle" size="20"></i>';
+                elFbTitle.innerHTML = '<i data-lucide="x" size="18"></i> Wrong';
+                elFbTitle.style.color = 'var(--wrong)';
+                elFeedback.style.borderLeftColor = 'var(--wrong)';
+                elFeedback.style.background = 'rgba(239, 68, 68, 0.05)';
+                
+                // Show correct one
+                const correctBtn = Array.from(buttons).find(b => {
+                    return quizData[currentQ].a.find(a => a.correct && b.textContent.includes(a.text)); 
+                });
+                if(correctBtn) correctBtn.classList.add('correct');
+            }
+
+            // Show Feedback
+            elFbText.innerText = rationale;
+            elFeedback.style.display = 'block';
+            
+            // SHOW BUTTON WITH INLINE-FLEX FOR ALIGNMENT
+            elNextBtn.style.display = 'inline-flex';
+            
+            // Re-render icons
+            lucide.createIcons();
+        }
+
+        function nextQuestion() {
+            currentQ++;
+            if (currentQ < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            elQuizScreen.style.display = 'none';
+            elResultScreen.style.display = 'block';
+            elProgress.style.width = '100%';
+
+            const finalScoreEl = document.getElementById('finalScore');
+            const msgEl = document.getElementById('scoreMsg');
+            const descEl = document.getElementById('scoreDesc');
+
+            // Animate Score
+            let current = 0;
+            const timer = setInterval(() => {
+                current++;
+                finalScoreEl.innerText = current;
+                if(current >= score) clearInterval(timer);
+            }, 50);
+
+            // Message
+            const percentage = (score / quizData.length) * 100;
+            
+            if (percentage === 100) {
+                msgEl.innerText = "Nephrology Expert! 🏆";
+                descEl.innerText = "Impressive! You have outstanding knowledge about kidney health and renal disease prevention.";
+            } else if (percentage >= 80) {
+                msgEl.innerText = "Excellent! 💜";
+                descEl.innerText = "You understand very well how your kidneys work and how to protect them.";
+            } else if (percentage >= 50) {
+                msgEl.innerText = "Good Job! 🩺";
+                descEl.innerText = "You have a solid foundation, but there is still more to learn about kidney health.";
+            } else {
+                msgEl.innerText = "Time to Learn! 🌱";
+                descEl.innerText = "Kidney health is essential for your well-being. Use this quiz as motivation to learn more about protecting your kidneys.";
+            }
+        }
+
+        // WhatsApp Share Function
+        function shareWhatsapp() {
+            const scoreNum = document.getElementById('finalScore').innerText;
+            const msg = document.getElementById('scoreMsg').innerText;
+            
+            const text = `I took the Kidney Health Quiz at Calcule Sua Saúde!\n\nScore: ${scoreNum}/15 - ${msg}\n\nHow well do you know your kidneys? Try it here:`;
+            const url = window.location.href; 
+            
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+        }
+
+    </script>
+</body>
+</html>
