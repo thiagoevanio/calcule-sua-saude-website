@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Script de tema (previene flash de tema incorrecto) -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) {
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            t = prefersDark ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- --- SEO INTERNACIONAL (CRÍTICO) --- -->
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/index.html" />
+    <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/index-en.html" />
+    <link rel="alternate" hreflang="es" href="https://www.calculesuasaude.com.br/index-es.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/index.html" />
+
+    <!-- --- SEO TÉCNICO Y META TAGS --- -->
+    <title>Calculadoras de Salud y Artículos Médicos Gratuitos | Calcule Sua Saúde</title>
+
+    <meta name="description" content="Acceda a calculadoras de salud en línea (IMC, TMB, Riesgo Cardíaco), cuestionarios y artículos médicos revisados. Herramientas gratuitas basadas en evidencia para su longevidad.">
+    <meta name="keywords" content="calculadora imc, tasa metabólica basal, riesgo cardíaco, salud basada en evidencia, medicina preventiva, app salud">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/index-es.html">
+    <meta name="author" content="Calcule Sua Saúde">
+    <meta name="theme-color" content="#0A4D68">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/index-es.html">
+    <meta property="og:title" content="Herramientas de Salud y Ciencia Médica | Calcule Sua Saúde">
+    <meta property="og:description" content="Descubra su IMC, TMB y Riesgo Cardíaco con herramientas profesionales. Contenido revisado por especialistas.">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Herramientas de Salud y Ciencia Médica">
+    <meta name="twitter:description" content="Calculadoras de salud, cuestionarios y artículos basados en evidencia.">
+    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+
+    <!-- Sugerencias de rendimiento -->
+    <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+
+    <!-- Precarga de CSS principal -->
+    <link rel="preload" href="css/style.css" as="style">
+
+    <!-- Anuncios / Analíticas -->
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <link rel="icon" href="favicon.ico">
+
+    <!-- --- SCHEMA.ORG (SEO) --- -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Calcule Sua Saúde",
+        "url": "https://www.calculesuasaude.com.br/index-es.html",
+        "logo": "https://www.calculesuasaude.com.br/img/logo.png"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Calcule Sua Saúde",
+        "url": "https://www.calculesuasaude.com.br/index-es.html",
+        "inLanguage": "es",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.calculesuasaude.com.br/busca?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "name": "Calculadoras de Salud y Artículos Científicos",
+        "url": "https://www.calculesuasaude.com.br/index-es.html",
+        "description": "Plataforma de herramientas de salud basadas en evidencia y artículos médicos revisados.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Calcule Sua Saúde",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.calculesuasaude.com.br/img/logo.png"
+          }
+        },
+        "about": {
+          "@type": "MedicalSpecialty",
+          "name": "Medicina Preventiva y Nutrición"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Calculadora de IMC en Línea",
+        "url": "https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html",
+        "description": "Herramienta gratuita para calcular el Índice de Masa Corporal según las directrices de la OMS.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "featureList": "Cálculo de IMC, Clasificación de Obesidad, Recomendaciones de Salud"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.calculesuasaude.com.br/index-es.html"
+          }
+        ]
+      }
+    ]
+    </script>
+
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- CSS adicional (Skip Link + Dropdown + Cookie Banner) -->
+    <style>
+      .skip-link{
+        position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+      }
+      .skip-link:focus{
+        left:16px; top:16px; width:auto; height:auto; padding:10px 14px; z-index:9999;
+        background:#0A4D68; color:#fff; border-radius:6px;
+      }
+      
+      /* ===== DROPDOWN HERRAMIENTAS (NAV) ===== */
+      .nav-dropdown{
+        position: relative;
+      }
+      .nav-dropdown-toggle{
+        background: none;
+        border: none;
+        font-family: 'Source Sans 3', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        position: relative;
+      }
+      .nav-dropdown-toggle::after{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--secondary);
+        transition: width 0.3s;
+      }
+      .nav-dropdown-toggle:hover::after{ width: 100%; }
+      .nav-dropdown-toggle:hover{ color: #fff; }
+
+      .dropdown-chevron{
+        transition: transform .25s ease;
+        display: inline-flex;
+      }
+      .nav-dropdown.open .dropdown-chevron{
+        transform: rotate(180deg);
+      }
+
+      /* Panel del Dropdown — MODO CLARO */
+      .nav-dropdown-menu{
+        position: absolute;
+        top: calc(100% + 14px);
+        right: 0;
+        min-width: 270px;
+        background: #ffffff;
+        border: 1px solid #E7E5E4;
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
+        transition: opacity .22s ease, transform .22s ease, visibility .22s;
+        z-index: 9000;
+      }
+      .nav-dropdown.open .nav-dropdown-menu{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      /* Panel del Dropdown — MODO OSCURO */
+      [data-theme="dark"] .nav-dropdown-menu{
+        background: #1C1917;
+        border-color: #44403C;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+      }
+
+      .dropdown-section-title{
+        display: block;
+        padding: 10px 20px 6px;
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        color: #57534E;
+      }
+      [data-theme="dark"] .dropdown-section-title{
+        color: #A8A29E;
+      }
+
+      .dropdown-item{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        color: #1C1917;
+        text-decoration: none;
+        transition: background .15s ease, color .15s ease;
+        white-space: nowrap;
+      }
+      [data-theme="dark"] .dropdown-item{
+        color: #F5F5F4;
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item:focus-visible{
+        background: rgba(10,77,104,0.07);
+        color: #0A4D68;
+      }
+      [data-theme="dark"] .dropdown-item:hover,
+      [data-theme="dark"] .dropdown-item:focus-visible{
+        background: rgba(56,189,248,0.10);
+        color: #38BDF8;
+      }
+
+      .dropdown-item i{
+        flex-shrink: 0;
+        color: #0A4D68;
+        opacity: .7;
+      }
+      [data-theme="dark"] .dropdown-item i{
+        color: #38BDF8;
+      }
+
+      /* Móvil: el dropdown se convierte en lista expandible dentro del nav */
+      @media (max-width: 900px){
+        .nav-dropdown-menu{
+          position: static;
+          box-shadow: none;
+          border: none;
+          border-radius: 0;
+          background: transparent !important;
+          padding: 6px 0 0 0;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height .3s ease;
+        }
+        .nav-dropdown.open .nav-dropdown-menu{
+          max-height: 500px;
+        }
+        .dropdown-section-title{
+          color: rgba(255,255,255,0.5);
+          padding: 6px 8px 4px;
+        }
+        .dropdown-item{
+          color: rgba(255,255,255,0.9);
+          padding: 6px 8px;
+          font-size: 0.88rem;
+        }
+        .dropdown-item:hover,
+        .dropdown-item:focus-visible{
+          background: rgba(255,255,255,0.08);
+          color: #fff;
+        }
+        .dropdown-item i{
+          color: rgba(255,255,255,0.7);
+        }
+        [data-theme="dark"] .dropdown-section-title{
+          color: rgba(255,255,255,0.5);
+        }
+        [data-theme="dark"] .dropdown-item{
+          color: rgba(255,255,255,0.9);
+        }
+        [data-theme="dark"] .dropdown-item:hover{
+          background: rgba(255,255,255,0.08);
+          color: #fff;
+        }
+        [data-theme="dark"] .dropdown-item i{
+          color: rgba(255,255,255,0.7);
+        }
+      }
+
+      /* Tarjeta de herramienta destacada (Inicio) */
+      .featured-tool-card{
+        position: relative;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        padding: 18px 18px;
+        margin: 18px 0 18px;
+        border-radius: 18px;
+        border: 1px solid var(--border-subtle, rgba(0,0,0,0.10));
+        background:
+          linear-gradient(135deg, rgba(10,77,104,0.22), rgba(200,160,81,0.18)),
+          var(--bg-card, #ffffff);
+        box-shadow: var(--shadow-lg, 0 14px 40px rgba(0,0,0,0.10));
+        text-decoration: none;
+        transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      }
+      .featured-tool-card:hover{
+        transform: translateY(-2px);
+        border-color: rgba(200,160,81,0.45);
+      }
+      .featured-tool-badge{
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent, #C8A051);
+        color: #111;
+        font-weight: 900;
+        font-size: 0.78rem;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+      }
+      .featured-tool-icon{
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(200,160,81,0.35);
+        background: rgba(200,160,81,0.18);
+        flex-shrink: 0;
+      }
+      .featured-tool-body{ flex: 1; min-width: 0; }
+      .featured-tool-kicker{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 800;
+        color: var(--text-muted, #425466);
+        font-size: 0.88rem;
+        margin-bottom: 6px;
+      }
+      .featured-tool-title{
+        margin: 0;
+        font-size: 1.35rem;
+        line-height: 1.25;
+        color: var(--primary, #0A4D68);
+        font-family: 'Playfair Display', serif;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .featured-tool-desc{
+        margin: 8px 0 0;
+        color: var(--text-muted, #5b6470);
+        line-height: 1.6;
+        font-size: 1.02rem;
+        max-width: 70ch;
+      }
+      .featured-tool-cta{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        font-weight: 900;
+        color: var(--primary, #0A4D68);
+      }
+      @media (max-width: 640px){
+        .featured-tool-card{ padding: 16px; gap: 14px; }
+        .featured-tool-title{ font-size: 1.2rem; }
+        .featured-tool-desc{ font-size: 0.98rem; }
+      }
+
+      /* ===== BANNER DE COOKIES PROFESIONAL ===== */
+      .cookie-banner {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(150%); /* Comienza oculto */
+        width: 90%;
+        max-width: 1200px;
+        background-color: var(--bg-card, #ffffff);
+        color: var(--text-main, #1c1917);
+        padding: 20px 24px;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        border: 1px solid var(--border-subtle, #e2e8f0);
+        z-index: 10000;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .cookie-banner.show {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .cookie-content {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .cookie-title {
+        font-weight: 800;
+        font-size: 1rem;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .cookie-text {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      .cookie-text a {
+        color: var(--primary);
+        text-decoration: underline;
+        font-weight: 600;
+      }
+
+      .cookie-actions {
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-cookie-accept {
+        background-color: #0A4D68; 
+        color: #fff;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+
+      .btn-cookie-accept:hover {
+        background-color: #06384d;
+      }
+
+      .btn-cookie-close {
+        background: transparent;
+        border: 2px solid var(--border-subtle);
+        color: var(--text-muted);
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-cookie-close:hover {
+        border-color: var(--text-muted);
+        color: var(--text-main);
+      }
+
+      @media (max-width: 768px) {
+        .cookie-banner {
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          border-radius: 16px 16px 0 0;
+          transform: translateY(100%);
+          border-left: none;
+          border-right: none;
+          border-bottom: none;
+        }
+        .cookie-banner.show {
+          transform: translateY(0);
+        }
+        .cookie-actions {
+          width: 100%;
+          flex-direction: column-reverse;
+        }
+        .btn-cookie-accept, .btn-cookie-close {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#conteudo">Saltar al contenido principal</a>
+
+    <!-- BARRA SUPERIOR -->
+    <div class="top-bar">
+        <div class="container">
+            <!-- Alternador de Tema -->
+            <button class="theme-toggle" id="theme-btn" aria-label="Alternar tema claro/oscuro" style="background: none; border: none; font-family: inherit; color: inherit; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 0;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                    <i data-lucide="moon" size="14"></i>
+                    <span>Modo Oscuro</span>
+                </span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                    <i data-lucide="sun" size="14"></i>
+                    <span>Modo Claro</span>
+                </span>
+            </button>
+
+            <!-- Selector de Idioma -->
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;" aria-label="Seleccionar idioma">
+                    <option value="index.html">Português</option>
+                    <option value="index-en.html">English</option>
+                    <option value="index-es.html" selected>Español</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- ENCABEZADO PRINCIPAL -->
+    <nav class="main-header" aria-label="Navegación principal">
+        <div class="container">
+            <a href="index-es.html" class="logo" aria-label="Calcule Sua Saúde — Inicio">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index-es.html" class="nav-link active" aria-current="page">Inicio</a></li>
+                <li><a href="artigos.html" class="nav-link">Artículos</a></li>
+                <li><a href="calculadoras.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="quizzes.html" class="nav-link">Cuestionarios</a></li>
+                <li class="nav-dropdown">
+                    <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        Herramientas <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <span class="dropdown-section-title">Utilidades Generales</span>
+                        <a href="ferramentas/gerador-qr-code.html" class="dropdown-item" role="menuitem">
+                            <i data-lucide="qr-code" size="18"></i> Generador de Código QR
+                        </a>
+                        <a href="ferramentas/conversor-unidades.html" class="dropdown-item" role="menuitem">
+                            <i data-lucide="ruler" size="18"></i> Conversor de Unidades
+                        </a>
+                        <a href="ferramentas/compressor-imagem.html" class="dropdown-item" role="menuitem">
+                            <i data-lucide="image-down" size="18"></i> Compresor de Imágenes
+                        </a>
+                        <a href="ferramentas/gerador-senhas.html" class="dropdown-item" role="menuitem">
+                            <i data-lucide="key-round" size="18"></i> Generador de Contraseñas
+                        </a>
+                        <a href="ferramentas/qual-e-meu-ip.html" class="dropdown-item" role="menuitem">
+                            <i data-lucide="wifi" size="18"></i> ¿Cuál es mi IP?
+                        </a>
+                    </div>
+                </li>
+                <li><a href="contato.html" class="btn-outline-white">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+
+        <!-- SECCIÓN HERO -->
+        <header class="hero">
+            <div class="container">
+                <div class="hero-content animate-fade-in">
+                    <div class="science-badge">
+                        <i data-lucide="check-circle" size="14"></i>
+                        Basado en Evidencias
+                    </div>
+
+                    <h1>Ciencia y Salud<br>en Equilibrio.</h1>
+
+                    <p class="delay-100">
+                        Información científica clara, confiable y revisada por especialistas para su bienestar y longevidad.
+                    </p>
+
+                    <div class="hero-note delay-200">
+                        <i data-lucide="info" size="16"></i>
+                        Contenido estrictamente educativo e informativo.
+                    </div>
+
+                    <div class="delay-300" style="display:flex; gap:12px; flex-wrap:wrap;">
+                        <a href="calculadoras.html" class="btn-hero" aria-label="Abrir calculadoras">Usar Calculadoras <i data-lucide="arrow-right"></i></a>
+                        <a href="artigos.html" class="btn-hero" aria-label="Explorar artículos">Explorar Artículos <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="personal-card-float">
+                    <div class="p-info">
+                        <h4 class="p-name">
+                            <span class="p-status-dot"></span>
+                            Entrenador Personal
+                        </h4>
+                        <span class="p-cref">Profesional Certificado • Consultoría en Línea</span>
+                    </div>
+                    <a href="personal.html" class="p-btn-small">Ver Planes</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- CALCULADORAS -->
+        <section class="container" aria-label="Calculadoras Destacadas">
+            <div class="calculators-bar">
+                <div class="calc-header">
+                    <h2>Herramientas Gratuitas</h2>
+                    <p>Protocolos de cálculo basados en evidencia para una evaluación rápida.</p>
+                </div>
+
+
+                <!-- NUEVA HERRAMIENTA (DESTACADA) -->
+                <a
+                    id="featured-glucose-card"
+                    class="featured-tool-card"
+                    href="calculadoras/conversor-glicose.html"
+                    data-href-pt="calculadoras/conversor-glicose.html"
+                    data-href-en="calculadoras/glucose-converter-en.html"
+                    data-href-es="calculadoras/conversor-glicose.html"
+                    aria-label="Abrir Conversor de Glucosa (mg/dL ↔ mmol/L)"
+                >
+                    <span class="featured-tool-badge">Nuevo</span>
+
+                    <div class="featured-tool-icon" aria-hidden="true">
+                        <i data-lucide="droplet" size="22"></i>
+                    </div>
+
+                    <div class="featured-tool-body">
+                        <div class="featured-tool-kicker">
+                            <i data-lucide="arrow-left-right" size="16" aria-hidden="true"></i>
+                            mg/dL ↔ mmol/L
+                        </div>
+                        <h3 class="featured-tool-title">Conversor de Glucosa</h3>
+                        <p class="featured-tool-desc">
+                            Convierta valores de glucemia con precisión (factor 18.0182), con tabla de referencia e indicación de rango.
+                        </p>
+                        <span class="featured-tool-cta">
+                            Abrir herramienta <i data-lucide="arrow-right" size="16" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <div class="calc-grid">
+                    <a href="calculadoras/indice-de-massa-corporal-imc.html" class="calc-item" aria-label="Calcular Índice de Masa Corporal (IMC)">
+                        <div class="calc-icon-wrapper">
+                            <i data-lucide="scale" size="24"></i>
+                        </div>
+                        <div class="calc-info">
+                            <h3>Índice de Masa Corporal</h3>
+                            <span>Calcular IMC en Línea</span>
+                        </div>
+                    </a>
+
+                    <a href="calculadoras/taxa-metabolica-basal-tmb.html" class="calc-item" aria-label="Calcular Tasa Metabólica Basal (TMB)">
+                        <div class="calc-icon-wrapper">
+                            <i data-lucide="activity" size="24"></i>
+                        </div>
+                        <div class="calc-info">
+                            <h3>Tasa Metabólica Basal</h3>
+                            <span>Calcular Gasto Calórico</span>
+                        </div>
+                    </a>
+
+                    <a href="calculadoras/zonas-de-frequencia-cardíaca.html" class="calc-item" aria-label="Evaluar Riesgo Cardiovascular">
+                        <div class="calc-icon-wrapper">
+                            <i data-lucide="heart-pulse" size="24"></i>
+                        </div>
+                        <div class="calc-info">
+                            <h3>Riesgo Cardiovascular</h3>
+                            <span>Indicadores Framingham</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUESTRA METODOLOGÍA -->
+        <section class="methodology-section" aria-label="Metodología Editorial">
+            <div class="container">
+                <div class="method-header">
+                    <span class="section-badge">Editorial</span>
+                    <h2>Nuestra Metodología</h2>
+                    <p class="method-subtitle">Compromiso con la ciencia y la verdad.</p>
+                </div>
+
+                <div class="method-grid">
+                    <div class="method-card">
+                        <div class="method-icon-box">
+                            <i data-lucide="book-open-check" size="24"></i>
+                        </div>
+                        <h3>Evidencia Científica</h3>
+                        <p>Todo nuestro contenido se basa en directrices oficiales (OMS, CDC) y estudios revisados por pares de bases de datos como PubMed y SciELO.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-icon-box">
+                            <i data-lucide="shield-check" size="24"></i>
+                        </div>
+                        <h3>Revisión Técnica</h3>
+                        <p>La información de salud se verifica rigurosamente para garantizar precisión clínica, seguridad y actualizaciones constantes.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-icon-box">
+                            <i data-lucide="users" size="24"></i>
+                        </div>
+                        <h3>Claridad y Accesibilidad</h3>
+                        <p>Nuestra misión es traducir la complejidad médica en un lenguaje claro y accesible sin perder profundidad técnica.</p>
+                    </div>
+                </div>
+
+                <div class="method-seal">
+                    <div class="seal-line"></div>
+                    <div class="seal-content">
+                        <i data-lucide="award" size="18"></i>
+                        <span>Calidad Editorial Garantizada</span>
+                    </div>
+                    <div class="seal-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARTÍCULOS DESTACADOS -->
+        <section class="featured-section" aria-label="Últimas Publicaciones">
+            <div class="container">
+                <div class="section-header-left">
+                    <h2>Últimas Publicaciones</h2>
+                    <p>Análisis profundos sobre las categorías prioritarias de salud.</p>
+                </div>
+
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/resistencia-insulina-mecanismos.html">
+                                <img src="img/artigos/Resistência à Insulina Mecanismos.webp" class="card-img" alt="Insulina" loading="lazy" decoding="async" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop'">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Endocrinología</span>
+                            <h3 class="card-title"><a href="artigos/resistencia-insulina-mecanismos.html">Resistencia a la Insulina: Mecanismos</a></h3>
+                            <p class="card-excerpt">Una revisión detallada sobre la fisiopatología de la resistencia a la insulina y estrategias no farmacológicas.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 8 min lectura</span>
+                                <span>Especialista Médico</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/macronutrientes-guia-bioquimico.html">
+                                <img src="img/artigos/Macronutrientes O Guia Bioquímico.webp" class="card-img" alt="Nutrición" loading="lazy" decoding="async" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop'">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Nutrición Clínica</span>
+                            <h3 class="card-title"><a href="artigos/macronutrientes-guia-bioquimico.html">Macronutrientes: La Guía Bioquímica</a></h3>
+                            <p class="card-excerpt">Comprensión del metabolismo de proteínas, carbohidratos y lípidos a nivel celular.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 12 min lectura</span>
+                                <span>Equipo Editorial</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/hipertensao-diretrizes.html">
+                                <img src="img/artigos/Hipertensão Diretrizes Atuais.webp" class="card-img" alt="Corazón" loading="lazy" decoding="async" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800&auto=format&fit=crop'">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Cardiología</span>
+                            <h3 class="card-title"><a href="artigos/hipertensao-diretrizes.html">Hipertensión: Directrices Actuales</a></h3>
+                            <p class="card-excerpt">Actualizaciones sobre diagnóstico, monitoreo y control de la presión arterial sistémica.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 10 min lectura</span>
+                                <span>Revisión Médica</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/cortisol-estresse-cronico.html">
+                                <img src="img/artigos/Cortisol e Estresse Crônico.webp" class="card-img" alt="Salud Mental" loading="lazy" decoding="async" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=800&auto=format&fit=crop'">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Salud Mental</span>
+                            <h3 class="card-title"><a href="artigos/cortisol-estresse-cronico.html">Cortisol y Estrés Crónico</a></h3>
+                            <p class="card-excerpt">Impactos neurobiológicos del estrés prolongado y marcadores hormonales de la salud mental.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 11 min lectura</span>
+                                <span>Neurociencia</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/ritmo-circadiano.html">
+                                <img src="img/artigos/Ritmo Circadiano e Saúde.webp" class="card-img" alt="Sueño" loading="lazy" decoding="async" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1517340076-2e9988a2e5d5?q=80&w=800&auto=format&fit=crop'">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Medicina del Sueño</span>
+                            <h3 class="card-title"><a href="artigos/ritmo-circadiano.html">Ritmo Circadiano y Salud</a></h3>
+                            <p class="card-excerpt">Cómo los ciclos de luz y sueño afectan su metabolismo, hormonas y sistema inmunológico.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 9 min lectura</span>
+                                <span>Neumólogo</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/mioquinas-movimento.html">
+                                <img src="img/artigos/Mioquinas O Segredo do Movimento.webp" class="card-img" alt="Ejercicio" loading="lazy" decoding="async" width="800" height="450" onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop'">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Fisiología</span>
+                            <h3 class="card-title"><a href="artigos/mioquinas-movimento.html">Mioquinas: El Secreto del Movimiento</a></h3>
+                            <p class="card-excerpt">El papel del músculo esquelético como órgano endocrino y sus beneficios sistémicos.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 14 min lectura</span>
+                                <span>Fisiólogo</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE CUESTIONARIOS -->
+        <section class="quizzes-section" aria-label="Cuestionarios Educativos">
+            <div class="container">
+                <div class="quiz-header">
+                    <h2>Pon a Prueba tus Conocimientos</h2>
+                    <p style="font-family: 'Source Sans 3', sans-serif; color: var(--text-muted); font-size: 1.1rem;">
+                        Cuestionarios educativos basados en nuestros artículos más recientes.
+                    </p>
+                </div>
+
+                <div class="quiz-grid">
+                    <div class="quiz-card">
+                        <div class="quiz-icon">
+                            <i data-lucide="brain-circuit" size="28"></i>
+                        </div>
+                        <h3>Mitos del Metabolismo</h3>
+                        <p>¿Puede distinguir el hecho de la ficción cuando se trata de insulina y gasto calórico?</p>
+                        <a href="quizz/mitos-do-metabolismo.html" class="btn-quiz">Iniciar Cuestionario</a>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-icon">
+                            <i data-lucide="heart-handshake" size="28"></i>
+                        </div>
+                        <h3>Salud Cardiovascular</h3>
+                        <p>Ponga a prueba su comprensión sobre la presión arterial y los factores de riesgo invisibles.</p>
+                        <a href="quizz/saude-cardiovascular.html" class="btn-quiz">Iniciar Cuestionario</a>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-icon">
+                            <i data-lucide="moon-star" size="28"></i>
+                        </div>
+                        <h3>Higiene del Sueño</h3>
+                        <p>Descubra si sus hábitos nocturnos están ayudando o perjudicando su ritmo biológico.</p>
+                        <a href="quizz/higiene-do-sono.html" class="btn-quiz">Iniciar Cuestionario</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOLETÍN INFORMATIVO -->
+        <section class="newsletter-section" aria-label="Boletín Informativo">
+            <div class="container newsletter-content">
+                <i data-lucide="mail" size="40" style="margin-bottom:20px;"></i>
+                <h2>Reciba Ciencia en su Email</h2>
+                <p>Únase a nuestra comunidad y reciba resúmenes semanales de nuevos estudios y artículos.</p>
+
+                <form class="newsletter-form" action="https://formspree.io/f/mregzyby" method="POST">
+                    <label class="sr-only" for="newsletter-email" style="position:absolute;left:-9999px;">Email</label>
+                    <input id="newsletter-email" type="email" name="email" placeholder="Su mejor email" class="newsletter-input" autocomplete="email" inputmode="email" required>
+
+                    <!-- Honeypot anti-spam -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <button type="submit" class="btn-subscribe">Suscribirse</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referencia en salud basada en evidencias. Comprometidos con la transparencia, la educación científica y el bienestar.</p>
+                </div>
+
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="calculadoras.html">Calculadoras Médicas</a></li>
+                        <li><a href="artigos.html">Artículos Científicos</a></li>
+                        <li><a href="quizzes.html">Cuestionarios Educativos</a></li>
+                        <li><a href="glossary-en.html">Glosario de Salud</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Legal y Cumplimiento</h4>
+                    <ul>
+                        <li><a href="termos-de-uso.html">Términos de Uso</a></li>
+                        <li><a href="politica-de-privacidade.html">Política de Privacidad</a></li>
+                        <li><a href="isencao-de-responsabilidade.html">Descargo de Responsabilidad</a></li>
+                        <li><a href="contato.html">Contáctenos</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Fuentes Confiables</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/es" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: var(--accent);">OMS</a>,
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: var(--accent);">PubMed</a>,
+                        <a href="https://www.cdc.gov/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Calcule Sua Saúde. Todos los derechos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    La información contenida en este sitio es solo para fines educativos y no sustituye el asesoramiento, diagnóstico o tratamiento médico profesional.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BANNER DE COOKIES -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+        <div class="cookie-content">
+            <div id="cookie-title" class="cookie-title">
+                <i data-lucide="cookie" size="20" style="color: var(--primary);"></i>
+                Su privacidad importa
+            </div>
+            <p class="cookie-text">
+                Utilizamos cookies para mejorar su experiencia, analizar el tráfico y personalizar contenido. Al continuar, acepta nuestra <a href="politica-de-privacidade.html">Política de Privacidad</a>.
+            </p>
+        </div>
+        <div class="cookie-actions">
+            <button id="btn-cookie-close" class="btn-cookie-close">Cerrar</button>
+            <button id="btn-cookie-accept" class="btn-cookie-accept">Aceptar y Continuar</button>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function applyTheme(theme) {
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            html.setAttribute('data-theme', theme);
+
+            if (theme === 'dark') {
+                if (iconMoon) iconMoon.style.display = 'none';
+                if (iconSun) iconSun.style.display = 'flex';
+            } else {
+                if (iconMoon) iconMoon.style.display = 'flex';
+                if (iconSun) iconSun.style.display = 'none';
+            }
+        }
+
+        function initLucideWhenIdle() {
+            const run = () => {
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
+                }
+            };
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(run, { timeout: 1500 });
+            } else {
+                setTimeout(run, 0);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Persistencia de tema (localStorage) + fallback a preferencia del sistema
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            applyTheme(initialTheme);
+
+            const themeBtn = document.getElementById('theme-btn');
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+
+                    const current = document.documentElement.getAttribute('data-theme') || 'light';
+                    const next = current === 'light' ? 'dark' : 'light';
+                    applyTheme(next);
+                    localStorage.setItem('theme', next);
+
+                    setTimeout(() => themeBtn.classList.remove('animate-theme-switch'), 500);
+                });
+            }
+
+            initLucideWhenIdle();
+
+            // ===== LÓGICA DEL BANNER DE COOKIES =====
+            const cookieBanner = document.getElementById('cookie-banner');
+            const btnAccept = document.getElementById('btn-cookie-accept');
+            const btnClose = document.getElementById('btn-cookie-close');
+
+            // Verificar si ya fue aceptado (clave 'cookiesAccepted' en localStorage)
+            if (!localStorage.getItem('cookiesAccepted')) {
+                // Pequeño retraso para animación de entrada suave
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            }
+
+            btnAccept.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieBanner.classList.remove('show');
+            });
+
+            btnClose.addEventListener('click', () => {
+                // Solo cierra sin guardar preferencia permanente (aparecerá en la próxima sesión)
+                cookieBanner.classList.remove('show');
+            });
+
+            // ===== DROPDOWN DE HERRAMIENTAS =====
+            document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+                var toggle = dd.querySelector('.nav-dropdown-toggle');
+                if (!toggle) return;
+
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var isOpen = dd.classList.contains('open');
+                    // Cerrar todos los otros dropdowns abiertos
+                    document.querySelectorAll('.nav-dropdown.open').forEach(function(other) {
+                        other.classList.remove('open');
+                        var btn = other.querySelector('.nav-dropdown-toggle');
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    });
+                    if (!isOpen) {
+                        dd.classList.add('open');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // Cerrar dropdown al hacer clic fuera
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.nav-dropdown.open').forEach(function(dd) {
+                    dd.classList.remove('open');
+                    var btn = dd.querySelector('.nav-dropdown-toggle');
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Cerrar dropdown con tecla Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd) {
+                        dd.classList.remove('open');
+                        var btn = dd.querySelector('.nav-dropdown-toggle');
+                        if (btn) {
+                            btn.setAttribute('aria-expanded', 'false');
+                            btn.focus();
+                        }
+                    });
+                }
+            });
+
+            // Tarjeta de herramienta destacada: ajustar enlace según idioma
+            const glucoseCard = document.getElementById('featured-glucose-card');
+            if (glucoseCard) {
+                const lang = (document.documentElement.lang || '').toLowerCase();
+                const isEN = lang.startsWith('en') || /index-en\.html$/i.test(window.location.pathname);
+                const isES = lang.startsWith('es') || /index-es\.html$/i.test(window.location.pathname);
+                const href = isES ? 'calculadoras/conversor-glicose.html' : isEN ? 'calculadoras/glucose-converter-en.html' : 'calculadoras/conversor-glicose.html';
+                if (href) glucoseCard.setAttribute('href', href);
+            }
+
+        });
+    </script>
+</body>
+</html>
