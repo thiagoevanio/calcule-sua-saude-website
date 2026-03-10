@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Pon a prueba tus conocimientos de salud con cuestionarios basados en evidencia. Temas complejos: Diabetes, Cardiología, Neurociencia y más.">
+    <meta name="keywords" content="cuestionario de salud, test de conocimientos médicos, cuestionario de nutrición, anatomía, fisiología, educación en salud">
+    
+    <title>Cuestionarios Educativos | Calcule Sua Saúde</title>
+    <link rel="canonical" href="https://www.calculesuasaude.com.br/quizzes-es.html">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" hreflang="es" href="https://www.calculesuasaude.com.br/quizzes.html">
+    <link rel="alternate" hreflang="es" href="https://www.calculesuasaude.com.br/quizzes-en.html">
+    <link rel="alternate" hreflang="es" href="https://www.calculesuasaude.com.br/quizzes-es.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/quizzes.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.calculesuasaude.com.br/quizzes-es.html">
+    <meta property="og:title" content="Cuestionarios Educativos de Salud | Calcule Sua Saúde">
+    <meta property="og:description" content="Pon a prueba tus conocimientos de salud con cuestionarios basados en evidencia. Temas complejos: Diabetes, Cardiología, Neurociencia y más.">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cuestionarios Educativos de Salud">
+    <meta name="twitter:description" content="Cuestionarios de salud basados en evidencia sobre Diabetes, Cardiología, Neurociencia y más.">
+    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+
+    <meta name="google-adsense-account" content="ca-pub-5825554897787593">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593"
+    crossorigin="anonymous"></script>
+
+	  <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EVCQQZV60N');
+    </script>
+
+    <!-- Favicon (Ícone da aba) - CORRIGIDO -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Skip link (acessibilidade) */
+        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
+        /* --- VARIABLES --- */
+        :root {
+            --primary: #0A4D68;       
+            --primary-dark: #06384d;
+            --accent: #047857;        
+            --secondary: #D97706;     
+            --bg-body: #FAFAF9;       
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;     
+            --text-muted: #57534E;    
+            --border-subtle: #E7E5E4; 
+            --container-width: 1200px;
+            --header-height: 90px;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0C0A09;
+            --bg-card: #1C1917;
+            --text-main: #F5F5F4;
+            --text-muted: #A8A29E;
+            --primary: #38BDF8;
+            --accent: #34D399;
+            --border-subtle: #292524;
+        }
+
+        /* --- GLOBAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HEADER --- */
+        .top-bar {
+            background-color: #0A4D68;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1002;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        /* Lang Selector Styles */
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .lang-selector select {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+        .lang-selector select option {
+            background-color: #0A4D68;
+            color: #fff;
+        }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700; 
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--primary); }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 24px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .btn-outline:hover { background-color: var(--primary); color: #fff; }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            padding: 60px 0 40px;
+            text-align: center;
+            background-color: var(--bg-body);
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- CATEGORY FILTER --- */
+        .category-filter-section {
+            background-color: var(--bg-body);
+            padding: 0 0 40px;
+            position: sticky;
+            top: var(--header-height);
+            z-index: 900;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .category-filter-section.is-pinned {
+            border-bottom: 1px solid var(--border-subtle);
+            background-color: var(--bg-card);
+            padding-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .category-scroll-container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 5px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .category-scroll-container::-webkit-scrollbar { display: none; }
+
+        .category-btn {
+            white-space: nowrap;
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 1px solid var(--border-subtle);
+            background-color: var(--bg-card);
+            color: var(--text-muted);
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .category-btn:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .category-btn.active {
+            background-color: var(--secondary);
+            color: #fff;
+            border-color: var(--secondary);
+            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.2);
+        }
+
+        /* --- QUIZZES GRID --- */
+        .quizzes-section {
+            padding-bottom: 100px;
+        }
+
+        .quizzes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        /* CARD DESIGN */
+        .quiz-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--secondary);
+        }
+
+        .quiz-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, transparent 50%, rgba(217, 119, 6, 0.1) 50%);
+            border-bottom-left-radius: 60px;
+        }
+
+        .quiz-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background-color: rgba(217, 119, 6, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .quiz-card:hover .quiz-icon-wrapper {
+            transform: scale(1.1);
+            background-color: var(--secondary);
+            color: #fff;
+        }
+
+        .card-difficulty {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: inline-block;
+            border: 1px solid var(--border-subtle);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+        
+        .card-excerpt {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .btn-quiz {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            padding: 12px 0;
+            width: 100%;
+            border-radius: 2px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-quiz:hover {
+            background-color: var(--secondary);
+            color: #fff;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1C1917;
+            color: #A8A29E;
+            padding: 80px 0 0;
+            font-size: 0.95rem;
+            font-family: 'Source Sans 3', sans-serif;
+            border-top: 4px solid var(--accent);
+            margin-top: auto;
+        }
+        
+        .footer-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+        
+        .footer h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul li a { 
+            color: #A8A29E; 
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .footer ul li a:hover { 
+            color: #fff; 
+            transform: translateX(5px); 
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            background-color: #151312;
+        }
+
+        @media (max-width: 1024px) {
+            .quizzes-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .quizzes-grid { grid-template-columns: 1fr; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+            .page-header h1 { font-size: 2.5rem; }
+            .category-scroll-container { justify-content: flex-start; flex-wrap: nowrap; padding-left: 24px; padding-right: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#conteudo-principal" class="skip-link">Ir al contenido principal</a>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="theme-toggle" id="theme-btn" style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;"><i data-lucide="moon" size="14"></i><span>Modo Oscuro</span></span>
+                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;"><i data-lucide="sun" size="14"></i><span>Modo Claro</span></span>
+            </div>
+            
+            <!-- Lang Selector -->
+            <div class="lang-selector">
+                <i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;" aria-label="Seleccionar idioma">
+                    <option value="quizzes.html">Português</option>
+                    <option value="quizzes-en.html">English</option>
+                    <option value="quizzes-es.html" selected>Español</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <nav class="main-header">
+        <div class="container">
+            <a href="index-es.html" class="logo">
+                <i data-lucide="microscope" size="32"></i>
+                Calcule Sua Saúde
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index-es.html" class="nav-link">Inicio</a></li>
+                <li><a href="artigos-es.html" class="nav-link">Artículos</a></li>
+                <li><a href="calculadoras-es.html" class="nav-link">Calculadoras</a></li>
+                <li><a href="quizzes-es.html" class="nav-link active">Cuestionarios</a></li>
+                <li><a href="contato-es.html" class="btn-outline">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Centro de Conocimiento</h1>
+            <p>Desafíate con cuestionarios sobre fisiología, nutrición y protocolos clínicos. Aprende poniendo a prueba tus conocimientos.</p>
+        </div>
+    </header>
+
+    <!-- CATEGORY FILTER (Translated text, same data keys) -->
+    <section class="category-filter-section" id="filter-bar">
+        <div class="container">
+            <div class="category-scroll-container">
+                <button class="category-btn active" data-filter="all">Todos</button>
+                <button class="category-btn" data-filter="Fisiologia">Fisiología Humana</button>
+                <button class="category-btn" data-filter="Doencas">Enfermedades Crónicas</button>
+                <button class="category-btn" data-filter="Nutricao">Nutrición Avanzada</button>
+                <button class="category-btn" data-filter="Emergencia">Primeros Auxilios</button>
+                <button class="category-btn" data-filter="Neuro">Neurociencia</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIZZES GRID -->
+    <section class="quizzes-section">
+        <div class="container">
+            <div class="quizzes-grid" id="quizzes-grid">
+
+                <!-- 1. Mitos do Metabolismo -->
+                <article id="conteudo-principal" class="quiz-card" data-category="Nutricao">
+                    <div class="quiz-icon-wrapper"><i data-lucide="brain-circuit" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Intermedio</span>
+                    <h3 class="card-title">Mitos del Metabolismo</h3>
+                    <p class="card-excerpt">¿Puedes distinguir los hechos de la ficción cuando se trata de insulina y gasto calórico?</p>
+                    <a href="quizz/mitos-do-metabolismo-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 2. Saúde Cardiovascular -->
+                <article class="quiz-card" data-category="Doencas">
+                    <div class="quiz-icon-wrapper"><i data-lucide="heart-handshake" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Básico</span>
+                    <h3 class="card-title">Salud Cardiovascular</h3>
+                    <p class="card-excerpt">Pon a prueba tu comprensión sobre la presión arterial y los factores de riesgo invisibles.</p>
+                    <a href="quizz/saude-cardiovascular-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 3. Higiene do Sono -->
+                <article class="quiz-card" data-category="Neuro">
+                    <div class="quiz-icon-wrapper"><i data-lucide="moon-star" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Avanzado</span>
+                    <h3 class="card-title">Higiene del Sueño</h3>
+                    <p class="card-excerpt">Descubre si tus hábitos nocturnos están ayudando o perjudicando tu ritmo biológico.</p>
+                    <a href="quizz/higiene-do-sono-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 4. Diabetes -->
+                <article class="quiz-card" data-category="Doencas">
+                    <div class="quiz-icon-wrapper"><i data-lucide="droplet" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Intermedio</span>
+                    <h3 class="card-title">Diabetes y Resistencia</h3>
+                    <p class="card-excerpt">Pon a prueba tus conocimientos sobre la fisiopatología de la Diabetes Tipo 2 y la glucemia.</p>
+                    <a href="quizz/diabetes-e-resistencia-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 5. Nutrição: Macros -->
+                <article class="quiz-card" data-category="Nutricao">
+                    <div class="quiz-icon-wrapper"><i data-lucide="utensils" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Básico</span>
+                    <h3 class="card-title">Fundamentos de Macronutrientes</h3>
+                    <p class="card-excerpt">Diferencia carbohidratos complejos, proteínas completas y tipos de grasas saturadas.</p>
+                    <a href="quizz/fundamentos-dos-macronutrientes-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 6. Primeiros Socorros -->
+                <article class="quiz-card" data-category="Emergencia">
+                    <div class="quiz-icon-wrapper"><i data-lucide="ambulance" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Esencial</span>
+                    <h3 class="card-title">Primeros Auxilios: Básicos</h3>
+                    <p class="card-excerpt">Protocolos de RCP, maniobra de Heimlich y qué hacer en caso de quemaduras.</p>
+                    <a href="quizz/primeiros-socorros-basico-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 7. Saúde Mental -->
+                <article class="quiz-card" data-category="Neuro">
+                    <div class="quiz-icon-wrapper"><i data-lucide="brain-circuit" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Intermedio</span>
+                    <h3 class="card-title">Mecanismos del Estrés</h3>
+                    <p class="card-excerpt">Comprende el eje HPA, el papel del cortisol y la diferencia biológica entre estrés y ansiedad.</p>
+                    <a href="quizz/mecanismos-do-estresse-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 8. Fisiologia do Exercício -->
+                <article class="quiz-card" data-category="Fisiologia">
+                    <div class="quiz-icon-wrapper"><i data-lucide="dumbbell" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Avanzado</span>
+                    <h3 class="card-title">Fisiología del Ejercicio</h3>
+                    <p class="card-excerpt">Sistemas energéticos (ATP-CP, Glucolítico), tipos de fibras musculares e hipertrofia.</p>
+                    <a href="quizz/fisiologia-do-exercicio-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 9. Sistema Imunológico -->
+                <article class="quiz-card" data-category="Fisiologia">
+                    <div class="quiz-icon-wrapper"><i data-lucide="shield-alert" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Avanzado</span>
+                    <h3 class="card-title">Inmunología Básica</h3>
+                    <p class="card-excerpt">Linfocitos T y B, respuesta inflamatoria y cómo las vacunas entrenan nuestro cuerpo.</p>
+                    <a href="quizz/imunologia-basica-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 10. Microbiota Intestinal -->
+                <article class="quiz-card" data-category="Nutricao">
+                    <div class="quiz-icon-wrapper"><i data-lucide="microscope" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Intermedio</span>
+                    <h3 class="card-title">Microbiota y Salud Intestinal</h3>
+                    <p class="card-excerpt">El papel de los probióticos, prebióticos y la conexión intestino-cerebro en la salud general.</p>
+                    <a href="quizz/microbiota-e-saude-intestinal-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 11. Kidney Health -->
+                <article class="quiz-card" data-category="Doencas">
+                    <div class="quiz-icon-wrapper"><i data-lucide="droplets" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Intermedio</span>
+                    <h3 class="card-title">Salud Renal</h3>
+                    <p class="card-excerpt">Pon a prueba tus conocimientos sobre filtración glomerular, creatinina, cálculos renales y prevención de enfermedades renales.</p>
+                    <a href="quizz/kidney-health-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+                <!-- 12. Nutrition & Vitamins -->
+                <article class="quiz-card" data-category="Nutricao">
+                    <div class="quiz-icon-wrapper"><i data-lucide="apple" size="36"></i></div>
+                    <span class="card-difficulty">Nivel: Básico</span>
+                    <h3 class="card-title">Nutrición y Vitaminas</h3>
+                    <p class="card-excerpt">Vitaminas hidrosolubles vs liposolubles, antioxidantes, hierro, calcio y biodisponibilidad de nutrientes.</p>
+                    <a href="quizz/nutrition-and-vitamins-es.html" class="btn-quiz">Desafío</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Calcule Sua Saúde</h4>
+                    <p style="margin-bottom: 20px;">Referencia en salud basada en evidencia. Comprometidos con la transparencia, la educación científica y el bienestar.</p>
+                </div>
+                <div>
+                    <h4>Explorar</h4>
+                    <ul>
+                        <li><a href="calculadoras-es.html">Calculadoras Médicas</a></li>
+                        <li><a href="artigos-es.html">Artículos Científicos</a></li>
+                        <li><a href="quizzes-es.html">Cuestionarios Educativos</a></li>
+                        <li><a href="#">Metodología Editorial</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal y Cumplimiento</h4>
+                    <ul>
+                        <li><a href="termos-de-uso-es.html">Términos de Uso</a></li>
+                        <li><a href="politica-de-privacidade-es.html">Política de Privacidad</a></li>
+                        <li><a href="isencao-de-responsabilidade-es.html">Descargo de Responsabilidad</a></li>
+                        <li><a href="contato-es.html">Contáctenos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Fuentes Confiables</h4>
+                    <p style="margin-bottom: 20px;">
+                        <a href="https://www.who.int/es" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                    </p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
+                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Calcule Sua Saúde. Todos los derechos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    La información contenida en este sitio es solo con fines educativos y no sustituye el consejo médico profesional, diagnóstico o tratamiento. Siempre consulte a su médico u otro proveedor de salud calificado ante cualquier duda sobre una condición médica.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            
+            // Dark Mode Logic
+            const themeBtn = document.getElementById('theme-btn');
+            const html = document.documentElement;
+            const iconMoon = document.getElementById('icon-moon');
+            const iconSun = document.getElementById('icon-sun');
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'dark') {
+                iconMoon.style.display = 'none';
+                iconSun.style.display = 'flex';
+            }
+
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    themeBtn.classList.add('animate-theme-switch');
+                    const current = html.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    html.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+
+                    if (next === 'dark') {
+                        iconMoon.style.display = 'none';
+                        iconSun.style.display = 'flex';
+                    } else {
+                        iconMoon.style.display = 'flex';
+                        iconSun.style.display = 'none';
+                    }
+
+                    setTimeout(() => {
+                        themeBtn.classList.remove('animate-theme-switch');
+                    }, 500);
+                });
+            }
+
+            // Filter Logic (Same as original)
+            const filterBtns = document.querySelectorAll('.category-btn');
+            const cards = document.querySelectorAll('.quiz-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filterValue = btn.getAttribute('data-filter');
+                    
+                    cards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (filterValue === 'all' || cardCategory === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>

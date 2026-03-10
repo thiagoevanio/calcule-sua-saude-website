@@ -277,7 +277,13 @@
                 <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;"><i data-lucide="moon" size="14"></i><span>Modo Escuro</span></span>
                 <span id="icon-sun" style="display: none; align-items: center; gap: 5px;"><i data-lucide="sun" size="14"></i><span>Modo Claro</span></span>
             </div>
-            <div class="lang-selector"><i data-lucide="globe" size="14"></i> PT-BR</div>
+            <div class="lang-selector"><i data-lucide="globe" size="14"></i>
+                <select onchange="if(this.value) window.location.href = this.value;" aria-label="Selecionar idioma">
+                    <option value="politica-de-privacidade.html" selected>Português</option>
+                    <option value="politica-de-privacidade-en.html">English</option>
+                    <option value="politica-de-privacidade-es.html">Español</option>
+                </select>
+            </div>
         </div>
     </div>
 
