@@ -108,6 +108,19 @@ img { max-width: 100%; height: auto; display: block; } /* height auto evita dist
     }
 }
 
+/* --- FOCO VISÍVEL PARA NAVEGAÇÃO POR TECLADO --- */
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+a:focus-visible { border-radius: 4px; }
+button:focus-visible { border-radius: 4px; }
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-radius: 4px;
+}
+
 /* --- ANIMAÇÕES --- */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
