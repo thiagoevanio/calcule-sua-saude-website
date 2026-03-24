@@ -162,13 +162,14 @@
     <!-- CSS Crítico inline (FCP/LCP — hero + header renderizam sem esperar style.css) -->
     <style>
       /* Hero critical path */
-      .hero{min-height:800px;background-color:#0A4D68;background-repeat:no-repeat;background-size:cover;background-position:center;background-image:linear-gradient(to right,rgba(10,77,104,.95) 0%,rgba(10,77,104,.7) 40%,rgba(0,0,0,.1) 100%),url('img/cabeçario.webp');display:flex;align-items:flex-start;position:relative;padding-top:150px;color:#fff}
+      .site-header{position:absolute;top:0;left:0;right:0;z-index:200}
+      .hero{min-height:800px;background-color:#0A4D68;background-repeat:no-repeat;background-size:cover;background-position:center;background-image:linear-gradient(to right,rgba(10,77,104,.95) 0%,rgba(10,77,104,.7) 40%,rgba(0,0,0,.1) 100%),url('img/cabeçario.webp');display:flex;align-items:flex-start;position:relative;padding-top:190px;color:#fff}
       .hero .container{display:flex;justify-content:space-between;align-items:flex-start;position:relative;width:100%}
       .hero-content{max-width:650px}
       .hero h1{font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:4.5rem;line-height:1.1;margin-bottom:20px;letter-spacing:-.02em}
       .hero p{font-size:1.15rem;line-height:1.8;color:rgba(255,255,255,.85);margin-bottom:20px}
       .container{max-width:1200px;margin:0 auto;padding:0 24px}
-      .main-header{position:absolute;top:0;left:0;right:0;z-index:100;height:90px;display:flex;align-items:center}
+      .main-header{position:relative;top:auto;left:auto;right:auto;z-index:101;height:90px;display:flex;align-items:center}
       .main-header .container{display:flex;justify-content:space-between;align-items:center}
       body{margin:0;font-family:'Source Sans 3',sans-serif;background-color:#FAFAF9;color:#1C1917;line-height:1.7;-webkit-font-smoothing:antialiased}
       *{margin:0;padding:0;box-sizing:border-box}
@@ -192,73 +193,75 @@
 
     <a class="skip-link" href="#conteudo">Saltar al contenido principal</a>
 
-    <!-- BARRA SUPERIOR -->
-    <div class="top-bar">
-        <div class="container">
-            <!-- Alternador de Tema -->
-            <button class="theme-toggle" id="theme-btn" aria-label="Alternar tema claro/oscuro" style="background: none; border: none; font-family: inherit; color: inherit; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 0;">
-                <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
-                    <i data-lucide="moon" size="14"></i>
-                    <span>Modo Oscuro</span>
-                </span>
-                <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
-                    <i data-lucide="sun" size="14"></i>
-                    <span>Modo Claro</span>
-                </span>
-            </button>
+    <header class="site-header">
+        <!-- BARRA SUPERIOR -->
+        <div class="top-bar">
+            <div class="container">
+                <!-- Alternador de Tema -->
+                <button class="theme-toggle" id="theme-btn" aria-label="Alternar tema claro/oscuro" style="background: none; border: none; font-family: inherit; color: inherit; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 0;">
+                    <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
+                        <i data-lucide="moon" size="14"></i>
+                        <span>Modo Oscuro</span>
+                    </span>
+                    <span id="icon-sun" style="display: none; align-items: center; gap: 5px;">
+                        <i data-lucide="sun" size="14"></i>
+                        <span>Modo Claro</span>
+                    </span>
+                </button>
 
-            <!-- Selector de Idioma -->
-            <div class="lang-selector">
-                <i data-lucide="globe" size="14"></i>
-                <select onchange="if(this.value) window.location.href = this.value;" aria-label="Seleccionar idioma">
-                    <option value="index.html">Português</option>
-                    <option value="index-en.html">English</option>
-                    <option value="index-es.html" selected>Español</option>
-                </select>
+                <!-- Selector de Idioma -->
+                <div class="lang-selector">
+                    <i data-lucide="globe" size="14"></i>
+                    <select onchange="if(this.value) window.location.href = this.value;" aria-label="Seleccionar idioma">
+                        <option value="index.html">Português</option>
+                        <option value="index-en.html">English</option>
+                        <option value="index-es.html" selected>Español</option>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- ENCABEZADO PRINCIPAL -->
-    <nav class="main-header" aria-label="Navegación principal">
-        <div class="container">
-            <a href="index-es.html" class="logo" aria-label="Calcule Sua Saúde — Inicio">
-                <i data-lucide="microscope" size="32"></i>
-                Calcule Sua Saúde
-            </a>
+        <!-- ENCABEZADO PRINCIPAL -->
+        <nav class="main-header" aria-label="Navegación principal">
+            <div class="container">
+                <a href="index-es.html" class="logo" aria-label="Calcule Sua Saúde — Inicio">
+                    <i data-lucide="microscope" size="32"></i>
+                    Calcule Sua Saúde
+                </a>
 
-            <ul class="nav-menu">
-                <li><a href="index-es.html" class="nav-link active" aria-current="page">Inicio</a></li>
-                <li><a href="artigos.html" class="nav-link">Artículos</a></li>
-                <li><a href="calculadoras.html" class="nav-link">Calculadoras</a></li>
-                <li><a href="quizzes.html" class="nav-link">Cuestionarios</a></li>
-                <li class="nav-dropdown">
-                    <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-                        Herramientas <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
-                    </button>
-                    <div class="nav-dropdown-menu" role="menu">
-                        <span class="dropdown-section-title">Utilidades Generales</span>
-                        <a href="ferramentas/gerador-qr-code-es.html" class="dropdown-item" role="menuitem">
-                            <i data-lucide="qr-code" size="18"></i> Generador de Código QR
-                        </a>
-                        <a href="ferramentas/conversor-unidades-es.html" class="dropdown-item" role="menuitem">
-                            <i data-lucide="ruler" size="18"></i> Conversor de Unidades
-                        </a>
-                        <a href="ferramentas/compressor-imagem-es.html" class="dropdown-item" role="menuitem">
-                            <i data-lucide="image-down" size="18"></i> Compresor de Imágenes
-                        </a>
-                        <a href="ferramentas/gerador-senhas-es.html" class="dropdown-item" role="menuitem">
-                            <i data-lucide="key-round" size="18"></i> Generador de Contraseñas
-                        </a>
-                        <a href="ferramentas/qual-e-meu-ip-es.html" class="dropdown-item" role="menuitem">
-                            <i data-lucide="wifi" size="18"></i> ¿Cuál es mi IP?
-                        </a>
-                    </div>
-                </li>
-                <li><a href="contato.html" class="btn-outline-white">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
+                <ul class="nav-menu">
+                    <li><a href="index-es.html" class="nav-link active" aria-current="page">Inicio</a></li>
+                    <li><a href="artigos.html" class="nav-link">Artículos</a></li>
+                    <li><a href="calculadoras.html" class="nav-link">Calculadoras</a></li>
+                    <li><a href="quizzes.html" class="nav-link">Cuestionarios</a></li>
+                    <li class="nav-dropdown">
+                        <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                            Herramientas <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
+                        </button>
+                        <div class="nav-dropdown-menu" role="menu">
+                            <span class="dropdown-section-title">Utilidades Generales</span>
+                            <a href="ferramentas/gerador-qr-code-es.html" class="dropdown-item" role="menuitem">
+                                <i data-lucide="qr-code" size="18"></i> Generador de Código QR
+                            </a>
+                            <a href="ferramentas/conversor-unidades-es.html" class="dropdown-item" role="menuitem">
+                                <i data-lucide="ruler" size="18"></i> Conversor de Unidades
+                            </a>
+                            <a href="ferramentas/compressor-imagem-es.html" class="dropdown-item" role="menuitem">
+                                <i data-lucide="image-down" size="18"></i> Compresor de Imágenes
+                            </a>
+                            <a href="ferramentas/gerador-senhas-es.html" class="dropdown-item" role="menuitem">
+                                <i data-lucide="key-round" size="18"></i> Generador de Contraseñas
+                            </a>
+                            <a href="ferramentas/qual-e-meu-ip-es.html" class="dropdown-item" role="menuitem">
+                                <i data-lucide="wifi" size="18"></i> ¿Cuál es mi IP?
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="contato.html" class="btn-outline-white">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main id="conteudo">
 
