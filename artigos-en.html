@@ -144,6 +144,7 @@
       --border-subtle: #E7E5E4;
       --container-width: 1200px;
       --header-height: 90px;
+      --topbar-height: 40px;
       --focus: rgba(4, 120, 87, 0.35);
     }
 
@@ -210,7 +211,7 @@
     .main-header{
       background:var(--bg-card);
       border-bottom:1px solid var(--border-subtle);
-      position:sticky;top:0;z-index:1000;height:var(--header-height);
+      position:sticky;top:var(--topbar-height);z-index:1000;height:var(--header-height);
       box-shadow:0 4px 20px rgba(0,0,0,0.05);
     }
     .main-header .container{display:flex;justify-content:space-between;align-items:center;height:100%;}
@@ -265,7 +266,7 @@
     .category-filter-section{
       background:var(--bg-body);
       padding:0 0 30px;
-      position:sticky;top:var(--header-height);
+      position:sticky;top:calc(var(--topbar-height) + var(--header-height));
       z-index:900;
       border-bottom:1px solid transparent;
       transition:border-color .25s, background-color .25s, padding .25s;
@@ -400,8 +401,8 @@
         <select onchange="if(this.value) window.location.href=this.value;">
           <option value="artigos.html">Português</option>
           <option value="artigos-en.html" selected>English</option>
-                            <option value="artigos-es.html">Español</option>
-                </select>
+          <option value="artigos-es.html">Español</option>
+        </select>
       </div>
     </div>
   </div>
