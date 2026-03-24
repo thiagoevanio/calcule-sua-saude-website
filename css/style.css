@@ -18,7 +18,9 @@
     --border-subtle: #E7E5E4; /* Stone 200 */
     
     --container-width: 1200px;
+    --top-bar-height: 48px;
     --header-height: 90px;
+    --header-total-height: calc(var(--top-bar-height) + var(--header-height));
 }
 
 /* Dark Mode */
@@ -156,8 +158,11 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 
 /* --- HEADER & NAV --- */
 .top-bar {
+    min-height: var(--top-bar-height);
     background-color: #0A4D68;
     color: #fff;
+    display: flex;
+    align-items: center;
     padding: 8px 0;
     font-size: 0.85rem;
     position: relative;
@@ -166,7 +171,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 
 .top-bar .container {
     display: flex;
-    justify-content: flex-end; /* Mantém alinhado à direita */
+    align-items: center;
+    justify-content: flex-end;
     gap: 20px;
 }
 
@@ -179,7 +185,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 
 .main-header {
     position: absolute;
-    top: 40px;
+    top: var(--top-bar-height);
+    left: 0;
     width: 100%;
     z-index: 1000;
     height: var(--header-height);
@@ -207,7 +214,11 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     letter-spacing: -0.03em;
 }
 
-.nav-menu { display: flex; gap: 32px; }
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
 .nav-link {
     font-family: 'Source Sans 3', sans-serif;
     font-weight: 600;
@@ -269,7 +280,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     display: flex;
     align-items: flex-start;
     position: relative;
-    padding-top: 150px;
+    padding-top: calc(var(--header-total-height) + 60px);
     color: #fff;
 }
 
@@ -1047,11 +1058,11 @@ footer ul li a:hover {
     .hero .container {
         flex-direction: column;
         align-items: flex-start;
-        padding-top: 40px;
+        padding-top: 24px;
     }
 
     .hero-content {
-        margin-top: 20px;
+        margin-top: 0;
         margin-bottom: 40px;
     }
 
@@ -1068,9 +1079,10 @@ footer ul li a:hover {
     
     /* MENU MOBILE VISÍVEL */
     .main-header {
-        position: relative; /* Deixa de ser absoluto no mobile para empurrar o conteúdo */
+        position: relative;
         top: 0;
-        background: var(--primary); /* Fundo sólido para leitura */
+        background: var(--primary);
+        min-height: auto;
         height: auto;
         padding: 15px 0;
     }
@@ -1081,11 +1093,12 @@ footer ul li a:hover {
         gap: 15px;
     }
 
-    .nav-menu { 
-        display: flex; /* Garante visibilidade */
-        flex-wrap: wrap; /* Permite quebra de linha se muitos itens */
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        align-items: center;
+        gap: 14px 18px;
         width: 100%;
     }
 
