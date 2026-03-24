@@ -52,14 +52,17 @@
     <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
 
     <!-- Sugerencias de rendimiento -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="dns-prefetch" href="//unpkg.com">
 
-    <!-- Precarga de CSS principal -->
+    <!-- Precarga de recursos críticos (LCP + FCP) -->
     <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="img/cabeçario.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@300;400;600&display=swap"></noscript>
 
     <!-- Anuncios / Analíticas -->
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
@@ -147,16 +150,34 @@
     ]
     </script>
 
-    <!-- FUENTES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FUENTES (carga no bloqueante via preload arriba) -->
+    <!-- Variantes extras cargadas de forma no bloqueante -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"></noscript>
 
-    <!-- Iconos -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Iconos (carga asíncrona — no bloquea el render) -->
+    <script defer src="https://unpkg.com/lucide@latest"></script>
 
     <!-- ESTILOS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- CSS Crítico inline (FCP/LCP — hero + header renderizam sem esperar style.css) -->
+    <style>
+      /* Hero critical path */
+      .hero{min-height:800px;background-color:#0A4D68;background-repeat:no-repeat;background-size:cover;background-position:center;background-image:linear-gradient(to right,rgba(10,77,104,.95) 0%,rgba(10,77,104,.7) 40%,rgba(0,0,0,.1) 100%),url('img/cabeçario.webp');display:flex;align-items:flex-start;position:relative;padding-top:150px;color:#fff}
+      .hero .container{display:flex;justify-content:space-between;align-items:flex-start;position:relative;width:100%}
+      .hero-content{max-width:650px}
+      .hero h1{font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:4.5rem;line-height:1.1;margin-bottom:20px;letter-spacing:-.02em}
+      .hero p{font-size:1.15rem;line-height:1.8;color:rgba(255,255,255,.85);margin-bottom:20px}
+      .container{max-width:1200px;margin:0 auto;padding:0 24px}
+      .main-header{position:absolute;top:0;left:0;right:0;z-index:100;height:90px;display:flex;align-items:center}
+      .main-header .container{display:flex;justify-content:space-between;align-items:center}
+      body{margin:0;font-family:'Source Sans 3',sans-serif;background-color:#FAFAF9;color:#1C1917;line-height:1.7;-webkit-font-smoothing:antialiased}
+      *{margin:0;padding:0;box-sizing:border-box}
+      img{max-width:100%;height:auto;display:block}
+      @media(max-width:900px){.hero .container{flex-direction:column;align-items:flex-start;padding-top:40px}.hero{min-height:auto;height:auto;padding-bottom:60px;background-attachment:scroll}.hero h1{font-size:3rem}}
+      @media(max-width:480px){.hero h1{font-size:2.5rem}}
+    </style>
 
     <!-- CSS adicional (Skip Link + Dropdown + Cookie Banner) -->
     <style>
@@ -1047,12 +1068,14 @@
             const run = () => {
                 if (window.lucide && typeof window.lucide.createIcons === 'function') {
                     window.lucide.createIcons();
+                } else {
+                    setTimeout(run, 200);
                 }
             };
             if ('requestIdleCallback' in window) {
-                requestIdleCallback(run, { timeout: 1500 });
+                requestIdleCallback(run, { timeout: 2000 });
             } else {
-                setTimeout(run, 0);
+                setTimeout(run, 100);
             }
         }
 
