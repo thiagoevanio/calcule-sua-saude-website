@@ -1,0 +1,225 @@
+/* ==========================================================================
+   enhance.css — Camada de refinamento visual (carregada por ÚLTIMO).
+   Objetivo: elevar o acabamento do site sem mudar a identidade.
+   Usa apenas os tokens já existentes (--primary, --accent, --secondary,
+   --bg-card, --border-subtle, --text-*) e respeita dark mode + reduced-motion.
+   Tudo aqui é aditivo e de baixo risco: sombras, hovers, foco, ritmo e
+   micro-interações. Nada altera a estrutura/layout das páginas.
+   ========================================================================== */
+
+:root {
+    /* Sombras coesas e suaves reutilizáveis em todo o site */
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .05);
+    --shadow-md: 0 4px 12px rgba(16, 24, 40, .07), 0 2px 6px rgba(16, 24, 40, .05);
+    --shadow-lg: 0 18px 40px rgba(16, 24, 40, .12), 0 6px 14px rgba(16, 24, 40, .07);
+    --ring: 0 0 0 3px rgba(4, 120, 87, .28);   /* anel de foco (accent) */
+    --ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+[data-theme="dark"] {
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+    --shadow-md: 0 4px 14px rgba(0, 0, 0, .45);
+    --shadow-lg: 0 20px 44px rgba(0, 0, 0, .55);
+    --ring: 0 0 0 3px rgba(52, 211, 153, .35);
+}
+
+/* --------------------------------------------------------------------------
+   1. Foco acessível e consistente (teclado)
+   -------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.article-card:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Cards de artigo / listagem — elevação e hover mais sofisticados
+   -------------------------------------------------------------------------- */
+.article-card,
+.calc-card,
+.tool-card,
+.quiz-card,
+.recipe-card,
+.card {
+    box-shadow: var(--shadow-sm);
+    transition: transform .28s var(--ease), box-shadow .28s var(--ease),
+                border-color .28s var(--ease);
+    will-change: transform;
+}
+
+.article-card:hover,
+.calc-card:hover,
+.tool-card:hover,
+.quiz-card:hover,
+.recipe-card:hover,
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(4, 120, 87, .35);
+}
+
+/* Imagem do card com leve zoom no hover (contido pelo container) */
+.card-img-container {
+    overflow: hidden;
+}
+.card-img {
+    transition: transform .5s var(--ease);
+}
+.article-card:hover .card-img,
+.card:hover .card-img {
+    transform: scale(1.05);
+}
+
+/* Categoria do card com um respiro a mais */
+.card-category {
+    letter-spacing: .04em;
+}
+
+/* --------------------------------------------------------------------------
+   3. Botões — profundidade sutil e resposta ao toque
+   -------------------------------------------------------------------------- */
+.btn-calc,
+.btn-primary,
+.btn-share,
+button[type="submit"] {
+    transition: transform .15s var(--ease), box-shadow .25s var(--ease),
+                filter .2s var(--ease), background-color .25s var(--ease);
+}
+.btn-calc:hover,
+.btn-primary:hover,
+button[type="submit"]:hover {
+    box-shadow: var(--shadow-md);
+    filter: brightness(1.03);
+}
+.btn-calc:active,
+.btn-primary:active,
+.btn-share:active,
+button[type="submit"]:active {
+    transform: translateY(1px) scale(.99);
+}
+
+.btn-outline-white {
+    transition: background-color .25s var(--ease), color .25s var(--ease),
+                box-shadow .25s var(--ease);
+}
+.btn-outline-white:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   4. Formulários das calculadoras — inputs mais limpos e foco claro
+   -------------------------------------------------------------------------- */
+.form-control,
+input[type="number"],
+input[type="text"],
+input[type="date"],
+select.form-control {
+    transition: border-color .2s var(--ease), box-shadow .2s var(--ease),
+                background-color .2s var(--ease);
+}
+.form-control:focus,
+input[type="number"]:focus,
+input[type="text"]:focus,
+input[type="date"]:focus {
+    border-color: var(--accent);
+    box-shadow: var(--ring);
+    outline: none;
+}
+
+/* Opções de rádio (ex.: sexo) com feedback de seleção */
+.radio-option {
+    transition: border-color .2s var(--ease), background-color .2s var(--ease),
+                box-shadow .2s var(--ease);
+}
+.radio-option:hover {
+    border-color: var(--accent);
+}
+.radio-option:has(input:checked) {
+    border-color: var(--accent);
+    box-shadow: var(--ring);
+}
+
+/* --------------------------------------------------------------------------
+   5. Caixa de resultado da calculadora — destaque e entrada suave
+   -------------------------------------------------------------------------- */
+.result-container,
+.result-box {
+    box-shadow: var(--shadow-md);
+}
+.result-container[style*="block"],
+.result-container.show {
+    animation: enhanceFadeUp .45s var(--ease) both;
+}
+
+@keyframes enhanceFadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   6. Callouts editoriais (artigos) — leitura mais agradável
+   -------------------------------------------------------------------------- */
+.clinical-pearl {
+    box-shadow: var(--shadow-sm);
+    border-radius: 10px;
+}
+.scientific-table {
+    box-shadow: var(--shadow-sm);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.scientific-table th {
+    letter-spacing: .01em;
+}
+.scientific-table tbody tr {
+    transition: background-color .2s var(--ease);
+}
+
+/* --------------------------------------------------------------------------
+   7. Navegação — sublinhado e logo com micro-resposta
+   -------------------------------------------------------------------------- */
+.logo {
+    transition: opacity .2s var(--ease), transform .2s var(--ease);
+}
+.logo:hover {
+    opacity: .92;
+}
+
+/* --------------------------------------------------------------------------
+   8. Imagens — evitam "salto" de layout enquanto carregam
+   -------------------------------------------------------------------------- */
+img[loading="lazy"] {
+    background: linear-gradient(110deg,
+        rgba(0,0,0,.03) 8%, rgba(0,0,0,.06) 18%, rgba(0,0,0,.03) 33%);
+    background-size: 200% 100%;
+}
+
+/* --------------------------------------------------------------------------
+   9. Seleção de texto na identidade da marca
+   -------------------------------------------------------------------------- */
+::selection {
+    background: rgba(4, 120, 87, .18);
+    color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   10. Rolagem mais confortável e respeito a quem prefere menos movimento
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .article-card,
+    .card,
+    .card-img,
+    .btn-calc,
+    .btn-primary,
+    .result-container,
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}

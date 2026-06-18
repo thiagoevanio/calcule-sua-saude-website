@@ -1,0 +1,21 @@
+{
+  "_comment": "Fila de temas do robô de artigos. Edite à vontade. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA a escolher a editoria).",
+  "queue": [
+    { "theme": "Depressão: sintomas, causas, tipos e tratamentos baseados em evidências", "category_hint": "Saúde Mental", "status": "pending" },
+    { "theme": "Vitamina B12: deficiência, sintomas, fontes e suplementação", "category_hint": "Nutrição Clínica", "status": "pending" },
+    { "theme": "Ômega-3: benefícios reais, dosagem e fontes (EPA e DHA)", "category_hint": "Nutrição Clínica", "status": "pending" },
+    { "theme": "Cirurgia bariátrica: tipos, indicações, riscos e acompanhamento", "category_hint": "Endocrinologia", "status": "pending" },
+    { "theme": "Colesterol HDL: o que é, por que importa e como melhorar", "category_hint": "Coração e Circulação", "status": "pending" },
+    { "theme": "Sono profundo: fases do sono, importância e como melhorar a qualidade", "category_hint": "Mente e Sono", "status": "pending" },
+    { "theme": "Esteatose hepática (gordura no fígado): causas, diagnóstico e reversão", "category_hint": "Saúde Geral", "status": "pending" },
+    { "theme": "Ácido úrico e gota: causas, alimentação e tratamento", "category_hint": "Saúde Geral", "status": "pending" },
+    { "theme": "Probióticos e prebióticos: diferenças, evidências e uso prático", "category_hint": "Nutrição Clínica", "status": "pending" },
+    { "theme": "Pressão alta na juventude: causas, riscos e prevenção precoce", "category_hint": "Coração e Circulação", "status": "pending" },
+    { "theme": "Saúde óssea após os 40: cálcio, vitamina D e exercício de força", "category_hint": "Longevidade e Prevenção", "status": "pending" },
+    { "theme": "Fibras alimentares: tipos, quantidade ideal e impacto na saúde", "category_hint": "Nutrição Clínica", "status": "pending" },
+    { "theme": "Inflamação crônica de baixo grau: o que é e como reduzir", "category_hint": "Longevidade e Prevenção", "status": "pending" },
+    { "theme": "Saúde cardiovascular da mulher: diferenças, riscos e prevenção", "category_hint": "Coração e Circulação", "status": "pending" },
+    { "theme": "Treino de força para iniciantes: benefícios metabólicos e como começar", "category_hint": "Corpo e Movimento", "status": "pending" }
+  ],
+  "published": []
+}

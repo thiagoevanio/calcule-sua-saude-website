@@ -1,0 +1,340 @@
+/* ==========================================================================
+   nav.css — Navegação unificada + menu hambúrguer mobile
+   Compartilhado por TODAS as páginas (carregado por último, sobrescreve regras
+   antigas de rolagem horizontal do style.css e dos CSS inline dos artigos).
+   Auto-suficiente: não depende do style.css estar presente.
+   ========================================================================== */
+
+/* Botão hambúrguer: oculto no desktop, visível no mobile */
+html,
+body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+main,
+.article-container,
+.article-body {
+    min-width: 0;
+}
+
+/* Mantém a marca estável e evita quebra em duas linhas no cabeçalho. */
+.main-header .container {
+    flex-wrap: nowrap;
+    gap: 24px;
+}
+
+.main-header .logo {
+    flex: 0 0 auto;
+    min-width: max-content;
+    white-space: nowrap;
+    line-height: 1.1;
+}
+
+.main-header .logo svg,
+.main-header .logo i {
+    flex: 0 0 auto;
+}
+
+.main-header .nav-menu {
+    min-width: 0;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(14px, 2vw, 32px);
+}
+
+@media (min-width: 901px) and (max-width: 1400px) {
+    .main-header .container {
+        gap: 18px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .main-header .logo {
+        font-size: clamp(1.45rem, 2.25vw, 1.8rem);
+        gap: 8px;
+    }
+
+    .main-header .nav-menu {
+        gap: clamp(10px, 1.3vw, 18px);
+    }
+
+    .main-header .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .main-header .btn-outline-white {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1300;
+}
+
+/* Shared privacy consent banner */
+.cookie-banner {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    z-index: 10000;
+    width: min(1140px, calc(100% - 32px));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 22px 24px;
+    border: 1px solid var(--border-subtle, #e7e5e4);
+    border-radius: 8px;
+    background: var(--bg-card, #fff);
+    color: var(--text-main, #1c1917);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 20px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.cookie-banner.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.cookie-content {
+    min-width: 0;
+}
+
+.cookie-title {
+    margin-bottom: 6px;
+    color: var(--text-main, #1c1917);
+    font-weight: 800;
+}
+
+.cookie-text {
+    margin: 0;
+    color: var(--text-muted, #57534e);
+    line-height: 1.5;
+}
+
+.cookie-text a {
+    color: var(--primary, #0a4d68);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.cookie-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btn-cookie-close,
+.btn-cookie-accept {
+    min-height: 44px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-cookie-close {
+    border: 1px solid var(--border-subtle, #d6d3d1);
+    background: transparent;
+    color: var(--text-main, #1c1917);
+}
+
+.btn-cookie-accept {
+    border: 1px solid var(--primary, #0a4d68);
+    background: var(--primary, #0a4d68);
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+    .scientific-table {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .cookie-banner {
+        bottom: 10px;
+        width: calc(100% - 20px);
+        max-height: calc(100dvh - 20px);
+        overflow-y: auto;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .cookie-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cookie-close,
+    .btn-cookie-accept {
+        width: 100%;
+    }
+}
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: transform .25s ease, opacity .2s ease;
+}
+/* Anima para "X" quando aberto */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* Backdrop criado via JS */
+.nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 1100;
+}
+.nav-backdrop.show { opacity: 1; pointer-events: auto; }
+
+/* ====================== MOBILE (≤ 900px) ====================== */
+@media (max-width: 900px) {
+    .nav-toggle { display: flex; }
+
+    body:has(.tool-hero) .nav-toggle span,
+    body:has(.tool-section) .nav-toggle span {
+        background: var(--primary, #0A4D68);
+    }
+
+    body:has(.tool-hero) .nav-toggle:focus-visible,
+    body:has(.tool-section) .nav-toggle:focus-visible {
+        outline-color: var(--primary, #0A4D68);
+    }
+
+    /* Mantém logo e hambúrguer na mesma linha (sobrescreve o column antigo) */
+    .main-header .container {
+        flex-direction: row !important;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: nowrap;
+        padding-left: 20px !important;
+        padding-right: 16px !important;
+    }
+
+    .main-header .logo {
+        font-size: clamp(1.35rem, 6vw, 1.55rem);
+        gap: 8px;
+    }
+
+    /* Menu vira painel lateral deslizante (off-canvas) */
+    .nav-menu {
+        position: fixed !important;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        height: 100dvh;
+        width: min(82%, 320px);
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 4px !important;
+        background: #0A4D68;            /* fixo p/ contraste em ambos os temas */
+        padding: 84px 22px 28px !important;
+        transform: translateX(100%);
+        transition: transform .25s ease;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        z-index: 1200;
+        box-shadow: -8px 0 30px rgba(0,0,0,.35);
+    }
+    .nav-menu.open { transform: translateX(0); }
+
+    .nav-menu > li { width: 100%; }
+
+    .nav-menu .nav-link,
+    .nav-menu .btn-outline-white,
+    .nav-menu .nav-dropdown-toggle {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: #fff !important;
+        font-size: 1.05rem !important;
+        white-space: normal !important;
+        padding: 14px 8px !important;       /* alvo de toque confortável */
+        border-bottom: 1px solid rgba(255,255,255,.12);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    .nav-menu .btn-outline-white {
+        margin-top: 14px;
+        border: 1px solid rgba(255,255,255,.5) !important;
+        border-radius: 4px;
+        justify-content: center;
+    }
+    .nav-menu .nav-link::after { display: none; }   /* remove underline animado */
+
+    /* Dropdown "Ferramentas": exibe os itens inline dentro do painel */
+    .nav-menu .nav-dropdown-toggle {
+        background: none;
+        border: 0;
+        border-bottom: 1px solid rgba(255,255,255,.12);
+        font-family: inherit;
+        cursor: pointer;
+        justify-content: space-between;
+    }
+    .nav-menu .nav-dropdown-menu {
+        position: static !important;
+        display: block !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        max-height: none !important;
+        height: auto !important;
+        overflow: visible !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding: 0 0 6px 10px !important;
+        min-width: 0 !important;
+    }
+    .nav-menu .dropdown-item {
+        color: rgba(255,255,255,.9) !important;
+        padding: 11px 8px !important;
+        font-size: .98rem !important;
+    }
+    .nav-menu .dropdown-section-title {
+        color: rgba(255,255,255,.6) !important;
+        padding: 8px 8px 4px;
+        font-size: .8rem;
+    }
+    /* itens já ficam sempre visíveis no painel → chevron seria enganoso */
+    .nav-menu .dropdown-chevron { display: none !important; }
+
+    /* Trava a rolagem do corpo quando o menu está aberto */
+    body.nav-open { overflow: hidden; }
+}

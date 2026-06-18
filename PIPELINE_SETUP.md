@@ -77,7 +77,7 @@ jobs:
           python scripts/generate_internal_links.py \
             --html-dir . \
             --output links.html \
-            --base-url "https://calculesuasaude.com.br" \
+            --base-url "https://www.calculesuasaude.com.br" \
             --verbose || true
         continue-on-error: true
       

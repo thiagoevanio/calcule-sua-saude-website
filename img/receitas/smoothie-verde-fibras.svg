@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Smoothie verde rico em fibras</title>
+  <desc id="desc">Copo de smoothie verde com folhas, banana, maçã e sementes.</desc>
+  <rect width="1200" height="750" fill="#ECFDF5"/>
+  <rect width="1200" height="240" fill="#0A4D68"/>
+  <circle cx="280" cy="230" r="105" fill="#34D399" opacity=".22"/>
+  <circle cx="905" cy="160" r="84" fill="#D97706" opacity=".25"/>
+  <path d="M452 170h296l-44 432H496z" fill="#E0F2FE"/>
+  <path d="M486 250h228l-30 318H516z" fill="#22C55E"/>
+  <path d="M500 310c58-40 108-25 152 0s82 30 90-8v70c-34 24-76 23-125-2-54-28-98-25-132 10z" fill="#86EFAC" opacity=".8"/>
+  <path d="M420 480c-50-70-36-145 44-212" fill="none" stroke="#047857" stroke-width="26" stroke-linecap="round"/>
+  <path d="M774 492c78-48 99-118 56-205" fill="none" stroke="#D97706" stroke-width="26" stroke-linecap="round"/>
+  <circle cx="580" cy="406" r="8" fill="#14532D" opacity=".5"/>
+  <circle cx="630" cy="456" r="8" fill="#14532D" opacity=".5"/>
+  <circle cx="655" cy="366" r="8" fill="#14532D" opacity=".5"/>
+  <path d="M475 156h250" stroke="#CBD5E1" stroke-width="18" stroke-linecap="round"/>
+  <text x="600" y="690" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#0A4D68">Smoothie verde com fibras</text>
+</svg>

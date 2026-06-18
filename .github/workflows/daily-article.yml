@@ -1,0 +1,67 @@
+name: 📝 Artigo Diário (Gemini)
+
+# Publica automaticamente 1 artigo novo por dia.
+# Horário: 09:00 UTC (~06:00 no horário de Brasília).
+# Também pode ser disparado manualmente em Actions > "Run workflow".
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      theme:
+        description: 'Tema específico (opcional — deixe vazio para usar a fila)'
+        required: false
+        default: ''
+
+# Permite ao Action escrever no repositório (commit/push)
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-article
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: ✍️ Gerar artigo do dia
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash' }}
+        run: |
+          python scripts/generate_daily_article.py ${{ github.event.inputs.theme && format('--theme "{0}"', github.event.inputs.theme) || '' }}
+
+      - name: 🔎 Validar site e reconstruir sitemap
+        run: |
+          node scripts/rebuild-sitemap.mjs
+          node scripts/audit-site.mjs
+
+      - name: 📤 Commit e push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add artigos/ artigos.html sitemap.xml content/topics.json
+          if git diff --cached --quiet; then
+            echo "Nenhuma mudança para publicar."
+          else
+            git commit -m "🤖 [AUTO] Novo artigo do dia ($(date -u +%Y-%m-%d))" --no-verify
+            git push origin ${{ github.ref_name }}
+          fi

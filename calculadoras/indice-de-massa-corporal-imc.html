@@ -17,12 +17,12 @@
     <meta property="og:url" content="https://www.calculesuasaude.com.br/calculadoras/indice-de-massa-corporal-imc.html">
     <meta property="og:title" content="Calculadora de IMC: Índice de Massa Corporal (Oficial OMS)">
     <meta property="og:description" content="Calcule seu IMC com precisão científica. Ferramenta baseada nos critérios da OMS, com análise detalhada de riscos, tabela oficial e orientações de saúde.">
-    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabecario.webp">
     <meta property="og:locale" content="pt_BR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Calculadora de IMC: Índice de Massa Corporal (Oficial OMS)">
     <meta name="twitter:description" content="Calcule seu IMC com precisão científica. Ferramenta baseada nos critérios da OMS, com análise detalhada de riscos, tabela oficial e orientações de saúde.">
-    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabecario.webp">
     <meta name="description" content="Calcule seu IMC com precisão científica. Ferramenta baseada nos critérios da OMS, com análise detalhada de riscos, tabela oficial e orientações de saúde.">
     <meta name="keywords" content="calculadora IMC, índice de massa corporal, cálculo obesidade, tabela IMC OMS, saúde, peso ideal">
     <meta name="author" content="Calcule Sua Saúde">
@@ -38,10 +38,9 @@
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="dns-prefetch" href="//unpkg.com">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-    <script>
+    <script>window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};(function(){var c='';try{c=localStorage.getItem('siteConsent')||(localStorage.getItem('cookiesAccepted')==='true'?'granted':'')}catch(e){}window.__siteConsentSaved=c;var s=c==='granted'?'granted':'denied';gtag('consent','default',{ad_storage:s,analytics_storage:s,ad_user_data:s,ad_personalization:s,wait_for_update:500});gtag('set','ads_data_redaction',true);window.__siteConsentDefaultSet=true})();</script>
+    <script defer src="../js/consent.js"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
@@ -67,10 +66,9 @@
         },
         "aspect": "Diagnosis",
         "lastReviewed": "2026-03-02",
-        "reviewedBy": {
-          "@type": "Person",
-          "name": "Dr. Ricardo Mendes",
-          "jobTitle": "Médico Endocrinologista",
+        "author": {
+          "@type": "Organization",
+          "name": "Calcule Sua Saúde",
           "url": "https://www.calculesuasaude.com.br/equipe-editorial.html"
         },
         "mainEntity": {
@@ -125,415 +123,15 @@
     <!-- FONTES DO DOCUMENTO -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=optional" rel="stylesheet">
     
     <!-- Ícones (Lucide) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        /* Skip link (acessibilidade) */
-        .skip-link { position: absolute; top: -40px; left: 0; background: #0A4D68; color: #fff; padding: 8px 16px; z-index: 9999; font-size: 14px; border-radius: 0 0 4px 0; transition: top .2s; text-decoration: none; }
-        .skip-link:focus { top: 0; }
-        /* --- HERANÇA DO DESIGN SYSTEM (Do seu index.html) --- */
-        :root {
-            --primary: #0A4D68;        
-            --primary-dark: #06384d;
-            --accent: #047857;         
-            --secondary: #D97706;      
-            --bg-body: #FAFAF9;        
-            --bg-card: #FFFFFF;
-            --text-main: #1C1917;      
-            --text-muted: #57534E;     
-            --border-subtle: #E7E5E4;  
-            --container-width: 1200px;
-            --header-height: 90px;
-            
-            /* Cores Específicas do IMC (Gradiente de Risco) */
-            --imc-under: #3b82f6;   /* Abaixo do peso */
-            --imc-normal: #10b981;  /* Normal */
-            --imc-over: #f59e0b;    /* Sobrepeso */
-            --imc-obese1: #f97316;  /* Obesidade 1 */
-            --imc-obese2: #ef4444;  /* Obesidade 2 */
-            --imc-obese3: #b91c1c;  /* Obesidade 3 */
-            
-            /* Cores para calculadoras */
-            --bg-calc-item: #FFFFFF;
-            --bg-calc-item-hover: #FAFAF9;
-            --border-calc: #E7E5E4;
-        }
-
-        [data-theme="dark"] {
-            --bg-body: #0C0A09;
-            --bg-card: #1C1917;
-            --text-main: #F5F5F4;
-            --text-muted: #A8A29E;
-            --primary: #38BDF8;
-            --accent: #34D399;
-            --border-subtle: #292524;
-            
-            --bg-calc-item: #292524; 
-            --bg-calc-item-hover: #44403C; 
-            --border-calc: #44403C;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.7;
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.02em;
-        }
-
-        .container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
-        ul { list-style: none; }
-
-        /* --- ANIMAÇÕES (Copiadas do index) --- */
-        @keyframes rotate-scale {
-            0% { transform: rotate(0) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-        
-        .animate-theme-switch i, 
-        .animate-theme-switch svg { 
-            animation: rotate-scale 0.5s ease-in-out;
-        }
-
-        /* --- HEADER COMPLETO --- */
-        .top-bar {
-            background-color: #0A4D68;
-            color: #fff;
-            padding: 8px 0;
-            font-size: 0.85rem;
-            position: relative;
-            z-index: 1002;
-        }
-        
-        .top-bar .container {
-            display: flex;
-            justify-content: flex-end;
-            gap: 20px;
-            padding-right: 20px;
-        }
-
-        .lang-selector {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .lang-selector select {
-            background: transparent;
-            color: #fff;
-            border: none;
-            font-size: 0.85rem;
-            cursor: pointer;
-            outline: none;
-        }
-        .lang-selector select option { color: #000; }
-
-        .main-header {
-            background-color: var(--bg-card); /* Diferença: No index é transparente, aqui precisa ser sólido pois não tem Hero Image Full */
-            border-bottom: 1px solid var(--border-subtle);
-            width: 100%;
-            z-index: 1000;
-            height: var(--header-height);
-            position: sticky;
-            top: 0;
-        }
-
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-            padding-left: 40px;
-            padding-right: 40px;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700; 
-            color: var(--primary); /* Cor ajustada para fundo claro */
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            letter-spacing: -0.03em;
-        }
-
-        .nav-menu { display: flex; gap: 32px; }
-        .nav-link {
-            font-family: 'Source Sans 3', sans-serif;
-            font-weight: 600;
-            color: var(--text-muted); /* Ajustado para fundo claro */
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--secondary);
-            transition: width 0.3s;
-        }
-        .nav-link:hover::after { width: 100%; }
-        .nav-link:hover { color: var(--primary); }
-
-        .btn-outline-white {
-            border: 1px solid var(--primary); /* Ajustado */
-            color: var(--primary); /* Ajustado */
-            padding: 8px 24px;
-            border-radius: 2px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-        .btn-outline-white:hover {
-            background-color: var(--primary);
-            color: #fff;
-        }
-
-        /* --- TOOL HERO SECTION --- */
-        .tool-hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: #fff;
-            padding: 60px 0 100px; /* Padding bottom extra para o card sobrepor */
-            text-align: center;
-        }
-        .tool-hero h1 { color: #fff; font-size: 3rem; margin-bottom: 15px; }
-        .tool-hero p { max-width: 700px; margin: 0 auto; opacity: 0.9; font-size: 1.2rem; font-weight: 300; }
-        .tool-badge {
-            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-            padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
-            display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;
-        }
-
-        /* --- LAYOUT DA FERRAMENTA --- */
-        .tool-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-top: -60px; /* Efeito de sobreposição */
-            margin-bottom: 80px;
-            align-items: start;
-        }
-
-        /* CARD DA CALCULADORA */
-        .calc-card {
-            background-color: var(--bg-card);
-            padding: 40px;
-            border-radius: 4px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-top: 5px solid var(--secondary);
-        }
-
-        .input-group { margin-bottom: 25px; position: relative; }
-        .input-group label {
-            display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--text-main);
-        }
-        .input-wrapper { position: relative; }
-        .input-wrapper i {
-            position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);
-        }
-        .form-control {
-            width: 100%; padding: 15px 15px 15px 45px;
-            border: 1px solid var(--border-subtle); border-radius: 4px;
-            font-size: 1.1rem; font-family: 'Source Sans 3', sans-serif;
-            background-color: var(--bg-body); color: var(--text-main);
-            transition: 0.3s;
-        }
-        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(10, 77, 104, 0.1); }
-        
-        .radio-group { display: flex; gap: 20px; margin-top: 10px; }
-        .radio-option {
-            flex: 1; position: relative;
-        }
-        .radio-option input { position: absolute; opacity: 0; cursor: pointer; }
-        .radio-tile {
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 12px; border: 1px solid var(--border-subtle); border-radius: 4px;
-            cursor: pointer; transition: 0.3s; font-weight: 600;
-        }
-        .radio-option input:checked + .radio-tile {
-            background-color: rgba(10, 77, 104, 0.1); border-color: var(--primary); color: var(--primary);
-        }
-
-        .btn-calc {
-            width: 100%; background-color: var(--primary); color: #fff;
-            border: none; padding: 18px; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
-            border-radius: 4px; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; gap: 10px;
-        }
-        .btn-calc:hover { background-color: var(--secondary); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-
-        /* RESULTADO */
-        .result-container {
-            display: none; /* Escondido inicialmente */
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        .result-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            padding: 30px;
-            border-radius: 4px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Faixa lateral colorida dinâmica */
-        .result-box::before {
-            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
-            background-color: var(--imc-color, #ccc);
-        }
-
-        .imc-number {
-            font-size: 4rem; font-family: 'Playfair Display', serif; font-weight: 700;
-            line-height: 1; margin: 10px 0; color: var(--imc-color, var(--primary));
-        }
-        .imc-status {
-            font-size: 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
-            color: var(--imc-color, var(--text-main)); margin-bottom: 20px;
-        }
-
-        /* Barra Visual do IMC */
-        .imc-visual-bar {
-            height: 12px; background: linear-gradient(to right, 
-                var(--imc-under) 0%, var(--imc-under) 18.5%, 
-                var(--imc-normal) 18.5%, var(--imc-normal) 25%, 
-                var(--imc-over) 25%, var(--imc-over) 30%, 
-                var(--imc-obese1) 30%, var(--imc-obese3) 100%);
-            border-radius: 10px; margin: 30px 0 10px; position: relative;
-        }
-        .imc-marker {
-            position: absolute; top: -8px; width: 4px; height: 28px; background-color: #000;
-            border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            transition: left 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: translateX(-50%);
-        }
-        .imc-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 5px; }
-
-        .health-advice {
-            background-color: var(--bg-body); padding: 20px; border-radius: 4px;
-            text-align: left; margin-top: 25px; border-left: 3px solid var(--text-muted);
-        }
-        .health-advice h4 { font-size: 1.1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-
-        .share-actions {
-            margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-subtle);
-        }
-        .share-text { font-size: 0.9rem; margin-bottom: 15px; color: var(--text-muted); }
-        .share-buttons { display: flex; gap: 10px; justify-content: center; }
-        .btn-share {
-            border: 1px solid var(--border-subtle); background: transparent; padding: 8px 16px;
-            border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 8px;
-            font-size: 0.85rem; font-weight: 600; transition: 0.2s; color: var(--text-main);
-        }
-        .btn-share.whatsapp:hover { border-color: #25D366; color: #25D366; background: rgba(37, 211, 102, 0.05); }
-        .btn-share.copy:hover { border-color: var(--primary); color: var(--primary); }
-
-        /* --- CONTEÚDO EDUCACIONAL --- */
-        .content-section { margin-bottom: 60px; }
-        .content-section p { margin-bottom: 15px; font-size: 1.05rem; color: var(--text-muted); }
-        
-        .table-responsive { width: 100%; overflow-x: auto; margin: 30px 0; border-radius: 4px; border: 1px solid var(--border-subtle); }
-        .imc-table { width: 100%; border-collapse: collapse; min-width: 500px; }
-        .imc-table th, .imc-table td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border-subtle); }
-        .imc-table th { background-color: var(--bg-body); color: var(--primary); font-family: 'Playfair Display', serif; }
-        .imc-table tr:last-child td { border-bottom: none; }
-        
-        .limitations-box {
-            background-color: rgba(217, 119, 6, 0.05); border: 1px solid rgba(217, 119, 6, 0.2);
-            padding: 30px; border-radius: 4px; margin-top: 40px;
-        }
-        .limitations-box h3 { color: var(--secondary); display: flex; align-items: center; gap: 10px; }
-
-        /* --- FOOTER COMPLETO --- */
-        footer {
-            background-color: #1C1917;
-            color: #A8A29E;
-            padding: 80px 0 0;
-            font-size: 0.95rem;
-            font-family: 'Source Sans 3', sans-serif;
-            border-top: 4px solid var(--accent);
-        }
-        
-        .footer-grid {
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 50px;
-            padding-bottom: 60px;
-        }
-
-        .footer-grid h4 {
-            color: #fff;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            letter-spacing: 0.05em;
-            position: relative;
-        }
-        
-        .footer-grid h4::after {
-            content: '';
-            display: block;
-            width: 30px;
-            height: 2px;
-            background-color: var(--accent);
-            margin-top: 10px;
-        }
-        
-        .footer-grid ul li { margin-bottom: 12px; }
-        .footer-grid ul li a { 
-            color: #A8A29E; 
-            transition: 0.2s;
-            display: inline-block;
-        }
-        .footer-grid ul li a:hover { 
-            color: #fff; 
-            transform: translateX(5px); 
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding: 30px 0;
-            text-align: center;
-            font-size: 0.85rem;
-            background-color: #151312; 
-        }
-
-        @media (max-width: 900px) {
-            .tool-layout { grid-template-columns: 1fr; margin-top: 0; }
-            .tool-hero { padding-bottom: 40px; }
-            .imc-number { font-size: 3rem; }
-            .nav-menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-        }
-    </style>
+    <link rel="stylesheet" href="../css/generated/inline-c9d9bb2467b4.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <script defer src="../js/nav.js"></script>
+    <link rel="stylesheet" href="../css/enhance.css">
 </head>
 <body>
     <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
@@ -557,10 +155,10 @@
                 <div class="lang-selector">
                     <i data-lucide="globe" size="14"></i>
                     <select onchange="if(this.value) window.location.href = this.value;">
-                        <option value="indice-de-massa-corporal-imc.html" selected>Português</option>
-                        <option value="indice-de-massa-corporal-imc-en.html">English</option>
-                                        <option value="indice-de-massa-corporal-imc-es.html">Español</option>
-                </select>
+                <option value="indice-de-massa-corporal-imc.html" selected>Português</option>
+                <option value="indice-de-massa-corporal-imc-en.html">English</option>
+                <option value="indice-de-massa-corporal-imc-es.html">Español</option>
+            </select>
                 </div>
             </div>
         </div>
@@ -576,13 +174,16 @@
             </a>
             
             <!-- MENU COM LINKS ATUALIZADOS PARA '..' -->
-            <ul class="nav-menu">
-                <li><a href="../index.html" class="nav-link">Início</a></li>
-                <li><a href="../artigos.html" class="nav-link">Artigos</a></li>
-                <li><a href="../calculadoras.html" class="nav-link" style="color: var(--primary); width: 100%;">Calculadoras</a></li>
-                <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
-                <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
-            </ul>
+            <button type="button" class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
+            <ul id="primary-nav" class="nav-menu">
+            <li><a href="../index.html" class="nav-link">Início</a></li>
+            <li><a href="../artigos.html" class="nav-link">Artigos</a></li>
+            <li><a href="../receitas.html" class="nav-link">Receitas</a></li>
+            <li><a href="../calculadoras.html" class="nav-link active" aria-current="page">Calculadoras</a></li>
+            <li><a href="../quizzes.html" class="nav-link">Quizzes</a></li>
+            <li><a href="../ferramentas.html" class="nav-link">Ferramentas</a></li>
+            <li><a href="../contato.html" class="btn-outline-white">Contato</a></li>
+        </ul>
         </div>
     </nav>
 
@@ -691,10 +292,10 @@
                     <div class="share-actions">
                         <p class="share-text">Incentive amigos a cuidarem da saúde:</p>
                         <div class="share-buttons">
-                            <button class="btn-share whatsapp" onclick="shareWhatsapp()">
+                            <button type="button" class="btn-share whatsapp" onclick="shareWhatsapp()">
                                 <i data-lucide="message-circle" size="16"></i> WhatsApp
                             </button>
-                            <button class="btn-share copy" onclick="copyResult()">
+                            <button type="button" class="btn-share copy" onclick="copyResult()">
                                 <i data-lucide="copy" size="16"></i> Copiar Resultado
                             </button>
                         </div>
@@ -805,18 +406,13 @@
                 <div>
                     <h4>Fontes Confiáveis</h4>
                     <p style="margin-bottom: 20px;">
-                        <a href="https://www.who.int/pt" target="_blank" style="text-decoration: underline; color: var(--accent);">OMS</a>, 
-                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">PubMed</a>, 
-                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);">CDC</a>
+                        <a href="https://www.who.int/pt/about" target="_blank" style="text-decoration: underline; color: var(--accent);" rel="noopener noreferrer">OMS</a>, 
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);" rel="noopener noreferrer">PubMed</a>, 
+                        <a href="https://www.cdc.gov/" target="_blank" style="text-decoration: underline; color: var(--accent);" rel="noopener noreferrer">CDC</a>
                     </p>
                     
                     <!-- Ícones Sociais (Por último) -->
-                    <div style="display: flex; gap: 15px; margin-top: 20px;">
-                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
-                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
-                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
-                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
-                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Receitas saudáveis</title>
+  <desc id="desc">Mesa com tigelas coloridas de ingredientes naturais, frutas, grãos e folhas.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0A4D68"/>
+      <stop offset="0.55" stop-color="#047857"/>
+      <stop offset="1" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <circle cx="220" cy="210" r="118" fill="#fff" opacity=".16"/>
+  <circle cx="980" cy="168" r="86" fill="#fff" opacity=".14"/>
+  <ellipse cx="600" cy="430" rx="390" ry="205" fill="#F7F2E7"/>
+  <ellipse cx="600" cy="430" rx="315" ry="150" fill="#FFFFFF"/>
+  <circle cx="470" cy="385" r="64" fill="#34D399"/>
+  <circle cx="565" cy="350" r="48" fill="#F97316"/>
+  <circle cx="655" cy="390" r="58" fill="#A3E635"/>
+  <circle cx="735" cy="455" r="46" fill="#FACC15"/>
+  <circle cx="560" cy="485" r="42" fill="#DB2777"/>
+  <path d="M390 480c130-105 285-120 430-18" fill="none" stroke="#0A4D68" stroke-width="28" stroke-linecap="round" opacity=".2"/>
+  <path d="M357 580h486" stroke="#0C0A09" stroke-width="18" stroke-linecap="round" opacity=".16"/>
+  <text x="600" y="668" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#fff">Receitas saudáveis</text>
+</svg>

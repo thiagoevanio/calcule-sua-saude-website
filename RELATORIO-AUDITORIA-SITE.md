@@ -31,7 +31,7 @@ O site **Calcule Sua Saúde** é uma plataforma completa de saúde com cobertura
 | Métrica | Valor |
 |---------|-------|
 | **Total de páginas HTML** | **272** |
-| **Total de imagens** | **30 WebP** + 2 outros (`cabeçario.webp`, `personal.webp`) |
+| **Total de imagens** | **30 WebP** + 2 outros (`cabecario.webp`, `personal.webp`) |
 | **Tamanho total HTML** | **~10.1 MB** |
 | **Tamanho CSS** | **40 KB** (`css/style.css` — 1.766 linhas) |
 | **Idiomas** | 🇧🇷 PT-BR, 🇺🇸 EN, 🇪🇸 ES |
@@ -49,7 +49,7 @@ O site **Calcule Sua Saúde** é uma plataforma completa de saúde com cobertura
 | 404 (redirecionador) | — | — | — | **1** |
 | **Total** | **85** | **82** | **104** | **272** |
 
-> **Nota:** O espanhol tem mais arquivos que PT/EN em algumas seções porque algumas calculadoras possuem versões com nomes acentuados e não-acentuados (ex: `data-provável-do-parto-es.html` e `data-provavel-do-parto-es.html`).
+> **Nota:** O espanhol tem mais arquivos que PT/EN em algumas seções porque algumas calculadoras possuem versões com nomes acentuados e não-acentuados (ex: `data-provavel-do-parto-es.html` e `data-provavel-do-parto-es.html`).
 
 ---
 
@@ -113,7 +113,7 @@ O site **Calcule Sua Saúde** é uma plataforma completa de saúde com cobertura
 **O que falta (-0.5):**
 - ⚠️ ~~Título do `index-es.html` tem 74 caracteres (acima de 65 — será truncado pelo Google)~~ ✅ Corrigido na 5ª revisão (74 → 64 chars)
 - ⚠️ Falta Schema.org `CollectionPage` em `quizzes.html` e `calculadoras.html`
-- ⚠️ ~~Algumas `og:image` em artigos usam caminho relativo (`../img/cabeçario.webp`) em vez de URL absoluta~~ ✅ Corrigido na 5ª revisão (134 arquivos)
+- ⚠️ ~~Algumas `og:image` em artigos usam caminho relativo (`../img/cabecario.webp`) em vez de URL absoluta~~ ✅ Corrigido na 5ª revisão (134 arquivos)
 
 ---
 
@@ -354,7 +354,7 @@ calculesuasaude.com.br/
 ├── ferramentas/                      ← 20 ferramentas (PT + EN + ES)
 ├── img/                              ← 32 imagens WebP
 │   ├── artigos/                      ← 30 imagens de artigos
-│   ├── cabeçario.webp                ← Header/OG image
+│   ├── cabecario.webp                ← Header/OG image
 │   └── personal.webp
 └── css/style.css                     ← 40 KB, 1.766 linhas (só homes)
 ```

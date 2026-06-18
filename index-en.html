@@ -20,10 +20,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- --- INTERNATIONAL SEO (CRITICAL) --- -->
-    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/index.html" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.calculesuasaude.com.br/" />
     <link rel="alternate" hreflang="en" href="https://www.calculesuasaude.com.br/index-en.html" />
-    <link rel="alternate" hreflang="es" href="https://www.calculesuasaude.com.br/index-es.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/index.html" />
+    
+<link rel="alternate" hreflang="x-default" href="https://www.calculesuasaude.com.br/" />
 
     <!-- --- TECHNICAL SEO & META TAGS --- -->
     <title>Free Health Calculators and Medical Articles | Calcule Sua Saúde</title>
@@ -42,14 +42,14 @@
     <meta property="og:url" content="https://www.calculesuasaude.com.br/index-en.html">
     <meta property="og:title" content="Health Tools & Medical Science | Calcule Sua Saúde">
     <meta property="og:description" content="Discover your BMI, BMR, and Cardiac Risk with professional tools. Content reviewed by specialists.">
-    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta property="og:image" content="https://www.calculesuasaude.com.br/img/cabecario.webp">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Health Tools & Medical Science">
     <meta name="twitter:description" content="Health calculators, quizzes, and evidence-based articles.">
-    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabeçario.webp">
+    <meta name="twitter:image" content="https://www.calculesuasaude.com.br/img/cabecario.webp">
 
     <!-- Performance hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,16 +60,15 @@
 
     <!-- Preload critical resources (LCP + FCP) -->
     <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="img/cabeçario.webp" as="image" type="image/webp" fetchpriority="high">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin>
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap"></noscript>
+    <link rel="preload" href="img/cabecario.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=optional"></noscript>
 
     <!-- Ads / Analytics -->
     <meta name="google-adsense-account" content="ca-pub-5825554897787593">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5825554897787593" crossorigin="anonymous"></script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVCQQZV60N"></script>
-    <script>
+    <script>window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};(function(){var c='';try{c=localStorage.getItem('siteConsent')||(localStorage.getItem('cookiesAccepted')==='true'?'granted':'')}catch(e){}window.__siteConsentSaved=c;var s=c==='granted'?'granted':'denied';gtag('consent','default',{ad_storage:s,analytics_storage:s,ad_user_data:s,ad_personalization:s,wait_for_update:500});gtag('set','ads_data_redaction',true);window.__siteConsentDefaultSet=true})();</script>
+    <script defer src="js/consent.js"></script>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
       gtag('js', new Date());
@@ -93,12 +92,7 @@
         "@type": "WebSite",
         "name": "Calcule Sua Saúde",
         "url": "https://www.calculesuasaude.com.br/index-en.html",
-        "inLanguage": "en",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.calculesuasaude.com.br/busca?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "inLanguage": "en"
       },
       {
         "@context": "https://schema.org",
@@ -155,39 +149,18 @@
     <!-- Icons (async loading — does not block render) -->
     <script defer src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- STYLES (non-blocking load — critical CSS is inline above) -->
+    <!-- STYLES (non-blocking load + cacheable critical CSS) -->
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 
-    <!-- Critical CSS inline (FCP/LCP — hero + header render without waiting for style.css) -->
-    <style>
-      /* Hero critical path */
-      .site-header{position:absolute;top:0;left:0;right:0;z-index:200}
-      .hero{min-height:800px;background-color:#0A4D68;background-repeat:no-repeat;background-size:cover;background-position:center;background-image:linear-gradient(to right,rgba(10,77,104,.95) 0%,rgba(10,77,104,.7) 40%,rgba(0,0,0,.1) 100%),url('img/cabeçario.webp');display:flex;align-items:flex-start;position:relative;padding-top:190px;color:#fff}
-      .hero .container{display:flex;justify-content:space-between;align-items:flex-start;position:relative;width:100%}
-      .hero-content{max-width:650px}
-      .hero h1{font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:4.5rem;line-height:1.1;margin-bottom:20px;letter-spacing:-.02em}
-      .hero p{font-size:1.15rem;line-height:1.8;color:rgba(255,255,255,.85);margin-bottom:20px}
-      .container{max-width:1200px;margin:0 auto;padding:0 24px}
-      .main-header{position:relative;top:auto;left:auto;right:auto;z-index:101;height:90px;display:flex;align-items:center}
-      .main-header .container{display:flex;justify-content:space-between;align-items:center}
-      body{margin:0;font-family:'Source Sans 3',sans-serif;background-color:#FAFAF9;color:#1C1917;line-height:1.7;-webkit-font-smoothing:antialiased}
-      *{margin:0;padding:0;box-sizing:border-box}
-      img{max-width:100%;height:auto;display:block}
-      @media(max-width:900px){.hero .container{flex-direction:column;align-items:flex-start;padding-top:40px}.hero{min-height:auto;height:auto;padding-bottom:60px;background-attachment:scroll}.hero h1{font-size:3rem}}
-      @media(max-width:480px){.hero h1{font-size:2.5rem}}
-    </style>
+    <!-- Extracted critical CSS (FCP/LCP — hero + header render without waiting for style.css) -->
+    <link rel="stylesheet" href="css/generated/inline-b1a882ee0001.css">
 
     <!-- Additional CSS (Skip Link — dropdown & cookie moved to style.css) -->
-    <style>
-      .skip-link{
-        position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-      }
-      .skip-link:focus{
-        left:16px; top:16px; width:auto; height:auto; padding:10px 14px; z-index:9999;
-        background:#0A4D68; color:#fff; border-radius:6px;
-      }
-    </style>
+    <link rel="stylesheet" href="css/generated/inline-083289921157.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <script defer src="js/nav.js"></script>
+    <link rel="stylesheet" href="css/enhance.css">
 </head>
 <body>
 
@@ -198,7 +171,7 @@
         <div class="top-bar">
             <div class="container">
                 <!-- Theme Toggle -->
-                <button class="theme-toggle" id="theme-btn" aria-label="Toggle light/dark theme" style="background: none; border: none; font-family: inherit; color: inherit; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 0;">
+                <button type="button" class="theme-toggle" id="theme-btn" aria-label="Toggle light/dark theme" style="background: none; border: none; font-family: inherit; color: inherit; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 0;">
                     <span id="icon-moon" style="display: flex; align-items: center; gap: 5px;">
                         <i data-lucide="moon" size="14"></i>
                         <span>Dark Mode</span>
@@ -215,8 +188,8 @@
                     <select onchange="if(this.value) window.location.href = this.value;" aria-label="Select language">
                         <option value="index.html">Português</option>
                         <option value="index-en.html" selected>English</option>
-                        <option value="index-es.html">Español</option>
-                    </select>
+                        
+</select>
                 </div>
             </div>
         </div>
@@ -229,36 +202,15 @@
                     Calcule Sua Saúde
                 </a>
 
-                <ul class="nav-menu">
-                    <li><a href="index-en.html" class="nav-link active" aria-current="page">Home</a></li>
-                    <li><a href="artigos.html" class="nav-link">Articles</a></li>
-                    <li><a href="calculadoras.html" class="nav-link">Calculators</a></li>
-                    <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
-                    <li class="nav-dropdown">
-                        <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-                            Tools <i data-lucide="chevron-down" size="16" class="dropdown-chevron"></i>
-                        </button>
-                        <div class="nav-dropdown-menu" role="menu">
-                            <span class="dropdown-section-title">General Utilities</span>
-                            <a href="ferramentas/gerador-qr-code.html" class="dropdown-item" role="menuitem">
-                                <i data-lucide="qr-code" size="18"></i> QR Code Generator
-                            </a>
-                            <a href="ferramentas/conversor-unidades.html" class="dropdown-item" role="menuitem">
-                                <i data-lucide="ruler" size="18"></i> Unit Converter
-                            </a>
-                            <a href="ferramentas/compressor-imagem.html" class="dropdown-item" role="menuitem">
-                                <i data-lucide="image-down" size="18"></i> Image Compressor
-                            </a>
-                            <a href="ferramentas/gerador-senhas.html" class="dropdown-item" role="menuitem">
-                                <i data-lucide="key-round" size="18"></i> Password Generator
-                            </a>
-                            <a href="ferramentas/qual-e-meu-ip.html" class="dropdown-item" role="menuitem">
-                                <i data-lucide="wifi" size="18"></i> What is my IP?
-                            </a>
-                        </div>
-                    </li>
-                    <li><a href="contato.html" class="btn-outline-white">Contact</a></li>
-                </ul>
+                <button type="button" class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
+            <ul id="primary-nav" class="nav-menu">
+            <li><a href="index-en.html" class="nav-link active" aria-current="page">Home</a></li>
+            <li><a href="artigos-en.html" class="nav-link">Articles</a></li>
+            <li><a href="calculadoras-en.html" class="nav-link">Calculators</a></li>
+            <li><a href="quizzes-en.html" class="nav-link">Quizzes</a></li>
+            <li><a href="ferramentas-en.html" class="nav-link">Tools</a></li>
+            <li><a href="contato-en.html" class="btn-outline-white">Contact</a></li>
+        </ul>
             </div>
         </nav>
     </header>
@@ -291,16 +243,6 @@
                     </div>
                 </div>
 
-                <div class="personal-card-float">
-                    <div class="p-info">
-                        <h4 class="p-name">
-                            <span class="p-status-dot"></span>
-                            Personal Trainer
-                        </h4>
-                        <span class="p-cref">Certified Pro • Online Consulting</span>
-                    </div>
-                    <a href="personal.html" class="p-btn-small">View Plans</a>
-                </div>
             </div>
         </header>
 
@@ -364,7 +306,7 @@
                         </div>
                     </a>
 
-                    <a href="calculadoras/zonas-de-frequencia-cardíaca.html" class="calc-item" aria-label="Assess Cardiovascular Risk">
+                    <a href="calculadoras/zonas-de-frequencia-cardiaca.html" class="calc-item" aria-label="Assess Cardiovascular Risk">
                         <div class="calc-icon-wrapper">
                             <i data-lucide="heart-pulse" size="24"></i>
                         </div>
@@ -435,7 +377,7 @@
                     <article class="article-card">
                         <div class="card-img-container">
                             <a href="artigos/resistencia-insulina-mecanismos.html">
-                                <img src="img/artigos/Resistência à Insulina Mecanismos.webp" class="card-img" alt="Insulin" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop';">
+                                <img src="img/artigos/resistencia-a-insulina-mecanismos.webp" class="card-img" alt="Insulin" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop';">
                             </a>
                         </div>
                         <div class="card-content">
@@ -452,7 +394,7 @@
                     <article class="article-card">
                         <div class="card-img-container">
                             <a href="artigos/macronutrientes-guia-bioquimico.html">
-                                <img src="img/artigos/Macronutrientes O Guia Bioquímico.webp" class="card-img" alt="Nutrition" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop';">
+                                <img src="img/artigos/macronutrientes-o-guia-bioquimico.webp" class="card-img" alt="Nutrition" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop';">
                             </a>
                         </div>
                         <div class="card-content">
@@ -469,7 +411,7 @@
                     <article class="article-card">
                         <div class="card-img-container">
                             <a href="artigos/hipertensao-diretrizes.html">
-                                <img src="img/artigos/Hipertensão Diretrizes Atuais.webp" class="card-img" alt="Heart" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800&auto=format&fit=crop';">
+                                <img src="img/artigos/hipertensao-diretrizes-atuais.webp" class="card-img" alt="Heart" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800&auto=format&fit=crop';">
                             </a>
                         </div>
                         <div class="card-content">
@@ -486,7 +428,7 @@
                     <article class="article-card">
                         <div class="card-img-container">
                             <a href="artigos/cortisol-estresse-cronico.html">
-                                <img src="img/artigos/Cortisol e Estresse Crônico.webp" class="card-img" alt="Mental Health" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=800&auto=format&fit=crop';">
+                                <img src="img/artigos/cortisol-e-estresse-cronico.webp" class="card-img" alt="Mental Health" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=800&auto=format&fit=crop';">
                             </a>
                         </div>
                         <div class="card-content">
@@ -503,7 +445,7 @@
                     <article class="article-card">
                         <div class="card-img-container">
                             <a href="artigos/ritmo-circadiano.html">
-                                <img src="img/artigos/Ritmo Circadiano e Saúde.webp" class="card-img" alt="Sleep" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517340076-2e9988a2e5d5?q=80&w=800&auto=format&fit=crop';">
+                                <img src="img/artigos/ritmo-circadiano-e-saude.webp" class="card-img" alt="Sleep" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517340076-2e9988a2e5d5?q=80&w=800&auto=format&fit=crop';">
                             </a>
                         </div>
                         <div class="card-content">
@@ -520,7 +462,7 @@
                     <article class="article-card">
                         <div class="card-img-container">
                             <a href="artigos/mioquinas-movimento.html">
-                                <img src="img/artigos/Mioquinas O Segredo do Movimento.webp" class="card-img" alt="Exercise" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop';">
+                                <img src="img/artigos/mioquinas-o-segredo-do-movimento.webp" class="card-img" alt="Exercise" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop';">
                             </a>
                         </div>
                         <div class="card-content">
@@ -537,7 +479,7 @@
                     <article class="article-card">
                         <div class="card-img-container">
                             <a href="artigos/fatty-liver-disease-en.html">
-                                <img src="img/cabeçario.webp" class="card-img" alt="Fatty liver disease" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop';">
+                                <img src="img/cabecario.webp" class="card-img" alt="Fatty liver disease" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop';">
                             </a>
                         </div>
                         <div class="card-content">
@@ -653,12 +595,7 @@
                         <a href="https://www.cdc.gov/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: var(--accent);">CDC</a>
                     </p>
 
-                    <div style="display: flex; gap: 15px; margin-top: 20px;">
-                        <i data-lucide="instagram" class="hover:text-white cursor-pointer"></i>
-                        <i data-lucide="twitter" class="hover:text-white cursor-pointer"></i>
-                        <i data-lucide="linkedin" class="hover:text-white cursor-pointer"></i>
-                        <i data-lucide="youtube" class="hover:text-white cursor-pointer"></i>
-                    </div>
+                    
                 </div>
             </div>
         </div>

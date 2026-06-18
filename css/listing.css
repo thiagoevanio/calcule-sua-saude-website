@@ -1,0 +1,335 @@
+/* ==========================================================================
+   listing.css — Layout editorial (lista / grade) para a página de artigos.
+   Carregado após o CSS inline. Padrão: lista horizontal compacta e legível.
+   Para alternar para grade, adicione a classe .view-grid em #articles-grid.
+   ========================================================================== */
+
+/* ─── LISTA (padrão) ─────────────────────────────────────────────────────── */
+
+.articles-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.article-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 18px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid var(--border-subtle);
+    background: transparent;
+    height: auto;
+    padding: 16px 8px;
+    padding-left: 8px;
+    transition: background-color 0.15s ease, padding-left 0.15s ease;
+}
+.article-card:first-child { border-top: 1px solid var(--border-subtle); }
+.article-card:last-child  { border-bottom: none; }
+
+.article-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border-subtle);
+    background-color: var(--bg-card);
+    padding-left: 16px;
+    border-radius: 0;
+}
+
+.article-card:hover .card-img { transform: scale(1.05); }
+
+/* Thumbnail compacta */
+.card-img-container {
+    width: 145px;
+    height: 96px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.04);
+}
+
+/* Conteúdo textual */
+.card-content {
+    flex: 1;
+    padding: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-category {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+}
+
+.card-title {
+    font-size: 1.08rem;
+    line-height: 1.3;
+    margin-bottom: 5px;
+    letter-spacing: -0.01em;
+}
+
+.card-excerpt {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-footer {
+    border-top: none;
+    padding-top: 0;
+    font-size: 0.78rem;
+    margin-top: 2px;
+}
+
+/* ─── GRADE (.view-grid) ─────────────────────────────────────────────────── */
+
+.articles-grid.view-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    flex-direction: unset;
+}
+
+.articles-grid.view-grid .article-card {
+    display: block;
+    flex-direction: unset;
+    align-items: unset;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    background-color: var(--bg-card);
+    height: 100%;
+    padding: 0;
+    gap: 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.articles-grid.view-grid .article-card:first-child { border-top: 1px solid var(--border-subtle); }
+.articles-grid.view-grid .article-card:last-child  { border-bottom: 1px solid var(--border-subtle); }
+.articles-grid.view-grid .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.10);
+    border-color: rgba(10, 77, 104, 0.5);
+    background-color: var(--bg-card);
+    padding-left: 0;
+    border-radius: 12px;
+}
+
+.articles-grid.view-grid .card-img-container {
+    width: 100%;
+    height: 155px;
+    flex-shrink: unset;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.articles-grid.view-grid .card-content {
+    flex: unset;
+    padding: 14px 16px 16px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.articles-grid.view-grid .card-category  { font-size: 0.7rem; margin-bottom: 6px; }
+.articles-grid.view-grid .card-title     { font-size: 1.06rem; line-height: 1.25; margin-bottom: 6px; }
+.articles-grid.view-grid .card-excerpt   {
+    font-size: 0.86rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.articles-grid.view-grid .card-footer {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 10px;
+    font-size: 0.78rem;
+    margin-top: 0;
+}
+
+/* ─── Botões de alternância lista / grade ────────────────────────────────── */
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-body);
+}
+
+.view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: background-color 0.15s, color 0.15s;
+}
+.view-btn:hover { color: var(--text-main); background: rgba(0,0,0,0.05); }
+.view-btn.active { background-color: var(--primary); color: #fff; }
+[data-theme="dark"] .view-btn:hover { background: rgba(255,255,255,0.08); }
+
+/* ─── Responsivo ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 960px) {
+    .articles-grid.view-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+}
+
+@media (max-width: 620px) {
+    .articles-grid.view-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .article-card {
+        gap: 12px;
+        padding: 14px 4px;
+        padding-left: 4px;
+    }
+    .article-card:hover { padding-left: 10px; }
+    .card-img-container {
+        width: 88px;
+        height: 64px;
+        border-radius: 6px;
+    }
+    .card-title   { font-size: 0.98rem; }
+    .card-excerpt { -webkit-line-clamp: 1; line-clamp: 1; }
+    .card-footer  { font-size: 0.74rem; }
+}
+
+@media (max-width: 380px) {
+    .card-img-container { display: none; }
+    .article-card { padding: 12px 4px; }
+    .card-title   { font-size: 0.95rem; }
+    .card-excerpt { -webkit-line-clamp: 2; line-clamp: 2; }
+}
+
+/* ─── Cabeçalho da página: mais compacto e organizado ────────────────────── */
+
+.page-header {
+    padding: 28px 0 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+.page-header p {
+    font-size: 1rem;
+}
+
+.trust-row {
+    margin: 14px auto 0;
+    gap: 8px;
+    padding: 0 24px 16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-width: 100%;
+}
+.trust-row::-webkit-scrollbar { display: none; }
+
+.trust-pill {
+    padding: 7px 11px;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* ─── Barra de filtros / categorias: sem sticky, reorganizada ────────────── */
+
+/* Remove o comportamento fixo — rola normalmente com a página */
+.category-filter-section {
+    position: static;
+    z-index: auto;
+    padding: 16px 0 22px;
+    border-top: none;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Linha única com scroll horizontal — sem quebra em 2 linhas */
+.category-scroll-container {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 8px 0 4px;
+    gap: 8px;
+}
+
+/* Botões levemente menores */
+.category-btn {
+    padding: 9px 16px;
+    font-size: 0.85rem;
+}
+
+/* ── Cores por área temática ── */
+.category-btn[data-filter="Metabolismo"]:hover,
+.category-btn[data-filter="Metabolismo"].active {
+    background-color: #15803d;
+    border-color: #15803d;
+    color: #fff;
+    box-shadow: 0 5px 14px rgba(21, 128, 61, 0.3);
+}
+.category-btn[data-filter="Mente"]:hover,
+.category-btn[data-filter="Mente"].active {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+    color: #fff;
+    box-shadow: 0 5px 14px rgba(124, 58, 237, 0.3);
+}
+.category-btn[data-filter="Coracao"]:hover,
+.category-btn[data-filter="Coracao"].active {
+    background-color: #dc2626;
+    border-color: #dc2626;
+    color: #fff;
+    box-shadow: 0 5px 14px rgba(220, 38, 38, 0.3);
+}
+.category-btn[data-filter="Corpo"]:hover,
+.category-btn[data-filter="Corpo"].active {
+    background-color: #c2410c;
+    border-color: #c2410c;
+    color: #fff;
+    box-shadow: 0 5px 14px rgba(194, 65, 12, 0.3);
+}
+.category-btn[data-filter="Longevidade"]:hover,
+.category-btn[data-filter="Longevidade"].active {
+    background-color: #0e7490;
+    border-color: #0e7490;
+    color: #fff;
+    box-shadow: 0 5px 14px rgba(14, 116, 144, 0.3);
+}
+.category-btn[data-filter="Geral"]:hover,
+.category-btn[data-filter="Geral"].active {
+    background-color: #57534e;
+    border-color: #57534e;
+    color: #fff;
+    box-shadow: 0 5px 14px rgba(87, 83, 78, 0.3);
+}

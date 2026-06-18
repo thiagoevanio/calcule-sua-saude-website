@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Overnight oats proteico</title>
+  <desc id="desc">Pote de aveia cremosa com frutas vermelhas, chia e iogurte.</desc>
+  <rect width="1200" height="750" fill="#F8FAF7"/>
+  <rect x="0" y="0" width="1200" height="240" fill="#0A4D68"/>
+  <circle cx="275" cy="212" r="120" fill="#D97706" opacity=".2"/>
+  <circle cx="925" cy="155" r="90" fill="#34D399" opacity=".22"/>
+  <rect x="410" y="150" width="380" height="470" rx="52" fill="#E2E8F0"/>
+  <rect x="438" y="178" width="324" height="414" rx="42" fill="#FFFFFF"/>
+  <rect x="455" y="372" width="290" height="190" rx="34" fill="#F1E4C8"/>
+  <rect x="455" y="250" width="290" height="142" rx="34" fill="#F9FAFB"/>
+  <circle cx="520" cy="312" r="32" fill="#BE123C"/>
+  <circle cx="596" cy="292" r="28" fill="#DB2777"/>
+  <circle cx="670" cy="318" r="35" fill="#E11D48"/>
+  <circle cx="560" cy="440" r="7" fill="#92400E" opacity=".72"/>
+  <circle cx="632" cy="473" r="7" fill="#92400E" opacity=".72"/>
+  <circle cx="690" cy="425" r="7" fill="#92400E" opacity=".72"/>
+  <path d="M448 232h304" stroke="#CBD5E1" stroke-width="18" stroke-linecap="round"/>
+  <path d="M820 520c55 0 92-30 111-75" fill="none" stroke="#047857" stroke-width="22" stroke-linecap="round"/>
+  <path d="M385 514c-60 8-104-14-135-58" fill="none" stroke="#D97706" stroke-width="22" stroke-linecap="round"/>
+  <text x="600" y="690" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#0A4D68">Overnight oats proteico</text>
+</svg>

@@ -3,7 +3,7 @@
     --primary: #0A4D68;       /* Deep Ocean Blue */
     --primary-dark: #06384d;
     --accent: #047857;        /* Emerald */
-    --secondary: #D97706;     /* Warm Amber */
+    --secondary: #B45309;     /* Warm Amber with accessible white-text contrast */
     
     --bg-body: #FAFAF9;       /* Stone 50 */
     --bg-card: #FFFFFF;
@@ -16,6 +16,10 @@
     --text-muted: #57534E;    /* Stone 600 */
     
     --border-subtle: #E7E5E4; /* Stone 200 */
+    --text-inverse: #FFFFFF;
+    --shadow-sm: 0 4px 20px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+    --shadow-lg: 0 14px 40px rgba(0,0,0,0.10);
     
     --container-width: 1200px;
     --top-bar-height: 48px;
@@ -37,6 +41,10 @@
     --primary: #38BDF8; 
     --accent: #34D399;
     --border-subtle: #292524;
+    --text-inverse: #FFFFFF;
+    --shadow-sm: 0 4px 20px rgba(0,0,0,0.25);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.35);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.40);
 }
 
 /* --- GLOBAL --- */
@@ -74,13 +82,6 @@ img { max-width: 100%; height: auto; display: block; } /* height auto evita dist
     transform: none !important;
 }
 
-/* O card flutuante não deve começar invisível (evita “pintar” tarde) */
-.personal-card-float {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-}
-
 /* Desliga animações/transições quando o usuário prefere reduzir movimento */
 @media (prefers-reduced-motion: reduce) {
     * {
@@ -98,6 +99,7 @@ img { max-width: 100%; height: auto; display: block; } /* height auto evita dist
     .methodology-section,
     .new-articles-section,
     .featured-section,
+    .recipes-section,
     .quizzes-section,
     .useful-tools-section,
     .categories-section,
@@ -159,8 +161,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 /* --- HEADER & NAV --- */
 .top-bar {
     min-height: var(--top-bar-height);
-    background-color: #0A4D68;
-    color: #fff;
+    background-color: var(--primary);
+    color: var(--text-inverse);
     display: flex;
     align-items: center;
     padding: 8px 0;
@@ -207,7 +209,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 700; 
-    color: #fff;
+    color: var(--text-inverse);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -244,7 +246,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 
 .btn-outline-white {
     border: 1px solid rgba(255,255,255,0.4);
-    color: #fff;
+    color: var(--text-inverse);
     padding: 8px 24px;
     border-radius: 2px;
     text-transform: uppercase;
@@ -253,9 +255,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     letter-spacing: 0.05em;
 }
 .btn-outline-white:hover {
-    background-color: #fff;
+    background-color: var(--text-inverse);
     color: var(--primary);
-    border-color: #fff;
+    border-color: var(--text-inverse);
 }
 
 /* --- HERO SECTION --- */
@@ -275,7 +277,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
             rgba(10, 77, 104, 0.7) 40%,
             rgba(0,0,0,0.1) 100%
         ),
-        url('../img/cabeçario.webp');
+        url('../img/cabecario.webp');
 
     display: flex;
     align-items: flex-start;
@@ -310,90 +312,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .hero-content {
     max-width: 650px;
     margin-top: 0; 
-}
-
-/* CARD FLUTUANTE DE PERSONAL */
-.personal-card-float {
-    position: absolute;
-    top: -30px; 
-    right: 0; /* Alinhado à direita do container */
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    
-    background: rgba(255, 255, 255, 0.08); 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 4px;
-    padding: 15px 25px; 
-    
-    color: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-    z-index: 20;
-    min-width: 320px; 
-}
-
-.personal-card-float:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(2px);
-}
-
-.p-info { text-align: left; }
-
-.p-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-    margin: 0;
-    line-height: 1.1;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.p-status-dot {
-    width: 6px;
-    height: 6px;
-    background-color: #4ade80;
-    border-radius: 50%;
-    display: inline-block;
-    box-shadow: 0 0 6px #4ade80;
-}
-
-.p-cref {
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.05em;
-    display: block;
-    margin-top: 3px;
-}
-
-.p-btn-small {
-    background-color: var(--secondary);
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 2px;
-    font-family: 'Source Sans 3', sans-serif;
-    font-weight: 600;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-}
-
-.p-btn-small:hover {
-    background-color: #d97706;
-    transform: translateY(-1px);
 }
 
 .science-badge {
@@ -459,7 +377,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 .btn-hero:hover {
-    background-color: #B45309;
+    background-color: #92400E;
     transform: translateY(-2px);
 }
 
@@ -713,7 +631,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     justify-content: center;
     gap: 20px;
     margin-top: 40px;
-    opacity: 0.7;
+    opacity: 1;
 }
 
 .seal-line {
@@ -1001,16 +919,19 @@ footer {
 }
 
 /* Corrigido: seu HTML usa <footer> (não existe .footer no markup) */
-footer h4 {
+footer h4,
+footer .footer-heading {
     color: #fff;
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem;
+    font-weight: 700;
     margin-bottom: 25px;
     letter-spacing: 0.05em;
     position: relative;
 }
 
-footer h4::after {
+footer h4::after,
+footer .footer-heading::after {
     content: '';
     display: block;
     width: 30px;
@@ -1030,6 +951,14 @@ footer ul li a {
 footer ul li a:hover { 
     color: #fff; 
     transform: translateX(5px); 
+}
+
+footer a[style*="var(--accent)"] {
+    color: #6EE7B7 !important;
+}
+
+footer p[style*="opacity"] {
+    opacity: 0.9 !important;
 }
 
 .footer-bottom {
@@ -1066,17 +995,6 @@ footer ul li a:hover {
         margin-bottom: 40px;
     }
 
-    /* O Card de personal agora fica abaixo do texto */
-    .personal-card-float {
-        position: relative; 
-        top: auto;
-        right: auto;
-        width: 100%;
-        max-width: 100%; 
-        margin-top: 10px;
-        box-sizing: border-box; /* Garante que padding não quebre a largura */
-    }
-    
     /* MENU MOBILE VISÍVEL */
     .main-header {
         position: relative;
@@ -1088,22 +1006,28 @@ footer ul li a:hover {
     }
 
     .main-header .container {
-        flex-direction: column; /* Empilha logo e menu */
+        flex-direction: column;
         padding: 0 20px;
         gap: 15px;
     }
 
     .nav-menu {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
         align-items: center;
-        gap: 14px 18px;
+        gap: 16px;
         width: 100%;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scrollbar-width: thin;
+        padding-bottom: 4px;
     }
 
     .nav-link {
         font-size: 0.9rem;
+        flex: 0 0 auto;
+        white-space: nowrap;
     }
 
     .hero h1 { font-size: 3rem; } /* Título menor */
@@ -1130,16 +1054,6 @@ footer ul li a:hover {
 @media (max-width: 480px) {
     /* Celulares Pequenos */
     .hero h1 { font-size: 2.5rem; }
-    
-    /* Personal Card vira coluna se precisar */
-    .personal-card-float {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .p-info { text-align: center; }
-    .p-name { justify-content: center; }
     
     .top-bar .container {
         justify-content: space-between;
@@ -1538,6 +1452,8 @@ footer ul li a:hover {
 
 .new-article-info .badge-novo {
     margin-bottom: 8px;
+    color: #fff;
+    background-color: #B91C1C;
 }
 
 .new-article-info h4 {
@@ -1718,6 +1634,7 @@ footer ul li a:hover {
     background-color: rgba(56, 189, 248, 0.1);
 }
 
+.about-highlight-item h3,
 .about-highlight-item h4 {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.95rem;
@@ -1990,8 +1907,8 @@ footer ul li a:hover {
   right: 14px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: var(--accent, #C8A051);
-  color: #111;
+  background: #047857;
+  color: #fff;
   font-weight: 900;
   font-size: 0.78rem;
   letter-spacing: .06em;

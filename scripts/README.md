@@ -31,8 +31,8 @@ python scripts/fix_sitemap_404s.py --sitemap sitemap.xml --backup --verbose
 Verificadas 89/89 URLs... ✓
 
 🗑️  Removendo 61 URLs com 404...
-   - https://calculesuasaude.com.br/calculadora-antiga1.html
-   - https://calculesuasaude.com.br/calculadora-antiga2.html
+   - https://www.calculesuasaude.com.br/calculadora-antiga1.html
+   - https://www.calculesuasaude.com.br/calculadora-antiga2.html
    ...
 
 ✅ Sitemap salvo com sucesso!
@@ -73,8 +73,8 @@ python scripts/generate_internal_links.py --html-dir . --output links.html
 <div class="internal-links-footer" style="...">
     <h3>Ferramentas e Calculadoras</h3>
     <ul>
-        <li><a href="https://calculesuasaude.com.br/calculadora-imc.html">Calculadora de IMC</a></li>
-        <li><a href="https://calculesuasaude.com.br/calculadora-peso.html">Calculadora de Peso Ideal</a></li>
+        <li><a href="https://www.calculesuasaude.com.br/calculadora-imc.html">Calculadora de IMC</a></li>
+        <li><a href="https://www.calculesuasaude.com.br/calculadora-peso.html">Calculadora de Peso Ideal</a></li>
         ...
     </ul>
 </div>
