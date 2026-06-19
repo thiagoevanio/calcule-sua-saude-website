@@ -143,13 +143,28 @@ def existing_slugs() -> set:
     return {p.stem for p in ARTIGOS_DIR.glob("*.html")}
 
 
-def existing_titles(limit=120) -> list:
+def existing_titles(limit=160) -> list:
     titles = []
     for p in list(ARTIGOS_DIR.glob("*.html"))[:limit]:
         m = re.search(r"<title>(.*?)\s*\|", p.read_text(encoding="utf-8", errors="ignore"))
         if m:
             titles.append(m.group(1).strip())
     return titles
+
+
+def existing_articles(limit=200) -> list:
+    """Lista (titulo, slug) dos artigos PT existentes — para links internos (SEO)."""
+    arts = []
+    for p in sorted(ARTIGOS_DIR.glob("*.html")):
+        slug = p.stem
+        if slug.endswith("-en") or slug.endswith("-es"):
+            continue  # só versões em português
+        m = re.search(r"<title>(.*?)\s*\|", p.read_text(encoding="utf-8", errors="ignore"))
+        title = m.group(1).strip() if m else slug.replace("-", " ").title()
+        arts.append((title, slug))
+        if len(arts) >= limit:
+            break
+    return arts
 
 
 # ----------------------------------------------------------------------------
@@ -202,40 +217,100 @@ def response_schema():
     )
 
 
-def build_prompt(theme: str, avoid_titles: list) -> str:
-    avoid = "; ".join(avoid_titles[:80])
-    return f"""Você é editor(a) de um portal brasileiro de saúde baseado em evidências
-(Calcule Sua Saúde). Escreva um artigo COMPLETO, em português do Brasil, sobre o tema:
+def build_research_prompt(theme: str) -> str:
+    """Prompt da 1ª passada: pesquisa com Google Search (grounding)."""
+    return f"""Você é pesquisador(a) médico(a). Pesquise na web fontes CONFIÁVEIS e ATUAIS
+sobre o tema de saúde abaixo e produza um BRIEFING factual, em português do Brasil,
+que servirá de base para um artigo. Use somente informações que você realmente
+encontrar nas fontes pesquisadas.
 
 TEMA: "{theme}"
 
-Requisitos editoriais:
-- Tom sério, claro e acolhedor; sem sensacionalismo nem promessas milagrosas.
-- Baseado em evidências; cite diretrizes/órgãos (OMS, Ministério da Saúde, sociedades
-  médicas, PubMed) quando fizer sentido. NÃO invente estatísticas precisas falsas;
-  prefira faixas e linguagem prudente.
-- Deixe explícito que é conteúdo educativo e não substitui avaliação médica.
-- 8 a 12 seções de profundidade real (não superficiais).
-- Use HTML simples em 'content_html': <p>, <ul><li>, <strong>, <em>, <h3>, e no máximo
-  UMA <table> quando ajudar (sem atributos de estilo). Não use <script>, <style>, <img>
-  nem classes. Não inclua <h2> dentro de content_html (os títulos de seção vêm de 'heading').
+Priorize fontes de alta autoridade: Organização Mundial da Saúde (OMS/WHO),
+Ministério da Saúde do Brasil, ANVISA, sociedades médicas brasileiras (SBC, SBD, SBEM,
+SBP, etc.), CDC, NIH, Mayo Clinic, Cochrane, e estudos revisados por pares (PubMed).
 
-Campos:
-- title: título curto (<= 60 caracteres), sem o nome do site.
-- h1: título de exibição (pode ser igual ao title; pode usar uma quebra com <br>).
+No briefing, inclua:
+- Definição e conceitos-chave (com números/faixas APENAS se confirmados nas fontes).
+- Causas, fatores de risco, sintomas e diagnóstico, conforme as diretrizes.
+- Prevenção e tratamentos com respaldo de evidência (e o nível dessa evidência).
+- Mitos comuns vs. o que a ciência diz.
+- Dados epidemiológicos do Brasil quando houver.
+- Uma lista final "FONTES:" com as referências usadas (nome da fonte, título e URL real).
+
+Seja rigoroso: se não encontrar um dado, diga que não há evidência clara em vez de
+estimar. NÃO invente estatísticas, nomes de estudos, autores nem URLs."""
+
+
+def build_writer_prompt(theme: str, brief: str, sources: list,
+                        avoid_titles: list, internal: list) -> str:
+    """Prompt da 2ª passada: redação do artigo em JSON estruturado."""
+    avoid = "; ".join(avoid_titles[:90])
+    src_block = "\n".join(f"- {t} — {u}" for t, u in sources[:20]) or "(sem fontes coletadas)"
+    links_block = "\n".join(f'- "{t}" → {s}.html' for t, s in internal[:40]) or "(nenhum)"
+    research_block = (brief.strip()[:14000] if brief else
+                      "(Sem briefing de pesquisa — seja EXTRA cauteloso: só afirme o que "
+                      "for consensual e bem estabelecido; prefira faixas e linguagem prudente.)")
+    return f"""Você é editor(a)-chefe de um portal brasileiro de saúde baseado em evidências
+(Calcule Sua Saúde), nicho YMYL. Escreva um artigo LONGO, APROFUNDADO e CIENTÍFICO,
+em português do Brasil, sobre o tema:
+
+TEMA: "{theme}"
+
+============ BRIEFING DE PESQUISA (use como base factual) ============
+{research_block}
+
+============ FONTES PESQUISADAS (cite as reais; não invente outras) ============
+{src_block}
+
+REGRA DE OURO — NADA INVENTADO: este é um site de saúde. Baseie TODA afirmação factual
+no briefing acima e no conhecimento médico consolidado. É PROIBIDO inventar estatísticas,
+percentuais, nomes de estudos, autores, datas ou URLs. Se um dado não estiver no briefing
+e você não tiver certeza, use linguagem prudente ("estudos sugerem", "em geral", faixas
+aproximadas) em vez de números falsos. Nunca prometa cura nem resultados garantidos.
+
+REQUISITOS DE TAMANHO E PROFUNDIDADE:
+- Artigo LONGO: 2.500 a 4.000 palavras no total.
+- 12 a 16 seções de profundidade real, cada uma com vários parágrafos substanciais
+  (não escreva seções de uma frase). Inclua subtópicos com <h3> dentro das seções.
+- Use ao menos 1 e no máximo 3 <table> (ex.: comparativos, faixas de referência, sinais
+  de alerta) onde realmente ajudem a entender.
+- Tom sério, claro e acolhedor; rigor científico sem sensacionalismo.
+
+SEO PROFISSIONAL E E-E-A-T:
+- O title e o h1 devem conter a palavra-chave principal de forma natural.
+- Distribua palavras-chave e termos semânticos (LSI) ao longo do texto, sem encher.
+- Estruture para "featured snippets": parágrafos-resposta diretos e listas claras.
+- LINKS INTERNOS (importante p/ SEO): inclua de 3 a 6 links para artigos JÁ existentes
+  do site que sejam realmente relacionados, usando href RELATIVO só com o slug, assim:
+  <a href="SLUG.html">texto âncora descritivo</a>. Escolha SOMENTE desta lista:
+{links_block}
+  Não invente slugs fora dessa lista. Insira os links naturalmente no corpo do texto.
+- Sinais de E-E-A-T: linguagem técnica precisa, citação de diretrizes/órgãos, e deixar
+  explícito que é conteúdo educativo que não substitui avaliação médica.
+
+HTML em 'content_html': use apenas <p>, <ul><li>, <ol><li>, <strong>, <em>, <h3>,
+<a href="...">, <blockquote> e <table>/<thead>/<tbody>/<tr>/<th>/<td> (sem atributos de
+estilo nem classes). NÃO use <script>, <style>, <img>. NÃO inclua <h2> em content_html
+(os títulos de seção vêm de 'heading').
+
+Campos do JSON:
+- title: título curto (<= 60 caracteres), com a palavra-chave, sem o nome do site.
+- h1: título de exibição (pode usar <br>).
 - tag: uma linha curta em CAIXA ALTA, ex: "SAÚDE METABÓLICA • CONTEÚDO EDUCATIVO".
-- meta_description: <= 155 caracteres, atrativa e precisa.
+- meta_description: <= 155 caracteres, atrativa, precisa e com a palavra-chave.
 - og_description: <= 200 caracteres.
-- keywords: 8 a 12 palavras-chave separadas por vírgula.
-- category: editoria de exibição (ex: "Saúde Mental", "Nutrição Clínica", "Coração e Circulação").
+- keywords: 10 a 14 palavras-chave separadas por vírgula.
+- category: editoria (ex: "Saúde Mental", "Nutrição Clínica", "Coração e Circulação").
 - section: 1 a 2 palavras para schema.org.
-- read_time: estimativa em minutos (inteiro).
+- read_time: estimativa em minutos (inteiro; artigo longo costuma dar 12-18).
 - excerpt: resumo de 1 frase para o card (<= 150 caracteres).
-- intro: 1 a 2 parágrafos de abertura (cada item é HTML de 1 parágrafo, sem a tag <p>).
-- key_points: 3 a 4 pontos-chave curtos ("Em resumo").
-- sections: lista de {{heading, content_html}}.
-- faq: 4 a 6 perguntas frequentes com respostas de 2 a 4 frases.
-- references: 4 a 7 referências (texto), preferindo fontes oficiais e revisadas.
+- intro: 2 a 3 parágrafos de abertura (cada item é HTML de 1 parágrafo, sem a tag <p>).
+- key_points: 4 a 6 pontos-chave ("Em resumo").
+- sections: lista de {{heading, content_html}} — 12 a 16 itens, aprofundados.
+- faq: 6 a 8 perguntas frequentes com respostas de 2 a 4 frases.
+- references: 6 a 10 referências REAIS no formato "Fonte. Título. Ano. Disponível em: URL",
+  priorizando as FONTES PESQUISADAS acima e órgãos oficiais. Não invente referências.
 
 NÃO repita temas já publicados: {avoid}
 
@@ -245,21 +320,67 @@ Responda APENAS com o JSON no formato solicitado."""
 # ----------------------------------------------------------------------------
 # Geração (real e mock)
 # ----------------------------------------------------------------------------
-def generate_with_gemini(theme: str, model: str) -> dict:
+def _client():
     from google import genai
-    from google.genai import types
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
         sys.exit("❌ Defina GEMINI_API_KEY (ou GOOGLE_API_KEY) no ambiente.")
-    client = genai.Client(api_key=api_key)
+    return genai.Client(api_key=api_key)
+
+
+def research_theme(theme: str, model: str):
+    """1ª passada: pesquisa fontes reais com Google Search grounding.
+    Retorna (briefing_texto, lista_de_fontes[(titulo, url)]). Tolerante a falhas."""
+    from google.genai import types
+    try:
+        client = _client()
+        resp = client.models.generate_content(
+            model=model,
+            contents=build_research_prompt(theme),
+            config=types.GenerateContentConfig(
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+                temperature=0.25,
+                max_output_tokens=8192,
+            ),
+        )
+        brief = resp.text or ""
+        sources = []
+        try:
+            gm = resp.candidates[0].grounding_metadata
+            for ch in (getattr(gm, "grounding_chunks", None) or []):
+                web = getattr(ch, "web", None)
+                if web and getattr(web, "uri", None):
+                    sources.append((getattr(web, "title", "") or web.uri, web.uri))
+        except Exception:
+            pass
+        # remove fontes duplicadas mantendo a ordem
+        seen, uniq = set(), []
+        for t, u in sources:
+            if u not in seen:
+                seen.add(u); uniq.append((t, u))
+        print(f"   • pesquisa: {len(brief)} chars de briefing, {len(uniq)} fontes")
+        return brief, uniq
+    except Exception as e:
+        print(f"   ⚠️  pesquisa (grounding) indisponível ({e}); seguindo sem briefing.")
+        return "", []
+
+
+def generate_with_gemini(theme: str, model: str) -> dict:
+    from google.genai import types
+    client = _client()
+    # 1ª passada — pesquisa com fontes reais
+    brief, sources = research_theme(theme, model)
+    # 2ª passada — redação estruturada em JSON
+    prompt = build_writer_prompt(theme, brief, sources,
+                                 existing_titles(), existing_articles())
     resp = client.models.generate_content(
         model=model,
-        contents=build_prompt(theme, existing_titles()),
+        contents=prompt,
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
             response_schema=response_schema(),
-            temperature=0.7,
-            max_output_tokens=8192,
+            temperature=0.4,
+            max_output_tokens=32768,
         ),
     )
     return json.loads(resp.text)
