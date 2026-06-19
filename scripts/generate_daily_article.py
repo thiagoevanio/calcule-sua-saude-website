@@ -33,6 +33,8 @@ import sys
 import json
 import argparse
 import unicodedata
+import urllib.request
+from urllib.parse import urlparse
 from pathlib import Path
 from datetime import datetime, timezone
 from html import escape
@@ -134,6 +136,51 @@ def sanitize(html: str) -> str:
 def clip(text: str, n: int) -> str:
     text = re.sub(r"\s+", " ", (text or "").strip())
     return text if len(text) <= n else text[: n - 1].rstrip() + "…"
+
+
+# ----------------------------------------------------------------------------
+# Limpeza de URLs das referências (resolve o redirect do grounding da Gemini)
+# ----------------------------------------------------------------------------
+_URL_RE = re.compile(r'https?://[^\s<>"\)\]]+')
+_REDIRECT_HOST = "vertexaisearch.cloud.google.com"
+_url_cache = {}
+
+
+def resolve_url(url: str) -> str:
+    """Segue redirecionamentos e devolve a URL final (limpa). Tolerante a falhas."""
+    if url in _url_cache:
+        return _url_cache[url]
+    final = url
+    for method in ("HEAD", "GET"):
+        try:
+            req = urllib.request.Request(
+                url, method=method, headers={"User-Agent": "Mozilla/5.0 (compatible; CalculeSuaSaudeBot/1.0)"})
+            with urllib.request.urlopen(req, timeout=12) as resp:
+                final = resp.geturl()
+            break
+        except Exception:
+            continue
+    _url_cache[url] = final
+    return final
+
+
+def clean_domain(url: str) -> str:
+    try:
+        net = urlparse(url).netloc.lower()
+        return net[4:] if net.startswith("www.") else net
+    except Exception:
+        return url
+
+
+def tidy_references(text: str) -> str:
+    """Troca a URL de redirecionamento do grounding por um link limpo (domínio) clicável."""
+    def repl(m):
+        u = m.group(0).rstrip(".,;")
+        if _REDIRECT_HOST in u:
+            u = resolve_url(u)
+        dom = clean_domain(u) or u
+        return f'<a href="{u}">{dom}</a>'
+    return _URL_RE.sub(repl, text or "")
 
 
 # ----------------------------------------------------------------------------
@@ -353,11 +400,15 @@ def research_theme(theme: str, model: str):
                     sources.append((getattr(web, "title", "") or web.uri, web.uri))
         except Exception:
             pass
-        # remove fontes duplicadas mantendo a ordem
+        # remove duplicadas e resolve o redirect → URL real (limpa)
         seen, uniq = set(), []
         for t, u in sources:
-            if u not in seen:
-                seen.add(u); uniq.append((t, u))
+            if u in seen:
+                continue
+            seen.add(u)
+            uniq.append((t, resolve_url(u) if _REDIRECT_HOST in u else u))
+            if len(uniq) >= 15:
+                break
         print(f"   • pesquisa: {len(brief)} chars de briefing, {len(uniq)} fontes")
         return brief, uniq
     except Exception as e:
@@ -496,7 +547,7 @@ def build_body(data: dict) -> str:
     refs = ['            <div class="references-section">',
             '                <h3 id="referencias">Referências e Fontes</h3>']
     for i, r in enumerate(data.get("references", []), 1):
-        refs.append(f'                <p class="ref-item">{i}. {sanitize_inline(r)}</p>')
+        refs.append(f'                <p class="ref-item">{i}. {sanitize_inline(tidy_references(r))}</p>')
     refs.append('            </div>')
     parts.append("\n".join(refs) + "\n")
 
