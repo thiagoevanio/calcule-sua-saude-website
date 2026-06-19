@@ -1,107 +1,512 @@
 {
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
-    { "theme": "Mounjaro (tirzepatida): como funciona, eficácia e diferenças para o Ozempic", "category_hint": "Endocrinologia", "status": "pending" },
-    { "theme": "Wegovy (semaglutida 2,4 mg): para que serve, resultados e efeitos colaterais", "category_hint": "Endocrinologia", "status": "pending" },
-    { "theme": "Pré-diabetes: o que é, exames, sintomas e como reverter", "category_hint": "Endocrinologia", "status": "pending" },
-    { "theme": "Depressão: sintomas, causas, tipos e tratamentos baseados em evidências", "category_hint": "Saúde Mental", "status": "pending" },
-    { "theme": "Enxaqueca: gatilhos, tipos, crise e tratamentos atuais", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Infarto do miocárdio: sinais de alerta, fatores de risco e prevenção", "category_hint": "Coração e Circulação", "status": "pending" },
-    { "theme": "AVC (derrame): tipos, sintomas e como agir nos primeiros minutos", "category_hint": "Coração e Circulação", "status": "pending" },
-    { "theme": "TDAH em adultos: sintomas, diagnóstico e estratégias de manejo", "category_hint": "Saúde Mental", "status": "pending" },
-    { "theme": "Insônia: causas, tipos e tratamento sem depender de remédios", "category_hint": "Mente e Sono", "status": "pending" },
-    { "theme": "Vitamina B12: deficiência, sintomas, fontes e suplementação", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Ômega-3 (EPA e DHA): benefícios reais, dosagem e melhores fontes", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Dieta low carb: o que é, evidências, benefícios e riscos", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Dieta mediterrânea: por que é a mais recomendada e como adotar", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Alimentos ultraprocessados: riscos à saúde e como identificar", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Gordura visceral: por que é perigosa e como reduzir", "category_hint": "Metabolismo", "status": "pending" },
-    { "theme": "Síndrome metabólica: critérios diagnósticos, riscos e reversão", "category_hint": "Metabolismo", "status": "pending" },
-    { "theme": "Proteína: quanto consumir por dia e melhores fontes", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Whey protein: tipos, benefícios, dose e quando usar", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Colágeno: funções, tipos e o que a ciência realmente comprova", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Ácido úrico e gota: causas, alimentação e tratamento", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Fibras alimentares: tipos, quantidade ideal e impacto na saúde", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Cirurgia bariátrica: tipos, indicações, riscos e acompanhamento", "category_hint": "Endocrinologia", "status": "pending" },
-    { "theme": "Tireoidite de Hashimoto: causas, sintomas e tratamento", "category_hint": "Endocrinologia", "status": "pending" },
-    { "theme": "Hipertireoidismo: sintomas, causas e opções de tratamento", "category_hint": "Endocrinologia", "status": "pending" },
-    { "theme": "Síndrome do pânico: sintomas, crises e como tratar", "category_hint": "Saúde Mental", "status": "pending" },
-    { "theme": "Transtorno bipolar: sintomas, tipos e tratamento", "category_hint": "Saúde Mental", "status": "pending" },
-    { "theme": "TOC (transtorno obsessivo-compulsivo): sinais e tratamento", "category_hint": "Saúde Mental", "status": "pending" },
-    { "theme": "Gastrite: causas, sintomas, tipos e alimentação", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Refluxo e H. pylori: úlcera, sintomas e tratamento", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Síndrome do intestino irritável: sintomas, gatilhos e manejo", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Dor lombar (dor nas costas): causas, sinais de alerta e como aliviar", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Hérnia de disco: sintomas, diagnóstico, tratamento e prevenção", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Artrose (osteoartrite): causas, sintomas e manejo", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Câncer de mama: prevenção, sinais e rastreamento (mamografia)", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Câncer de próstata: sintomas, exames (PSA) e prevenção", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Câncer de pele: tipos, regra ABCDE e proteção solar", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Câncer colorretal: sinais, rastreamento (colonoscopia) e prevenção", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Sarcopenia: perda de massa muscular no envelhecimento e como evitar", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Pressão alta na juventude: causas, riscos e prevenção precoce", "category_hint": "Coração e Circulação", "status": "pending" },
-    { "theme": "Arritmia cardíaca: tipos, sintomas e quando se preocupar", "category_hint": "Coração e Circulação", "status": "pending" },
-    { "theme": "Insuficiência cardíaca: causas, sinais e tratamento", "category_hint": "Coração e Circulação", "status": "pending" },
-    { "theme": "Trombose venosa profunda: sinais, fatores de risco e prevenção", "category_hint": "Coração e Circulação", "status": "pending" },
-    { "theme": "Aterosclerose: como as placas se formam e como preveni-las", "category_hint": "Coração e Circulação", "status": "pending" },
-    { "theme": "Varizes: causas, tratamentos e prevenção", "category_hint": "Coração e Circulação", "status": "pending" },
-    { "theme": "Sono profundo: fases do sono, importância e como melhorar a qualidade", "category_hint": "Mente e Sono", "status": "pending" },
-    { "theme": "Higiene do sono: hábitos baseados em evidências para dormir melhor", "category_hint": "Mente e Sono", "status": "pending" },
-    { "theme": "Melatonina: funciona mesmo? dose, segurança e quando usar", "category_hint": "Mente e Sono", "status": "pending" },
-    { "theme": "Saúde mental masculina: sinais de alerta, tabus e como buscar ajuda", "category_hint": "Saúde Mental", "status": "pending" },
-    { "theme": "Como lidar com o estresse: técnicas baseadas em evidências", "category_hint": "Saúde Mental", "status": "pending" },
-    { "theme": "Imunidade: como fortalecer de forma real (sem promessas milagrosas)", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Vitamina C: funções, dose ideal e mitos sobre imunidade", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Ferro: alimentos, absorção e quando suplementar", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Zinco: funções, sinais de deficiência e suplementação", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Cálcio: necessidades diárias, fontes e absorção", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Probióticos e prebióticos: diferenças, evidências e uso prático", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Glúten: doença celíaca, sensibilidade e quem precisa evitar", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Intolerância à lactose: sintomas, testes e alternativas", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Açúcar: efeitos no corpo e como reduzir o consumo", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Adoçantes: são seguros? o que dizem as evidências", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Índice glicêmico e carga glicêmica: como usar na prática", "category_hint": "Metabolismo", "status": "pending" },
-    { "theme": "Dieta cetogênica (keto): como funciona, benefícios e riscos", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Metabolismo lento: mito ou verdade? o que a ciência diz", "category_hint": "Metabolismo", "status": "pending" },
-    { "theme": "Diabetes tipo 1: diferenças, sintomas e tratamento", "category_hint": "Endocrinologia", "status": "pending" },
-    { "theme": "Saúde óssea após os 40: cálcio, vitamina D e exercício de força", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Inflamação crônica de baixo grau: o que é e como reduzir", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Saúde cardiovascular da mulher: diferenças, riscos e prevenção", "category_hint": "Coração e Circulação", "status": "pending" },
-    { "theme": "Treino de força para iniciantes: benefícios metabólicos e como começar", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Exercício aeróbico: benefícios, intensidade e quanto fazer por semana", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Caminhada: benefícios para a saúde e quantos passos por dia", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Recuperação muscular: papel do sono, nutrição e descanso", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Alongamento e mobilidade: benefícios e como praticar com segurança", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Postura: impactos na saúde e como corrigir no dia a dia", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Tendinite: causas, sintomas e recuperação", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Artrite reumatoide: sinais, diagnóstico e tratamento", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Asma: gatilhos, controle e tratamento", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Infecção urinária: causas, sintomas e prevenção", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Cálculo biliar (pedra na vesícula): sintomas e tratamento", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Constipação intestinal: causas e como tratar", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Hemorroidas: causas, sintomas, graus e tratamento", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Queda de cabelo: causas e tratamentos com evidência", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Acne adulta: causas e tratamentos eficazes", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Psoríase: causas, gatilhos e tratamento", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Dermatite atópica e eczema: causas, sintomas e cuidados", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Alergia alimentar: principais alérgenos, sintomas e cuidados", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Saúde bucal: relação entre gengiva e doenças do corpo", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Saúde ocular: prevenção de catarata e glaucoma", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "Zumbido no ouvido e perda auditiva: causas e prevenção", "category_hint": "Saúde Geral", "status": "pending" },
-    { "theme": "HPV: transmissão, vacina e prevenção do câncer", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Check-up médico: quais exames fazer em cada faixa de idade", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Saúde da mulher após os 50: prevenção e qualidade de vida", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Telômeros e envelhecimento: o que a ciência já sabe", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Autofagia: o que é e como o corpo se renova", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Estresse oxidativo e radicais livres: o que são e como combater", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Antioxidantes: o que são, onde encontrar e o que as evidências mostram", "category_hint": "Nutrição Clínica", "status": "pending" },
-    { "theme": "Suplementos para longevidade (NMN, NAD+): o que tem evidência", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Sauna: benefícios para o coração e a longevidade", "category_hint": "Longevidade e Prevenção", "status": "pending" },
-    { "theme": "Banho gelado e crioterapia: benefícios reais segundo a ciência", "category_hint": "Corpo e Movimento", "status": "pending" },
-    { "theme": "Memória: como funciona e estratégias para melhorá-la", "category_hint": "Mente e Sono", "status": "pending" },
-    { "theme": "Luto: fases, como lidar e quando buscar ajuda profissional", "category_hint": "Saúde Mental", "status": "pending" },
-    { "theme": "Frequência cardíaca: zonas de treino, repouso e o que é saudável", "category_hint": "Coração e Circulação", "status": "pending" },
-    { "theme": "Pressão baixa (hipotensão): causas, sintomas e o que fazer", "category_hint": "Coração e Circulação", "status": "pending" }
+    {
+      "theme": "Wegovy (semaglutida 2,4 mg): para que serve, resultados e efeitos colaterais",
+      "category_hint": "Endocrinologia",
+      "status": "pending"
+    },
+    {
+      "theme": "Pré-diabetes: o que é, exames, sintomas e como reverter",
+      "category_hint": "Endocrinologia",
+      "status": "pending"
+    },
+    {
+      "theme": "Depressão: sintomas, causas, tipos e tratamentos baseados em evidências",
+      "category_hint": "Saúde Mental",
+      "status": "pending"
+    },
+    {
+      "theme": "Enxaqueca: gatilhos, tipos, crise e tratamentos atuais",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Infarto do miocárdio: sinais de alerta, fatores de risco e prevenção",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    },
+    {
+      "theme": "AVC (derrame): tipos, sintomas e como agir nos primeiros minutos",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    },
+    {
+      "theme": "TDAH em adultos: sintomas, diagnóstico e estratégias de manejo",
+      "category_hint": "Saúde Mental",
+      "status": "pending"
+    },
+    {
+      "theme": "Insônia: causas, tipos e tratamento sem depender de remédios",
+      "category_hint": "Mente e Sono",
+      "status": "pending"
+    },
+    {
+      "theme": "Vitamina B12: deficiência, sintomas, fontes e suplementação",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Ômega-3 (EPA e DHA): benefícios reais, dosagem e melhores fontes",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Dieta low carb: o que é, evidências, benefícios e riscos",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Dieta mediterrânea: por que é a mais recomendada e como adotar",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Alimentos ultraprocessados: riscos à saúde e como identificar",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Gordura visceral: por que é perigosa e como reduzir",
+      "category_hint": "Metabolismo",
+      "status": "pending"
+    },
+    {
+      "theme": "Síndrome metabólica: critérios diagnósticos, riscos e reversão",
+      "category_hint": "Metabolismo",
+      "status": "pending"
+    },
+    {
+      "theme": "Proteína: quanto consumir por dia e melhores fontes",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Whey protein: tipos, benefícios, dose e quando usar",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Colágeno: funções, tipos e o que a ciência realmente comprova",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Ácido úrico e gota: causas, alimentação e tratamento",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Fibras alimentares: tipos, quantidade ideal e impacto na saúde",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Cirurgia bariátrica: tipos, indicações, riscos e acompanhamento",
+      "category_hint": "Endocrinologia",
+      "status": "pending"
+    },
+    {
+      "theme": "Tireoidite de Hashimoto: causas, sintomas e tratamento",
+      "category_hint": "Endocrinologia",
+      "status": "pending"
+    },
+    {
+      "theme": "Hipertireoidismo: sintomas, causas e opções de tratamento",
+      "category_hint": "Endocrinologia",
+      "status": "pending"
+    },
+    {
+      "theme": "Síndrome do pânico: sintomas, crises e como tratar",
+      "category_hint": "Saúde Mental",
+      "status": "pending"
+    },
+    {
+      "theme": "Transtorno bipolar: sintomas, tipos e tratamento",
+      "category_hint": "Saúde Mental",
+      "status": "pending"
+    },
+    {
+      "theme": "TOC (transtorno obsessivo-compulsivo): sinais e tratamento",
+      "category_hint": "Saúde Mental",
+      "status": "pending"
+    },
+    {
+      "theme": "Gastrite: causas, sintomas, tipos e alimentação",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Refluxo e H. pylori: úlcera, sintomas e tratamento",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Síndrome do intestino irritável: sintomas, gatilhos e manejo",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Dor lombar (dor nas costas): causas, sinais de alerta e como aliviar",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Hérnia de disco: sintomas, diagnóstico, tratamento e prevenção",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Artrose (osteoartrite): causas, sintomas e manejo",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Câncer de mama: prevenção, sinais e rastreamento (mamografia)",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Câncer de próstata: sintomas, exames (PSA) e prevenção",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Câncer de pele: tipos, regra ABCDE e proteção solar",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Câncer colorretal: sinais, rastreamento (colonoscopia) e prevenção",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Sarcopenia: perda de massa muscular no envelhecimento e como evitar",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Pressão alta na juventude: causas, riscos e prevenção precoce",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    },
+    {
+      "theme": "Arritmia cardíaca: tipos, sintomas e quando se preocupar",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    },
+    {
+      "theme": "Insuficiência cardíaca: causas, sinais e tratamento",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    },
+    {
+      "theme": "Trombose venosa profunda: sinais, fatores de risco e prevenção",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    },
+    {
+      "theme": "Aterosclerose: como as placas se formam e como preveni-las",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    },
+    {
+      "theme": "Varizes: causas, tratamentos e prevenção",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    },
+    {
+      "theme": "Sono profundo: fases do sono, importância e como melhorar a qualidade",
+      "category_hint": "Mente e Sono",
+      "status": "pending"
+    },
+    {
+      "theme": "Higiene do sono: hábitos baseados em evidências para dormir melhor",
+      "category_hint": "Mente e Sono",
+      "status": "pending"
+    },
+    {
+      "theme": "Melatonina: funciona mesmo? dose, segurança e quando usar",
+      "category_hint": "Mente e Sono",
+      "status": "pending"
+    },
+    {
+      "theme": "Saúde mental masculina: sinais de alerta, tabus e como buscar ajuda",
+      "category_hint": "Saúde Mental",
+      "status": "pending"
+    },
+    {
+      "theme": "Como lidar com o estresse: técnicas baseadas em evidências",
+      "category_hint": "Saúde Mental",
+      "status": "pending"
+    },
+    {
+      "theme": "Imunidade: como fortalecer de forma real (sem promessas milagrosas)",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Vitamina C: funções, dose ideal e mitos sobre imunidade",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Ferro: alimentos, absorção e quando suplementar",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Zinco: funções, sinais de deficiência e suplementação",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Cálcio: necessidades diárias, fontes e absorção",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Probióticos e prebióticos: diferenças, evidências e uso prático",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Glúten: doença celíaca, sensibilidade e quem precisa evitar",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Intolerância à lactose: sintomas, testes e alternativas",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Açúcar: efeitos no corpo e como reduzir o consumo",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Adoçantes: são seguros? o que dizem as evidências",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Índice glicêmico e carga glicêmica: como usar na prática",
+      "category_hint": "Metabolismo",
+      "status": "pending"
+    },
+    {
+      "theme": "Dieta cetogênica (keto): como funciona, benefícios e riscos",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Metabolismo lento: mito ou verdade? o que a ciência diz",
+      "category_hint": "Metabolismo",
+      "status": "pending"
+    },
+    {
+      "theme": "Diabetes tipo 1: diferenças, sintomas e tratamento",
+      "category_hint": "Endocrinologia",
+      "status": "pending"
+    },
+    {
+      "theme": "Saúde óssea após os 40: cálcio, vitamina D e exercício de força",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Inflamação crônica de baixo grau: o que é e como reduzir",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Saúde cardiovascular da mulher: diferenças, riscos e prevenção",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    },
+    {
+      "theme": "Treino de força para iniciantes: benefícios metabólicos e como começar",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Exercício aeróbico: benefícios, intensidade e quanto fazer por semana",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Caminhada: benefícios para a saúde e quantos passos por dia",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Recuperação muscular: papel do sono, nutrição e descanso",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Alongamento e mobilidade: benefícios e como praticar com segurança",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Postura: impactos na saúde e como corrigir no dia a dia",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Tendinite: causas, sintomas e recuperação",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Artrite reumatoide: sinais, diagnóstico e tratamento",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Asma: gatilhos, controle e tratamento",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Infecção urinária: causas, sintomas e prevenção",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Cálculo biliar (pedra na vesícula): sintomas e tratamento",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Constipação intestinal: causas e como tratar",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Hemorroidas: causas, sintomas, graus e tratamento",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Queda de cabelo: causas e tratamentos com evidência",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Acne adulta: causas e tratamentos eficazes",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Psoríase: causas, gatilhos e tratamento",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Dermatite atópica e eczema: causas, sintomas e cuidados",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Alergia alimentar: principais alérgenos, sintomas e cuidados",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Saúde bucal: relação entre gengiva e doenças do corpo",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Saúde ocular: prevenção de catarata e glaucoma",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "Zumbido no ouvido e perda auditiva: causas e prevenção",
+      "category_hint": "Saúde Geral",
+      "status": "pending"
+    },
+    {
+      "theme": "HPV: transmissão, vacina e prevenção do câncer",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Check-up médico: quais exames fazer em cada faixa de idade",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Saúde da mulher após os 50: prevenção e qualidade de vida",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Telômeros e envelhecimento: o que a ciência já sabe",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Autofagia: o que é e como o corpo se renova",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Estresse oxidativo e radicais livres: o que são e como combater",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Antioxidantes: o que são, onde encontrar e o que as evidências mostram",
+      "category_hint": "Nutrição Clínica",
+      "status": "pending"
+    },
+    {
+      "theme": "Suplementos para longevidade (NMN, NAD+): o que tem evidência",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Sauna: benefícios para o coração e a longevidade",
+      "category_hint": "Longevidade e Prevenção",
+      "status": "pending"
+    },
+    {
+      "theme": "Banho gelado e crioterapia: benefícios reais segundo a ciência",
+      "category_hint": "Corpo e Movimento",
+      "status": "pending"
+    },
+    {
+      "theme": "Memória: como funciona e estratégias para melhorá-la",
+      "category_hint": "Mente e Sono",
+      "status": "pending"
+    },
+    {
+      "theme": "Luto: fases, como lidar e quando buscar ajuda profissional",
+      "category_hint": "Saúde Mental",
+      "status": "pending"
+    },
+    {
+      "theme": "Frequência cardíaca: zonas de treino, repouso e o que é saudável",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    },
+    {
+      "theme": "Pressão baixa (hipotensão): causas, sintomas e o que fazer",
+      "category_hint": "Coração e Circulação",
+      "status": "pending"
+    }
   ],
-  "published": []
+  "published": [
+    {
+      "theme": "Mounjaro (tirzepatida): como funciona, eficácia e diferenças para o Ozempic",
+      "slug": "mounjaro-vs-ozempic-eficacia-e-diferencas",
+      "date": "2026-06-19"
+    }
+  ]
 }
