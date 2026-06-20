@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Wegovy (semaglutida 2,4 mg): para que serve, resultados e efeitos colaterais",
-      "category_hint": "Endocrinologia",
-      "status": "pending"
-    },
-    {
       "theme": "Pré-diabetes: o que é, exames, sintomas e como reverter",
       "category_hint": "Endocrinologia",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Mounjaro (tirzepatida): como funciona, eficácia e diferenças para o Ozempic",
       "slug": "mounjaro-vs-ozempic-eficacia-e-diferencas",
       "date": "2026-06-19"
+    },
+    {
+      "theme": "Wegovy (semaglutida 2,4 mg): para que serve, resultados e efeitos colaterais",
+      "slug": "wegovy-semaglutida-2-4-mg-guia-completo",
+      "date": "2026-06-20"
     }
   ]
 }
