@@ -46,6 +46,8 @@ TEMPLATE = ROOT / "scripts" / "templates" / "article_template.html"
 TOPICS = ROOT / "content" / "topics.json"
 ARTIGOS_LISTING = ROOT / "artigos.html"
 SITEMAP = ROOT / "sitemap.xml"
+COVERS_DIR = ROOT / "img" / "covers"
+DEFAULT_IMG = "img/cabecario.webp"          # fallback (caminho relativo à raiz)
 BASE_URL = "https://www.calculesuasaude.com.br"
 
 MESES = ["", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
@@ -488,10 +490,128 @@ def generate_mock(theme: str) -> dict:
 
 
 # ----------------------------------------------------------------------------
+# Geração da imagem de capa (única por artigo) — Pillow
+# ----------------------------------------------------------------------------
+# Paleta (gradiente topo→base) por editoria/token
+COVER_PALETTE = {
+    "Coracao":     ((183, 41, 41), (120, 22, 22)),
+    "Corpo":       ((191, 87, 0), (120, 55, 4)),
+    "Metabolismo": ((17, 120, 132), (10, 70, 96)),
+    "Mente":       ((91, 58, 142), (54, 34, 92)),
+    "Longevidade": ((30, 132, 73), (18, 86, 52)),
+    "Geral":       ((10, 77, 104), (6, 48, 66)),
+}
+COVER_LABEL = {
+    "Coracao": "Coração & Circulação", "Corpo": "Corpo & Movimento",
+    "Metabolismo": "Metabolismo & Nutrição", "Mente": "Mente & Sono",
+    "Longevidade": "Longevidade & Prevenção", "Geral": "Saúde Geral",
+}
+
+
+def _cover_font(size: int, bold: bool = True):
+    from PIL import ImageFont
+    cands = ([
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+    ] if bold else [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    ])
+    for c in cands:
+        try:
+            return ImageFont.truetype(c, size)
+        except Exception:
+            continue
+    return ImageFont.load_default()
+
+
+def _wrap(draw, text, font, max_w):
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        test = (cur + " " + w).strip()
+        if draw.textlength(test, font=font) <= max_w:
+            cur = test
+        else:
+            if cur:
+                lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def generate_cover(slug: str, data: dict, token: str, dry: bool):
+    """Cria img/covers/<slug>.webp (1200x675) com título + categoria + marca.
+    Retorna o caminho relativo à raiz, ou None se falhar (usa fallback)."""
+    rel = f"img/covers/{slug}.webp"
+    if dry:
+        return rel
+    try:
+        from PIL import Image, ImageDraw
+    except Exception as e:
+        print(f"   ⚠️  Pillow indisponível ({e}); usando imagem padrão.")
+        return None
+    try:
+        W, H, PAD = 1200, 675, 80
+        c1, c2 = COVER_PALETTE.get(token, COVER_PALETTE["Geral"])
+        img = Image.new("RGB", (W, H), c1)
+        draw = ImageDraw.Draw(img)
+        # gradiente vertical (uma linha por y)
+        for y in range(H):
+            t = y / H
+            draw.line([(0, y), (W, y)],
+                      fill=(int(c1[0]*(1-t)+c2[0]*t),
+                            int(c1[1]*(1-t)+c2[1]*t),
+                            int(c1[2]*(1-t)+c2[2]*t)))
+        # categoria + barra de destaque
+        f_cat = _cover_font(30, bold=True)
+        draw.text((PAD, 205), COVER_LABEL.get(token, "Saúde").upper(),
+                  font=f_cat, fill=(255, 255, 255))
+        draw.rectangle([PAD, 258, PAD + 90, 270], fill=(255, 255, 255))
+        # título (usa o título curto; encolhe e centraliza no espaço útil)
+        title = re.sub(r"<[^>]+>", " ", data.get("title") or data.get("h1") or "")
+        title = re.sub(r"\s+", " ", title).strip()
+        area_top, area_bot = 300, 560
+        size = 80
+        while size >= 40:
+            f_title = _cover_font(size, bold=True)
+            lines = _wrap(draw, title, f_title, W - 2 * PAD)
+            lh = int(size * 1.16)
+            if len(lines) <= 4 and len(lines) * lh <= (area_bot - area_top):
+                break
+            size -= 4
+        lines = lines[:4]
+        lh = int(size * 1.16)
+        y = area_top + ((area_bot - area_top) - len(lines) * lh) // 2
+        for ln in lines:
+            draw.text((PAD, y), ln, font=f_title, fill=(255, 255, 255))
+            y += lh
+        # marca (rodapé)
+        f_brand = _cover_font(34, bold=True)
+        draw.ellipse([PAD, H - PAD - 4, PAD + 26, H - PAD + 22], fill=(255, 255, 255))
+        draw.text((PAD + 40, H - PAD - 4), "Calcule Sua Saúde",
+                  font=f_brand, fill=(255, 255, 255))
+        COVERS_DIR.mkdir(parents=True, exist_ok=True)
+        img.save(COVERS_DIR / f"{slug}.webp", "WEBP", quality=82, method=6)
+        print(f"   • capa gerada: {rel}")
+        return rel
+    except Exception as e:
+        print(f"   ⚠️  falha ao gerar capa ({e}); usando imagem padrão.")
+        return None
+
+
+# ----------------------------------------------------------------------------
 # Montagem do corpo do artigo
 # ----------------------------------------------------------------------------
-def build_body(data: dict) -> str:
+def build_body(data: dict, cover_rel: str = None) -> str:
     parts = []
+
+    # Imagem de capa (única do artigo) — bom para Google Imagens e visual
+    if cover_rel:
+        parts.append(
+            f'            <img src="../{cover_rel}" alt="{escape(data["title"], quote=True)}" '
+            f'width="1200" height="675" fetchpriority="high" decoding="async" '
+            f'style="width:100%;height:auto;border-radius:14px;margin-bottom:26px;display:block">\n'
+        )
 
     # Aviso médico (sempre)
     parts.append(
@@ -564,12 +684,12 @@ def sanitize_inline(text: str) -> str:
 # ----------------------------------------------------------------------------
 # Schemas JSON-LD
 # ----------------------------------------------------------------------------
-def schema_article(data, canonical, date_iso, date_only):
+def schema_article(data, canonical, date_iso, date_only, image_url=None):
     obj = {
         "@context": "https://schema.org",
         "@type": "MedicalWebPage",
         "headline": data["title"],
-        "image": f"{BASE_URL}/img/cabecario.webp",
+        "image": image_url or f"{BASE_URL}/{DEFAULT_IMG}",
         "author": {"@type": "Organization", "name": "Calcule Sua Saúde - Corpo Editorial"},
         "publisher": {"@type": "Organization", "name": "Calcule Sua Saúde",
                       "logo": {"@type": "ImageObject", "url": f"{BASE_URL}/img/logo.png"}},
@@ -593,12 +713,13 @@ def schema_faq(data):
 # ----------------------------------------------------------------------------
 # Inserções (listagem + sitemap + topics)
 # ----------------------------------------------------------------------------
-def insert_card(slug, data, token, dry):
+def insert_card(slug, data, token, dry, cover_rel=None):
     html = ARTIGOS_LISTING.read_text(encoding="utf-8")
     anchor = '<div class="articles-grid" id="articles-grid">'
     if anchor not in html:
         print("⚠️  Não encontrei a grade de artigos; card não inserido.")
         return
+    img_src = cover_rel or DEFAULT_IMG
     card = (
         f'\n\n                <!-- AUTO -->\n'
         f'                <a class="article-card" href="artigos/{slug}.html" '
@@ -606,7 +727,7 @@ def insert_card(slug, data, token, dry):
         f'data-excerpt="{escape(data["excerpt"], quote=True)}" data-read="{data["read_time"]}" '
         f'aria-label="Ler artigo: {escape(data["title"], quote=True)}">\n'
         f'                    <div class="card-img-container">\n'
-        f'                        <img loading="lazy" decoding="async" src="img/cabecario.webp" '
+        f'                        <img loading="lazy" decoding="async" src="{img_src}" '
         f'class="card-img" alt="{escape(data["title"], quote=True)}" width="800" height="450">\n'
         f'                    </div>\n'
         f'                    <div class="card-content">\n'
@@ -710,8 +831,12 @@ def main():
     canonical = f"{BASE_URL}/artigos/{slug}.html"
     token = category_token(data.get("category"), data.get("section"), theme)
 
-    # 4. montar HTML
-    body = build_body(data)
+    # 4. gerar a capa única do artigo
+    cover_rel = generate_cover(slug, data, token, args.dry_run)
+    cover_abs = f"{BASE_URL}/{cover_rel}" if cover_rel else f"{BASE_URL}/{DEFAULT_IMG}"
+
+    # 5. montar HTML
+    body = build_body(data, cover_rel)
     tpl = TEMPLATE.read_text(encoding="utf-8")
     page = tpl
     repl = {
@@ -728,20 +853,24 @@ def main():
         "{{PUBLISHED_HUMAN}}": date_human,
         "{{READ_TIME}}": str(data["read_time"]),
         "{{SLUG}}": slug,
-        "{{SCHEMA_ARTICLE}}": schema_article(data, canonical, date_iso, date_only),
+        "{{SCHEMA_ARTICLE}}": schema_article(data, canonical, date_iso, date_only, cover_abs),
         "{{SCHEMA_FAQ}}": schema_faq(data),
         "{{BODY}}": body,
     }
     for k, v in repl.items():
         page = page.replace(k, v)
 
+    # capa única também no Open Graph / Twitter (substitui a imagem padrão fixa)
+    if cover_rel:
+        page = page.replace(f"{BASE_URL}/{DEFAULT_IMG}", cover_abs)
+
     out = ARTIGOS_DIR / f"{slug}.html"
     print(f"\n✅ Artigo: {out.relative_to(ROOT)}  ({len(page)//1024} KB)")
     if not args.dry_run:
         out.write_text(page, encoding="utf-8")
 
-    # 5. listagem + sitemap + topics
-    insert_card(slug, data, token, args.dry_run)
+    # 6. listagem + sitemap + topics
+    insert_card(slug, data, token, args.dry_run, cover_rel)
     insert_sitemap(canonical, date_only, args.dry_run)
     update_topics(topics_data, theme, slug, date_only, from_queue, args.dry_run)
 
