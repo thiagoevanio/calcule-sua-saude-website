@@ -58,7 +58,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add artigos/ artigos.html sitemap.xml content/topics.json img/
+          git add artigos/ artigos.html index.html sitemap.xml content/topics.json img/
           if git diff --cached --quiet; then
             echo "Nenhuma mudança para publicar."
           else

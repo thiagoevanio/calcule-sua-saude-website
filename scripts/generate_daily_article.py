@@ -45,6 +45,7 @@ ARTIGOS_DIR = ROOT / "artigos"
 TEMPLATE = ROOT / "scripts" / "templates" / "article_template.html"
 TOPICS = ROOT / "content" / "topics.json"
 ARTIGOS_LISTING = ROOT / "artigos.html"
+INDEX = ROOT / "index.html"
 SITEMAP = ROOT / "sitemap.xml"
 COVERS_DIR = ROOT / "img" / "covers"
 DEFAULT_IMG = "img/cabecario.webp"          # fallback (caminho relativo à raiz)
@@ -214,6 +215,14 @@ def existing_articles(limit=200) -> list:
         if len(arts) >= limit:
             break
     return arts
+
+
+def pick_related(token: str, current_slug: str, n: int = 4) -> list:
+    """Escolhe até n artigos relacionados (mesma editoria), com preenchimento."""
+    arts = [(t, s) for (t, s) in existing_articles() if s != current_slug]
+    same = [(t, s) for (t, s) in arts if category_token(t) == token]
+    others = [(t, s) for (t, s) in arts if (t, s) not in same]
+    return (same + others)[:n]
 
 
 # ----------------------------------------------------------------------------
@@ -506,6 +515,15 @@ COVER_LABEL = {
     "Metabolismo": "Metabolismo & Nutrição", "Mente": "Mente & Sono",
     "Longevidade": "Longevidade & Prevenção", "Geral": "Saúde Geral",
 }
+# Classe CSS de cor da tag de categoria (definida no <style> de index.html/artigos.html)
+CAT_CLASS = {
+    "Coracao": "cat-coracao", "Corpo": "cat-corpo", "Metabolismo": "cat-metab",
+    "Mente": "cat-mente", "Longevidade": "cat-long", "Geral": "cat-geral",
+}
+
+
+def cat_class(token: str) -> str:
+    return CAT_CLASS.get(token, "cat-geral")
 
 
 def _cover_font(size: int, bold: bool = True):
@@ -602,7 +620,7 @@ def generate_cover(slug: str, data: dict, token: str, dry: bool):
 # ----------------------------------------------------------------------------
 # Montagem do corpo do artigo
 # ----------------------------------------------------------------------------
-def build_body(data: dict, cover_rel: str = None) -> str:
+def build_body(data: dict, cover_rel: str = None, related: list = None) -> str:
     parts = []
 
     # Imagem de capa (única do artigo) — bom para Google Imagens e visual
@@ -662,6 +680,18 @@ def build_body(data: dict, cover_rel: str = None) -> str:
         parts.append(f'            <h2 id="faq">{len(data["sections"])+1}. Perguntas frequentes</h2>\n')
         for qa in data["faq"]:
             parts.append(f'            <p><strong>{escape(qa["q"])}</strong><br>{sanitize_inline(qa["a"])}</p>\n')
+
+    # Leia também (artigos relacionados)
+    if related:
+        lis = "".join(
+            f'<li><a href="{escape(s, quote=True)}.html">{escape(t)}</a></li>'
+            for t, s in related)
+        parts.append(
+            '            <div class="clinical-pearl">\n'
+            '                <h4><i data-lucide="link"></i> Leia também</h4>\n'
+            f'                <ul style="margin-bottom:0">{lis}</ul>\n'
+            '            </div>\n'
+        )
 
     # Referências
     refs = ['            <div class="references-section">',
@@ -731,7 +761,7 @@ def insert_card(slug, data, token, dry, cover_rel=None):
         f'class="card-img" alt="{escape(data["title"], quote=True)}" width="800" height="450">\n'
         f'                    </div>\n'
         f'                    <div class="card-content">\n'
-        f'                        <span class="card-category">{escape(data["category"])}</span>\n'
+        f'                        <span class="card-category cat-tag {cat_class(token)}">{escape(data["category"])}</span>\n'
         f'                        <h3 class="card-title">{escape(data["title"])}</h3>\n'
         f'                        <p class="card-excerpt">{escape(data["excerpt"])}</p>\n'
         f'                        <div class="card-footer"><span class="meta-chip">'
@@ -744,6 +774,71 @@ def insert_card(slug, data, token, dry, cover_rel=None):
     if not dry:
         ARTIGOS_LISTING.write_text(new, encoding="utf-8")
     print(f"   • card inserido em artigos.html ({token})")
+
+
+def insert_home(slug, data, token, cover_rel, dry, max_sidebar=5):
+    """Promove o novo artigo a destaque principal (hero) na home (index.html);
+    o hero anterior vira um card lateral e a lista lateral é aparada. Tolerante a falhas."""
+    try:
+        if not INDEX.exists():
+            return
+        html = INDEX.read_text(encoding="utf-8")
+        m = re.search(r'<a\s+href="[^"]*"\s+class="featured-article-hero">.*?</a>', html, re.S)
+        if not m:
+            print("   ⚠️  seção de destaque não encontrada na home; pulando.")
+            return
+        old_hero = m.group(0)
+        href_old = (re.search(r'href="([^"]+)"', old_hero) or [None, "artigos.html"])[1]
+        mt = re.search(r'<h3>(.*?)</h3>', old_hero, re.S)
+        title_old = re.sub(r"\s+", " ", mt.group(1)).strip() if mt else "Artigo"
+        mc = re.search(r'card-category">(.*?)<', old_hero, re.S)
+        cat_old = mc.group(1).strip() if mc else "Saúde"
+        mi = re.search(r'src="([^"]+)"', old_hero)
+        img_old = mi.group(1) if mi else DEFAULT_IMG
+
+        cover = cover_rel or DEFAULT_IMG
+        title = escape(data["title"])
+        # novo hero
+        new_hero = (
+            f'<a href="artigos/{slug}.html" class="featured-article-hero">\n'
+            f'                        <img src="{cover}" class="featured-article-hero-img" '
+            f'alt="{escape(data["title"], quote=True)}" loading="lazy" decoding="async" '
+            f'width="800" height="500" onerror="this.onerror=null;this.src=\'{DEFAULT_IMG}\';">\n'
+            f'                        <div class="featured-article-hero-overlay"></div>\n'
+            f'                        <div class="featured-article-hero-content">\n'
+            f'                            <span class="badge-novo"><i data-lucide="sparkles" size="12"></i> Novo</span>\n'
+            f'                            <span class="card-category cat-tag {cat_class(token)}">{escape(data.get("category", "Saúde"))}</span>\n'
+            f'                            <h3>{title}</h3>\n'
+            f'                            <p>{escape(data["excerpt"])}</p>\n'
+            f'                        </div>\n'
+            f'                    </a>'
+        )
+        # hero antigo vira card lateral
+        old_card = (
+            f'<a href="{href_old}" class="new-article-card">\n'
+            f'                            <img src="{img_old}" class="new-article-thumb" '
+            f'alt="{escape(title_old, quote=True)}" loading="lazy" decoding="async" '
+            f'width="200" height="160" onerror="this.onerror=null;this.src=\'{DEFAULT_IMG}\';">\n'
+            f'                            <div class="new-article-info">\n'
+            f'                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>\n'
+            f'                                <h4>{escape(title_old)}</h4>\n'
+            f'                                <span class="cat-tag {cat_class(category_token(cat_old))}">{escape(cat_old)}</span>\n'
+            f'                            </div>\n'
+            f'                        </a>'
+        )
+        html = html.replace(old_hero, new_hero, 1)
+        html = html.replace('<div class="new-articles-sidebar">',
+                            '<div class="new-articles-sidebar">\n                        ' + old_card, 1)
+        # apara a lista lateral para no máximo max_sidebar cards
+        cards = re.findall(r'<a\s+href="[^"]*"\s+class="new-article-card">.*?</a>', html, re.S)
+        for extra in cards[max_sidebar:]:
+            html = html.replace("\n                        " + extra, "", 1)
+            html = html.replace(extra, "", 1)
+        if not dry:
+            INDEX.write_text(html, encoding="utf-8")
+        print("   • destaque atualizado na home (index.html)")
+    except Exception as e:
+        print(f"   ⚠️  falha ao atualizar a home ({e}); seguindo.")
 
 
 def insert_sitemap(canonical, date_only, dry):
@@ -836,7 +931,8 @@ def main():
     cover_abs = f"{BASE_URL}/{cover_rel}" if cover_rel else f"{BASE_URL}/{DEFAULT_IMG}"
 
     # 5. montar HTML
-    body = build_body(data, cover_rel)
+    related = pick_related(token, slug)
+    body = build_body(data, cover_rel, related)
     tpl = TEMPLATE.read_text(encoding="utf-8")
     page = tpl
     repl = {
@@ -869,8 +965,9 @@ def main():
     if not args.dry_run:
         out.write_text(page, encoding="utf-8")
 
-    # 6. listagem + sitemap + topics
+    # 6. listagem + destaque na home + sitemap + topics
     insert_card(slug, data, token, args.dry_run, cover_rel)
+    insert_home(slug, data, token, cover_rel, args.dry_run)
     insert_sitemap(canonical, date_only, args.dry_run)
     update_topics(topics_data, theme, slug, date_only, from_queue, args.dry_run)
 

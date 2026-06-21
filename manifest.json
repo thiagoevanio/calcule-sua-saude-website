@@ -1,0 +1,17 @@
+{
+  "name": "Calcule Sua Saúde",
+  "short_name": "Calcule Saúde",
+  "description": "Saúde baseada em evidências: artigos, calculadoras, receitas e biblioteca de exercícios.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#0A4D68",
+  "lang": "pt-BR",
+  "categories": ["health", "fitness", "education"],
+  "icons": [
+    { "src": "img/logo.png", "sizes": "any", "type": "image/png", "purpose": "any" },
+    { "src": "img/logo.png", "sizes": "any", "type": "image/png", "purpose": "maskable" }
+  ]
+}

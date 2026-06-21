@@ -35,6 +35,7 @@
     <link rel="canonical" href="https://www.calculesuasaude.com.br/">
     <meta name="author" content="Calcule Sua Saúde">
     <meta name="theme-color" content="#0A4D68">
+    <link rel="manifest" href="manifest.json">
     <meta name="format-detection" content="telephone=no">
 
     <!-- Open Graph -->
@@ -268,6 +269,7 @@
             <ul id="primary-nav" class="nav-menu">
             <li><a href="index.html" class="nav-link active" aria-current="page">Início</a></li>
             <li><a href="artigos.html" class="nav-link">Artigos</a></li>
+            <li><a href="exercicios.html" class="nav-link">Exercícios</a></li>
             <li><a href="receitas.html" class="nav-link">Receitas</a></li>
             <li><a href="calculadoras.html" class="nav-link">Calculadoras</a></li>
             <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
@@ -319,108 +321,332 @@
             </div>
         </header>
 
-        <!-- CALCULADORAS -->
-        <section class="container" aria-label="Calculadoras em destaque">
-            <div class="calculators-bar">
-                <div class="calc-header">
-                    <h2>Ferramentas Gratuitas</h2>
-                    <p>Protocolos de cálculo baseados em evidências para avaliação rápida.</p>
+        <!-- FERRAMENTAS GRATUITAS (REFEITO) -->
+        <style>
+            .tgx{max-width:1080px;margin:36px auto 60px;padding:0 20px}
+            .tgx-head{text-align:center;margin-bottom:26px}
+            .tgx-head h2{margin:0 0 6px}
+            .tgx-head p{margin:0;opacity:.7;font-size:.97rem}
+            .tgx-featured{position:relative;display:flex;align-items:center;gap:20px;flex-wrap:wrap;background:linear-gradient(135deg,#0A4D68,#0F7A6B);color:#fff;border-radius:18px;padding:26px 28px;text-decoration:none;margin-bottom:22px;transition:filter .15s ease}
+            .tgx-featured:hover{filter:brightness(1.07)}
+            .tgx-fic{width:60px;height:60px;border-radius:16px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex:none}
+            .tgx-fbadge{position:absolute;top:16px;right:18px;background:rgba(255,255,255,.22);padding:4px 12px;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.06em}
+            .tgx-fkicker{font-size:.8rem;opacity:.92;display:flex;align-items:center;gap:6px;margin-bottom:4px}
+            .tgx-featured h3{margin:0 0 6px;font-size:1.4rem;color:#fff}
+            .tgx-featured p{margin:0 0 10px;opacity:.92;font-size:.95rem;max-width:640px}
+            .tgx-fcta{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+            .tgx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+            .tgx-card{display:flex;align-items:center;gap:14px;background:var(--bg-card,#fff);border:1px solid rgba(128,128,128,.18);border-radius:14px;padding:16px 18px;text-decoration:none;color:inherit;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+            .tgx-card:hover{transform:translateY(-3px);box-shadow:0 14px 28px -16px rgba(0,0,0,.4);border-color:rgba(128,128,128,.34)}
+            .tgx-ic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+            .tgx-card h3{margin:0 0 2px;font-size:1rem}
+            .tgx-card .tgx-sub{font-size:.82rem;opacity:.66}
+            .tgx-all{text-align:center;margin-top:26px}
+        </style>
+        <section class="tgx" aria-label="Calculadoras em destaque">
+            <div class="tgx-head">
+                <h2>Ferramentas Gratuitas</h2>
+                <p>Protocolos de cálculo baseados em evidências para avaliação rápida.</p>
+            </div>
+
+            <a id="featured-glucose-card" class="tgx-featured" href="calculadoras/conversor-glicose.html" data-href-pt="calculadoras/conversor-glicose.html" data-href-en="calculadoras/glucose-converter-en.html">
+                <span class="tgx-fbadge">NOVO</span>
+                <div class="tgx-fic"><i data-lucide="droplet" size="26"></i></div>
+                <div>
+                    <div class="tgx-fkicker"><i data-lucide="arrow-left-right" size="15"></i> mg/dL ↔ mmol/L</div>
+                    <h3>Conversor de Glicose</h3>
+                    <p>Converta valores de glicemia com precisão (fator 18.0182), com tabela de referência e indicação de faixa.</p>
+                    <span class="tgx-fcta">Abrir ferramenta <i data-lucide="arrow-right" size="16"></i></span>
+                </div>
+            </a>
+
+            <div class="tgx-grid">
+                <a href="calculadoras/indice-de-massa-corporal-imc.html" class="tgx-card">
+                    <div class="tgx-ic" style="background:rgba(15,122,107,.14);color:#0F7A6B"><i data-lucide="scale" size="24"></i></div>
+                    <div><h3>Índice de Massa Corporal</h3><span class="tgx-sub">Calcular IMC online</span></div>
+                </a>
+                <a href="calculadoras/taxa-metabolica-basal-tmb.html" class="tgx-card">
+                    <div class="tgx-ic" style="background:rgba(216,90,48,.14);color:#D85A30"><i data-lucide="activity" size="24"></i></div>
+                    <div><h3>Taxa Metabólica Basal</h3><span class="tgx-sub">Gasto calórico (TMB)</span></div>
+                </a>
+                <a href="calculadoras/zonas-de-frequencia-cardiaca.html" class="tgx-card">
+                    <div class="tgx-ic" style="background:rgba(183,41,41,.14);color:#B72929"><i data-lucide="heart-pulse" size="24"></i></div>
+                    <div><h3>Zonas de Frequência Cardíaca</h3><span class="tgx-sub">Método de Karvonen</span></div>
+                </a>
+                <a href="calculadoras/percentual-de-gordura-corporal.html" class="tgx-card">
+                    <div class="tgx-ic" style="background:rgba(186,117,23,.16);color:#BA7517"><i data-lucide="percent" size="24"></i></div>
+                    <div><h3>Gordura Corporal</h3><span class="tgx-sub">Percentual de gordura (%)</span></div>
+                </a>
+                <a href="calculadoras/calculadora-de-hidratacao.html" class="tgx-card">
+                    <div class="tgx-ic" style="background:rgba(24,95,165,.14);color:#185FA5"><i data-lucide="droplets" size="24"></i></div>
+                    <div><h3>Hidratação Diária</h3><span class="tgx-sub">Consumo de água</span></div>
+                </a>
+                <a href="calculadoras/peso-ideal-ibw.html" class="tgx-card">
+                    <div class="tgx-ic" style="background:rgba(91,58,142,.16);color:#5B3A8E"><i data-lucide="target" size="24"></i></div>
+                    <div><h3>Peso Ideal (IBW)</h3><span class="tgx-sub">Fórmula de Devine</span></div>
+                </a>
+            </div>
+
+            <div class="tgx-all">
+                <a href="calculadoras.html" class="btn-view-all">Ver todas as calculadoras <i data-lucide="arrow-right" size="16"></i></a>
+            </div>
+        </section>
+
+        <!-- EXPLORE POR EDITORIA (PORTAL) -->
+        <style>
+            .ped-wrap{margin:64px auto 56px}
+            .ped-head{margin-bottom:20px;text-align:center}
+            .ped-head h2{margin:0 0 6px}
+            .ped-head p{margin:0;color:var(--text-muted,#64748b);font-size:.95rem}
+            .ped-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+            .ped-card{display:flex;align-items:center;gap:12px;min-height:76px;padding:16px 20px;border-radius:14px;color:#fff;text-decoration:none;font-weight:600;line-height:1.25;box-shadow:0 8px 20px -10px rgba(0,0,0,.4);transition:transform .15s ease,filter .15s ease}
+            .ped-card:hover{transform:translateY(-3px);filter:brightness(1.08)}
+            .ped-card i{flex:none}
+            .ped-card span{font-size:1rem}
+        </style>
+        <section class="container ped-wrap" aria-label="Explore por editoria">
+            <div class="ped-head">
+                <h2>Explore por editoria</h2>
+                <p>Navegue pelos temas de saúde que mais importam pra você.</p>
+            </div>
+            <div class="ped-grid">
+                <a class="ped-card" href="artigos.html" style="background:#B72929"><i data-lucide="heart-pulse" size="22"></i><span>Coração &amp; Circulação</span></a>
+                <a class="ped-card" href="artigos.html" style="background:#5B3A8E"><i data-lucide="brain" size="22"></i><span>Mente &amp; Sono</span></a>
+                <a class="ped-card" href="artigos.html" style="background:#0F7A6B"><i data-lucide="salad" size="22"></i><span>Nutrição &amp; Metabolismo</span></a>
+                <a class="ped-card" href="artigos.html" style="background:#BF5700"><i data-lucide="dumbbell" size="22"></i><span>Corpo &amp; Movimento</span></a>
+                <a class="ped-card" href="artigos.html" style="background:#1E8449"><i data-lucide="shield-check" size="22"></i><span>Longevidade &amp; Prevenção</span></a>
+                <a class="ped-card" href="artigos.html" style="background:#0A4D68"><i data-lucide="stethoscope" size="22"></i><span>Saúde Geral</span></a>
+            </div>
+        </section>
+
+        <!-- BANNER EXERCÍCIOS (PWA) -->
+        <section class="container" aria-label="Biblioteca de exercícios" style="margin:48px auto">
+            <a href="exercicios.html" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between;background:linear-gradient(135deg,#BF5700,#D85A30);color:#fff;border-radius:18px;padding:28px 32px;text-decoration:none">
+                <div style="display:flex;align-items:center;gap:18px;min-width:260px;flex:1">
+                    <i data-lucide="dumbbell" size="40"></i>
+                    <div>
+                        <span style="display:inline-block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;opacity:.9;margin-bottom:4px">Novidade • App instalável</span>
+                        <h3 style="margin:0;font-size:1.35rem;line-height:1.25">Biblioteca de Exercícios: veja a execução correta de cada movimento</h3>
+                    </div>
+                </div>
+                <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.18);padding:12px 20px;border-radius:999px;font-weight:600;white-space:nowrap">Explorar <i data-lucide="arrow-right" size="16"></i></span>
+            </a>
+        </section>
+
+        <!-- TAGS DE CATEGORIA (CORES POR EDITORIA) -->
+        <style>
+            .cat-tag{display:inline-block;padding:4px 11px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.02em;color:#fff !important;text-transform:none;line-height:1.35;border:none}
+            .cat-coracao{background:#B72929}
+            .cat-mente{background:#5B3A8E}
+            .cat-metab{background:#0F7A6B}
+            .cat-corpo{background:#BF5700}
+            .cat-long{background:#1E8449}
+            .cat-geral{background:#0A4D68}
+        </style>
+
+        <!-- NOVOS ARTIGOS EM DESTAQUE -->
+        <section class="new-articles-section" aria-label="Novos artigos em destaque">
+            <div class="container">
+                <div class="new-articles-header">
+                    <div>
+                        <h2>Novos Artigos em Destaque</h2>
+                        <p>Conteúdos publicados recentemente no site.</p>
+                    </div>
+                    <a href="artigos.html" class="btn-view-all">Ver Todos <i data-lucide="arrow-right" size="16"></i></a>
                 </div>
 
+                <div class="new-articles-layout">
+                    <!-- Artigo principal (hero) -->
+                    <a href="artigos/canetas-emagrecedoras-guia-completo.html" class="featured-article-hero">
+                        <img src="img/cabecario.webp" class="featured-article-hero-img" alt="Canetas Emagrecedoras: Guia Completo, Riscos e Cuidados" loading="lazy" decoding="async" width="800" height="500" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop';">
+                        <div class="featured-article-hero-overlay"></div>
+                        <div class="featured-article-hero-content">
+                            <span class="badge-novo"><i data-lucide="sparkles" size="12"></i> Novo</span>
+                            <span class="card-category cat-tag cat-metab">Saúde Metabólica</span>
+                            <h3>Canetas Emagrecedoras: Guia Completo, Riscos e Cuidados</h3>
+                            <p>O que são, como funcionam, eficácia real, exames necessários, riscos ao pâncreas e a importância do acompanhamento médico. Informação séria, sem promessas milagrosas.</p>
+                        </div>
+                    </a>
 
-                <!-- NOVA FERRAMENTA (DESTAQUE) -->
-                <a
-                    id="featured-glucose-card"
-                    class="featured-tool-card"
-                    href="calculadoras/conversor-glicose.html"
-                    data-href-pt="calculadoras/conversor-glicose.html"
-                    data-href-en="calculadoras/glucose-converter-en.html"
-                >
-                    <span class="featured-tool-badge">Novo</span>
+                    <!-- Artigos laterais -->
+                    <div class="new-articles-sidebar">
+                        <a href="artigos/epigenetica-genes-destino.html" class="new-article-card">
+                            <img src="img/artigos/epigenetica-genes-nao-sao-destino.webp" class="new-article-thumb" alt="Epigenética" loading="lazy" decoding="async" width="200" height="160" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=200&auto=format&fit=crop';">
+                            <div class="new-article-info">
+                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>
+                                <h4>Epigenética: Genes Não São Destino</h4>
+                                <span>Genética · 14 min leitura</span>
+                            </div>
+                        </a>
 
-                    <div class="featured-tool-icon" aria-hidden="true">
-                        <i data-lucide="droplet" size="22"></i>
+                        <a href="artigos/neuroplasticidade-adultos.html" class="new-article-card">
+                            <img src="img/artigos/neuroplasticidade-em-adultos.webp" class="new-article-thumb" alt="Neuroplasticidade" loading="lazy" decoding="async" width="200" height="160" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=200&auto=format&fit=crop';">
+                            <div class="new-article-info">
+                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>
+                                <h4>Neuroplasticidade em Adultos</h4>
+                                <span>Neurociência · 10 min leitura</span>
+                            </div>
+                        </a>
+
+                        <a href="artigos/longevidade-zonas-azuis.html" class="new-article-card">
+                            <img src="img/artigos/longevidade-e-zonas-azuis.webp" class="new-article-thumb" alt="Longevidade" loading="lazy" decoding="async" width="200" height="160" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517340076-2e9988a2e5d5?q=80&w=200&auto=format&fit=crop';">
+                            <div class="new-article-info">
+                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>
+                                <h4>Longevidade e Zonas Azuis</h4>
+                                <span>Medicina Preventiva · 12 min leitura</span>
+                            </div>
+                        </a>
+
+                        <a href="artigos/gordura-no-figado-esteatose-hepatica.html" class="new-article-card">
+                            <img src="img/cabecario.webp" class="new-article-thumb" alt="Gordura no Fígado" loading="lazy" decoding="async" width="200" height="160" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=200&auto=format&fit=crop';">
+                            <div class="new-article-info">
+                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>
+                                <h4>Gordura no Fígado: Esteatose Hepática</h4>
+                                <span>Hepatologia · 35 min leitura</span>
+                            </div>
+                        </a>
+
+                        <a href="artigos/microbiota-cerebro.html" class="new-article-card">
+                            <img src="img/artigos/microbiota-intestinal-e-cerebro.webp" class="new-article-thumb" alt="Microbiota" loading="lazy" decoding="async" width="200" height="160" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=200&auto=format&fit=crop';">
+                            <div class="new-article-info">
+                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>
+                                <h4>Microbiota Intestinal e o Cérebro</h4>
+                                <span>Gastroenterologia · 11 min leitura</span>
+                            </div>
+                        </a>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="featured-tool-body">
-                        <div class="featured-tool-kicker">
-                            <i data-lucide="arrow-left-right" size="16" aria-hidden="true"></i>
-                            mg/dL ↔ mmol/L
-                        </div>
-                        <h3 class="featured-tool-title">Conversor de Glicose</h3>
-                        <p class="featured-tool-desc">
-                            Converta valores de glicemia com precisão (fator 18.0182), com tabela de referência e indicação de faixa.
-                        </p>
-                        <span class="featured-tool-cta">
-                            Abrir ferramenta <i data-lucide="arrow-right" size="16" aria-hidden="true"></i>
-                        </span>
+        <!-- GUIA EM DESTAQUE (PILAR) -->
+        <section class="container" aria-label="Guia em destaque" style="margin:48px auto">
+            <a href="guia-glp1-emagrecedores.html" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between;background:linear-gradient(135deg,#0A4D68,#117864);color:#fff;border-radius:18px;padding:28px 32px;text-decoration:none">
+                <div style="display:flex;align-items:center;gap:18px;min-width:260px;flex:1">
+                    <i data-lucide="book-open-text" size="40"></i>
+                    <div>
+                        <span style="display:inline-block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;opacity:.85;margin-bottom:4px">Guia completo</span>
+                        <h3 style="margin:0;font-size:1.35rem;line-height:1.25">GLP-1 e Emagrecimento: Ozempic, Mounjaro, Ozivy e mais</h3>
                     </div>
-                </a>
+                </div>
+                <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);padding:12px 20px;border-radius:999px;font-weight:600;white-space:nowrap">Ver guia <i data-lucide="arrow-right" size="16"></i></span>
+            </a>
+        </section>
 
-                <div class="calc-grid">
-                    <a href="calculadoras/indice-de-massa-corporal-imc.html" class="calc-item">
-                        <div class="calc-icon-wrapper">
-                            <i data-lucide="scale" size="24"></i>
-                        </div>
-                        <div class="calc-info">
-                            <h3>Índice de Massa Corporal</h3>
-                            <span>Calcular IMC Online</span>
-                        </div>
-                    </a>
+        <!-- ARTIGOS EM DESTAQUE -->
+        <section class="featured-section" aria-label="Últimas publicações">
+            <div class="container">
+                <div class="section-header-left">
+                    <h2>Últimas Publicações</h2>
+                    <p>Análises profundas sobre as categorias prioritárias de saúde.</p>
+                </div>
 
-                    <a href="calculadoras/taxa-metabolica-basal-tmb.html" class="calc-item">
-                        <div class="calc-icon-wrapper">
-                            <i data-lucide="activity" size="24"></i>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/resistencia-insulina-mecanismos.html">
+                                <img src="img/artigos/resistencia-a-insulina-mecanismos.webp" class="card-img" alt="Insulina" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop';">
+                            </a>
                         </div>
-                        <div class="calc-info">
-                            <h3>Taxa Metabólica Basal</h3>
-                            <span>Calcular Gasto Calórico (TMB)</span>
+                        <div class="card-content">
+                            <span class="card-category cat-tag cat-metab">Endocrinologia</span>
+                            <h3 class="card-title"><a href="artigos/resistencia-insulina-mecanismos.html">Resistência à Insulina: Mecanismos</a></h3>
+                            <p class="card-excerpt">Uma revisão detalhada sobre a fisiopatologia da resistência insulínica e estratégias não-farmacológicas.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 8 min leitura</span>
+                                <span>Dr. Especialista</span>
+                            </div>
                         </div>
-                    </a>
+                    </article>
 
-                    <a href="calculadoras/zonas-de-frequencia-cardiaca.html" class="calc-item">
-                        <div class="calc-icon-wrapper">
-                            <i data-lucide="heart-pulse" size="24"></i>
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/macronutrientes-guia-bioquimico.html">
+                                <img src="img/artigos/macronutrientes-o-guia-bioquimico.webp" class="card-img" alt="Nutrição" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop';">
+                            </a>
                         </div>
-                        <div class="calc-info">
-                            <h3>Zonas de Frequência Cardíaca</h3>
-                            <span>Treino por Método Karvonen</span>
+                        <div class="card-content">
+                            <span class="card-category cat-tag cat-metab">Nutrição Clínica</span>
+                            <h3 class="card-title"><a href="artigos/macronutrientes-guia-bioquimico.html">Macronutrientes: O Guia Bioquímico</a></h3>
+                            <p class="card-excerpt">Entendendo o metabolismo de proteínas, carboidratos e lipídios em nível celular.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 12 min leitura</span>
+                                <span>Equipe Editorial</span>
+                            </div>
                         </div>
-                    </a>
+                    </article>
 
-                    <a href="calculadoras/percentual-de-gordura-corporal.html" class="calc-item">
-                        <div class="calc-icon-wrapper">
-                            <i data-lucide="percent" size="24"></i>
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/hipertensao-diretrizes.html">
+                                <img src="img/artigos/hipertensao-diretrizes-atuais.webp" class="card-img" alt="Coração" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800&auto=format&fit=crop';">
+                            </a>
                         </div>
-                        <div class="calc-info">
-                            <h3>Gordura Corporal</h3>
-                            <span>Percentual de Gordura (%)</span>
+                        <div class="card-content">
+                            <span class="card-category cat-tag cat-coracao">Cardiologia</span>
+                            <h3 class="card-title"><a href="artigos/hipertensao-diretrizes.html">Hipertensão: Diretrizes Atuais</a></h3>
+                            <p class="card-excerpt">Atualizações sobre diagnóstico, monitoramento e controle da pressão arterial sistêmica.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 10 min leitura</span>
+                                <span>Revisão Médica</span>
+                            </div>
                         </div>
-                    </a>
+                    </article>
 
-                    <a href="calculadoras/calculadora-de-hidratacao.html" class="calc-item">
-                        <div class="calc-icon-wrapper">
-                            <i data-lucide="droplets" size="24"></i>
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/cortisol-estresse-cronico.html">
+                                <img src="img/artigos/cortisol-e-estresse-cronico.webp" class="card-img" alt="Saúde mental" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=800&auto=format&fit=crop';">
+                            </a>
                         </div>
-                        <div class="calc-info">
-                            <h3>Hidratação Diária</h3>
-                            <span>Calcular Consumo de Água</span>
+                        <div class="card-content">
+                            <span class="card-category cat-tag cat-mente">Saúde Mental</span>
+                            <h3 class="card-title"><a href="artigos/cortisol-estresse-cronico.html">Cortisol e Estresse Crônico</a></h3>
+                            <p class="card-excerpt">Impactos neurobiológicos do estresse prolongado e marcadores hormonais de saúde mental.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 11 min leitura</span>
+                                <span>Neurociência</span>
+                            </div>
                         </div>
-                    </a>
+                    </article>
 
-                    <a href="calculadoras/peso-ideal-ibw.html" class="calc-item">
-                        <div class="calc-icon-wrapper">
-                            <i data-lucide="target" size="24"></i>
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/ritmo-circadiano.html">
+                                <img src="img/artigos/ritmo-circadiano-e-saude.webp" class="card-img" alt="Sono" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517340076-2e9988a2e5d5?q=80&w=800&auto=format&fit=crop';">
+                            </a>
                         </div>
-                        <div class="calc-info">
-                            <h3>Peso Ideal (IBW)</h3>
-                            <span>Fórmula de Devine</span>
+                        <div class="card-content">
+                            <span class="card-category cat-tag cat-mente">Medicina do Sono</span>
+                            <h3 class="card-title"><a href="artigos/ritmo-circadiano.html">Ritmo Circadiano e Saúde</a></h3>
+                            <p class="card-excerpt">Como a luz e os ciclos de sono afetam seu metabolismo, hormônios e sistema imunológico.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 9 min leitura</span>
+                                <span>Dr. Pneumologista</span>
+                            </div>
                         </div>
-                    </a>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="card-img-container">
+                            <a href="artigos/mioquinas-movimento.html">
+                                <img src="img/artigos/mioquinas-o-segredo-do-movimento.webp" class="card-img" alt="Exercício" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop';">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category cat-tag cat-corpo">Fisiologia</span>
+                            <h3 class="card-title"><a href="artigos/mioquinas-movimento.html">Mioquinas: O Segredo do Movimento</a></h3>
+                            <p class="card-excerpt">O papel do músculo esquelético como órgão endócrino e seus benefícios sistêmicos.</p>
+                            <div class="card-footer">
+                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 14 min leitura</span>
+                                <span>Fisiologista</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
 
                 <div class="section-view-all">
-                    <a href="calculadoras.html" class="btn-view-all">Ver Todas as Calculadoras <i data-lucide="arrow-right" size="16"></i></a>
+                    <a href="artigos.html" class="btn-view-all">Ver Todos os Artigos <i data-lucide="arrow-right" size="16"></i></a>
                 </div>
             </div>
         </section>
@@ -491,199 +717,6 @@
                         <span>Compromisso com transparência editorial</span>
                     </div>
                     <div class="seal-line"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- NOVOS ARTIGOS EM DESTAQUE -->
-        <section class="new-articles-section" aria-label="Novos artigos em destaque">
-            <div class="container">
-                <div class="new-articles-header">
-                    <div>
-                        <h2>Novos Artigos em Destaque</h2>
-                        <p>Conteúdos publicados recentemente no site.</p>
-                    </div>
-                    <a href="artigos.html" class="btn-view-all">Ver Todos <i data-lucide="arrow-right" size="16"></i></a>
-                </div>
-
-                <div class="new-articles-layout">
-                    <!-- Artigo principal (hero) -->
-                    <a href="artigos/canetas-emagrecedoras-guia-completo.html" class="featured-article-hero">
-                        <img src="img/cabecario.webp" class="featured-article-hero-img" alt="Canetas Emagrecedoras: Guia Completo, Riscos e Cuidados" loading="lazy" decoding="async" width="800" height="500" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop';">
-                        <div class="featured-article-hero-overlay"></div>
-                        <div class="featured-article-hero-content">
-                            <span class="badge-novo"><i data-lucide="sparkles" size="12"></i> Novo</span>
-                            <span class="card-category">Saúde Metabólica</span>
-                            <h3>Canetas Emagrecedoras: Guia Completo, Riscos e Cuidados</h3>
-                            <p>O que são, como funcionam, eficácia real, exames necessários, riscos ao pâncreas e a importância do acompanhamento médico. Informação séria, sem promessas milagrosas.</p>
-                        </div>
-                    </a>
-
-                    <!-- Artigos laterais -->
-                    <div class="new-articles-sidebar">
-                        <a href="artigos/epigenetica-genes-destino.html" class="new-article-card">
-                            <img src="img/artigos/epigenetica-genes-nao-sao-destino.webp" class="new-article-thumb" alt="Epigenética" loading="lazy" decoding="async" width="200" height="160" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=200&auto=format&fit=crop';">
-                            <div class="new-article-info">
-                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>
-                                <h4>Epigenética: Genes Não São Destino</h4>
-                                <span>Genética · 14 min leitura</span>
-                            </div>
-                        </a>
-
-                        <a href="artigos/neuroplasticidade-adultos.html" class="new-article-card">
-                            <img src="img/artigos/neuroplasticidade-em-adultos.webp" class="new-article-thumb" alt="Neuroplasticidade" loading="lazy" decoding="async" width="200" height="160" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=200&auto=format&fit=crop';">
-                            <div class="new-article-info">
-                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>
-                                <h4>Neuroplasticidade em Adultos</h4>
-                                <span>Neurociência · 10 min leitura</span>
-                            </div>
-                        </a>
-
-                        <a href="artigos/longevidade-zonas-azuis.html" class="new-article-card">
-                            <img src="img/artigos/longevidade-e-zonas-azuis.webp" class="new-article-thumb" alt="Longevidade" loading="lazy" decoding="async" width="200" height="160" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517340076-2e9988a2e5d5?q=80&w=200&auto=format&fit=crop';">
-                            <div class="new-article-info">
-                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>
-                                <h4>Longevidade e Zonas Azuis</h4>
-                                <span>Medicina Preventiva · 12 min leitura</span>
-                            </div>
-                        </a>
-
-                        <a href="artigos/gordura-no-figado-esteatose-hepatica.html" class="new-article-card">
-                            <img src="img/cabecario.webp" class="new-article-thumb" alt="Gordura no Fígado" loading="lazy" decoding="async" width="200" height="160" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=200&auto=format&fit=crop';">
-                            <div class="new-article-info">
-                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>
-                                <h4>Gordura no Fígado: Esteatose Hepática</h4>
-                                <span>Hepatologia · 35 min leitura</span>
-                            </div>
-                        </a>
-
-                        <a href="artigos/microbiota-cerebro.html" class="new-article-card">
-                            <img src="img/artigos/microbiota-intestinal-e-cerebro.webp" class="new-article-thumb" alt="Microbiota" loading="lazy" decoding="async" width="200" height="160" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=200&auto=format&fit=crop';">
-                            <div class="new-article-info">
-                                <span class="badge-novo"><i data-lucide="sparkles" size="10"></i> Novo</span>
-                                <h4>Microbiota Intestinal e o Cérebro</h4>
-                                <span>Gastroenterologia · 11 min leitura</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ARTIGOS EM DESTAQUE -->
-        <section class="featured-section" aria-label="Últimas publicações">
-            <div class="container">
-                <div class="section-header-left">
-                    <h2>Últimas Publicações</h2>
-                    <p>Análises profundas sobre as categorias prioritárias de saúde.</p>
-                </div>
-
-                <div class="articles-grid">
-                    <article class="article-card">
-                        <div class="card-img-container">
-                            <a href="artigos/resistencia-insulina-mecanismos.html">
-                                <img src="img/artigos/resistencia-a-insulina-mecanismos.webp" class="card-img" alt="Insulina" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop';">
-                            </a>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-category">Endocrinologia</span>
-                            <h3 class="card-title"><a href="artigos/resistencia-insulina-mecanismos.html">Resistência à Insulina: Mecanismos</a></h3>
-                            <p class="card-excerpt">Uma revisão detalhada sobre a fisiopatologia da resistência insulínica e estratégias não-farmacológicas.</p>
-                            <div class="card-footer">
-                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 8 min leitura</span>
-                                <span>Dr. Especialista</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <div class="card-img-container">
-                            <a href="artigos/macronutrientes-guia-bioquimico.html">
-                                <img src="img/artigos/macronutrientes-o-guia-bioquimico.webp" class="card-img" alt="Nutrição" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop';">
-                            </a>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-category">Nutrição Clínica</span>
-                            <h3 class="card-title"><a href="artigos/macronutrientes-guia-bioquimico.html">Macronutrientes: O Guia Bioquímico</a></h3>
-                            <p class="card-excerpt">Entendendo o metabolismo de proteínas, carboidratos e lipídios em nível celular.</p>
-                            <div class="card-footer">
-                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 12 min leitura</span>
-                                <span>Equipe Editorial</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <div class="card-img-container">
-                            <a href="artigos/hipertensao-diretrizes.html">
-                                <img src="img/artigos/hipertensao-diretrizes-atuais.webp" class="card-img" alt="Coração" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800&auto=format&fit=crop';">
-                            </a>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-category">Cardiologia</span>
-                            <h3 class="card-title"><a href="artigos/hipertensao-diretrizes.html">Hipertensão: Diretrizes Atuais</a></h3>
-                            <p class="card-excerpt">Atualizações sobre diagnóstico, monitoramento e controle da pressão arterial sistêmica.</p>
-                            <div class="card-footer">
-                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 10 min leitura</span>
-                                <span>Revisão Médica</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <div class="card-img-container">
-                            <a href="artigos/cortisol-estresse-cronico.html">
-                                <img src="img/artigos/cortisol-e-estresse-cronico.webp" class="card-img" alt="Saúde mental" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=800&auto=format&fit=crop';">
-                            </a>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-category">Saúde Mental</span>
-                            <h3 class="card-title"><a href="artigos/cortisol-estresse-cronico.html">Cortisol e Estresse Crônico</a></h3>
-                            <p class="card-excerpt">Impactos neurobiológicos do estresse prolongado e marcadores hormonais de saúde mental.</p>
-                            <div class="card-footer">
-                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 11 min leitura</span>
-                                <span>Neurociência</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <div class="card-img-container">
-                            <a href="artigos/ritmo-circadiano.html">
-                                <img src="img/artigos/ritmo-circadiano-e-saude.webp" class="card-img" alt="Sono" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1517340076-2e9988a2e5d5?q=80&w=800&auto=format&fit=crop';">
-                            </a>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-category">Medicina do Sono</span>
-                            <h3 class="card-title"><a href="artigos/ritmo-circadiano.html">Ritmo Circadiano e Saúde</a></h3>
-                            <p class="card-excerpt">Como a luz e os ciclos de sono afetam seu metabolismo, hormônios e sistema imunológico.</p>
-                            <div class="card-footer">
-                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 9 min leitura</span>
-                                <span>Dr. Pneumologista</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <div class="card-img-container">
-                            <a href="artigos/mioquinas-movimento.html">
-                                <img src="img/artigos/mioquinas-o-segredo-do-movimento.webp" class="card-img" alt="Exercício" loading="lazy" decoding="async" width="800" height="450" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop';">
-                            </a>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-category">Fisiologia</span>
-                            <h3 class="card-title"><a href="artigos/mioquinas-movimento.html">Mioquinas: O Segredo do Movimento</a></h3>
-                            <p class="card-excerpt">O papel do músculo esquelético como órgão endócrino e seus benefícios sistêmicos.</p>
-                            <div class="card-footer">
-                                <span><i data-lucide="clock" size="14" style="display:inline;"></i> 14 min leitura</span>
-                                <span>Fisiologista</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="section-view-all">
-                    <a href="artigos.html" class="btn-view-all">Ver Todos os Artigos <i data-lucide="arrow-right" size="16"></i></a>
                 </div>
             </div>
         </section>
@@ -1292,5 +1325,6 @@
 
         });
     </script>
+    <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
 </body>
 </html>
