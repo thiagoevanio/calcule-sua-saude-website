@@ -112,6 +112,11 @@ function report(bucket, code, file, detail) {
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, "utf8");
   const activeHtml = html.replace(/<!--[\s\S]*?-->/g, "");
+  // Para varrer referências/imagens/ids, ignore o que está dentro de <script>/<style>
+  // (evita falso positivo com template strings de JS, ex.: src="${s}").
+  const scanHtml = activeHtml
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ");
   const noindex = isNoindex(activeHtml);
   const title = first(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
   const description = first(
@@ -150,13 +155,13 @@ for (const file of htmlFiles) {
     canonicalOwners.get(canonical).push(file);
   }
 
-  const ids = [...activeHtml.matchAll(/\bid\s*=\s*(["'])(.*?)\1/gi)].map((match) => match[2]);
+  const ids = [...scanHtml.matchAll(/\bid\s*=\s*(["'])(.*?)\1/gi)].map((match) => match[2]);
   const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
   if (duplicateIds.length) {
     report(errors, "duplicate-id", file, duplicateIds.join(", "));
   }
 
-  for (const match of activeHtml.matchAll(/<(?:a|link|script|img|source)\b[^>]*>/gi)) {
+  for (const match of scanHtml.matchAll(/<(?:a|link|script|img|source)\b[^>]*>/gi)) {
     const tag = match[0];
     const value = attr(tag, tag.startsWith("<a") || tag.startsWith("<link") ? "href" : "src");
     const target = localTarget(file, value);
@@ -171,7 +176,7 @@ for (const file of htmlFiles) {
     }
   }
 
-  for (const match of activeHtml.matchAll(/<img\b[^>]*>/gi)) {
+  for (const match of scanHtml.matchAll(/<img\b[^>]*>/gi)) {
     stats.images += 1;
     const tag = match[0];
     if (!/\balt\s*=/i.test(tag)) report(errors, "image-missing-alt", file, attr(tag, "src"));
@@ -180,7 +185,7 @@ for (const file of htmlFiles) {
     }
   }
 
-  for (const match of activeHtml.matchAll(/<a\b[^>]*target=["']_blank["'][^>]*>/gi)) {
+  for (const match of scanHtml.matchAll(/<a\b[^>]*target=["']_blank["'][^>]*>/gi)) {
     const relValue = attr(match[0], "rel");
     if (!/\bnoopener\b/i.test(relValue)) {
       report(warnings, "blank-link-without-noopener", file, attr(match[0], "href"));
@@ -200,7 +205,7 @@ for (const file of htmlFiles) {
     }
   }
 
-  for (const match of activeHtml.matchAll(/<a\b[^>]*href\s*=\s*(["'])(.*?)\1[^>]*>/gi)) {
+  for (const match of scanHtml.matchAll(/<a\b[^>]*href\s*=\s*(["'])(.*?)\1[^>]*>/gi)) {
     const value = match[2];
     if (!value.includes("#") || value === "#") continue;
     const [targetValue, fragmentValue] = value.split("#");
