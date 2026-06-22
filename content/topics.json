@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Depressão: sintomas, causas, tipos e tratamentos baseados em evidências",
-      "category_hint": "Saúde Mental",
-      "status": "pending"
-    },
-    {
       "theme": "Enxaqueca: gatilhos, tipos, crise e tratamentos atuais",
       "category_hint": "Saúde Geral",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Pré-diabetes: o que é, exames, sintomas e como reverter",
       "slug": "pre-diabetes-o-que-e-exames-sintomas-e-reversao",
       "date": "2026-06-21"
+    },
+    {
+      "theme": "Depressão: sintomas, causas, tipos e tratamentos baseados em evidências",
+      "slug": "depressao-sintomas-causas-tipos-e-tratamentos",
+      "date": "2026-06-22"
     }
   ]
 }
