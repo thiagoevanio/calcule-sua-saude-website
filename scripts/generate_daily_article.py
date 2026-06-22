@@ -31,6 +31,7 @@ import os
 import re
 import sys
 import json
+import time
 import argparse
 import unicodedata
 import urllib.request
@@ -386,20 +387,58 @@ def _client():
     return genai.Client(api_key=api_key)
 
 
+# Modelos de fallback: se o principal estiver sobrecarregado (503), tenta o próximo.
+# (gemini-2.5-flash-lite costuma ter cota grátis e fica menos sobrecarregado)
+FALLBACK_MODELS = ["gemini-2.5-flash-lite"]
+_TRANSIENT = ("503", "UNAVAILABLE", "500", "INTERNAL", "RESOURCE_EXHAUSTED",
+              "429", "deadline", "DEADLINE", "timeout", "overloaded")
+
+
+def _gen(client, model, contents, config, label="geração", tries=4, base=8):
+    """Chama a Gemini com novas tentativas + espera crescente em erros temporários (503/429/500)."""
+    last = None
+    for i in range(tries):
+        try:
+            return client.models.generate_content(model=model, contents=contents, config=config)
+        except Exception as e:
+            last = e
+            msg = str(e)
+            if i < tries - 1 and any(t in msg for t in _TRANSIENT):
+                wait = base * (2 ** i)
+                print(f"   ⚠️  {label}: instável ({msg[:70]}…) — nova tentativa em {wait}s")
+                time.sleep(wait)
+                continue
+            raise
+    raise last
+
+
+def _gen_with_fallback(client, model, contents, config, label="geração"):
+    """Tenta o modelo principal e, se persistir falha temporária, troca de modelo."""
+    modelos = [model] + [m for m in FALLBACK_MODELS if m != model]
+    last = None
+    for mdl in modelos:
+        try:
+            return _gen(client, mdl, contents, config, label=f"{label} [{mdl}]")
+        except Exception as e:
+            last = e
+            print(f"   ⚠️  modelo {mdl} indisponível; tentando alternativa…")
+    raise last
+
+
 def research_theme(theme: str, model: str):
     """1ª passada: pesquisa fontes reais com Google Search grounding.
     Retorna (briefing_texto, lista_de_fontes[(titulo, url)]). Tolerante a falhas."""
     from google.genai import types
     try:
         client = _client()
-        resp = client.models.generate_content(
-            model=model,
-            contents=build_research_prompt(theme),
-            config=types.GenerateContentConfig(
+        resp = _gen(
+            client, model, build_research_prompt(theme),
+            types.GenerateContentConfig(
                 tools=[types.Tool(google_search=types.GoogleSearch())],
                 temperature=0.25,
                 max_output_tokens=8192,
             ),
+            label="pesquisa", tries=2,
         )
         brief = resp.text or ""
         sources = []
@@ -435,15 +474,15 @@ def generate_with_gemini(theme: str, model: str) -> dict:
     # 2ª passada — redação estruturada em JSON
     prompt = build_writer_prompt(theme, brief, sources,
                                  existing_titles(), existing_articles())
-    resp = client.models.generate_content(
-        model=model,
-        contents=prompt,
-        config=types.GenerateContentConfig(
+    resp = _gen_with_fallback(
+        client, model, prompt,
+        types.GenerateContentConfig(
             response_mime_type="application/json",
             response_schema=response_schema(),
             temperature=0.4,
             max_output_tokens=32768,
         ),
+        label="escrita do artigo",
     )
     return json.loads(resp.text)
 
@@ -986,9 +1025,10 @@ def suggest_theme(model: str) -> str:
               "baseado em evidências, com bom volume de busca, que NÃO esteja nesta "
               "lista de temas já publicados: " + "; ".join(existing_titles()) +
               ". Responda apenas com o título do tema, sem aspas.")
-    resp = client.models.generate_content(
-        model=model, contents=prompt,
-        config=types.GenerateContentConfig(temperature=0.9, max_output_tokens=60))
+    resp = _gen_with_fallback(
+        client, model, prompt,
+        types.GenerateContentConfig(temperature=0.9, max_output_tokens=60),
+        label="sugestão de tema")
     return resp.text.strip().strip('"').splitlines()[0]
 
 
