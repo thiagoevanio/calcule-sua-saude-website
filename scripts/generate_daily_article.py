@@ -35,7 +35,7 @@ import time
 import argparse
 import unicodedata
 import urllib.request
-from urllib.parse import urlparse
+from urllib.parse import urlparse, unquote
 from pathlib import Path
 from datetime import datetime, timezone
 from html import escape
@@ -128,13 +128,38 @@ class Sanitizer(HTMLParser):
         return "".join(self.out)
 
 
+def _internal_link_ok(href: str) -> bool:
+    """True se o link NÃO for interno OU se apontar para um arquivo que existe."""
+    h = (href or "").split("#")[0].split("?")[0].strip()
+    if not h or h.startswith(("http://", "https://", "mailto:", "tel:", "#", "data:")):
+        return True  # externo/âncora — não mexe
+    if not h.lower().endswith(".html"):
+        return True
+    h = unquote(h)
+    if h.startswith("../"):
+        target = ROOT / h[3:]
+    elif h.startswith("/"):
+        target = ROOT / h[1:]
+    else:
+        target = ARTIGOS_DIR / h  # links de artigo são relativos à pasta artigos/
+    return target.exists()
+
+
+def fix_internal_links(html: str) -> str:
+    """Desfaz links internos que apontam para páginas inexistentes (mantém o texto).
+    Evita que a IA crie links 'fantasma' e quebre a validação do site."""
+    def repl(m):
+        return m.group(2) if not _internal_link_ok(m.group(1)) else m.group(0)
+    return re.sub(r'<a\s+href="([^"]+)"[^>]*>(.*?)</a>', repl, html, flags=re.S | re.I)
+
+
 def sanitize(html: str) -> str:
     s = Sanitizer()
     s.feed(html or "")
     html = s.result()
     # tabelas ganham a classe do site
     html = re.sub(r"<table>", '<table class="scientific-table">', html)
-    return html.strip()
+    return fix_internal_links(html.strip())
 
 
 def clip(text: str, n: int) -> str:
@@ -747,7 +772,7 @@ def sanitize_inline(text: str) -> str:
     """Permite formatação leve em trechos de 1 linha (strong/em/a/br)."""
     s = Sanitizer()
     s.feed(text or "")
-    return s.result().strip()
+    return fix_internal_links(s.result().strip())
 
 
 # ----------------------------------------------------------------------------
