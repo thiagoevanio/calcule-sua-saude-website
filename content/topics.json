@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Insônia: causas, tipos e tratamento sem depender de remédios",
-      "category_hint": "Mente e Sono",
-      "status": "pending"
-    },
-    {
       "theme": "Vitamina B12: deficiência, sintomas, fontes e suplementação",
       "category_hint": "Nutrição Clínica",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "TDAH em adultos: sintomas, diagnóstico e estratégias de manejo",
       "slug": "tdah-em-adultos-sintomas-diagnostico-e-manejo-cientifico",
       "date": "2026-06-27"
+    },
+    {
+      "theme": "Insônia: causas, tipos e tratamento sem depender de remédios",
+      "slug": "insonia-causas-tipos-e-tratamento-sem-remedios",
+      "date": "2026-06-28"
     }
   ]
 }
