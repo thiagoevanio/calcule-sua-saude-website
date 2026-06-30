@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Ômega-3 (EPA e DHA): benefícios reais, dosagem e melhores fontes",
-      "category_hint": "Nutrição Clínica",
-      "status": "pending"
-    },
-    {
       "theme": "Dieta low carb: o que é, evidências, benefícios e riscos",
       "category_hint": "Nutrição Clínica",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Vitamina B12: deficiência, sintomas, fontes e suplementação",
       "slug": "vitamina-b12-deficiencia-sintomas-e-suplementacao",
       "date": "2026-06-29"
+    },
+    {
+      "theme": "Ômega-3 (EPA e DHA): benefícios reais, dosagem e melhores fontes",
+      "slug": "omega-3-epa-e-dha-beneficios-dosagem-e-fontes",
+      "date": "2026-06-30"
     }
   ]
 }
