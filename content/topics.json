@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Dieta mediterrânea: por que é a mais recomendada e como adotar",
-      "category_hint": "Nutrição Clínica",
-      "status": "pending"
-    },
-    {
       "theme": "Alimentos ultraprocessados: riscos à saúde e como identificar",
       "category_hint": "Nutrição Clínica",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Dieta low carb: o que é, evidências, benefícios e riscos",
       "slug": "dieta-low-carb-evidencias-beneficios-e-riscos",
       "date": "2026-07-01"
+    },
+    {
+      "theme": "Dieta mediterrânea: por que é a mais recomendada e como adotar",
+      "slug": "dieta-mediterranea-a-mais-recomendada-para-a-saude",
+      "date": "2026-07-02"
     }
   ]
 }
