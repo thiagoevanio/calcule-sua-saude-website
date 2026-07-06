@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Proteína: quanto consumir por dia e melhores fontes",
-      "category_hint": "Nutrição Clínica",
-      "status": "pending"
-    },
-    {
       "theme": "Whey protein: tipos, benefícios, dose e quando usar",
       "category_hint": "Nutrição Clínica",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Síndrome metabólica: critérios diagnósticos, riscos e reversão",
       "slug": "sindrome-metabolica-diagnostico-riscos-e-reversao",
       "date": "2026-07-05"
+    },
+    {
+      "theme": "Proteína: quanto consumir por dia e melhores fontes",
+      "slug": "proteina-consumo-diario-fontes-e-impacto-na-saude",
+      "date": "2026-07-06"
     }
   ]
 }
