@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Fibras alimentares: tipos, quantidade ideal e impacto na saúde",
-      "category_hint": "Nutrição Clínica",
-      "status": "pending"
-    },
-    {
       "theme": "Cirurgia bariátrica: tipos, indicações, riscos e acompanhamento",
       "category_hint": "Endocrinologia",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Ácido úrico e gota: causas, alimentação e tratamento",
       "slug": "acido-urico-e-gota-causas-alimentacao-e-tratamento",
       "date": "2026-07-09"
+    },
+    {
+      "theme": "Fibras alimentares: tipos, quantidade ideal e impacto na saúde",
+      "slug": "fibras-alimentares-tipos-quantidade-e-impacto-na-saude",
+      "date": "2026-07-10"
     }
   ]
 }
