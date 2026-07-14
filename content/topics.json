@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Síndrome do pânico: sintomas, crises e como tratar",
-      "category_hint": "Saúde Mental",
-      "status": "pending"
-    },
-    {
       "theme": "Transtorno bipolar: sintomas, tipos e tratamento",
       "category_hint": "Saúde Mental",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Hipertireoidismo: sintomas, causas e opções de tratamento",
       "slug": "hipertireoidismo-sintomas-causas-e-tratamento",
       "date": "2026-07-13"
+    },
+    {
+      "theme": "Síndrome do pânico: sintomas, crises e como tratar",
+      "slug": "sindrome-do-panico-sintomas-crises-e-tratamento",
+      "date": "2026-07-14"
     }
   ]
 }
