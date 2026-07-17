@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Gastrite: causas, sintomas, tipos e alimentação",
-      "category_hint": "Saúde Geral",
-      "status": "pending"
-    },
-    {
       "theme": "Refluxo e H. pylori: úlcera, sintomas e tratamento",
       "category_hint": "Saúde Geral",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "TOC (transtorno obsessivo-compulsivo): sinais e tratamento",
       "slug": "toc-sinais-diagnostico-e-tratamento-baseado-em-evidencias",
       "date": "2026-07-16"
+    },
+    {
+      "theme": "Gastrite: causas, sintomas, tipos e alimentação",
+      "slug": "gastrite-causas-sintomas-tipos-e-alimentacao",
+      "date": "2026-07-17"
     }
   ]
 }
