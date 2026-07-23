@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Câncer de mama: prevenção, sinais e rastreamento (mamografia)",
-      "category_hint": "Longevidade e Prevenção",
-      "status": "pending"
-    },
-    {
       "theme": "Câncer de próstata: sintomas, exames (PSA) e prevenção",
       "category_hint": "Longevidade e Prevenção",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Artrose (osteoartrite): causas, sintomas e manejo",
       "slug": "artrose-osteoartrite-causas-sintomas-e-manejo-completo",
       "date": "2026-07-22"
+    },
+    {
+      "theme": "Câncer de mama: prevenção, sinais e rastreamento (mamografia)",
+      "slug": "cancer-de-mama-prevencao-sinais-e-mamografia",
+      "date": "2026-07-23"
     }
   ]
 }
