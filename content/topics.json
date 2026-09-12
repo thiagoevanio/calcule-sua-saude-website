@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Saúde bucal: relação entre gengiva e doenças do corpo",
-      "category_hint": "Saúde Geral",
-      "status": "pending"
-    },
-    {
       "theme": "Saúde ocular: prevenção de catarata e glaucoma",
       "category_hint": "Saúde Geral",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Alergia alimentar: principais alérgenos, sintomas e cuidados",
       "slug": "alergia-alimentar-alergenos-sintomas-e-cuidados-essenciais",
       "date": "2026-09-11"
+    },
+    {
+      "theme": "Saúde bucal: relação entre gengiva e doenças do corpo",
+      "slug": "gengiva-e-doencas-do-corpo-uma-conexao-vital",
+      "date": "2026-09-12"
     }
   ]
 }
