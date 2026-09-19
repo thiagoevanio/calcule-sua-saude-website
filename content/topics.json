@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Autofagia: o que é e como o corpo se renova",
-      "category_hint": "Longevidade e Prevenção",
-      "status": "pending"
-    },
-    {
       "theme": "Estresse oxidativo e radicais livres: o que são e como combater",
       "category_hint": "Longevidade e Prevenção",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Telômeros e envelhecimento: o que a ciência já sabe",
       "slug": "telomeros-e-envelhecimento-o-que-a-ciencia-revela",
       "date": "2026-09-18"
+    },
+    {
+      "theme": "Autofagia: o que é e como o corpo se renova",
+      "slug": "autofagia-renovacao-celular-e-saude",
+      "date": "2026-09-19"
     }
   ]
 }
