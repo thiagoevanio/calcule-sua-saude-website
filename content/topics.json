@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Sauna: benefícios para o coração e a longevidade",
-      "category_hint": "Longevidade e Prevenção",
-      "status": "pending"
-    },
-    {
       "theme": "Banho gelado e crioterapia: benefícios reais segundo a ciência",
       "category_hint": "Corpo e Movimento",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Suplementos para longevidade (NMN, NAD+): o que tem evidência",
       "slug": "suplementos-nmn-e-nad-para-longevidade-evidencias",
       "date": "2026-09-22"
+    },
+    {
+      "theme": "Sauna: benefícios para o coração e a longevidade",
+      "slug": "sauna-beneficios-para-o-coracao-e-longevidade",
+      "date": "2026-09-23"
     }
   ]
 }
