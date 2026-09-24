@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Banho gelado e crioterapia: benefícios reais segundo a ciência",
-      "category_hint": "Corpo e Movimento",
-      "status": "pending"
-    },
-    {
       "theme": "Memória: como funciona e estratégias para melhorá-la",
       "category_hint": "Mente e Sono",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Sauna: benefícios para o coração e a longevidade",
       "slug": "sauna-beneficios-para-o-coracao-e-longevidade",
       "date": "2026-09-23"
+    },
+    {
+      "theme": "Banho gelado e crioterapia: benefícios reais segundo a ciência",
+      "slug": "banho-gelado-e-crioterapia-beneficios-reais-da-ciencia",
+      "date": "2026-09-24"
     }
   ]
 }
