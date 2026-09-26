@@ -2,11 +2,6 @@
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
   "queue": [
     {
-      "theme": "Luto: fases, como lidar e quando buscar ajuda profissional",
-      "category_hint": "Saúde Mental",
-      "status": "pending"
-    },
-    {
       "theme": "Frequência cardíaca: zonas de treino, repouso e o que é saudável",
       "category_hint": "Coração e Circulação",
       "status": "pending"
@@ -507,6 +502,11 @@
       "theme": "Memória: como funciona e estratégias para melhorá-la",
       "slug": "memoria-como-funciona-e-estrategias-para-melhora-la",
       "date": "2026-09-25"
+    },
+    {
+      "theme": "Luto: fases, como lidar e quando buscar ajuda profissional",
+      "slug": "luto-fases-como-lidar-e-quando-buscar-ajuda-profissional",
+      "date": "2026-09-26"
     }
   ]
 }
