@@ -1,12 +1,6 @@
 {
   "_comment": "Fila de temas do robô de artigos. O robô pega o primeiro item com status 'pending', publica e move para 'published'. Se a fila acabar, ele pede um tema inédito à IA. 'category_hint' é opcional (ajuda a IA e a categorização do card). Temas escolhidos por alto volume de busca / tendências (2026), sem duplicar artigos já existentes.",
-  "queue": [
-    {
-      "theme": "Pressão baixa (hipotensão): causas, sintomas e o que fazer",
-      "category_hint": "Coração e Circulação",
-      "status": "pending"
-    }
-  ],
+  "queue": [],
   "published": [
     {
       "theme": "Mounjaro (tirzepatida): como funciona, eficácia e diferenças para o Ozempic",
@@ -507,6 +501,11 @@
       "theme": "Frequência cardíaca: zonas de treino, repouso e o que é saudável",
       "slug": "frequencia-cardiaca-zonas-de-treino-repouso-e-saude-cardi",
       "date": "2026-09-27"
+    },
+    {
+      "theme": "Pressão baixa (hipotensão): causas, sintomas e o que fazer",
+      "slug": "pressao-baixa-hipotensao-causas-sintomas-e-manejo",
+      "date": "2026-09-28"
     }
   ]
 }
