@@ -526,6 +526,11 @@
       "theme": "Disbi",
       "slug": "disbiose-intestinal-desequilibrio-da-microbiota-e-saude",
       "date": "2026-10-03"
+    },
+    {
+      "theme": "**",
+      "slug": "erro-tema-nao-fornecido",
+      "date": "2026-10-04"
     }
   ]
 }
